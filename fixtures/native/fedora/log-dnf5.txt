@@ -1,0 +1,42 @@
+# cmd: tail -n 40 /var/log/dnf5.log 2>/dev/null || tail -n 40 /var/log/dnf.rpm.log
+2026-11-15T19:32:18+0000 [50] DEBUG Loading solv cache file: "/var/cache/libdnf5/updates-6f655cd2c39e9765/solv/updates-group.solvx"
+2026-11-15T19:32:18+0000 [50] DEBUG No modules metadata available for repo updates
+2026-11-15T19:32:18+0000 [50] DEBUG Rewriting repo "@System" with added file provides
+2026-11-15T19:32:18+0000 [50] DEBUG Rewriting repo "@System" with added file provides
+2026-11-15T19:32:18+0000 [50] DEBUG Rewriting repo "updates" with added file provides
+2026-11-15T19:32:18+0000 [50] DEBUG Rewriting repo "fedora-cisco-openh264" with added file provides
+2026-11-15T19:32:18+0000 [50] DEBUG Rewriting repo "fedora" with added file provides
+2026-11-15T19:32:19+0000 [50] INFO DNF5 finished
+2026-11-15T19:32:19+0000 [52] INFO --- DNF5 launched with arguments: "dnf history list" ---
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/builddep_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "builddep" ("/usr/lib64/dnf5/plugins/builddep_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/changelog_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "changelog" ("/usr/lib64/dnf5/plugins/changelog_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/config-manager_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "config-manager" ("/usr/lib64/dnf5/plugins/config-manager_cmd_plugin.so") version "0.2.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/copr_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "copr" ("/usr/lib64/dnf5/plugins/copr_cmd_plugin.so") version "0.1.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/deptree_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "deptree" ("/usr/lib64/dnf5/plugins/deptree_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/needs_restarting_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "needs_restarting" ("/usr/lib64/dnf5/plugins/needs_restarting_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/repoclosure_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "repoclosure" ("/usr/lib64/dnf5/plugins/repoclosure_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/repomanage_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "repomanage" ("/usr/lib64/dnf5/plugins/repomanage_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Loading plugin file="/usr/lib64/dnf5/plugins/reposync_cmd_plugin.so"
+2026-11-15T19:32:19+0000 [52] INFO Loaded dnf5 plugin "reposync" ("/usr/lib64/dnf5/plugins/reposync_cmd_plugin.so") version "1.0.0"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora-cisco-openh264" from config file "/usr/share/dnf5/repos.d/fedora-cisco-openh264.repo" section "fedora-cisco-openh264"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora-cisco-openh264-debuginfo" from config file "/usr/share/dnf5/repos.d/fedora-cisco-openh264.repo" section "fedora-cisco-openh264-debuginfo"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora-cisco-openh264-source" from config file "/usr/share/dnf5/repos.d/fedora-cisco-openh264.repo" section "fedora-cisco-openh264-source"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates-testing" from config file "/usr/share/dnf5/repos.d/fedora-updates-testing.repo" section "updates-testing"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates-testing-debuginfo" from config file "/usr/share/dnf5/repos.d/fedora-updates-testing.repo" section "updates-testing-debuginfo"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates-testing-source" from config file "/usr/share/dnf5/repos.d/fedora-updates-testing.repo" section "updates-testing-source"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates" from config file "/usr/share/dnf5/repos.d/fedora-updates.repo" section "updates"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates-debuginfo" from config file "/usr/share/dnf5/repos.d/fedora-updates.repo" section "updates-debuginfo"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "updates-source" from config file "/usr/share/dnf5/repos.d/fedora-updates.repo" section "updates-source"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora" from config file "/usr/share/dnf5/repos.d/fedora.repo" section "fedora"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora-debuginfo" from config file "/usr/share/dnf5/repos.d/fedora.repo" section "fedora-debuginfo"
+2026-11-15T19:32:19+0000 [52] DEBUG Creating repo "fedora-source" from config file "/usr/share/dnf5/repos.d/fedora.repo" section "fedora-source"
+2026-11-15T19:32:19+0000 [52] INFO DNF5 finished
+# exit: 0

@@ -1,0 +1,14 @@
+# yapacc - runs yapacc-monitor.service ten minutes after boot and every
+# thirty minutes after that. See yapacc-monitor.service.
+
+[Unit]
+Description=Periodic yapacc update check
+Documentation=man:yapacc(1)
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,25 @@
+name: Feature request
+description: Something yapacc should be able to do, or a distribution it should know
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you are trying to do
+      description: The situation, not the solution. What do you do today instead?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What yapacc could do
+      description: A command and its output, if you have one in mind.
+    validations:
+      required: false
+  - type: input
+    id: system
+    attributes:
+      label: Distribution and package manager
+      placeholder: Debian 13, apt
+    validations:
+      required: false

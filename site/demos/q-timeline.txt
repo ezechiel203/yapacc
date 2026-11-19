@@ -1,0 +1,6 @@
+$ yapacc timeline --since-boot
+Changes since the start of the previous boot: 2026-11-19 13:07 UTC (from journalctl --list-boots)
+── boot: 2026-11-19 13:12 UTC ──
+2026-11-19 13:12 (local)  apt     upgrade    linux-image-amd64  6.12.107-1 -> 6.12.117-1
+2026-11-19 13:12 (local)  apt     upgrade    libpng16-16t64  1.6.48-1+deb13u5 -> 1.6.48-1+deb13u6
+…

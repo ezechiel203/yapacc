@@ -1,0 +1,3 @@
+# cmd: pacman -Qo /nonexistent/yapacc-fixture
+error: No package owns /nonexistent/yapacc-fixture
+# exit: 1

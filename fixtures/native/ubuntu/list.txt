@@ -1,0 +1,88 @@
+# cmd: dpkg-query -W -f ${Package}\t${Version}\t${db:Status-Abbrev}\t${Installed-Size}\t${Essential}\t${Priority}\t${binary:Summary}\n
+apt	3.3.3ubuntu0.1	ii 	4633	no	required	commandline package manager
+base-files	14.2ubuntu2.1	ii 	576	yes	required	Debian base system miscellaneous files
+base-passwd	3.6.8	ii 	277	yes	required	Debian base system master password and group files
+bash	5.3-3ubuntu1	ii 	2020	yes	required	GNU Bourne Again SHell
+bsdutils	1:2.42.2-1ubuntu2	ii 	252	no	standard	basic utilities from 4.4BSD-Lite
+coreutils	9.10+2ubuntu1	ii 	10	yes	optional	coreutils meta package
+coreutils-from-uutils	2ubuntu1	ii 	235	no	optional	coreutils from the uutils project
+dash	0.5.12-12ubuntu3	ii 	200	yes	required	POSIX-compliant shell
+debconf	1.5.92	ii 	507	no	important	Debian configuration management system
+debianutils	5.24	ii 	228	yes	required	Miscellaneous utilities specific to Debian
+diffutils	1:3.12-1ubuntu2	ii 	448	yes	required	File comparison utilities
+dpkg	1.23.7ubuntu2	ii 	6210	yes	required	Debian package management system
+e2fsprogs	1.47.4-1	ii 	1527	no	important	ext2/ext3/ext4 file system utilities
+findutils	4.11.0-2	ii 	648	yes	required	utilities for finding files--find, xargs
+gcc-16-base	16.2.0-3ubuntu1	ii 	108	no	optional	GCC, the GNU Compiler Collection (base package)
+gnu-coreutils	9.10-1ubuntu2	ii 	7276	no	required	GNU core utilities
+grep	3.12-1	ii 	364	yes	required	GNU grep, egrep and fgrep
+gzip	1.14-1~exp2ubuntu3	ii 	212	yes	required	GNU compression utilities
+hostname	3.25build1	ii 	50	yes	required	utility to set/show the host name or domain name
+init-system-helpers	1.69	ii 	133	yes	required	helper tools for all init systems
+libacl1	2.4.0-1	ii 	77	no	optional	access control list - shared library
+libapt-pkg7.0	3.3.3ubuntu0.1	ii 	3769	no	optional	package management runtime library
+libattr1	1:2.6.0-1	ii 	63	no	optional	filesystem extended attributes handling - shared library
+libaudit-common	1:4.1.2-1ubuntu1	ii 	17	no	optional	Dynamic library for security auditing - common files
+libaudit1	1:4.1.2-1ubuntu1	ii 	195	no	optional	Dynamic library for security auditing
+libblkid1	2.42.2-1ubuntu2	ii 	312	no	optional	block device ID library
+libbsd0	0.12.2-3	ii 	129	no	optional	utility functions from BSD systems - shared library
+libbz2-1.0	1.0.8-6build2	ii 	99	no	important	high-quality block-sorting file compressor library - runtime
+libc-bin	2.44-1ubuntu2	ii 	2395	yes	required	GNU C Library: Binaries
+libc-gconv-modules-extra	2.44-1ubuntu2	ii 	8085	no	optional	GNU C Library: Non-essential gconv modules
+libc6	2.44-1ubuntu2	ii 	5856	no	optional	GNU C Library: Shared libraries
+libcap-ng0	0.9.6-1	ii 	66	no	optional	alternate POSIX capabilities library
+libcom-err2	1.47.4-1	ii 	59	no	optional	common error description library
+libcrypt1	1:4.5.2+20251210-1	ii 	242	no	optional	libcrypt shared library
+libdb5.3t64	5.3.28+dfsg2-11	ii 	1817	no	optional	Berkeley v5.3 Database Libraries [runtime]
+libdebconfclient0	0.280ubuntu1	ii 	39	no	optional	Debian Configuration Management System (C-implementation library)
+libext2fs2t64	1.47.4-1	ii 	548	no	optional	ext2/ext3/ext4 file system libraries
+libgcc-s1	16.2.0-3ubuntu1	ii 	201	no	optional	GCC support library
+libgmp10	2:6.3.0+dfsg-5ubuntu2	ii 	552	no	optional	Multiprecision arithmetic library
+liblz4-1	1.10.0-10	ii 	185	no	optional	Fast LZ compression algorithm library - runtime
+liblzma5	5.8.3-1ubuntu1	ii 	473	no	optional	XZ-format compression library
+libmd0	1.2.0-2	ii 	94	no	optional	message digest functions from BSD systems - shared library
+libmount1	2.42.2-1ubuntu2	ii 	412	no	optional	device mounting library
+libncursesw6	6.6+20260608-2	ii 	426	no	optional	shared libraries for terminal handling (wide character support)
+libpam-modules	1.7.0-5ubuntu4	ii 	1050	no	required	Pluggable Authentication Modules for PAM
+libpam-modules-bin	1.7.0-5ubuntu4	ii 	247	no	required	Pluggable Authentication Modules for PAM - helper binaries
+libpam-runtime	1.7.0-5ubuntu4	ii 	524	no	required	Runtime support for the PAM library
+libpam0g	1.7.0-5ubuntu4	ii 	207	no	optional	Pluggable Authentication Modules library
+libpcre2-8-0	10.46-1ubuntu1	ii 	709	no	optional	New Perl Compatible Regular Expression Library- 8 bit runtime files
+libproc2-1	2:4.0.6-3ubuntu1	ii 	251	no	optional	library for accessing process information from /proc
+libseccomp2	2.6.1-1ubuntu1	ii 	193	no	optional	high level interface to Linux seccomp filter
+libselinux1	3.11-2.1	ii 	232	no	optional	SELinux runtime shared libraries
+libsemanage-common	3.11-1	ii 	21	no	optional	Common files for SELinux policy management libraries
+libsemanage2	3.11-1	ii 	306	no	optional	SELinux policy management library
+libsepol2	3.11-1	ii 	819	no	optional	SELinux library for manipulating binary security policies
+libsmartcols1	2.42.2-1ubuntu2	ii 	223	no	optional	smart column output alignment library
+libss2	1.47.4-1	ii 	71	no	optional	command-line interface parsing library
+libssl4	4.0.3-1ubuntu1	ii 	7907	no	optional	Secure Sockets Layer toolkit - shared libraries
+libstdc++6	16.2.0-3ubuntu1	ii 	3436	no	optional	GNU Standard C++ Library v3
+libsystemd0	261.3-0ubuntu3	ii 	1309	no	optional	systemd utility library
+libtinfo6	6.6+20260608-2	ii 	568	no	optional	shared low-level terminfo library for terminal handling
+libudev1	261.3-0ubuntu3	ii 	378	no	optional	libudev shared library
+libuuid1	2.42.2-1ubuntu2	ii 	92	no	optional	Universally Unique ID library
+libxxhash0	0.8.3-2build1	ii 	90	no	optional	shared library for xxhash
+libzstd1	1.5.7+dfsg-4	ii 	798	no	optional	fast lossless compression algorithm
+login	1:4.16.0-2+really2.42.2-1ubuntu2	ii 	227	no	required	system login tools
+login.defs	1:4.19.3-2ubuntu2	ii 	98	no	required	system user management configuration
+logsave	1.47.4-1	ii 	53	no	optional	save the output of a command in a log file
+mawk	1.3.4.20260302-1	ii 	285	no	required	Pattern scanning and text processing language
+mount	2.42.2-1ubuntu2	ii 	362	no	required	tools for mounting and manipulating filesystems
+ncurses-base	6.6+20260608-2	ii 	393	yes	required	basic terminal type definitions
+ncurses-bin	6.6+20260608-2	ii 	662	yes	required	terminal-related programs and man pages
+openssl-provider-legacy	4.0.3-1ubuntu1	ii 	448	no	optional	Secure Sockets Layer toolkit - cryptographic utility
+passwd	1:4.19.3-2ubuntu2	ii 	4304	no	required	change and administer password and group data
+perl-base	5.42.3-1	ii 	9642	yes	required	minimal Perl system
+procps	2:4.0.6-3ubuntu1	ii 	1948	no	important	/proc file system utilities
+rust-coreutils	0.12.0-1ubuntu2	ii 	16073	no	optional	Universal coreutils utils, written in Rust
+sed	4.9-3	ii 	344	yes	required	GNU stream editor for filtering/transforming text
+sensible-utils	0.0.26build1	ii 	66	no	required	Utilities for sensible alternative selection
+sqv	1.4.0-1ubuntu2	ii 	2215	no	optional	OpenPGP signature verification program from Sequoia
+sysvinit-utils	3.18-1ubuntu1	ii 	105	yes	required	System-V-like utilities
+tar	1.35+dfsg-5ubuntu1	ii 	724	yes	required	GNU version of the tar archiving utility
+tree	2.3.2-1	ii 	122	no	optional	displays an indented directory tree, in color
+ubuntu-keyring	2026.08.18	ii 	29	no	important	OpenPGP keys of the Ubuntu archive
+util-linux	2.42.2-1ubuntu2	ii 	2983	yes	required	miscellaneous system utilities
+zlib1g	1:1.3.dfsg+really1.3.2-3ubuntu1.1	ii 	170	no	required	compression library - runtime
+# exit: 0

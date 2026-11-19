@@ -1,0 +1,152 @@
+# cmd: rpm -qa --qf %{NAME}\t%{EVR}\t%{ARCH}\t%{SIZE}\t%{INSTALLTIME}\t%{SUMMARY}\n
+libgcc	16.2.1-3.fc45	x86_64	277212	1794725265	GCC version 16 shared support library
+redhat-systemd-presets	102-3.fc45	noarch	1063	1794725265	Red Hat family systemd presets
+redhat-systemd-presets-common	102-3.fc45	noarch	17264	1794725265	Common systemd presets for the Red Hat family
+libssh-config	0.12.2-1.fc45	noarch	277	1794725265	Configuration files for libssh
+publicsuffix-list-dafsa	20260624-2.fc45	noarch	72976	1794725265	Cross-vendor public domain suffix database in DAFSA form
+fedora-release-identity-container	45-14	noarch	1454	1794725265	Package providing the identity for Fedora Container Base Image
+fedora-gpg-keys	45-1	noarch	133402	1794725265	Fedora RPM keys
+fedora-repos	45-1	noarch	5043	1794725265	Fedora package repositories
+fedora-release-common	45-14	noarch	4313	1794725265	Fedora release files
+fedora-release-container	45-14	noarch	0	1794725265	Base package for Fedora container specific default configurations
+setup	2.15.1-2.fc45	noarch	743055	1794725265	A set of system configuration and setup files
+filesystem	3.18-59.fc45	x86_64	112	1794725265	The basic directory layout for a Linux system
+pcre2-syntax	10.49-1.fc45	noarch	299503	1794725265	Documentation for PCRE2 regular expressions
+gnulib-l10n	20241231-4.fc45	noarch	670762	1794725265	Localizations for Gnulib
+coreutils-common	9.11-6.fc45	x86_64	11451312	1794725265	coreutils common optional components
+ncurses-base	6.6-3.fc45	noarch	337656	1794725265	Descriptions of common terminals
+bash	5.3.15-2.fc45	x86_64	8865529	1794725265	The GNU Bourne Again shell
+glibc-common	2.44-2.fc45	x86_64	1072517	1794725265	Common binaries and locale data for glibc
+glibc	2.44-2.fc45	x86_64	7486751	1794725265	The GNU libc libraries
+ncurses-libs	6.6-3.fc45	x86_64	992308	1794725265	Ncurses libraries
+glibc-minimal-langpack	2.44-2.fc45	x86_64	0	1794725265	Minimal language packs for glibc.
+zlib-ng-compat	2.3.3-6.fc45	x86_64	169600	1794725265	Zlib implementation provided by zlib-ng
+libstdc++	16.2.1-3.fc45	x86_64	3235005	1794725265	GNU Standard C++ Library
+libgpg-error	1.61-2.fc45	x86_64	976759	1794725265	Library for error values used by GnuPG components
+bzip2-libs	1.0.8-24.fc45	x86_64	82420	1794725265	Libraries for applications using bzip2
+libacl	2.4.0-2.fc45	x86_64	44906	1794725265	Dynamic library for access control list support
+libzstd	1.5.7-6.fc45	x86_64	979094	1794725265	Zstd shared library
+systemd-libs	262.1-1.fc45	x86_64	2901350	1794725265	systemd libraries
+libassuan	2.5.7-6.fc45	x86_64	167804	1794725265	GnuPG IPC library
+libgcrypt	1.12.2-2.fc45	x86_64	1741569	1794725265	A general-purpose cryptography library
+readline	8.3-6.fc45	x86_64	527917	1794725265	A library for editing typed command lines
+gmp	1:6.3.0-6.fc45	x86_64	834744	1794725265	GNU arbitrary precision library
+popt	1.19-11.fc45	x86_64	139938	1794725265	C library for parsing command line parameters
+xz-libs	1:5.8.3-2.fc45	x86_64	227021	1794725265	Libraries for decoding LZMA compression
+sqlite-libs	3.53.4-1.fc45	x86_64	1696186	1794725265	Shared library for the sqlite3 embeddable SQL database engine.
+npth	1.8-5.fc45	x86_64	50683	1794725265	The New GNU Portable Threads library
+libxml2	2.15.4-1.fc45	x86_64	1732194	1794725265	Library providing XML and HTML support
+fmt	12.1.0-3.fc45	x86_64	295038	1794725265	Small, safe and fast formatting library for C++
+libxcrypt	4.5.2-4.fc45	x86_64	300245	1794725265	Extended crypt library for descrypt, md5crypt, bcrypt, and others
+libuuid	2.42.4-1.fc45	x86_64	38141	1794725265	Universally unique ID library
+json-c	0.18-9.fc45	x86_64	84650	1794725265	JSON implementation in C
+gnupg2-gpgconf	2.4.9-18.fc45	x86_64	259933	1794725265	GnuPG core configuration utilities
+libeconf	0.7.9-4.fc45	x86_64	66318	1794725265	Enhanced config file parser library
+libtasn1	4.21.0-2.fc45	x86_64	180876	1794725265	The ASN.1 library used in GNUTLS
+libunistring	1.1-12.fc45	x86_64	1816813	1794725265	GNU Unicode string library
+libidn2	2.3.8-4.fc45	x86_64	569788	1794725265	Library to support IDNA2008 internationalized domain names
+libffi	3.5.2-3.fc45	x86_64	85703	1794725265	A portable foreign function interface library
+p11-kit	0.26.5-1.fc45	x86_64	2747196	1794725265	Library for loading and sharing PKCS#11 modules
+gdbm-libs	1:1.23-12.fc45	x86_64	136874	1794725265	Libraries files for gdbm
+pcre2	10.49-1.fc45	x86_64	743994	1794725265	Perl-compatible regular expression library
+crypto-policies	20260713-2.gitc42da77.fc45	noarch	137501	1794725265	System-wide crypto policies
+grep	3.12-4.fc45	x86_64	1041375	1794725265	Pattern matching utilities
+libblkid	2.42.4-1.fc45	x86_64	289042	1794725265	Block device ID library
+sdbus-cpp	2.3.1-3.fc45	x86_64	381742	1794725265	High-level C++ D-Bus library
+elfutils-libelf	0.197-1.fc45	x86_64	1712925	1794725266	Library to read and write ELF files
+libksba	1.8.0-3.fc45	x86_64	441473	1794725266	CMS and X.509 library
+libsmartcols	2.42.4-1.fc45	x86_64	192986	1794725266	Formatting library for ls-like programs
+libsepol	3.11-2.fc45	x86_64	886931	1794725266	SELinux binary policy manipulation library
+libselinux	3.11-5.fc45	x86_64	210133	1794725266	SELinux library and simple utilities
+libmount	2.42.4-1.fc45	x86_64	418682	1794725266	Device mounting library
+sed	4.10-2.fc45	x86_64	887257	1794725266	A GNU stream text editor
+lua-libs	5.5.1-2.fc45	x86_64	305142	1794725266	Libraries for lua
+libcom_err	1.47.4-2.fc45	x86_64	64505	1794725266	Common error description library
+ngtcp2	1.22.1-3.fc45	x86_64	342286	1794725266	Implementation of RFC 9000 QUIC protocol
+findutils	1:4.11.0-2.fc45	x86_64	2043839	1794725266	The GNU versions of find utilities (find and xargs)
+gnupg2-keyboxd	2.4.9-18.fc45	x86_64	206096	1794725266	GnuPG public key material service
+elfutils-libs	0.197-1.fc45	x86_64	736797	1794725266	Libraries to handle compiled objects
+cyrus-sasl-lib	2.1.28-37.fc45	x86_64	2445856	1794725266	Shared libraries needed by applications which use Cyrus SASL
+gdbm	1:1.23-12.fc45	x86_64	466823	1794725266	A GNU set of database routines which use extensible hashing
+libpsl	0.23.1-1.fc45	x86_64	82330	1794725266	C library for the Publix Suffix List
+gnupg2-verify	2.4.9-18.fc45	x86_64	364894	1794725266	GnuPG signature verification tool
+fips-provider	1.5.3-2.fc45	x86_64	5061910	1794725266	A FIPS provider built from the Kryoptic project
+mpfr	4.2.2-4.fc45	x86_64	869587	1794725266	C library for multiple-precision floating-point computations
+nettle	4.0-5.fc45	x86_64	821152	1794725266	A low-level cryptographic library
+libusb1	1.0.30-2.fc45	x86_64	184403	1794725266	Library for accessing USB devices
+file-libs	5.48-3.fc45	x86_64	12941458	1794725266	Libraries for applications using libmagic
+systemd-standalone-sysusers	262.1-1.fc45	x86_64	1004751	1794725266	Standalone systemd-sysusers binary for use on systems without systemd
+libattr	2.6.0-2.fc45	x86_64	24877	1794725266	Dynamic library for extended attribute support
+lz4-libs	1.10.0-5.fc45	x86_64	169229	1794725266	Libaries for lz4
+libcap-ng	0.9.6-1.fc45	x86_64	70423	1794725266	Alternate posix capabilities library
+audit-libs	4.2.1-2.fc45	x86_64	399900	1794725266	Dynamic library for libaudit
+pam-libs	1.7.2-4.fc45	x86_64	137727	1794725266	Shared libraries of the PAM package
+libcap	2.78-2.fc45	x86_64	213189	1794725266	Library for getting and setting POSIX.1e capabilities
+libsemanage	3.11-4.fc45	x86_64	328306	1794725266	SELinux binary policy manipulation library
+libtool-ltdl	2.5.4-11.fc45	x86_64	71681	1794725266	Runtime libraries for GNU Libtool Dynamic Module Loader
+libyaml	0.2.5-19.fc45	x86_64	141859	1794725266	YAML 1.1 parser and emitter written in C
+libgomp	16.2.1-3.fc45	x86_64	591392	1794725266	GCC OpenMP v5.2 shared support library
+keyutils-libs	1.6.3-8.fc45	x86_64	55459	1794725266	Key utilities library
+libverto	0.3.2-13.fc45	x86_64	25877	1794725266	Main loop abstraction library
+alternatives	1.33-6.fc45	x86_64	63560	1794725266	A tool to maintain symbolic links determining default commands
+p11-kit-trust	0.26.5-1.fc45	x86_64	489889	1794725266	System trust module from p11-kit
+gnutls	3.8.13-3.fc45	x86_64	4019008	1794725266	A TLS protocol implementation
+glib2	2.90.1-1.fc45	x86_64	16417649	1794725266	A library of handy utility functions
+openssl-libs	1:4.0.3-1.fc45	x86_64	7021040	1794725266	A general purpose cryptography library with TLS implementation
+coreutils	9.11-6.fc45	x86_64	6168509	1794725266	A set of basic GNU tools commonly used in shell scripts
+ca-certificates	2026.2.92_v9.0.319-2.fc45	noarch	2783862	1794725266	The Mozilla CA root certificate bundle
+krb5-libs	1.22.2-11.fc45	x86_64	2493421	1794725268	The non-admin shared libraries used by Kerberos 5
+libtirpc	1.3.8-0.fc45	x86_64	213246	1794725268	Transport Independent RPC Library
+tpm2-tss	4.2.1-1.fc45	x86_64	1741154	1794725268	TPM2.0 Software Stack
+zchunk-libs	1.5.5-1.fc45	x86_64	111685	1794725268	Zchunk library
+ima-evm-utils-libs	1.6.2-12.fc45	x86_64	57955	1794725268	Libraries for ima-evm-utils
+gnupg2-gpg-agent	2.4.9-18.fc45	x86_64	695129	1794725268	GnuPG cryptographic agent
+libnsl2	2.0.1-6.fc45	x86_64	59134	1794725268	Public client interface library for NIS(YP) and NIS+
+gzip	1.14-4.fc45	x86_64	411262	1794725268	GNU data compression program
+cracklib	2.10.3-2.fc45	x86_64	240248	1794725268	A password-checking library
+libpwquality	1.4.5-18.fc45	x86_64	422626	1794725268	A library for password generation and password quality checking
+pam	1.7.2-4.fc45	x86_64	1707743	1794725268	An extensible library which provides authentication for applications
+authselect-libs	1.8.0-1.fc45	x86_64	956183	1794725268	Utility library used by the authselect tool
+libarchive	3.8.9-2.fc45	x86_64	1027877	1794725268	A library for handling streaming archive formats
+rpm-sequoia	1.10.3-1.fc45	x86_64	2552173	1794725268	Implementation of the RPM PGP interface using Sequoia
+rpm-libs	6.1.0-1.fc45	x86_64	1151080	1794725268	Libraries for manipulating RPM packages
+libmodulemd	2.15.4-1.fc45	x86_64	709086	1794725268	Module metadata manipulation library
+libsolv	0.7.41-1.fc45	x86_64	1005383	1794725268	Package dependency solver
+libfsverity	1.7-4.fc45	x86_64	25024	1794725268	Development package for fsverity-utils
+libevent	2.1.13-1.fc45	x86_64	1004235	1794725268	Abstract asynchronous event notification library
+openldap	2.6.16-1.fc45	x86_64	700316	1794725268	LDAP support libraries
+gnupg2-dirmngr	2.4.9-18.fc45	x86_64	645189	1794725268	GnuPG network certificate management service
+gnupg2	2.4.9-18.fc45	x86_64	6802042	1794725268	Utility for secure communication and data storage
+rpm-sign-libs	6.1.0-1.fc45	x86_64	40598	1794725268	Libraries for signing RPM packages
+rpm-build-libs	6.1.0-1.fc45	x86_64	295224	1794725268	Libraries for building RPM packages
+ngtcp2-crypto-ossl	1.22.1-3.fc45	x86_64	52866	1794725268	The ngtcp2 dependency for OpenSSL
+libbrotli	1.2.1-1.fc45	x86_64	885786	1794725268	Library for brotli lossless compression algorithm
+libnghttp2	1.69.0-6.fc45	x86_64	170124	1794725268	A library implementing the HTTP/2 protocol
+libcbor	0.14.0-3.fc45	x86_64	85533	1794725268	A CBOR parsing library
+libfido2	1.17.0-6.fc45	x86_64	262695	1794725268	FIDO2 library
+libssh	0.12.2-1.fc45	x86_64	743095	1794725268	A library implementing the SSH protocol
+libnghttp3	1.19.0-1.fc45	x86_64	167340	1794725268	HTTP/3 library written in C
+libcurl	8.21.0-9.fc45	x86_64	1108454	1794725268	A library for getting files from web servers
+librepo	1.22.0-1.fc45	x86_64	263212	1794725268	Repodata downloading library
+libdnf5	5.4.8.0-2.fc45	x86_64	5232697	1794725268	Package management library
+libdnf5-cli	5.4.8.0-2.fc45	x86_64	1177609	1794725268	Library for working with a terminal in a command-line package manager
+dnf5	5.4.8.0-2.fc45	x86_64	3857389	1794725268	Command-line package manager
+curl	8.21.0-9.fc45	x86_64	499631	1794725268	A utility for getting files from remote servers (FTP, HTTP, and others)
+vim-data	2:9.2.1302-2.fc45	noarch	10444	1794725268	Shared data for Vi and Vim
+vim-minimal	2:9.2.1302-2.fc45	x86_64	1888618	1794725268	A minimal version of the VIM editor
+rpm	6.1.0-1.fc45	x86_64	3203411	1794725268	The RPM package management system
+dnf5-plugins	5.4.8.0-2.fc45	x86_64	1941968	1794725268	Plugins for dnf5
+sudo	1.9.17-18.p2.fc45	x86_64	5281119	1794725269	Allows restricted root access for specified users
+authselect	1.8.0-1.fc45	x86_64	237449	1794725269	Configures authentication and identity sources from supported profiles
+shadow-utils	2:4.20.0-2.fc45	x86_64	4074350	1794725269	Utilities for managing accounts and shadow password files
+gawk	5.4.1-1.fc45	x86_64	2319130	1794725269	The GNU version of the AWK text processing utility
+util-linux-core	2.42.4-1.fc45	x86_64	1562322	1794725269	The most essential utilities from the util-linux suite
+tar	2:1.35-10.fc45	x86_64	3114844	1794725269	GNU file archiving program
+xz	1:5.8.3-2.fc45	x86_64	1448171	1794725269	LZMA compression utilities
+zstd	1.5.7-6.fc45	x86_64	514616	1794725269	Zstd compression library
+bzip2	1.0.8-24.fc45	x86_64	97301	1794725269	File compression utility
+tzdata	2026f-1.fc45	noarch	1312903	1794725269	Timezone data
+rootfiles	9.0-8.fc45	noarch	1365	1794725269	Basic required files for the root user's directory
+gpg-pubkey	4f50a6114cd5c6976a7f1179655a4b02f577861e-6888bc98	(none)	0	1794725274	Fedora (45) <fedora-45-primary@fedoraproject.org> public key
+tree	2.3.1-2.fc45	x86_64	123789	1794771132	File system tree viewer
+# exit: 0

@@ -1,0 +1,778 @@
+.TH YAPACC 1 "2026-11-19" "yapacc 0.1.0" "User Commands"
+.SH NAME
+yapacc \- an optional companion to the package manager you already have
+.SH SYNOPSIS
+.B yapacc
+.RI [ GLOBAL\-OPTIONS ]
+.I COMMAND
+.RI [ ARGUMENTS ]
+.br
+.B yapacc help
+.I COMMAND
+.br
+.B yapacc docs
+.RI [ TOPIC ]
+.SH DESCRIPTION
+.B yapacc
+works beside
+.BR pacman ,
+.BR apt ,
+.BR dnf ,
+.BR zypper ,
+.BR apk ,
+.B xbps
+and FreeBSD's
+.BR pkg .
+You keep using them.
+It reads what they already record, and answers four questions: why a
+package is installed, what changed, what the next upgrade will do, and
+whether the last change can be taken back.
+When you ask it to change something, it runs the command the package
+manager would run itself, after showing it to you.
+.PP
+It is not a package manager: it has no repository and no package format.
+It keeps no copy of what the package manager knows, so a change you make
+directly is never a surprise to it.
+Nothing runs in the background: no daemon, timer, hook or shell alias is
+installed unless you ask for one.
+.PP
+Read commands change nothing and work on a machine that has never used
+.B yapacc
+before.
+Every command that changes the system shows its plan and asks first; see
+.BR "THE GATE" .
+.PP
+Three programs are installed.
+.B yapacc
+is the command line and the only one that is needed.
+.B yapacc\-tui
+is the interactive interface started by
+.BR "yapacc i" .
+.B yapacc\-mcp
+is the server for AI assistants started by
+.BR "yapacc mcp" .
+A command that needs a program or tool the machine lacks names it and
+exits with status 6.
+.PP
+The same documentation is built into the program:
+.B yapacc docs
+lists the topics and
+.BI "yapacc docs " TOPIC
+prints one.
+The topics are
+getting\-started, daily, commands, workflow, why, undo, snapshots,
+platform, safety, exit\-codes, json, config, get, inspection, search,
+ledger, foreign, repo\-trust, aur, autorepair, plans, daemon, plugins, tui
+and ai.
+.SH OPTIONS
+Global options go before the command:
+.BR "yapacc \-\-json why bash" .
+.TP
+.B \-\-json
+Print JSON instead of text.
+A command that has no JSON form prints nothing and exits with status 2;
+the commands that have one are listed under
+.BR COMMANDS .
+.TP
+.B \-\-script
+Never prompt.
+A command that would ask is refused (status 3) unless
+.B \-\-yes
+or
+.B \-\-dryrun
+is given, and the privilege tool is called so that it fails instead of
+asking for a password.
+.TP
+.B \-\-noconfirm
+Consent in advance to the question of the gate, like
+.B \-\-yes
+on a gated command.
+.TP
+.BI \-\-config " PATH"
+Read this configuration file instead of
+.IR ~/.config/yapacc/config.toml .
+.TP
+.BR \-h ", " \-\-help
+Print help, for the program or for one command.
+.TP
+.BR \-V ", " \-\-version
+Print the version.
+.PP
+Every gated command takes these two after the command.
+They cannot be given together.
+.TP
+.B \-\-dryrun
+Show the plan and the package manager's simulation; change nothing.
+.TP
+.B \-\-yes
+Apply without the question.
+The plan is still shown.
+.SH COMMANDS
+.B yapacc \-\-help
+lists the everyday commands.
+.BI "yapacc help " COMMAND
+prints the options of any command.
+Commands marked (gated) go through the gate.
+.SS Reports (read\-only)
+.TP
+.BI why " NAME"
+Why a package is installed: the reason, the chain back to what you asked
+for, what needs it, where it came from, how it was verified.
+Status 4 when it is not installed.
+.TP
+.B timeline
+Installs, upgrades and removals from the package manager's own log, newest
+first.
+.BI \-\-since " YYYY\-MM\-DD"
+starts at a day,
+.B \-\-since\-boot
+at the boot before the current one,
+.BI \-\-limit " N"
+shows at most N changes (50 by default),
+.B \-\-html
+writes one self\-contained page.
+xbps keeps no log.
+.TP
+.B briefing
+What the next upgrade will do: kernel and reboot, security fixes, news,
+unmerged configuration, disk space, the snapshot tool found.
+It reads the pending list as of the last repository refresh and never
+refreshes.
+.B \-\-offline
+contacts nothing.
+.TP
+.B clean
+What can be reclaimed: orphans, the package cache, unused runtimes, with
+the command for each.
+It removes nothing.
+.TP
+.B restart
+Whether a reboot is due, and the services and programs still using files
+an upgrade replaced.
+It restarts nothing.
+.TP
+.B configs
+Configuration files an upgrade left unmerged under
+.IR /etc ,
+with the command to compare each.
+It merges nothing.
+.TP
+.B doctor
+What works on this machine, one line per check: ok, warn, fail or n/a.
+.TP
+.B platform
+What kind of machine this is: distribution, package manager, init system,
+boot, logs, snapshot tools, and the support tier of the package manager.
+.SS Looking things up (read\-only)
+.TP
+.B list
+Installed packages.
+.B \-\-explicit
+shows only what you asked for.
+.TP
+.BI info " PKG"
+Details of one installed package.
+.TP
+.BI search " QUERY"
+Search the repositories, from the indexes on disk.
+.TP
+.B check
+Pending updates, as of the last refresh.
+No read command downloads repository metadata; where none is on disk the
+answer says so and names the command that downloads it.
+.TP
+.BI "inspect owns " PATH
+Which package owns a file.
+.TP
+.BI "inspect files " PKG
+The files of a package.
+.TP
+.B inspect orphans
+Dependencies that nothing needs any more.
+.TP
+.BR tree " [" \fICATEGORY\fR [ .\fISUBCATEGORY\fR ]]
+Browse software by category, offline.
+.TP
+.BI names " NAME"
+What a package is called on other distributions.
+This command sends the name to repology.org.
+.SS Changes (gated)
+.TP
+.BI "install repo " PKG\fR...
+Install from the distribution's repositories.
+.TP
+.BI "remove repo " PKG\fR...
+Remove packages.
+.TP
+.B remove orphans
+Remove the dependencies that nothing needs any more.
+.TP
+.B upgrade
+Full system upgrade.
+.TP
+.B refresh
+Refresh the repository indexes only.
+.TP
+.BI get " NAME"
+Choose a source for NAME and install it; with the default order the
+distribution's own package wins.
+.B \-\-explain
+shows the decision and stops.
+When no source has NAME the status is 4, with
+.B \-\-explain
+too.
+.TP
+.B undo
+Take the last package transaction back, on pacman, apt, dnf and zypper.
+It restores package versions, not configuration files or data.
+If one old version cannot be found, nothing is changed.
+.TP
+.B snapshot create
+Take a filesystem snapshot through snapper, timeshift or zfs.
+.B snapshot list
+is read\-only; where listing needs root it says so and exits with status 6.
+.SS The program itself
+.TP
+.BR docs " [" \fITOPIC\fR ]
+Built\-in documentation.
+.B docs \-\-man
+prints this manual page.
+.TP
+.B config
+The effective configuration and the file it was loaded from.
+.TP
+.BI completions " SHELL"
+Print a completion script for bash, zsh, fish, elvish or powershell.
+.TP
+.B capabilities
+What this host supports, per package format and snapshot tool.
+.TP
+.B i
+The interactive interface (the optional
+.BR yapacc\-tui ).
+.TP
+.B mcp
+The server for AI assistants, over standard input and output (the
+optional
+.BR yapacc\-mcp ).
+An assistant can read and propose.
+It can apply only when a configuration file owned by root sets
+.B [mcp] apply = \(dqallow\(dq
+and the assistant states that you approved.
+.SS Other sources
+What these commands install is recorded in the ledger, so that it can be
+listed, audited and removed.
+Native packages are never recorded there.
+.B yapacc \-\-help
+lists none of them except
+.BR ledger .
+.TP
+.B flatpak list | search | info
+Read flatpak.
+.TP
+.B install flatpak, remove flatpak, update flatpak
+Manage flatpak applications (gated).
+.TP
+.B install appimage, remove appimage, update appimage
+Manage AppImages under your home directory (gated).
+.TP
+.B install foreign, remove foreign, update foreign
+Unpack a deb, rpm or snap made for another distribution into a directory
+of its own, without touching the system (gated).
+No package script is run.
+.TP
+.B install tx, tx\-apt, tx\-apt\-repo, tx\-apt\-sources, tx\-rpm, tx\-rpm\-repo
+The same for several packages at once, from files, URLs or a repository
+(gated).
+.TP
+.B install container
+Create a distrobox container from an image (gated).
+.TP
+.B foreign info | list
+Inspect a package file; list the isolated installs.
+.TP
+.B external list | audit, remove external, update external
+Everything the ledger records, in both ledgers.
+.TP
+.B ledger status | list | head | verify | audit | conflicts
+Read the ledger and check its hash chain.
+.TP
+.B sources apt | rpm
+Read APT or RPM repository definitions.
+.TP
+.B plugins
+List the adapter programs found.
+.SS Arch only
+On another system each of these says so and exits with status 6.
+.TP
+.B search \-\-aur | \-\-all
+Include the AUR in a search.
+.TP
+.BI query " NAME"
+Repository and AUR metadata for one package.
+.TP
+.B aur deps | review | pkgbuild
+Read an AUR package.
+.TP
+.BI "install aur " NAME
+Clone, show the PKGBUILD for review, build in a sandbox, install (gated
+twice: the review, then the install).
+.TP
+.B install local, install alpm, remove alpm
+Install package files you have; install or remove through libalpm, in a
+build with the alpm feature (gated).
+.TP
+.B news
+Recent Arch Linux news.
+.TP
+.B mark explicit | dependency
+Change a package's install reason (gated).
+.TP
+.B download
+Download packages into the cache without installing them (gated).
+.TP
+.B cache clean
+Clean the package cache (gated).
+.TP
+.B inspect leaves | facets | deps | rdepends | file\-search | groups | pacdiff | alpm
+Closer looks at the package database.
+.TP
+.B index build | search
+A file index of the repositories for repeated searches.
+.TP
+.B plan install | remove | upgrade, plan apply
+Print a plan;
+.BI \-\-out " FILE"
+saves it;
+.B plan apply
+validates the file again and applies it through the gate.
+.TP
+.B plan flatpak | flatpak\-remove | flatpak\-update | appimage | foreign | tx | tx\-apt | tx\-apt\-repo | tx\-apt\-sources | tx\-rpm | tx\-rpm\-repo | container | cross | safety
+Print what the matching command would do; change nothing.
+.TP
+.B safety apply
+A staged change: plan, pre\-check, optional btrfs snapshot, gated change,
+optional health check.
+.TP
+.B package scaffold | validate | srcinfo
+Help with writing a PKGBUILD.
+.TP
+.BI tree " CATEGORY.SUBCATEGORY"
+The packages of a subcategory.
+.TP
+.B monitor check
+One report of pending updates, for a timer.
+It applies nothing.
+.TP
+.B monitor daemon\-install
+Install a systemd timer that runs
+.B monitor check
+(gated).
+Nothing of the kind is installed unless you run this command.
+.SS Build repairs
+These serve the builds above, and run on any system.
+.TP
+.B repair
+Classify the failures in a build log.
+.TP
+.B fixes list | push | pull
+The repairs recorded on this machine; push and pull go through a git
+remote you configure.
+.SS Commands with a JSON form
+With \fB\-\-json\fR before the command, these print JSON.
+Any other command exits with status 2 and prints nothing.
+.PP
+.B why
+.br
+.B timeline
+(not with \-\-html)
+.br
+.B briefing
+.br
+.B clean
+.br
+.B restart
+.br
+.B configs
+.br
+.B doctor
+.br
+.B platform
+.br
+.B list
+.br
+.B info
+.br
+.B search
+.br
+.B check
+.br
+.B inspect owns
+.br
+.B inspect files
+.br
+.B inspect orphans
+.br
+.B names
+.br
+.B get
+(only with \-\-explain)
+.br
+.B snapshot list
+.br
+.B ledger list
+.br
+.B ledger head
+.br
+.B ledger verify
+.br
+.B docs
+(the list of topics only)
+.br
+.B config
+.br
+.B capabilities
+.br
+.B external list
+.br
+.B foreign list
+.br
+.B sources apt
+.br
+.B sources rpm
+.br
+.B repair
+.br
+.B news
+(Arch only)
+.br
+.B inspect leaves
+(Arch only)
+.br
+.B inspect pacdiff
+(Arch only)
+.br
+.B aur deps
+(Arch only)
+.br
+.B index search
+(Arch only)
+.br
+.B monitor check
+(Arch only)
+.br
+.B plan install
+(Arch only)
+.br
+.B plan remove
+(Arch only)
+.br
+.B plan upgrade
+(Arch only)
+.br
+.B plan container
+(Arch only)
+.SH THE GATE
+Every command that changes the system goes through the same steps.
+.IP 1. 4
+The plan: what will be installed, removed, upgraded or restored.
+.IP 2. 4
+The package manager's own simulation of that plan.
+If the simulation fails, the change is refused before any question.
+Removing a package that is not installed is refused before it, with
+status 4.
+.IP 3. 4
+The exact command that is about to run.
+.IP 4. 4
+The question,
+.BR [y/N] ;
+Enter means no.
+It follows your locale, and English y and yes are always accepted.
+.IP 5. 4
+The command, through
+.B sudo
+or
+.B doas
+when you are not root.
+It is run so that the package manager does not ask a second time: the
+answer at the gate is the consent.
+.IP 6. 4
+The package manager writes its log as usual.
+.B yapacc
+keeps no second record of native changes.
+.PP
+With
+.B \-\-yes
+the plan is shown and applied without a question.
+With
+.B \-\-dryrun
+nothing is applied.
+With
+.BR \-\-script ,
+or when standard input is not a terminal, nobody can answer: the command
+is refused unless
+.B \-\-yes
+or
+.B \-\-dryrun
+was given.
+A refusal exits with status 3 and has changed nothing.
+.PP
+.B \-\-yes
+consents to the plan and to nothing else.
+The review of a PKGBUILD needs
+.BR \-\-no\-review ,
+a non\-free licence needs
+.BR \-\-non\-free ,
+and when a whole upgrade is undone on zypper, packages with no earlier
+record are asked about at the terminal.
+.PP
+The gate is not a sandbox.
+Once you answer yes, the package manager runs with the privileges it
+always has.
+.SH EXIT STATUS
+.TP
+.B 0
+ok: the command did what was asked.
+.TP
+.B 1
+failed: the operation ran and failed.
+.TP
+.B 2
+usage: bad arguments, a name that is not a package name,
+.B \-\-json
+on a command without a JSON form, or a configuration file that does not
+parse.
+.TP
+.B 3
+refused: a gate or a guard said no; nothing was changed.
+.TP
+.B 4
+not found: the package, file owner, record, topic or plan does not exist;
+a package to remove is not installed;
+.B get \-\-explain
+chose no source.
+.TP
+.B 5
+integrity: a hash, signature or chain check failed.
+.TP
+.B 6
+unavailable: something this command needs is not available: a tool or
+optional component that is not installed, a file this user may not read
+(run as root), a feature this build lacks, or a command that does not
+exist for this package manager.
+.PP
+The message is printed to standard error as
+.BR "error: ..." .
+.SH FILES
+Read commands write nothing.
+.TP
+.I ~/.config/yapacc/config.toml
+The configuration.
+.B yapacc
+needs none and never writes this file.
+A file that does not parse is an error (status 2); an unknown key is
+ignored with a warning.
+.B yapacc docs config
+lists every key.
+.TP
+.I ~/.cache/yapacc/
+Old packages while an undo runs (deleted when it ends), the throwaway
+home directory of a sandboxed build, the file of
+.BR "index build" .
+.TP
+.I ~/.local/state/yapacc/ledger/
+The user ledger: what
+.B yapacc
+installed outside the package manager.
+As root:
+.IR /var/lib/yapacc/ledger/ .
+.TP
+.I ~/.local/share/yapacc/isolated/foreign/
+Isolated installs, one directory each, with a manifest and a
+.I bin/
+directory of attributed program names.
+As root:
+.IR /var/lib/yapacc/isolated/foreign/ .
+.TP
+.I ~/.local/share/yapacc/recipes/, ~/.local/share/yapacc/fixes/
+Generated build recipes and recorded build repairs (Arch).
+.TP
+.I ~/Applications/yapacc/appimages/
+AppImages installed through
+.BR "install appimage" .
+.TP
+.I ~/.local/share/yapacc/plugins/
+Searched for adapter programs; never written.
+.PP
+The four XDG variables move the first four.
+.B yapacc
+never edits your shell startup files and never adds a hook to your package
+manager.
+.SH ENVIRONMENT
+.TP
+.B XDG_CONFIG_HOME, XDG_CACHE_HOME, XDG_STATE_HOME, XDG_DATA_HOME
+Where the configuration, the caches, the ledger and the data live.
+.TP
+.B LC_ALL, LC_MESSAGES, LANG
+The letters of the question of the gate.
+.TP
+.B COLUMNS
+The width
+.B list
+cuts descriptions to.
+.TP
+.B NO_COLOR
+Honoured by the interactive interface.
+The command line prints no colour codes.
+.TP
+.B EDITOR
+Opened on a recipe when a build fails at a terminal (Arch).
+.TP
+.B YAPACC_FOREIGN_ROOT
+Where isolated installs go.
+.TP
+.B YAPACC_LIBEXEC
+A directory searched first for
+.B yapacc\-tui
+and
+.BR yapacc\-mcp .
+.TP
+.B YAPACC_BIN
+The
+.B yapacc
+program the two optional components run.
+.TP
+.B YAPACC_CONTRIB_DIR
+A directory with replacements for the helper scripts of
+.BR "safety apply" .
+.TP
+.B SNAP_TARGETS, SNAP_BASE
+What
+.B safety apply \-\-snapshot\-tag
+snapshots and where it keeps the snapshots.
+.SH EXAMPLES
+None of these changes the system.
+.PP
+What works on this machine, and why a package is installed:
+.PP
+.nf
+.RS
+yapacc doctor
+yapacc why bash
+.RE
+.fi
+.PP
+What changed since the machine last worked, and the same as a page to
+attach to a report:
+.PP
+.nf
+.RS
+yapacc timeline \-\-since\-boot
+yapacc timeline \-\-html > timeline.html
+.RE
+.fi
+.PP
+What the next upgrade will do, without contacting any server, then the
+plan of the upgrade itself:
+.PP
+.nf
+.RS
+yapacc briefing \-\-offline
+yapacc upgrade \-\-dryrun
+.RE
+.fi
+.PP
+What taking the last transaction back would do:
+.PP
+.nf
+.RS
+yapacc undo \-\-dryrun
+.RE
+.fi
+.PP
+The plan of an install and of a clean\-up, and where a package would come
+from:
+.PP
+.nf
+.RS
+yapacc install repo tree \-\-dryrun
+yapacc remove orphans \-\-dryrun
+yapacc get ripgrep \-\-explain
+.RE
+.fi
+.PP
+In a script: JSON, and a run that can never wait for an answer:
+.PP
+.nf
+.RS
+yapacc \-\-json doctor
+yapacc \-\-script upgrade \-\-dryrun
+.RE
+.fi
+.PP
+This manual page, where it is not installed:
+.PP
+.nf
+.RS
+yapacc docs \-\-man | man \-l \-
+.RE
+.fi
+.SH LIMITS
+.B undo
+takes back one transaction, the last one, and only when every old version
+can still be found.
+dnf and zypper have no archive to fall back on.
+There is no undo on apk, xbps and pkg, and no timeline on xbps.
+Old packages from snapshot.debian.org are checked against a recorded hash,
+not a signature; Launchpad downloads are not verified.
+The output says which applies.
+.PP
+Snapshots are taken through snapper, timeshift or zfs.
+Plain btrfs snapshots are listed only.
+With
+.B "snapshot = \(dqauto\(dq"
+a change is refused when the tool that
+.B snapshot_provider
+names is not usable; with no snapshot tool at all the plan says that the
+change will run without a snapshot.
+.B yapacc
+never restores a snapshot.
+.PP
+The sandbox for third\-party builds has no seccomp filter and no resource
+limits.
+.PP
+Portage and Nix are detected only: changes are refused there, with the
+reason.
+OpenBSD and NetBSD are not supported.
+.PP
+It ran on virtual machines of Arch, Debian 13, Ubuntu 24.04, Fedora 45,
+Rocky Linux 9.9, openSUSE Leap 16.1 and Tumbleweed, Alpine 3.24, Void, and
+FreeBSD 14.5 and 15.1: not on real hardware, not on another architecture
+than x86_64, and not on distributions derived from these.
+.SH SEE ALSO
+.BR pacman (8),
+.BR apt\-get (8),
+.BR dnf (8),
+.BR zypper (8),
+.BR apk (8),
+.BR xbps\-install (1),
+.BR pkg (8),
+.BR flatpak (1),
+.BR snapper (8),
+.BR timeshift (1),
+.BR zfs (8),
+.BR sudo (8),
+.BR doas (1)
+.PP
+The handbook: https://ezechiel203.github.io/yapacc/
+.SH COPYRIGHT
+Copyright (C) 2026 Alexandre BETRY.
+.PP
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; version 2 of the License only.
+.PP
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.

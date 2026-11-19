@@ -1,0 +1,9 @@
+$ yapacc why libcurl4t64
+libcurl4t64 8.14.1-2+deb13u5  — native package (apt)
+  what         easy-to-use client-side URL transfer library (OpenSSL flavour)
+  why          pulled in as a dependency
+  because      libcurl4t64 ← curl  (you installed curl)
+  needed by    curl
+  from         mirror+file:/etc/apt/mirrors/debian.list trixie/main amd64 Packages
+  installed    2026-09-14 04:34 UTC (last install or upgrade)
+  verified     repository signature (apt verifies the signed Release index)

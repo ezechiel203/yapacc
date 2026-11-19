@@ -1,0 +1,27 @@
+# cmd: apt-cache show --no-all-versions bash
+Package: bash
+Source: bash (5.2.37-2)
+Version: 5.2.37-2+b10
+Essential: yes
+Installed-Size: 7196
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: amd64
+Depends: base-files (>= 2.1.12), debianutils (>= 5.6-0.1)
+Pre-Depends: libc6 (>= 2.38), libtinfo6 (>= 6)
+Recommends: bash-completion
+Suggests: bash-doc
+Description: GNU Bourne Again SHell
+Description-md5: 3522aa7b4374048d6450e348a5bb45d9
+Multi-Arch: foreign
+Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
+Tag: admin::TODO, devel::TODO, devel::interpreter, implemented-in::c,
+ interface::shell, interface::text-mode, role::program,
+ scope::application, suite::gnu, uitoolkit::ncurses
+Section: shells
+Priority: required
+Filename: pool/main/b/bash/bash_5.2.37-2+b10_amd64.deb
+Size: 1500792
+MD5sum: 27b11721fea83d73b96e0f7023863771
+SHA256: 2fd7b04f1b7caa29c4e683f5216e6af354a41e3cdcf6e75394d7cda680f9ab82
+
+# exit: 0

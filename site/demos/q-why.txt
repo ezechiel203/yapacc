@@ -1,0 +1,7 @@
+$ yapacc why libcurl4t64
+libcurl4t64 8.14.1-2+deb13u5  — native package (apt)
+  what         easy-to-use client-side URL transfer library (OpenSSL flavour)
+  why          pulled in as a dependency
+  because      libcurl4t64 ← curl  (you installed curl)
+  needed by    curl
+  …

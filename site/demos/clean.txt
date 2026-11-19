@@ -1,0 +1,6 @@
+$ yapacc clean
+ 124.9 MiB  [safe] downloaded packages kept by apt (/var/cache/apt/archives) — 28 item(s)
+            reclaim: sudo apt-get clean
+            size is a lower bound (some directories are readable by root only); safe, with one cost: `yapacc undo` looks here first for the previous version; an emptied cache means undo has to download it
+
+Measured total: 124.9 MiB. Nothing was changed: `clean` only reports.

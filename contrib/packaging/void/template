@@ -1,0 +1,30 @@
+# Template file for 'yapacc'
+#
+# Kept beside the source, not submitted: void-packages does not accept
+# software without established users. Copy it to srcpkgs/yapacc/template in
+# a void-packages checkout to build the package yourself.
+#
+# Core only, without optional features: /usr/bin/yapacc and its manual
+# page. No component, no service, no hook.
+pkgname=yapacc
+version=0.1.0
+revision=1
+build_style=cargo
+configure_args="--no-default-features"
+make_build_args="--bin yapacc"
+# `--path .` is the build style's default; it has to be repeated when
+# make_install_args is set.
+make_install_args="--path . --bin yapacc"
+short_desc="Optional companion to the native package manager"
+maintainer="Alexandre BETRY <ezechiel203@users.noreply.github.com>"
+license="GPL-2.0-only"
+homepage="https://github.com/ezechiel203/yapacc"
+# The source tarball is the release asset of that name (git archive of the
+# tag), not GitHub's generated archive.
+distfiles="${homepage}/releases/download/v${version}/yapacc-${version}.tar.gz"
+# Filled in by contrib/packaging/fill-release.sh (or `xgensum -i yapacc`).
+checksum=0000000000000000000000000000000000000000000000000000000000000000
+
+post_install() {
+	vman contrib/man/yapacc.1
+}

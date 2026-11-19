@@ -1,0 +1,20 @@
+# yapacc - periodic check for available updates. It reports; it never
+# applies an update.
+#
+# Not installed by any package. `yapacc monitor daemon-install` copies this
+# file and yapacc-monitor.timer into the systemd unit directory and replaces
+# the path in ExecStart with that of the running binary. To install by hand,
+# copy both files to ~/.config/systemd/user/ and run
+#   systemctl --user enable --now yapacc-monitor.timer
+#
+# No [Install] section: the timer starts this unit.
+
+[Unit]
+Description=yapacc update check (reports, never applies)
+Documentation=man:yapacc(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/yapacc monitor check

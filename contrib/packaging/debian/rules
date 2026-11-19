@@ -1,0 +1,50 @@
+#!/usr/bin/make -f
+# yapacc — Debian build. Portable core (no libalpm), the MCP server and the
+# interactive interface, each in its own binary package.
+
+export DH_VERBOSE = 1
+# Keep cargo's registry and cache inside the build tree.
+export CARGO_HOME = $(CURDIR)/debian/cargo-home
+export CARGO_TARGET_DIR = $(CURDIR)/target
+
+# An official Debian build has no network: put the crates in vendor/
+# (`cargo vendor`, with the source replacement it prints added to
+# .cargo/config.toml) and the build runs offline. A local build without
+# vendor/ downloads the versions pinned in Cargo.lock.
+CARGO_FLAGS = --locked
+ifneq ($(wildcard $(CURDIR)/vendor/.),)
+CARGO_FLAGS += --offline
+endif
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+
+# The binaries are copied to debian/stage as soon as they are built: the
+# test step below rebuilds target/release/yapacc with the tui feature, and
+# the core that is packaged must be the one built without it (the one the
+# size budget of the project is about).
+override_dh_auto_build:
+	# The core and the MCP server carry no optional feature.
+	cargo build --release --no-default-features --bin yapacc --bin yapacc-mcp $(CARGO_FLAGS)
+	install -D -m 0755 target/release/yapacc debian/stage/yapacc
+	install -D -m 0755 target/release/yapacc-mcp debian/stage/yapacc-mcp
+	# Only the interactive interface needs the tui feature.
+	cargo build --release --no-default-features --features tui --bin yapacc-tui $(CARGO_FLAGS)
+	install -D -m 0755 target/release/yapacc-tui debian/stage/yapacc-tui
+	mkdir -p debian/completions
+	debian/stage/yapacc completions bash > debian/completions/yapacc
+	debian/stage/yapacc completions zsh > debian/completions/_yapacc
+	debian/stage/yapacc completions fish > debian/completions/yapacc.fish
+
+# Some tests reach for the network; they are written to tolerate its absence.
+override_dh_auto_test:
+ifeq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
+	cargo test --release --no-default-features --features tui $(CARGO_FLAGS)
+endif
+
+override_dh_auto_install:
+
+override_dh_auto_clean:
+	rm -rf target debian/cargo-home debian/completions debian/stage

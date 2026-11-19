@@ -1,0 +1,7 @@
+# cmd: tail -n 40 /var/log/apt/history.log
+
+Start-Date: 2026-11-15  19:30:06
+Commandline: apt-get install -y tree
+Install: tree:amd64 (2.2.1-1)
+End-Date: 2026-11-15  19:30:06
+# exit: 0

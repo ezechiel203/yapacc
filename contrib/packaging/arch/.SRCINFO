@@ -1,0 +1,20 @@
+pkgbase = yapacc
+	pkgdesc = Optional companion to pacman: where a package should come from, why it is installed, gated and recorded changes
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/ezechiel203/yapacc
+	arch = x86_64
+	arch = aarch64
+	license = GPL-2.0-only
+	makedepends = cargo
+	depends = gcc-libs
+	depends = glibc
+	depends = pacman
+	optdepends = bubblewrap: sandbox for builds of third-party recipes (AUR)
+	optdepends = flatpak: the flatpak lane
+	optdepends = curl: news, AUR queries and downloads of old package versions for undo
+	options = !debug
+	source = yapacc-0.1.0.tar.gz::https://github.com/ezechiel203/yapacc/releases/download/v0.1.0/yapacc-0.1.0.tar.gz
+	sha256sums = SKIP
+
+pkgname = yapacc

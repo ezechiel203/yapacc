@@ -1,0 +1,91 @@
+# Maintainer: Alexandre BETRY <ezechiel203@users.noreply.github.com>
+#
+# yapacc for Arch Linux: the core and its two optional components in one
+# package.
+#
+# Built without the `alpm` cargo feature, on purpose: the `alpm` crate is
+# GPL-3.0 and yapacc is GPL-2.0-only, so a binary that links it could not be
+# distributed under this package's licence. yapacc talks to pacman through
+# its command line instead, and the package does not depend on a particular
+# libalpm soname.
+#
+# Layout (contrib/packaging/README.md):
+#   /usr/bin/yapacc                  core
+#   /usr/lib/yapacc/yapacc-tui       interactive interface  (`yapacc i`)
+#   /usr/lib/yapacc/yapacc-mcp       MCP server             (`yapacc mcp`)
+# Nothing else is installed: no service, timer, hook or alias.
+
+pkgname=yapacc
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Optional companion to pacman: where a package should come from, why it is installed, gated and recorded changes"
+arch=('x86_64' 'aarch64')
+url="https://github.com/ezechiel203/yapacc"
+license=('GPL-2.0-only')
+depends=('gcc-libs' 'glibc' 'pacman')
+makedepends=('cargo')
+optdepends=(
+  'bubblewrap: sandbox for builds of third-party recipes (AUR)'
+  'flatpak: the flatpak lane'
+  'curl: news, AUR queries and downloads of old package versions for undo'
+)
+# The release profile strips the binaries (Cargo.toml: strip = true); without
+# this option makepkg still builds a yapacc-debug package, which in an
+# archlinux container was about 5 KB (no useful debug symbols).
+options=('!debug')
+# The source tarball is the release asset of that name (git archive of the
+# tag); it unpacks to $pkgname-$pkgver.
+source=("$pkgname-$pkgver.tar.gz::$url/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz")
+# Filled in by contrib/packaging/fill-release.sh (or `updpkgsums`).
+sha256sums=('SKIP')
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "$pkgname-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  # The core and the MCP server carry no optional feature.
+  cargo build --frozen --release --no-default-features --bin yapacc --bin yapacc-mcp
+  # Only the interactive interface needs the tui feature.
+  cargo build --frozen --release --no-default-features --features tui --bin yapacc-tui
+
+  # Shell completions come from the binary that was just built.
+  mkdir -p completions
+  target/release/yapacc completions bash > completions/yapacc
+  target/release/yapacc completions zsh > completions/_yapacc
+  target/release/yapacc completions fish > completions/yapacc.fish
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  # Some tests reach for the network (news feed, AUR and Homebrew probes)
+  # and some want a working bubblewrap sandbox. They are written to tolerate
+  # or skip what is missing; in a build root where this step still fails for
+  # such a reason, build with `makepkg --nocheck`.
+  #
+  # The tests are built in the dev profile, so they do not replace the
+  # release binaries that package() installs.
+  cargo test --frozen --no-default-features --features tui
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 target/release/yapacc "$pkgdir/usr/bin/yapacc"
+  install -Dm755 target/release/yapacc-tui "$pkgdir/usr/lib/yapacc/yapacc-tui"
+  install -Dm755 target/release/yapacc-mcp "$pkgdir/usr/lib/yapacc/yapacc-mcp"
+
+  install -Dm644 contrib/man/yapacc.1 "$pkgdir/usr/share/man/man1/yapacc.1"
+  install -Dm644 completions/yapacc "$pkgdir/usr/share/bash-completion/completions/yapacc"
+  install -Dm644 completions/_yapacc "$pkgdir/usr/share/zsh/site-functions/_yapacc"
+  install -Dm644 completions/yapacc.fish "$pkgdir/usr/share/fish/vendor_completions.d/yapacc.fish"
+
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}

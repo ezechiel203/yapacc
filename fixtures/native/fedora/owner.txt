@@ -1,0 +1,3 @@
+# cmd: rpm -qf --qf %{NAME}\n /usr/bin/env
+coreutils
+# exit: 0

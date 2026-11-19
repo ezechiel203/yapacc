@@ -1,0 +1,11 @@
+# cmd: rpm -ql tree
+/usr/bin/tree
+/usr/lib/.build-id
+/usr/lib/.build-id/ee
+/usr/lib/.build-id/ee/65cf48bdfaaad720aaebdc096f6c293a4b8e1f
+/usr/share/doc/tree
+/usr/share/doc/tree/README
+/usr/share/licenses/tree
+/usr/share/licenses/tree/LICENSE
+/usr/share/man/man1/tree.1.gz
+# exit: 0

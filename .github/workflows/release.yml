@@ -1,0 +1,176 @@
+name: Release
+
+# On a version tag: test, build the release files with `cargo xtask dist`,
+# attest where they were built, and create a DRAFT GitHub release. A person
+# reads the draft and publishes it.
+#
+# `cargo xtask dist` (crates/xtask/src/dist.rs) is the one implementation of
+# the build: static musl binaries for x86_64 and aarch64, one archive per
+# architecture, the source tarball, the filled packaging recipes and
+# SHA256SUMS, with the checks that go with them (static, size budget, no
+# path of the build machine, both architectures started). The same command
+# works on a developer's machine. This workflow adds the checkout, the
+# toolchain, the attestation and the upload.
+#
+# Rehearsal: run this workflow by hand (workflow_dispatch) with "dry-run"
+# checked, on any branch. Everything is built and checked, and target/dist
+# is uploaded as a workflow artifact; nothing is attested or released.
+#
+# Before the first real run: the repository must be public (GitHub stores
+# attestations for public repositories only, unless the plan is Enterprise),
+# and CHANGELOG.md must have a section for the version.
+#
+# No secret is used other than the GITHUB_TOKEN of the run. Every action is
+# pinned to a commit; the comment beside it names the release.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Rehearsal: build and upload target/dist as an artifact, create no release"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  # The compiler of the release, pinned: the same source and the same
+  # toolchain give the same binaries (`cargo +1.98.1 xtask dist` locally).
+  # Raise it deliberately, together with RELEASE_TOOLCHAIN in ci.yml.
+  RELEASE_TOOLCHAIN: "1.98.1"
+  # A release is published from a tag only. A manual run is a rehearsal
+  # unless "dry-run" was unchecked, and then it must run on a tag too.
+  PUBLISH: ${{ github.event_name == 'push' || inputs.dry-run == false }}
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: ${{ env.RELEASE_TOOLCHAIN }}
+      # The feature set of the released binaries.
+      - name: Test
+        run: cargo test --locked --workspace --no-default-features --features tui --all-targets
+      - name: Licences and sources of what is linked
+        uses: EmbarkStudios/cargo-deny-action@70f81531115945ba6eb6b941ec9d39d063438eb9 # v2.1.2
+        with:
+          command: check licenses bans sources
+          arguments: --locked
+
+  build:
+    name: Build (cargo xtask dist)
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The whole history: the check that the tag is on main needs it.
+          fetch-depth: 0
+          persist-credentials: false
+      - name: A release is a tag, on main, named after the version in Cargo.toml
+        if: env.PUBLISH == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF_TYPE" != tag ]; then
+            echo "a release is built from a tag; this run is on $GITHUB_REF" >&2
+            exit 1
+          fi
+          tag_version="${GITHUB_REF_NAME#v}"
+          cargo_version=$(sed -n '/^\[package\]/,/^\[/s/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)
+          echo "tag: $tag_version, Cargo.toml: $cargo_version"
+          test -n "$cargo_version"
+          test "$tag_version" = "$cargo_version"
+          # fetch-depth: 0 fetched every branch as refs/remotes/origin/*.
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" refs/remotes/origin/main; then
+            echo "the tagged commit $GITHUB_SHA is not on main" >&2
+            exit 1
+          fi
+      # No cache: a release is built from the sources and the crates pinned
+      # in Cargo.lock, nothing else.
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: ${{ env.RELEASE_TOOLCHAIN }}
+          targets: x86_64-unknown-linux-musl, aarch64-unknown-linux-musl
+      - name: Install qemu-user (runs the aarch64 binaries)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends qemu-user
+      - name: cargo xtask dist
+        run: cargo run --locked --package xtask -- dist --require-aarch64
+      # Fails when CHANGELOG.md has no section for this version.
+      - name: Release notes from CHANGELOG.md
+        run: cargo run --locked --package xtask -- release-notes > target/release-notes.md
+      - name: What was built
+        run: |
+          cat target/dist/SHA256SUMS
+          echo "--- release notes ---"
+          cat target/release-notes.md
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: target/dist/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-notes
+          path: target/release-notes.md
+          if-no-files-found: error
+
+  # The only job with write permissions. It compiles nothing: it takes the
+  # files of the build job as they are.
+  publish:
+    name: Attest and create the draft release
+    needs: build
+    if: github.event_name == 'push' || inputs.dry-run == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # create the release
+      id-token: write        # sign the provenance attestation
+      attestations: write    # store it
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release-notes
+          path: notes
+      - name: The files are the ones the build job listed
+        working-directory: dist
+        run: |
+          sha256sum -c SHA256SUMS
+          ls -l
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            dist/yapacc-*.tar.gz
+            dist/SHA256SUMS
+      - name: Create the draft release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # 0.x and anything with a suffix (v1.0.0-rc1) is a pre-release.
+          flags=()
+          case "$GITHUB_REF_NAME" in
+            v0.* | *-*) flags+=(--prerelease) ;;
+          esac
+          gh release create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "yapacc ${GITHUB_REF_NAME#v}" \
+            --notes-file notes/release-notes.md \
+            --verify-tag \
+            --draft \
+            "${flags[@]}" \
+            dist/yapacc-*.tar.gz dist/SHA256SUMS

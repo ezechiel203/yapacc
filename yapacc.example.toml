@@ -1,0 +1,129 @@
+# yapacc configuration: every key this version reads, with its default.
+#
+# yapacc needs no configuration. To change something, copy this file to
+# ~/.config/yapacc/config.toml (or $XDG_CONFIG_HOME/yapacc/config.toml) and
+# edit it, or pass a file for one run with --config PATH. yapacc never
+# writes its configuration. `yapacc config` prints the values in effect.
+#
+# A file that does not parse, or an invalid value for a key below, is an
+# error (exit 2), never a silent fallback to the defaults.
+# A section or key yapacc does not know (a typo, or a setting of a newer
+# version) is ignored with one warning line each on standard error, and
+# `yapacc config` lists them under unknown_keys.
+# Paths are absolute, or start with ~/ (your home directory). Any other
+# relative path is an error (exit 2).
+
+[safety]
+# A filesystem snapshot before install, remove, upgrade and undo through
+# yapacc: taken after you consent and before the native command. Never on
+# --dryrun, which only says one would be taken.
+#   off               (default) none
+#   auto              take one; if it fails, refuse the change (exit 3)
+#   auto-best-effort  take one; if it fails, warn and go on
+# With snapshot_provider = "auto" and no snapshot tool on the machine the
+# change goes on without a snapshot, and the plan says so before it asks.
+snapshot = "off"
+# The tool `snapshot` uses: auto | snapper | timeshift | zfs | none | btrfs.
+# auto takes the first one detected (snapper, timeshift, zfs). none takes no
+# snapshot. A named tool that is not usable here refuses the change under
+# "auto" (exit 3, also with --dryrun) and is a warning under
+# "auto-best-effort". btrfs is accepted, but yapacc creates no plain btrfs
+# snapshot: it counts as a tool that is not usable.
+snapshot_provider = "auto"
+# Run the read-only pre-check step of `yapacc safety apply`.
+pretest_enabled = true
+# Read only by `yapacc safety apply` with --op arch-upgrade or arch-update:
+# when true and no --snapshot-tag is given, it makes a tag itself so that
+# its snapshot step runs. install, remove and upgrade use `snapshot` above.
+require_snapshot_before_upgrade = false
+# Accepted; no command reads it.
+rollback_on_failure = false
+
+[mcp]
+# What an AI assistant connected through yapacc-mcp may do.
+#   plan   (default) it can read and propose: a tool returns the plan and
+#          the command for you to run in your own terminal
+#   allow  it may apply a change when it states that you approved.
+#          yapacc-mcp honours this only when the configuration file is
+#          owned by root and not writable by group or others (for example
+#          `yapacc-mcp --config /etc/yapacc/config.toml`): an assistant
+#          that can edit your files must not be able to give itself this
+#          right. From any other file the server says so at start and
+#          stays in plan mode.
+apply = "plan"
+
+[install]
+# The order in which `yapacc get NAME` tries the sources on Arch; the first
+# one that has the name wins. Known: repo, aur, flatpak, brew, recipe.
+# recipe is always tried last. On other systems the order is fixed: the
+# distribution's package, then flatpak (listed, never chosen for you).
+order = ["repo", "aur", "flatpak", "recipe"]
+# Copied into the JSON form of `yapacc get NAME --explain` as `runtime`.
+# Nothing else reads it.
+runtime_default = "container"
+
+[build]
+# Builds of third-party recipes (the AUR and generated recipes, on Arch).
+#   require  (default) refuse to build without a working bubblewrap sandbox
+#   prefer   warn and build unconfined when the sandbox is unavailable
+#   off      never sandbox
+sandbox = "require"
+#   fetch-only  (default) network while sources are downloaded and
+#               prepare() runs, none during build() and package()
+#   always      network for the whole build
+network = "fetch-only"
+
+[repair]
+# Classify a failed build and try again. The one repair that changes the
+# system, installing missing build dependencies, always asks first, or
+# needs --repair-deps when nobody can answer.
+enabled = true
+# Builds in total, the first one included.
+max_attempts = 3
+
+[fixes]
+# Git URL of a repository of build fixes that you control. There is no
+# default: without it `yapacc fixes push` and `fixes pull` do nothing.
+# remote = "git@example.org:me/yapacc-fixes.git"
+
+[ledger]
+# The ledger records what yapacc installed outside the package manager.
+# Where to copy its head after every change. A hash chain alone detects
+# accidental corruption only; a witness the ledger's owner cannot rewrite
+# makes tampering detectable (yapacc ledger verify).
+#   "journald"        the system journal (only entries logged by the
+#                     ledger's owner are read back)
+#   "/path/to/file"   ideally on another machine's mount (absolute, or
+#                     starting with ~/)
+witnesses = []
+
+[paths]
+# Where isolated installs (deb, rpm, snap) are unpacked. Default:
+# /var/lib/yapacc/isolated/foreign when writable (root), otherwise
+# ~/.local/share/yapacc/isolated/foreign.
+# foreign_root = "/opt/yapacc/foreign"
+# Where the two ledgers live. Defaults: ~/.local/state/yapacc/ledger and
+# /var/lib/yapacc/ledger.
+# ledger_user = "~/.local/state/yapacc/ledger"
+# ledger_system = "/var/lib/yapacc/ledger"
+
+[foreign]
+# Whether an isolated install links its programs in its own bin/ directory
+# under attributed names (fgn.FORMAT.NAME--PROGRAM): attributed | none.
+# PATH is not changed either way.
+expose = "attributed"
+# Let `install tx-apt`, `tx-apt-sources` and `tx-rpm` install from a
+# repository without a keyring, that is without checking its signature.
+# Without this they need --keyring FILE or --allow-unsigned each time.
+allow_unsigned_repos = false
+
+[plugins]
+# Extra directories searched for yapacc-source-* and yapacc-runtime-*
+# adapter programs, before ~/.local/share/yapacc/plugins and PATH
+# (absolute, or starting with ~/).
+dirs = []
+# Adapter names to ignore.
+disabled = []
+
+# These are all the sections and keys this version reads. A [general]
+# section is accepted and has no key.

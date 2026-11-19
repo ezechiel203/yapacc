@@ -1,0 +1,21 @@
+# Dependabot: weekly pull requests for the pinned GitHub actions (the
+# workflows name each action by commit) and for the crates in Cargo.lock.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # Patch and minor updates in one pull request; a major update gets
+      # its own, because it needs reading.
+      compatible:
+        update-types: ["minor", "patch"]

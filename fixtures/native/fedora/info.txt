@@ -1,0 +1,4 @@
+# cmd: dnf -q repoquery --qf %{name}	%{evr}	%{arch}	%{repoid}	%{installsize}	%{summary}
+ bash
+bash	5.3.15-2.fc45	x86_64	fedora	8865529	The GNU Bourne Again shell
+# exit: 0

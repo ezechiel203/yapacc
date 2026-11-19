@@ -1,0 +1,28 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: yapacc
+Upstream-Contact: Alexandre BETRY <ezechiel203@users.noreply.github.com>
+Source: https://github.com/ezechiel203/yapacc
+Comment:
+ The binaries link the Rust crates pinned in Cargo.lock statically. Those
+ crates are not part of this source tree; if they are vendored into the
+ source package (vendor/), add a Files stanza for each licence found there.
+
+Files: *
+Copyright: 2026 Alexandre BETRY
+License: GPL-2.0-only
+
+License: GPL-2.0-only
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the Free
+ Software Foundation; version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, see <https://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in "/usr/share/common-licenses/GPL-2".

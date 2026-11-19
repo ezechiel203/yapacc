@@ -1,0 +1,4 @@
+debian/stage/yapacc usr/bin
+debian/completions/yapacc usr/share/bash-completion/completions
+debian/completions/_yapacc usr/share/zsh/vendor-completions
+debian/completions/yapacc.fish usr/share/fish/vendor_completions.d

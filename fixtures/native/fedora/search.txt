@@ -1,0 +1,465 @@
+# cmd: dnf -q repoquery --qf %{name}	%{evr}	%{repoid}	%{summary}
+ *tree*
+NearTree	5.1.1-21.fc45	fedora	An API for finding nearest neighbors
+NearTree-devel	5.1.1-21.fc45	fedora	Development tools for compiling programs using NearTree
+captree	2.78-2.fc45	fedora	Capability inspection utility
+cockpit-ostree	1:225-2.fc45	fedora	Cockpit user interface for rpm-ostree
+ebtree	6.0.8-28.fc45	fedora	Elastic binary tree library
+ebtree-devel	6.0.8-28.fc45	fedora	Development files for ebtree
+erlang-mqtree	1.0.20-2.fc45	fedora	Index tree for MQTT topic filters
+fedora-release-ostree-desktop	45-13	fedora	Configuration package for rpm-ostree variants to add rpm-ostree polkit rules
+fedora-release-ostree-desktop	45-14	updates	Configuration package for rpm-ostree variants to add rpm-ostree polkit rules
+fedora-repos-ostree	45-1	fedora	OSTree specific files
+flexmark-java-tree-iteration	0.64.6-17.fc45	fedora	Flexmark library for recursive tree iteration
+geany-plugins-treebrowser	2.1-6.fc45	fedora	Alternate file browser plugin providing a tree view of directories
+geany-plugins-treebrowser	2.1-7.fc45	updates	Alternate file browser plugin providing a tree view of directories
+ghc-fingertree	0.1.6.3-2.fc45	fedora	Generic finger-tree structure, with example instances
+ghc-fingertree-devel	0.1.6.3-2.fc45	fedora	Haskell fingertree library development files
+ghc-fingertree-doc	0.1.6.3-2.fc45	fedora	Haskell fingertree library documentation
+ghc-fingertree-prof	0.1.6.3-2.fc45	fedora	Haskell fingertree profiling library
+ghc-gi-ostree	1.0.19-7.fc45	fedora	OSTree bindings
+ghc-gi-ostree-devel	1.0.19-7.fc45	fedora	Haskell gi-ostree library development files
+ghc-gi-ostree-doc	1.0.19-7.fc45	fedora	Haskell gi-ostree library documentation
+ghc-gi-ostree-prof	1.0.19-7.fc45	fedora	Haskell gi-ostree profiling library
+ghc-pkgtreediff	0.6.0-19.fc45	fedora	Haskell pkgtreediff library
+ghc-pkgtreediff-devel	0.6.0-19.fc45	fedora	Haskell pkgtreediff library development files
+ghc-pkgtreediff-doc	0.6.0-19.fc45	fedora	Haskell pkgtreediff library documentation
+ghc-pkgtreediff-prof	0.6.0-19.fc45	fedora	Haskell pkgtreediff profiling library
+git-subtree	2.55.0-2.fc45	fedora	Git tools to merge and split repositories
+git-subtree	2.56.1-1.fc45	updates	Git tools to merge and split repositories
+gnome-software-rpm-ostree	51.0-1.fc45	fedora	rpm-ostree backend for gnome-software
+gnome-software-rpm-ostree	51.1-1.fc45	updates	rpm-ostree backend for gnome-software
+golang-github-google-btree-devel	1.0.1-16.fc45	fedora	BTree implementation for Go
+golang-github-revel-pathtree-devel	0-20.20190626git41257a1.fc45	fedora	Tree for fast path lookup
+golang-github-seancfoley-bintree-devel	1.3.1-7.fc45	fedora	Binary trees and tries
+golang-github-smartystreets-assertions-devel	1:1.2.0-19.fc45	fedora	Fluent assertion-style functions used by goconvey and gunit
+golang-github-smartystreets-goconvey-devel	1.6.4-19.fc45	fedora	Go testing in the browser
+libkdtree++-devel	0.7.5-5.fc45	fedora	C++ template container implementation of kd-tree sorting
+libtree-devel	1.0-13.fc45	fedora	Implementation of AVL (Adelson-Velskii and Landis) balanced trees
+libtree-ldd	3.1.1-15.fc45	fedora	Like ldd but as a tree
+libtree-sitter	0.26.13-1.fc45	fedora	Incremental parsing library for programming tools
+libtree-sitter-bash	0.25.1-5.fc45	fedora	Bash grammar for Tree-sitter
+libtree-sitter-bash-devel	0.25.1-5.fc45	fedora	Development files for libtree-sitter-bash
+libtree-sitter-c	0.24.2-2.fc45	fedora	C grammar for Tree-sitter
+libtree-sitter-c-devel	0.24.2-2.fc45	fedora	Development files for libtree-sitter-c
+libtree-sitter-c-sharp	0.23.5-2.fc45	fedora	C# grammar for Tree-sitter
+libtree-sitter-c-sharp-devel	0.23.5-2.fc45	fedora	Development files for libtree-sitter-c-sharp
+libtree-sitter-cmake	0.7.5-1.fc45	fedora	CMake grammar for Tree-sitter
+libtree-sitter-cmake	0.7.6-1.fc45	updates	CMake grammar for Tree-sitter
+libtree-sitter-cmake-devel	0.7.5-1.fc45	fedora	Development files for libtree-sitter-cmake
+libtree-sitter-cmake-devel	0.7.6-1.fc45	updates	Development files for libtree-sitter-cmake
+libtree-sitter-cpp	0.23.4-9.fc45	fedora	C++ grammar for Tree-sitter
+libtree-sitter-cpp-devel	0.23.4-9.fc45	fedora	Development files for libtree-sitter-cpp
+libtree-sitter-css	0.25.0-4.fc45	fedora	CSS grammar for Tree-sitter
+libtree-sitter-css-devel	0.25.0-4.fc45	fedora	Development files for libtree-sitter-css
+libtree-sitter-devel	0.26.13-1.fc45	fedora	Development files for tree-sitter
+libtree-sitter-elixir	0.3.5-4.fc45	fedora	Elixir grammar for Tree-sitter
+libtree-sitter-elixir-devel	0.3.5-4.fc45	fedora	Development files for libtree-sitter-elixir
+libtree-sitter-go	0.25.0-5.fc45	fedora	Go grammar for Tree-sitter
+libtree-sitter-go-devel	0.25.0-5.fc45	fedora	Development files for libtree-sitter-go
+libtree-sitter-heex	0.9.0-2.fc45	fedora	HEEx grammar for Tree-sitter
+libtree-sitter-heex-devel	0.9.0-2.fc45	fedora	Development files for libtree-sitter-heex
+libtree-sitter-html	0.23.2-5.fc45	fedora	HTML grammar for Tree-sitter
+libtree-sitter-html-devel	0.23.2-5.fc45	fedora	Development files for libtree-sitter-html
+libtree-sitter-java	0.23.5-9.fc45	fedora	Java grammar for Tree-sitter
+libtree-sitter-java-devel	0.23.5-9.fc45	fedora	Development files for libtree-sitter-java
+libtree-sitter-javascript	0.25.0-5.fc45	fedora	JavaScript grammar for Tree-sitter
+libtree-sitter-javascript-devel	0.25.0-5.fc45	fedora	Development files for libtree-sitter-javascript
+libtree-sitter-jsdoc	0.25.0-4.fc45	fedora	JSDoc grammar for Tree-sitter
+libtree-sitter-jsdoc-devel	0.25.0-4.fc45	fedora	Development files for libtree-sitter-jsdoc
+libtree-sitter-json	0.24.8-9.fc45	fedora	JSON grammar for Tree-sitter
+libtree-sitter-json-devel	0.24.8-9.fc45	fedora	Development files for libtree-sitter-json
+libtree-sitter-lua	0.5.0-3.fc45	fedora	Lua grammar for Tree-sitter
+libtree-sitter-lua-devel	0.5.0-3.fc45	fedora	Development files for libtree-sitter-lua
+libtree-sitter-markdown	0.5.3-7.fc45	fedora	Markdown grammar for Tree-sitter
+libtree-sitter-markdown	0.5.4-2.fc45	updates	Markdown grammar for Tree-sitter
+libtree-sitter-markdown-devel	0.5.3-7.fc45	fedora	Development files for libtree-sitter-markdown
+libtree-sitter-markdown-devel	0.5.4-2.fc45	updates	Development files for libtree-sitter-markdown
+libtree-sitter-php	0.24.2-6.fc45	fedora	PHP grammar for Tree-sitter
+libtree-sitter-php-devel	0.24.2-6.fc45	fedora	Development files for libtree-sitter-php
+libtree-sitter-phpdoc	0.1.8-3.fc45	fedora	PHPDoc grammar for Tree-sitter
+libtree-sitter-phpdoc-devel	0.1.8-3.fc45	fedora	Development files for libtree-sitter-phpdoc
+libtree-sitter-python	0.25.0-4.fc45	fedora	Python grammar for Tree-sitter
+libtree-sitter-python-devel	0.25.0-4.fc45	fedora	Development files for libtree-sitter-python
+libtree-sitter-ruby	0.23.1-6.fc45	fedora	Ruby grammar for Tree-sitter
+libtree-sitter-ruby-devel	0.23.1-6.fc45	fedora	Development files for libtree-sitter-ruby
+libtree-sitter-rust	0.24.2-2.fc45	fedora	Rust grammar for Tree-sitter
+libtree-sitter-rust-devel	0.24.2-2.fc45	fedora	Development files for libtree-sitter-rust
+libtree-sitter-toml	0.7.0-6.fc45	fedora	TOML grammar for Tree-sitter
+libtree-sitter-toml-devel	0.7.0-6.fc45	fedora	Development files for libtree-sitter-toml
+libtree-sitter-typescript	0.23.2-7.fc45	fedora	TypeScript and TSX grammar for Tree-sitter
+libtree-sitter-typescript-devel	0.23.2-7.fc45	fedora	Development files for libtree-sitter-typescript
+libtree-sitter-yaml	0.7.2-4.fc45	fedora	YAML grammar for Tree-sitter
+libtree-sitter-yaml-devel	0.7.2-4.fc45	fedora	Development files for libtree-sitter-yaml
+maven-dependency-tree	3.3.0-2.fc45	fedora	Maven dependency tree artifact
+mimetreeparser	26.08.2-2.fc45	fedora	Parser for MIME trees
+mimetreeparser	26.08.3-1.fc45	updates	Parser for MIME trees
+mimetreeparser-devel	26.08.2-2.fc45	fedora	Development files for mimetreeparser
+mimetreeparser-devel	26.08.3-1.fc45	updates	Development files for mimetreeparser
+mimetreeparser-doc	26.08.2-2.fc45	fedora	Developer Documentation files for mimetreeparser
+mimetreeparser-doc	26.08.3-1.fc45	updates	Developer Documentation files for mimetreeparser
+ocaml-compiler-libs-janestreet	0.17.0-14.fc45	fedora	OCaml compiler libraries repackaged
+ocaml-compiler-libs-janestreet-devel	0.17.0-14.fc45	fedora	Development files for ocaml-compiler-libs-janestreet
+ocaml-jane-street-headers-devel	0.17.0-13.fc45	fedora	Development files for ocaml-jane-street-headers
+osbuild-ostree	193-1.fc45	fedora	OSTree support
+ostree	2026.4-1.fc45	fedora	Tool for managing bootable, immutable filesystem trees
+ostree-devel	2026.4-1.fc45	fedora	Development headers for ostree
+ostree-grub2	2026.4-1.fc45	fedora	GRUB2 integration for OSTree
+ostree-libs	2026.4-1.fc45	fedora	C shared libraries ostree
+ostree-pin	0.1.1-12.fc45	fedora	Tool to update ostree deployment pin
+ostree-tests	2026.4-1.fc45	fedora	Tests for the ostree package
+perl-AI-DecisionTree	0.11-47.fc45	fedora	Automatically Learns Decision Trees
+perl-Data-TreeDumper	0.43-2.fc45	fedora	Improved replacement for Data::Dumper
+perl-Data-TreeDumper-Renderer-GTK	0.03-8.fc45	fedora	Gtk3::TreeView renderer for Data::TreeDumper
+perl-File-CheckTree	4.42-325.fc45	fedora	Run many file-test checks on a tree
+perl-File-CheckTree-tests	4.42-325.fc45	fedora	Tests for perl-File-CheckTree
+perl-File-TreeCreate	0.0.1-14.fc45	fedora	Recursively create a directory tree
+perl-HTML-Tree	1:5.07-31.fc45	fedora	HTML tree handling modules for Perl
+perl-HTML-TreeBuilder-LibXML	0.28-6.fc45	fedora	HTML::TreeBuilder and XPath compatible interface with libxml
+perl-HTML-TreeBuilder-XPath	0.14-43.fc45	fedora	Add XPath support to HTML::TreeBuilder
+perl-HTML-TreeBuilderX-ASP_NET	0.09-38.fc45	fedora	Scrape ASP.NET/VB.NET sites which utilize Javascript POST-backs
+perl-Text-Tree	1.0-51.fc45	fedora	Format a simple tree of strings into a textual tree graph
+perl-Tree	1.16-8.fc45	fedora	Tree data structure
+perl-Tree-DAG_Node	1.39-2.fc45	fedora	Class for representing nodes in a tree
+perl-Tree-R	0.072-31.fc45	fedora	Perl extension for the R-tree data structure and algorithms
+perl-Tree-Simple	1.34-17.fc45	fedora	Object-oriented n-ary tree
+perl-Tree-Simple-VisitorFactory	0.16-15.fc45	fedora	Factory object for dispensing Visitor objects
+perl-Tree-Simple-tests	1.34-17.fc45	fedora	Tests for perl-Tree-Simple
+perl-Tree-XPathEngine	0.05-40.fc45	fedora	Re-usable XPath engine
+perl-Tree-tests	1.16-8.fc45	fedora	Tests for perl-Tree
+perl-WWW-Mechanize-TreeBuilder	1.20000-35.fc45	fedora	WWW::Mechanize::TreeBuilder Perl module
+perl-XML-Parser-Lite-Tree	0.14-41.fc45	fedora	Lightweight XML tree builder
+perl-XML-TreeBuilder	5.4-35.fc45	fedora	Parser that builds a tree of XML::Element objects
+perl-XML-TreePP	0.43-33.fc45	fedora	Pure Perl implementation for parsing/writing XML documents
+pkgtreediff	0.6.0-19.fc45	fedora	RPM package tree diff tool
+plasma-discover-rpm-ostree	6.8.1-1.fc45	fedora	Plasma Discover backend for rpm-ostree support
+plasma-discover-rpm-ostree	6.8.3-1.fc45	updates	Plasma Discover backend for rpm-ostree support
+prooftree	0.14-14.fc45	fedora	Proof tree visualization for Proof General
+python3-anytree	2.13.0-1.fc45	updates	Powerful and Lightweight Python Tree Data Structure
+python3-anytree	2.8.0-26.fc45	fedora	Powerful and Lightweight Python Tree Data Structure
+python3-asciitree	0.3.3-39.fc45	fedora	Draws ASCII trees
+python3-coprtree	0.1.4-1.fc45	fedora	Resolve a package's dependency tree into parallel Fedora Copr build levels
+python3-intervaltree	3.2.1-4.fc45	fedora	A mutable, self-balancing interval tree for Python
+python3-libkdtree++	0.7.5-5.fc45	fedora	Python3 language bindings for libkdtree++
+python3-pipdeptree	3.1.1-2.fc45	fedora	Command line utility to show dependency tree of packages
+python3-pipdeptree+graphviz	3.1.1-2.fc45	fedora	Metapackage for python3-pipdeptree: graphviz extras
+python3-pipdeptree+rich	3.1.1-2.fc45	fedora	Metapackage for python3-pipdeptree: rich extras
+python3-pykdtree	1.4.3-7.fc45	fedora	Fast kd-tree implementation with OpenMP-enabled queries
+python3-pysubnettree	0.38.1-4.fc45	fedora	Python Module for CIDR Lookups
+python3-rtree	1.4.1-8.fc45	fedora	R-Tree spatial index for Python GIS
+python3-scantree	0.0.4-9.fc45	fedora	Flexible recursive directory iterator
+python3-tree-sitter-markdown	0.5.3-7.fc45	fedora	Markdown grammar for Tree-sitter (Python bindings)
+python3-tree-sitter-markdown	0.5.4-2.fc45	updates	Markdown grammar for Tree-sitter (Python bindings)
+python3-urwidtrees	1.0.4-4.fc45	fedora	Tree Widget Container API for the urwid toolkit
+python3-urwidtrees-doc	1.0.4-4.fc45	fedora	Documentation for urwidtrees
+root-gui-treemap	6.40.04-2.fc45	fedora	GUI element for tree maps in ROOT
+root-gui-treemap	6.40.04-7.fc45	updates	GUI element for tree maps in ROOT
+root-tree	6.40.04-2.fc45	fedora	Tree library for ROOT
+root-tree	6.40.04-7.fc45	updates	Tree library for ROOT
+root-tree-dataframe	6.40.04-2.fc45	fedora	A high level interface to ROOT trees
+root-tree-dataframe	6.40.04-7.fc45	updates	A high level interface to ROOT trees
+root-tree-ml	6.40.04-2.fc45	fedora	ROOT dataframe python
+root-tree-ml	6.40.04-7.fc45	updates	ROOT dataframe python
+root-tree-ntuple	6.40.04-2.fc45	fedora	The new ROOT n-tuple class
+root-tree-ntuple	6.40.04-7.fc45	updates	The new ROOT n-tuple class
+root-tree-ntuple-browse	6.40.04-2.fc45	fedora	N-Tuple browsing library for ROOT
+root-tree-ntuple-browse	6.40.04-7.fc45	updates	N-Tuple browsing library for ROOT
+root-tree-ntuple-utils	6.40.04-2.fc45	fedora	Ntuple utility library
+root-tree-ntuple-utils	6.40.04-7.fc45	updates	Ntuple utility library
+root-tree-player	6.40.04-2.fc45	fedora	Library to loop over a ROOT tree
+root-tree-player	6.40.04-7.fc45	updates	Library to loop over a ROOT tree
+root-tree-viewer	6.40.04-2.fc45	fedora	GUI to browse a ROOT tree
+root-tree-viewer	6.40.04-7.fc45	updates	GUI to browse a ROOT tree
+root-tree-webviewer	6.40.04-2.fc45	fedora	ROOT tree web viewer library for ROOT
+root-tree-webviewer	6.40.04-7.fc45	updates	ROOT tree web viewer library for ROOT
+rpm-ostree	2026.3-2.fc45	fedora	Hybrid image/package system
+rpm-ostree-devel	2026.3-2.fc45	fedora	Development headers for rpm-ostree
+rpm-ostree-libs	2026.3-2.fc45	fedora	Shared library for rpm-ostree
+rubygem-comp_tree	1.1.3-27.fc45	fedora	A simple framework for automatic parallelism
+rubygem-comp_tree-doc	1.1.3-27.fc45	fedora	Documentation for rubygem-comp_tree
+rubygem-treetop	1.6.12-10.fc45	fedora	A Ruby-based text parsing and interpretation DSL
+rubygem-treetop-doc	1.6.12-10.fc45	fedora	Documentation for rubygem-treetop
+rust-build-fs-tree+clap-devel	0.6.0-7.fc45	fedora	Generate a filesystem tree from a macro or a YAML tree
+rust-build-fs-tree+default-devel	0.6.0-7.fc45	fedora	Generate a filesystem tree from a macro or a YAML tree
+rust-build-fs-tree-devel	0.6.0-7.fc45	fedora	Generate a filesystem tree from a macro or a YAML tree
+rust-built+dependency-tree-devel	0.8.1-1.fc45	fedora	Crate with information from the time it was built
+rust-cargo-lock+dependency-tree-devel	11.0.1-2.fc45	fedora	Self-contained Cargo.lock parser with optional dependency graph analysis
+rust-dolby_vision+roxmltree-devel	3.3.2-4.fc45	fedora	Dolby Vision metadata parsing and writing
+rust-domain+unstable-zonetree-devel	0.10.1-11.fc45	fedora	DNS library for Rust
+rust-ego-tree+default-devel	0.11.0-2.fc45	fedora	Vec-backed ID-tree
+rust-ego-tree+default-devel	0.11.1-1.fc45	updates	Vec-backed ID-tree
+rust-ego-tree+serde-devel	0.11.0-2.fc45	fedora	Vec-backed ID-tree
+rust-ego-tree+serde-devel	0.11.1-1.fc45	updates	Vec-backed ID-tree
+rust-ego-tree-devel	0.11.0-2.fc45	fedora	Vec-backed ID-tree
+rust-ego-tree-devel	0.11.1-1.fc45	updates	Vec-backed ID-tree
+rust-filetreelist+default-devel	0.6.0-2.fc45	fedora	Filetree abstraction based on a sorted path list
+rust-filetreelist-devel	0.6.0-2.fc45	fedora	Filetree abstraction based on a sorted path list
+rust-gix+gix-worktree-stream-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+progress-tree-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+tree-editor-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+tree-error-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+worktree-archive-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+worktree-mutation-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix+worktree-stream-devel	0.85.0-2.fc45	fedora	Interact with git repositories just like git would
+rust-gix-error+tree-error-devel	0.2.4-2.fc45	fedora	Common errors and error-handling utilities for gitoxide
+rust-gix-status+worktree-rewrites-devel	0.32.0-2.fc45	fedora	Git status implemenation used by gix
+rust-gix-worktree+attributes-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+default-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+document-features-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+gix-features-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+parallel-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+serde-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+sha1-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree+sha256-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree-devel	0.54.0-2.fc45	fedora	Worktree related types and utilities used by gix
+rust-gix-worktree-state+default-devel	0.32.0-2.fc45	fedora	Set worktrees to a particular state
+rust-gix-worktree-state+parallel-devel	0.32.0-2.fc45	fedora	Set worktrees to a particular state
+rust-gix-worktree-state+sha1-devel	0.32.0-2.fc45	fedora	Set worktrees to a particular state
+rust-gix-worktree-state+sha256-devel	0.32.0-2.fc45	fedora	Set worktrees to a particular state
+rust-gix-worktree-state-devel	0.32.0-2.fc45	fedora	Set worktrees to a particular state
+rust-gix-worktree-stream+default-devel	0.34.0-2.fc45	fedora	Generate a byte-stream from a git-tree
+rust-gix-worktree-stream+sha1-devel	0.34.0-2.fc45	fedora	Generate a byte-stream from a git-tree
+rust-gix-worktree-stream+sha256-devel	0.34.0-2.fc45	fedora	Generate a byte-stream from a git-tree
+rust-gix-worktree-stream-devel	0.34.0-2.fc45	fedora	Generate a byte-stream from a git-tree
+rust-lddtree+default-devel	0.5.1-1.fc45	fedora	Read the ELF dependency tree
+rust-lddtree-devel	0.5.1-1.fc45	fedora	Read the ELF dependency tree
+rust-matrixmultiply+thread-tree-devel	0.3.10-4.fc45	fedora	General matrix multiplication for f32 and f64 matrices
+rust-predicates-tree+default-devel	1.0.13-2.fc45	fedora	Render boolean-valued predicate functions results as a tree
+rust-predicates-tree-devel	1.0.13-2.fc45	fedora	Render boolean-valued predicate functions results as a tree
+rust-prodash+progress-tree-devel	31.0.0-2.fc45	fedora	Dashboard for visualizing progress of asynchronous and possibly blocking tasks
+rust-prodash+progress-tree-hp-hashmap-devel	31.0.0-2.fc45	fedora	Dashboard for visualizing progress of asynchronous and possibly blocking tasks
+rust-prodash+progress-tree-log-devel	31.0.0-2.fc45	fedora	Dashboard for visualizing progress of asynchronous and possibly blocking tasks
+rust-rctree+default-devel	0.6.0-6.fc45	fedora	'DOM-like' tree implemented using reference counting
+rust-rctree-devel	0.6.0-6.fc45	fedora	'DOM-like' tree implemented using reference counting
+rust-roxmltree+default-devel	0.21.1-2.fc45	fedora	Represent an XML as a read-only tree
+rust-roxmltree+default-devel	0.21.2-1.fc45	updates	Represent an XML as a read-only tree
+rust-roxmltree+positions-devel	0.21.1-2.fc45	fedora	Represent an XML as a read-only tree
+rust-roxmltree+positions-devel	0.21.2-1.fc45	updates	Represent an XML as a read-only tree
+rust-roxmltree+std-devel	0.21.1-2.fc45	fedora	Represent an XML as a read-only tree
+rust-roxmltree+std-devel	0.21.2-1.fc45	updates	Represent an XML as a read-only tree
+rust-roxmltree-devel	0.21.1-2.fc45	fedora	Represent an XML as a read-only tree
+rust-roxmltree-devel	0.21.2-1.fc45	updates	Represent an XML as a read-only tree
+rust-rustsec+dependency-tree-devel	0.33.0-3.fc45	fedora	Client library for the RustSec security advisory database
+rust-streebog+alloc-devel	0.11.0-2.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog+default-devel	0.11.0-2.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog+oid-devel	0.11.0-2.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog+zeroize-devel	0.11.0-2.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog-devel	0.11.0-2.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog0.9+default-devel	0.9.2-11.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog0.9+std-devel	0.9.2-11.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-streebog0.9-devel	0.9.2-11.fc45	fedora	Streebog (GOST R 34.11-2012) hash function
+rust-termtree+default-devel	1.0.0-2.fc45	fedora	Visualize tree-like data on the command-line
+rust-termtree-devel	1.0.0-2.fc45	fedora	Visualize tree-like data on the command-line
+rust-termtree0.5+default-devel	0.5.1-2.fc45	fedora	Visualize tree-like data on the command-line
+rust-termtree0.5-devel	0.5.1-2.fc45	fedora	Visualize tree-like data on the command-line
+rust-thread-tree+default-devel	0.3.3-9.fc45	fedora	Tree-structured thread pool for splitting jobs hierarchically on worker threads
+rust-thread-tree-devel	0.3.3-9.fc45	fedora	Tree-structured thread pool for splitting jobs hierarchically on worker threads
+rust-tracing-tree+default-devel	0.4.1-3.fc45	fedora	Tracing Layer which prints a tree of spans and events
+rust-tracing-tree+time-devel	0.4.1-3.fc45	fedora	Tracing Layer which prints a tree of spans and events
+rust-tracing-tree+tracing-log-devel	0.4.1-3.fc45	fedora	Tracing Layer which prints a tree of spans and events
+rust-tracing-tree-devel	0.4.1-3.fc45	fedora	Tracing Layer which prints a tree of spans and events
+rust-tree-house+default-devel	0.3.0-3.fc45	fedora	Robust and cozy highlighter library for tree-sitter
+rust-tree-house+fixtures-devel	0.3.0-3.fc45	fedora	Robust and cozy highlighter library for tree-sitter
+rust-tree-house-bindings+default-devel	0.2.1-3.fc45	fedora	Homey Rust bindings for the tree-sitter C library
+rust-tree-house-bindings+ropey-devel	0.2.1-3.fc45	fedora	Homey Rust bindings for the tree-sitter C library
+rust-tree-house-bindings-devel	0.2.1-3.fc45	fedora	Homey Rust bindings for the tree-sitter C library
+rust-tree-house-devel	0.3.0-3.fc45	fedora	Robust and cozy highlighter library for tree-sitter
+rust-tree-sitter+default-devel	0.26.11-1.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter+std-devel	0.26.11-1.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter-ada+default-devel	0.1.0-3.fc45	fedora	Ada grammar for tree-sitter
+rust-tree-sitter-ada-devel	0.1.0-3.fc45	fedora	Ada grammar for tree-sitter
+rust-tree-sitter-asm+default-devel	0.24.0-2.fc45	fedora	Assembly grammar for the tree-sitter parsing library
+rust-tree-sitter-asm-devel	0.24.0-2.fc45	fedora	Assembly grammar for the tree-sitter parsing library
+rust-tree-sitter-bash+default-devel	0.25.1-2.fc45	fedora	Bash grammar for tree-sitter
+rust-tree-sitter-bash-devel	0.25.1-2.fc45	fedora	Bash grammar for tree-sitter
+rust-tree-sitter-c+default-devel	0.24.2-2.fc45	fedora	C grammar for tree-sitter
+rust-tree-sitter-c-devel	0.24.2-2.fc45	fedora	C grammar for tree-sitter
+rust-tree-sitter-c-sharp+default-devel	0.23.5-2.fc45	fedora	C# grammar for tree-sitter
+rust-tree-sitter-c-sharp-devel	0.23.5-2.fc45	fedora	C# grammar for tree-sitter
+rust-tree-sitter-cli+default-devel	0.26.11-1.fc45	fedora	CLI tool for developing, testing, and using Tree-sitter parsers
+rust-tree-sitter-cli-devel	0.26.11-1.fc45	fedora	CLI tool for developing, testing, and using Tree-sitter parsers
+rust-tree-sitter-cmake+default-devel	0.7.4-1.fc45	fedora	CMake grammar for tree-sitter
+rust-tree-sitter-cmake+default-devel	0.7.5-1.fc45	updates	CMake grammar for tree-sitter
+rust-tree-sitter-cmake-devel	0.7.4-1.fc45	fedora	CMake grammar for tree-sitter
+rust-tree-sitter-cmake-devel	0.7.5-1.fc45	updates	CMake grammar for tree-sitter
+rust-tree-sitter-commonlisp+default-devel	0.4.1-2.fc45	fedora	Common Lisp grammar for the tree-sitter parsing library
+rust-tree-sitter-commonlisp-devel	0.4.1-2.fc45	fedora	Common Lisp grammar for the tree-sitter parsing library
+rust-tree-sitter-config+default-devel	0.26.11-1.fc45	fedora	User configuration of tree-sitter's command line programs
+rust-tree-sitter-config-devel	0.26.11-1.fc45	fedora	User configuration of tree-sitter's command line programs
+rust-tree-sitter-cpp+default-devel	0.23.4-5.fc45	fedora	C++ grammar for tree-sitter
+rust-tree-sitter-cpp-devel	0.23.4-5.fc45	fedora	C++ grammar for tree-sitter
+rust-tree-sitter-css+default-devel	0.25.0-2.fc45	fedora	CSS grammar for tree-sitter
+rust-tree-sitter-css-devel	0.25.0-2.fc45	fedora	CSS grammar for tree-sitter
+rust-tree-sitter-dart-orchard+default-devel	0.3.2-2.fc45	fedora	Parser for Dart files
+rust-tree-sitter-dart-orchard-devel	0.3.2-2.fc45	fedora	Parser for Dart files
+rust-tree-sitter-devel	0.26.11-1.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter-devicetree+default-devel	0.14.1-3.fc45	fedora	Tree-sitter parser for Devicetree files with Zephyr extended syntax
+rust-tree-sitter-devicetree-devel	0.14.1-3.fc45	fedora	Tree-sitter parser for Devicetree files with Zephyr extended syntax
+rust-tree-sitter-elisp+default-devel	1.6.1-3.fc45	fedora	Elisp grammar for the tree-sitter parsing library
+rust-tree-sitter-elisp-devel	1.6.1-3.fc45	fedora	Elisp grammar for the tree-sitter parsing library
+rust-tree-sitter-elixir+default-devel	0.3.5-5.fc45	fedora	Elixir grammar for the tree-sitter parsing library
+rust-tree-sitter-elixir-devel	0.3.5-5.fc45	fedora	Elixir grammar for the tree-sitter parsing library
+rust-tree-sitter-elm+default-devel	5.9.4-1.fc45	fedora	Elm grammar for tree-sitter
+rust-tree-sitter-elm-devel	5.9.4-1.fc45	fedora	Elm grammar for tree-sitter
+rust-tree-sitter-erlang+default-devel	0.16.0-2.fc45	fedora	Erlang grammar for the tree-sitter parsing library
+rust-tree-sitter-erlang-devel	0.16.0-2.fc45	fedora	Erlang grammar for the tree-sitter parsing library
+rust-tree-sitter-fortran+default-devel	0.5.1-2.fc45	fedora	Fortran grammar for the tree-sitter parsing library
+rust-tree-sitter-fortran-devel	0.5.1-2.fc45	fedora	Fortran grammar for the tree-sitter parsing library
+rust-tree-sitter-fsharp+default-devel	0.3.1-2.fc45	fedora	Fsharp grammar for the tree-sitter parsing library
+rust-tree-sitter-fsharp+default-devel	0.3.12-1.fc45	updates	Fsharp grammar for the tree-sitter parsing library
+rust-tree-sitter-fsharp-devel	0.3.1-2.fc45	fedora	Fsharp grammar for the tree-sitter parsing library
+rust-tree-sitter-fsharp-devel	0.3.12-1.fc45	updates	Fsharp grammar for the tree-sitter parsing library
+rust-tree-sitter-generate+default-devel	0.26.11-1.fc45	fedora	Library for generating C source code from a tree-sitter grammar
+rust-tree-sitter-generate+load-devel	0.26.11-1.fc45	fedora	Library for generating C source code from a tree-sitter grammar
+rust-tree-sitter-generate-devel	0.26.11-1.fc45	fedora	Library for generating C source code from a tree-sitter grammar
+rust-tree-sitter-gleam+default-devel	1.0.0-3.fc45	fedora	Gleam grammar for the tree-sitter parsing library
+rust-tree-sitter-gleam-devel	1.0.0-3.fc45	fedora	Gleam grammar for the tree-sitter parsing library
+rust-tree-sitter-go+default-devel	0.25.0-2.fc45	fedora	Go grammar for tree-sitter
+rust-tree-sitter-go-devel	0.25.0-2.fc45	fedora	Go grammar for tree-sitter
+rust-tree-sitter-haskell+default-devel	0.23.1-5.fc45	fedora	Haskell grammar for tree-sitter
+rust-tree-sitter-haskell-devel	0.23.1-5.fc45	fedora	Haskell grammar for tree-sitter
+rust-tree-sitter-hcl+default-devel	1.1.0-3.fc45	fedora	HCL and terraform grammar for tree-sitter
+rust-tree-sitter-hcl-devel	1.1.0-3.fc45	fedora	HCL and terraform grammar for tree-sitter
+rust-tree-sitter-highlight+default-devel	0.26.11-1.fc45	fedora	Library for performing syntax highlighting with Tree-sitter
+rust-tree-sitter-highlight-devel	0.26.11-1.fc45	fedora	Library for performing syntax highlighting with Tree-sitter
+rust-tree-sitter-html+default-devel	0.23.2-4.fc45	fedora	HTML grammar for tree-sitter
+rust-tree-sitter-html-devel	0.23.2-4.fc45	fedora	HTML grammar for tree-sitter
+rust-tree-sitter-java+default-devel	0.23.5-4.fc45	fedora	Java grammar for tree-sitter
+rust-tree-sitter-java-devel	0.23.5-4.fc45	fedora	Java grammar for tree-sitter
+rust-tree-sitter-javascript+default-devel	0.25.0-2.fc45	fedora	JavaScript grammar for tree-sitter
+rust-tree-sitter-javascript-devel	0.25.0-2.fc45	fedora	JavaScript grammar for tree-sitter
+rust-tree-sitter-json+default-devel	0.24.8-4.fc45	fedora	JSON grammar for tree-sitter
+rust-tree-sitter-json-devel	0.24.8-4.fc45	fedora	JSON grammar for tree-sitter
+rust-tree-sitter-julia+default-devel	0.23.1-4.fc45	fedora	Julia grammar for tree-sitter
+rust-tree-sitter-julia-devel	0.23.1-4.fc45	fedora	Julia grammar for tree-sitter
+rust-tree-sitter-language+default-devel	0.1.7-2.fc45	fedora	Tree-sitter Language type, used by the library and by language implementations
+rust-tree-sitter-language-devel	0.1.7-2.fc45	fedora	Tree-sitter Language type, used by the library and by language implementations
+rust-tree-sitter-loader+default-devel	0.26.11-1.fc45	fedora	Locates, builds, and loads tree-sitter grammars at runtime
+rust-tree-sitter-loader+tree-sitter-highlight-devel	0.26.11-1.fc45	fedora	Locates, builds, and loads tree-sitter grammars at runtime
+rust-tree-sitter-loader+tree-sitter-tags-devel	0.26.11-1.fc45	fedora	Locates, builds, and loads tree-sitter grammars at runtime
+rust-tree-sitter-loader-devel	0.26.11-1.fc45	fedora	Locates, builds, and loads tree-sitter grammars at runtime
+rust-tree-sitter-lua+default-devel	0.5.0-2.fc45	fedora	Lua grammar for tree-sitter
+rust-tree-sitter-lua-devel	0.5.0-2.fc45	fedora	Lua grammar for tree-sitter
+rust-tree-sitter-make+default-devel	1.1.1-4.fc45	fedora	Makefile grammar for tree-sitter
+rust-tree-sitter-make-devel	1.1.1-4.fc45	fedora	Makefile grammar for tree-sitter
+rust-tree-sitter-newick+default-devel	1.1.0-3.fc45	fedora	Parser for (extended) Newick files (nh, nwk, nhx)
+rust-tree-sitter-newick-devel	1.1.0-3.fc45	fedora	Parser for (extended) Newick files (nh, nwk, nhx)
+rust-tree-sitter-nix+default-devel	0.3.0-2.fc45	fedora	Nix grammar for the tree-sitter parsing library
+rust-tree-sitter-nix-devel	0.3.0-2.fc45	fedora	Nix grammar for the tree-sitter parsing library
+rust-tree-sitter-objc+default-devel	3.0.2-4.fc45	fedora	Objective-C grammar for tree-sitter
+rust-tree-sitter-objc-devel	3.0.2-4.fc45	fedora	Objective-C grammar for tree-sitter
+rust-tree-sitter-ocaml+default-devel	0.24.2-2.fc45	fedora	OCaml grammar for tree-sitter
+rust-tree-sitter-ocaml-devel	0.24.2-2.fc45	fedora	OCaml grammar for tree-sitter
+rust-tree-sitter-pascal+default-devel	0.10.0-3.fc45	fedora	Pascal grammar for the tree-sitter parsing library
+rust-tree-sitter-pascal-devel	0.10.0-3.fc45	fedora	Pascal grammar for the tree-sitter parsing library
+rust-tree-sitter-php+default-devel	0.23.11-5.fc45	fedora	PHP grammar for tree-sitter
+rust-tree-sitter-php-devel	0.23.11-5.fc45	fedora	PHP grammar for tree-sitter
+rust-tree-sitter-proto+default-devel	0.2.0-3.fc45	fedora	Parser for proto2 and proto3 files
+rust-tree-sitter-proto-devel	0.2.0-3.fc45	fedora	Parser for proto2 and proto3 files
+rust-tree-sitter-python+default-devel	0.25.0-2.fc45	fedora	Python grammar for tree-sitter
+rust-tree-sitter-python-devel	0.25.0-2.fc45	fedora	Python grammar for tree-sitter
+rust-tree-sitter-qmljs+default-devel	0.3.0-3.fc45	fedora	QML grammar for the tree-sitter parsing library
+rust-tree-sitter-qmljs+default-devel	0.3.1-1.fc45	updates	QML grammar for the tree-sitter parsing library
+rust-tree-sitter-qmljs-devel	0.3.0-3.fc45	fedora	QML grammar for the tree-sitter parsing library
+rust-tree-sitter-qmljs-devel	0.3.1-1.fc45	updates	QML grammar for the tree-sitter parsing library
+rust-tree-sitter-r+default-devel	1.2.0-3.fc45	fedora	R grammar for tree-sitter
+rust-tree-sitter-r-devel	1.2.0-3.fc45	fedora	R grammar for tree-sitter
+rust-tree-sitter-racket+default-devel	0.24.7-3.fc45	fedora	Racket parser for tree-sitter
+rust-tree-sitter-racket-devel	0.24.7-3.fc45	fedora	Racket parser for tree-sitter
+rust-tree-sitter-ruby+default-devel	0.23.1-5.fc45	fedora	Ruby grammar for tree-sitter
+rust-tree-sitter-ruby-devel	0.23.1-5.fc45	fedora	Ruby grammar for tree-sitter
+rust-tree-sitter-rust+default-devel	0.23.2-4.fc45	fedora	Rust grammar for tree-sitter
+rust-tree-sitter-rust-devel	0.23.2-4.fc45	fedora	Rust grammar for tree-sitter
+rust-tree-sitter-rust-orchard+default-devel	0.16.7-2.fc45	fedora	Grammar for Rust that aims to be closer to the actual AST
+rust-tree-sitter-rust-orchard-devel	0.16.7-2.fc45	fedora	Grammar for Rust that aims to be closer to the actual AST
+rust-tree-sitter-scala+default-devel	0.26.0-2.fc45	fedora	Scala grammar for tree-sitter
+rust-tree-sitter-scala+default-devel	0.26.2-1.fc45	updates	Scala grammar for tree-sitter
+rust-tree-sitter-scala-devel	0.26.0-2.fc45	fedora	Scala grammar for tree-sitter
+rust-tree-sitter-scala-devel	0.26.2-1.fc45	updates	Scala grammar for tree-sitter
+rust-tree-sitter-scheme+default-devel	0.24.7-3.fc45	fedora	Scheme grammar for tree-sitter
+rust-tree-sitter-scheme-devel	0.24.7-3.fc45	fedora	Scheme grammar for tree-sitter
+rust-tree-sitter-sequel+default-devel	0.3.11-4.fc45	fedora	Tree-sitter Grammar for SQL
+rust-tree-sitter-sequel-devel	0.3.11-4.fc45	fedora	Tree-sitter Grammar for SQL
+rust-tree-sitter-sfapex+default-devel	2.4.0-3.fc45	fedora	Salesforce Apex, SOQL, SOQL, and Log grammars for tree-sitter
+rust-tree-sitter-sfapex-devel	2.4.0-3.fc45	fedora	Salesforce Apex, SOQL, SOQL, and Log grammars for tree-sitter
+rust-tree-sitter-solidity+default-devel	1.2.13-3.fc45	fedora	Solidity grammar for the tree-sitter parsing library
+rust-tree-sitter-solidity-devel	1.2.13-3.fc45	fedora	Solidity grammar for the tree-sitter parsing library
+rust-tree-sitter-swift+default-devel	0.7.3-1.fc45	fedora	Swift grammar for the tree-sitter parsing library
+rust-tree-sitter-swift+default-devel	0.7.4-1.fc45	updates	Swift grammar for the tree-sitter parsing library
+rust-tree-sitter-swift-devel	0.7.3-1.fc45	fedora	Swift grammar for the tree-sitter parsing library
+rust-tree-sitter-swift-devel	0.7.4-1.fc45	updates	Swift grammar for the tree-sitter parsing library
+rust-tree-sitter-tags+default-devel	0.26.11-1.fc45	fedora	Library for extracting tag information
+rust-tree-sitter-tags-devel	0.26.11-1.fc45	fedora	Library for extracting tag information
+rust-tree-sitter-toml-ng+default-devel	0.7.0-4.fc45	fedora	TOML grammar for tree-sitter
+rust-tree-sitter-toml-ng-devel	0.7.0-4.fc45	fedora	TOML grammar for tree-sitter
+rust-tree-sitter-typescript+default-devel	0.23.2-5.fc45	fedora	TypeScript and TSX grammars for tree-sitter
+rust-tree-sitter-typescript-devel	0.23.2-5.fc45	fedora	TypeScript and TSX grammars for tree-sitter
+rust-tree-sitter-verilog+default-devel	1.0.3-3.fc45	fedora	Verilog grammar for tree-sitter
+rust-tree-sitter-verilog-devel	1.0.3-3.fc45	fedora	Verilog grammar for tree-sitter
+rust-tree-sitter-vhdl+default-devel	1.4.0-2.fc45	fedora	VHDL grammar for tree-sitter
+rust-tree-sitter-vhdl-devel	1.4.0-2.fc45	fedora	VHDL grammar for tree-sitter
+rust-tree-sitter-xml+default-devel	0.7.0-5.fc45	fedora	XML & DTD grammars for tree-sitter
+rust-tree-sitter-xml-devel	0.7.0-5.fc45	fedora	XML & DTD grammars for tree-sitter
+rust-tree-sitter-yaml+default-devel	0.7.2-2.fc45	fedora	YAML grammar for tree-sitter
+rust-tree-sitter-yaml-devel	0.7.2-2.fc45	fedora	YAML grammar for tree-sitter
+rust-tree-sitter-zig+default-devel	1.1.2-3.fc45	fedora	Zig grammar for tree-sitter
+rust-tree-sitter-zig-devel	1.1.2-3.fc45	fedora	Zig grammar for tree-sitter
+rust-tree-sitter0.23+default-devel	0.23.2-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.23+std-devel	0.23.2-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.23-devel	0.23.2-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.24+default-devel	0.24.7-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.24+std-devel	0.24.7-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.24-devel	0.24.7-5.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.25+default-devel	0.25.10-2.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.25+std-devel	0.25.10-2.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree-sitter0.25-devel	0.25.10-2.fc45	fedora	Rust bindings to the Tree-sitter parsing library
+rust-tree_magic_db+default-devel	3.0.1-5.fc45	fedora	FreeDesktop.org shared MIME database
+rust-tree_magic_db-devel	3.0.1-5.fc45	fedora	FreeDesktop.org shared MIME database
+rust-tree_magic_mini+default-devel	3.2.2-5.fc45	fedora	Determines the MIME type of a file by traversing a filetype tree
+rust-tree_magic_mini-devel	3.2.2-5.fc45	fedora	Determines the MIME type of a file by traversing a filetype tree
+rust-wasmparser+prefer-btree-collections-devel	0.243.0-2.fc45	fedora	Simple event-driven library for parsing WebAssembly binary files
+rust-zgvariant+ostree-tests-devel	1.2.0-2.fc45	fedora	Serde-based GVariant encoding & decoding
+rust-zvariant+ostree-tests-devel	5.15.0-2.fc45	fedora	D-Bus & GVariant encoding & decoding
+rust-zvariant+ostree-tests-devel	5.15.1-1.fc45	updates	D-Bus & GVariant encoding & decoding
+rust-zvariant4+ostree-tests-devel	4.2.0-5.fc45	fedora	D-Bus & GVariant encoding & decoding
+rust-zvariant4+ostree-tests-devel	4.2.0-6.fc45	updates	D-Bus & GVariant encoding & decoding
+subscription-manager-plugin-ostree	1.30.14-5.fc45	fedora	A plugin for handling OSTree content.
+texlive-adtrees	12:svn51618-8.fc45	fedora	Macros for drawing adpositional trees
+texlive-beamerthemejltree	12:svn21977-7.fc45	fedora	Contributed beamer theme
+texlive-binarytree	12:svn41777-4.fc45	fedora	Drawing binary trees using TikZ
+texlive-dirtree	12:svn77682-5.fc45	fedora	Display trees in the style of windows explorer
+texlive-dirtreex	12:svn78824-7.fc45	fedora	Directory tree rendering for LaTeX with TikZ
+texlive-dyntree	12:svn67016-3.fc45	fedora	Construct Dynkin tree diagrams
+texlive-ecltree	12:svn15878-8.fc45	fedora	Trees using epic and eepic macros
+texlive-familytree	12:svn63739-7.fc45	fedora	Draw family trees
+texlive-genealogytree	12:svn66513-4.fc45	fedora	Pedigree and genealogical tree diagrams
+texlive-gtrlib-largetrees	12:svn49062-4.fc45	fedora	Library for genealogytree aiming at large trees
+texlive-mptrees	12:svn70887-5.fc45	fedora	Probability trees with MetaPost
+texlive-nodetree	12:svn76924-4.fc45	fedora	Visualize node lists in a tree view
+texlive-prftree	12:svn77682-3.fc45	fedora	Macros for building proof trees
+texlive-prooftrees	12:svn78038-3.fc45	fedora	Forest-based proof trees (symbolic logic)
+texlive-pst-jtree	12:svn20946-3.fc45	fedora	Typeset complex trees for linguists
+texlive-pst-qtree	12:svn15878-3.fc45	fedora	Simple syntax for trees
+texlive-pst-tree	12:svn77682-3.fc45	fedora	Trees, using PSTricks
+texlive-qobitree	12:svn15878-8.fc45	fedora	LaTeX macros for typesetting trees
+texlive-qtree	12:svn15878-8.fc45	fedora	Draw tree structures
+texlive-rrgtrees	12:svn27322-8.fc45	fedora	Linguistic tree diagrams for Role and Reference Grammar (RRG) with LaTeX
+texlive-savetrees	12:svn77682-7.fc45	fedora	Optimise the use of each page of a LaTeX document
+texlive-synttree	12:svn16252-7.fc45	fedora	Typeset syntactic trees
+texlive-tikz-qtree	12:svn26108-4.fc45	fedora	Use existing qtree syntax for trees in TikZ
+texlive-tree-dvips	12:svn21751-8.fc45	fedora	Trees and other linguists' macros
+texlive-treesvr	12:svn71382-7.fc45	fedora	Tree macros
+texlive-treetex	12:svn28176-5.fc45	fedora	Draw trees
+texlive-willowtreebook	12:svn60638-7.fc45	fedora	Easy basic book class, built on memoir
+texlive-xytree	12:svn15878-7.fc45	fedora	Tree macros using XY-Pic
+tree	2.3.1-2.fc45	fedora	File system tree viewer
+tree-sitter-cli	0.26.11-1.fc45	fedora	CLI tool for developing, testing, and using Tree-sitter parsers
+tree-sitter-srpm-macros	0.4.6-2.fc45	fedora	RPM macros for Tree-sitter parsers
+treeland-protocols-devel	0.5.4-2.fc45	fedora	Development files for treeland-protocols
+treelayout	1.0.3-29.fc45	fedora	Efficient and customizable Tree Layout Algorithm in Java
+treelayout-demo	1.0.3-29.fc45	fedora	TreeLayout Core Demo
+treelayout-javadoc	1.0.3-29.fc45	fedora	Javadoc for treelayout
+treescan	4.81-9.fc45	fedora	Scan directory trees, list directories/files, stat, sync, grep
+vim-nerdtree	7.1.3-4.fc45	fedora	A tree explorer plugin for the editor Vim
+ytree	2.13-3.fc45	fedora	A file manager similar to XTree
+# exit: 0

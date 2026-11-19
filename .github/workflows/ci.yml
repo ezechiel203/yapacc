@@ -1,0 +1,274 @@
+name: CI
+
+# `cargo xtask ci` runs the jobs portable, musl, arch and families on a
+# developer's machine (crates/xtask); keep the two in step.
+#
+# Every action is pinned to a commit; the comment beside it names the
+# release that commit is. Dependabot (.github/dependabot.yml) proposes the
+# updates.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  CARGO_TERM_COLOR: always
+  # The toolchain of the release rehearsal: the one release.yml builds with.
+  RELEASE_TOOLCHAIN: "1.98.1"
+
+jobs:
+  # The portable core must build and pass on a host without pacman: every
+  # test of a pacman-only command checks here that the command refuses
+  # cleanly (tests/cli_smoke.rs).
+  portable:
+    name: Portable core (Ubuntu, no pacman)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      - name: Format check
+        run: cargo fmt --all -- --check
+      - name: Clippy (deny warnings)
+        run: cargo clippy --locked --workspace --no-default-features --features tui --all-targets -- -D warnings
+      - name: Clippy without any feature (deny warnings)
+        run: cargo clippy --locked --workspace --no-default-features --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --locked --workspace --no-default-features --features tui --all-targets
+      - name: Build release core
+        run: cargo build --release --locked --no-default-features --bin yapacc
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: yapacc-portable
+          path: target/release/yapacc
+          if-no-files-found: error
+
+  # The oldest toolchain the manifest promises (rust-version in Cargo.toml).
+  msrv:
+    name: Minimum supported Rust (1.89)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: "1.89"
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      - name: The declared rust-version is the one checked here
+        run: grep -qx 'rust-version = "1.89"' Cargo.toml
+      - name: Check, default features
+        run: cargo check --locked --workspace --all-targets
+      - name: Check, no feature
+        run: cargo check --locked --workspace --all-targets --no-default-features
+
+  # Licences and sources of the crates that are linked into what ships
+  # (deny.toml). The second half checks that the guard still bites: with the
+  # `alpm` feature (GPL-3.0 crates) the check must fail.
+  deny:
+    name: Licences and sources (cargo-deny)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Default features
+        uses: EmbarkStudios/cargo-deny-action@70f81531115945ba6eb6b941ec9d39d063438eb9 # v2.1.2
+        with:
+          command: check licenses bans sources
+          arguments: --locked
+      - name: With the alpm feature (expected to fail)
+        id: alpm
+        continue-on-error: true
+        uses: EmbarkStudios/cargo-deny-action@70f81531115945ba6eb6b941ec9d39d063438eb9 # v2.1.2
+        with:
+          command: check licenses bans
+          arguments: --locked --features alpm
+      - name: The alpm feature was rejected
+        env:
+          OUTCOME: ${{ steps.alpm.outcome }}
+        run: |
+          echo "cargo deny with --features alpm: $OUTCOME"
+          test "$OUTCOME" = failure
+
+  # One file for every distribution: the portable core linked statically
+  # against musl (ROADMAP M1). This exact artifact is what the families job
+  # runs, including on Alpine and Void where a glibc binary cannot start.
+  musl:
+    name: Static musl core
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: stable
+          targets: x86_64-unknown-linux-musl
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          key: musl
+      - name: Install musl-tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends musl-tools file
+      - name: Build static core
+        run: cargo build --release --locked --no-default-features --target x86_64-unknown-linux-musl --bin yapacc
+      - name: Verify it is static
+        run: |
+          bin=target/x86_64-unknown-linux-musl/release/yapacc
+          file "$bin"
+          file "$bin" | grep -Eq 'statically linked|static-pie linked'
+          # ldd prints "=>" lines only for a dynamic executable.
+          if ldd "$bin" 2>&1 | grep -q '=>'; then
+            echo "error: $bin has dynamic dependencies" >&2
+            ldd "$bin" >&2 || true
+            exit 1
+          fi
+          "$bin" --version
+      - name: Size budget (STRATEGY — core binary at most 6 MB)
+        run: |
+          bin=target/x86_64-unknown-linux-musl/release/yapacc
+          size=$(stat -c %s "$bin")
+          limit=$((6 * 1024 * 1024))
+          echo "core binary: $size bytes (limit $limit)"
+          test "$size" -le "$limit"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: yapacc-static
+          path: target/x86_64-unknown-linux-musl/release/yapacc
+          if-no-files-found: error
+
+  # The release, rehearsed: `cargo xtask dist` is what release.yml runs. It
+  # builds the x86_64 and the aarch64 archives, checks that the binaries are
+  # static and carry no path of the build machine, and starts the aarch64
+  # ones under qemu. Nothing is published from here.
+  dist:
+    name: Release rehearsal (cargo xtask dist, x86_64 and aarch64)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: ${{ env.RELEASE_TOOLCHAIN }}
+          targets: x86_64-unknown-linux-musl, aarch64-unknown-linux-musl
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          key: dist
+      - name: Install qemu-user (runs the aarch64 binaries)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends qemu-user
+      - name: cargo xtask dist
+        run: cargo run --locked --package xtask -- dist --require-aarch64
+      - name: The archives unpack to a working installation
+        run: |
+          set -eu
+          cd target/dist
+          sha256sum -c SHA256SUMS
+          version=$(sed -n '/^\[package\]/,/^\[/s/^version = "\(.*\)"$/\1/p' ../../Cargo.toml | head -n 1)
+          mkdir -p "$RUNNER_TEMP/prefix"
+          tar -xzf "yapacc-$version-x86_64-linux-musl.tar.gz" --strip-components=1 -C "$RUNNER_TEMP/prefix"
+          "$RUNNER_TEMP/prefix/bin/yapacc" --version
+          # the core finds its two components in lib/yapacc of the prefix
+          "$RUNNER_TEMP/prefix/bin/yapacc" --json doctor > doctor.json || true
+          jq -e '[.[] | select(.name | startswith("component:")) | .state] == ["ok", "ok"]' doctor.json
+
+  # On the one family where every lane exists. The first row is what the
+  # Arch package ships (default features: the pacman command-line lane);
+  # the second keeps the optional libalpm lane from rotting. That feature is
+  # for local builds only (Cargo.toml: the alpm crate is GPL-3.0).
+  arch:
+    name: Arch container (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: "default features", features: "" }
+          - { name: "alpm feature", features: "--features alpm" }
+    container:
+      image: archlinux:base-devel
+      options: --user root
+    steps:
+      - name: Install build dependencies
+        run: pacman -Syu --noconfirm git rust curl jq procps-ng which bubblewrap
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Clippy (deny warnings)
+        run: cargo clippy --locked --workspace --all-targets ${{ matrix.features }} -- -D warnings
+      - name: Full test suite
+        run: cargo test --locked --workspace --all-targets ${{ matrix.features }}
+      - name: Read-only command surface
+        run: |
+          ./target/debug/yapacc --help >/dev/null
+          ./target/debug/yapacc config
+          ./target/debug/yapacc --json platform | jq -e '.native_pkg_manager == "pacman"' >/dev/null
+          ./target/debug/yapacc --json why pacman | jq -e '.native.manager == "pacman"' >/dev/null
+          ./target/debug/yapacc --json capabilities | jq -e '.capabilities' >/dev/null
+          ./target/debug/yapacc --json list --limit 3 | jq -e 'type == "array"' >/dev/null
+          ./target/debug/yapacc inspect orphans >/dev/null
+          ./target/debug/yapacc remove orphans --dryrun >/dev/null
+
+  # The same portable binary must answer correctly on every tier-1 family,
+  # and on the recognised ones that have a native backend. It is the static
+  # artifact of the musl job: one file, no libc requirement.
+  # contrib/test/families.sh is the fuller, local version of this job (it
+  # also exercises the write side).
+  families:
+    name: Tier-1 families (${{ matrix.image }})
+    needs: musl
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { image: "debian:stable", manager: apt, pkg: bash }
+          - { image: "ubuntu:latest", manager: apt, pkg: bash }
+          - { image: "fedora:latest", manager: dnf, pkg: bash }
+          - { image: "archlinux:latest", manager: pacman, pkg: bash }
+          - { image: "opensuse/tumbleweed:latest", manager: zypper, pkg: bash, refresh: "zypper --non-interactive refresh" }
+          - { image: "alpine:latest", manager: apk, pkg: busybox, refresh: "apk update" }
+          - { image: "ghcr.io/void-linux/void-glibc:latest", manager: xbps, pkg: base-files, refresh: "xbps-install -S" }
+    container:
+      image: ${{ matrix.image }}
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: yapacc-static
+      - name: platform and why
+        run: |
+          chmod +x yapacc
+          ./yapacc platform
+          ./yapacc --json platform | grep -q '"native_pkg_manager": "${{ matrix.manager }}"'
+          ./yapacc --json why ${{ matrix.pkg }} | grep -q '"manager": "${{ matrix.manager }}"'
+          rc=0; ./yapacc why definitely-not-installed-xyz || rc=$?; test "$rc" -eq 4
+      # These images ship without a package index, and `search` reads it.
+      # The four tier-1 rows above are left exactly as they were.
+      - name: fetch the package index with the image's own tool
+        if: matrix.refresh
+        run: ${{ matrix.refresh }}
+      - name: portable read commands
+        run: |
+          ./yapacc list --limit 3
+          ./yapacc --json list --limit 3 | grep -q '^\['
+          ./yapacc search bash --limit 3
+          ./yapacc inspect owns /usr/bin/env
+          ./yapacc check
+      # Not in the pacman image: there the older pacman code path answers,
+      # and it exits 1 when no package is an orphan.
+      - name: inspect orphans (apt and dnf)
+        if: matrix.manager != 'pacman'
+        run: ./yapacc inspect orphans

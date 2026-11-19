@@ -1,0 +1,11 @@
+# cmd: tail -n 40 /var/log/dpkg.log
+2026-11-15 19:30:06 startup archives unpack
+2026-11-15 19:30:06 install tree:amd64 <none> 2.2.1-1
+2026-11-15 19:30:06 status half-installed tree:amd64 2.2.1-1
+2026-11-15 19:30:06 status unpacked tree:amd64 2.2.1-1
+2026-11-15 19:30:06 startup packages configure
+2026-11-15 19:30:06 configure tree:amd64 2.2.1-1 <none>
+2026-11-15 19:30:06 status unpacked tree:amd64 2.2.1-1
+2026-11-15 19:30:06 status half-configured tree:amd64 2.2.1-1
+2026-11-15 19:30:06 status installed tree:amd64 2.2.1-1
+# exit: 0

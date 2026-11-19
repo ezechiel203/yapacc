@@ -1,0 +1,63 @@
+Source: yapacc
+Section: admin
+Priority: optional
+Maintainer: Alexandre BETRY <ezechiel203@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ cargo:native,
+ rustc:native (>= 1.89),
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: https://github.com/ezechiel203/yapacc
+Vcs-Browser: https://github.com/ezechiel203/yapacc
+Vcs-Git: https://github.com/ezechiel203/yapacc.git
+
+Package: yapacc
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Suggests:
+ yapacc-tui,
+ yapacc-mcp,
+ flatpak,
+ curl,
+ bubblewrap,
+Description: optional companion to the native package manager
+ yapacc (Yet Another PACkage Companion) works beside apt without replacing
+ it. It tells where a package should come from, why something is installed
+ and where it came from, and it gates and records the changes made through
+ it.
+ .
+ It keeps no copy of what the native package manager knows, installs no
+ daemon, timer, hook or alias, and its read commands change nothing.
+ .
+ This package contains the core command line.
+
+Package: yapacc-tui
+Architecture: any
+Depends:
+ yapacc (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: optional companion to the native package manager - interactive interface
+ yapacc (Yet Another PACkage Companion) works beside apt without replacing
+ it: source resolution, provenance, and gated, recorded changes.
+ .
+ This package contains the interactive terminal interface started by
+ "yapacc i". Every action it offers is run by the core.
+
+Package: yapacc-mcp
+Architecture: any
+Depends:
+ yapacc (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: optional companion to the native package manager - MCP server
+ yapacc (Yet Another PACkage Companion) works beside apt without replacing
+ it: source resolution, provenance, and gated, recorded changes.
+ .
+ This package contains the Model Context Protocol server started by
+ "yapacc mcp". An AI assistant connected through it can read and can
+ propose; it cannot apply a change unless that is enabled in the
+ configuration.

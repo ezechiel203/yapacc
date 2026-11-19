@@ -1,0 +1,21 @@
+$ yapacc undo --dryrun
+Last transaction: 2026-11-19 13:08 (local)  (apt-get upgrade --with-new-pkgs -y)
+  installed   linux-image-6.12.117+deb13-amd64:amd64 6.12.117-1
+  upgraded    bind9-host:amd64 1:9.20.26-1~deb13u1 -> 1:9.20.30-1~deb13u1
+  upgraded    apt:amd64 3.0.3 -> 3.0.4
+  upgraded    tzdata:amd64 2026c-0+deb13u1 -> 2026f-0+deb13u1
+  …
+
+To undo it:
+  remove  linux-image-6.12.117+deb13-amd64:amd64
+  restore openssl:amd64 3.5.7-1~deb13u2  (from the configured repositories)
+  restore libpng16-16t64:amd64 1.6.48-1+deb13u5  (from the configured repositories)
+  restore zlib1g:amd64 1:1.3.dfsg+really1.3.1-1+b1  (from the configured repositories)
+  …
+
+…
+Will run:
+  sudo apt-get install -y --allow-downgrades -- openssl:amd64=3.5.7-1~deb13u2 …
+note: Undo restores package versions only. It does not restore configuration files or data that package scripts changed; a filesystem snapshot does.
+
+DRY-RUN: nothing was changed. Run again without --dryrun to apply.

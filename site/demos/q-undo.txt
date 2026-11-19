@@ -1,0 +1,14 @@
+$ yapacc undo
+Last transaction: 2026-11-19 13:08 (local)  (apt-get install -y -- curl)
+  upgraded    libcurl4t64:amd64 8.14.1-2+deb13u5 -> 8.14.1-2+deb13u7
+  upgraded    curl:amd64 8.14.1-2+deb13u5 -> 8.14.1-2+deb13u7
+
+To undo it:
+  restore curl:amd64 8.14.1-2+deb13u5  (from the configured repositories)
+  restore libcurl4t64:amd64 8.14.1-2+deb13u5  (from the configured repositories)
+
+…
+Undo this transaction [y/N]? y
+…
+Undone. `yapacc timeline` shows it as a new transaction.
+Verified: 2 of 2 package(s) are at the planned state.

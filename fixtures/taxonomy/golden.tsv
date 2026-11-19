@@ -1,0 +1,3678 @@
+0ad	games.strategy-rts
+6tunnel	network.vpn
+a52dec	development.lang-c-cpp
+aarch64-linux-gnu-glibc	development.lang-c-cpp
+abduco	desktop.display-managers
+abseil-cpp	development.lang-c-cpp
+acl	development.libraries
+acme-user	system.init-system
+acpi_call-lts	system.kernel-related
+activity-log-manager	desktop.display-managers
+add-determinism	
+adlplug-lv2	multimedia.music-production
+adobe-source-han-sans-cn-fonts	fonts.sans-serif
+adobe-source-han-sans-tw-fonts	fonts.sans-serif
+adobe-source-han-serif-otc-fonts	fonts.serif
+adsb_deku	cli.tui-apps
+adw-gtk-theme	desktop.themes-icons
+afl++	database.orm-drivers
+age	
+aichat	system.shells
+aida-x-vst3	
+aj-snapshot	
+akonadi-import-wizard	network.mail-clients
+alacarte	security.anonymity
+algernon	network.servers-web
+ali	graphics.plotting-visualization
+alligator	network.news-feeds
+alpine-keyring	
+alpm-mtree	
+alpm-srcinfo	
+alsa-plugins	
+alsa-utils	
+ambdec	development.regex-parsing
+amd-container-toolkit	
+ameba	development.static-analysis
+ammonite	games.mmo-mud
+amsynth-lv2	multimedia.music-production
+ananicy-cpp	development.lang-c-cpp
+android-tools	database.orm-drivers
+angle-grinder	
+ansible-lint	containers-virtualization.provisioners
+anthy	desktop.input-methods
+antlr4-runtime	development.lang-c-cpp
+apache	network.servers-web
+apko	cli.text-processing
+app-icon-preview	
+appstream	development.ides
+apt	cli.text-processing
+arandr	development.ides
+arch-hs	
+archlinux-appstream-data	cli.text-processing
+archlinux-wallpaper	desktop.themes-icons
+arch-repro-status	
+arduino-cli	
+argocd	devops.ci-cd
+argyllcms	graphics.color-tools
+ario	multimedia.audio-players
+armagetronad	
+arpack	
+arti	security.anonymity
+asciidoctor	security.anonymity
+asio	development.lang-c-cpp
+aspell-de	office.reference-dictionaries
+aspell-hu	office.reference-dictionaries
+aspell-pl	office.reference-dictionaries
+asplib	development.libraries
+aspnet-runtime	
+aspnet-targeting-pack	
+astroterm	science.astronomy
+atac	development.api-tools
+atkmm	development.lang-c-cpp
+atools	development.static-analysis
+at-spi2-core	
+atuin-server	cli.tui-apps
+audacity-docs	multimedia.audio-editors
+audio-convert	multimedia.audio-conversion
+audispd-plugins-zos	
+aurpublish	
+autoconf	development.build-tools
+autopep8	development.ides
+av1an	multimedia.codecs
+avidemux-cli	development.ides
+avogadro-fragments	science.chemistry
+avrdude	
+awesome-terminal-fonts	cli.prompt-shell-integration
+aws-c-event-stream	
+aws-cli-v2	
+aws-sdk-cpp	development.lang-c-cpp
+aws-sdk-cpp-kinesis	development.lang-c-cpp
+awxkit	containers-virtualization.provisioners
+azure-cli	cli.terminal-utilities
+babel-cli	development.lang-javascript
+backward-cpp	development.lang-c-cpp
+baloo	
+bandit	development.static-analysis
+barrage	
+bash-completion	system.shells
+bashtop	system.shells
+bat-extras	system.shells
+bats-support	development.libraries
+bcachefs-dkms	system.kernel-related
+bcc-libbpf-tools	development.compilers-interpreters
+beanshell	system.shells
+beets	development.lang-c-cpp
+benchmark	development.libraries
+bfs	system.terminal-emulators
+biblioteca	
+binaryen	development.compilers-interpreters
+binsider	development.ides
+biometric-authentication	
+bitcoin-qt	desktop.display-managers
+blackbox	desktop.window-managers
+blas64	science.math-numeric
+bleachbit	
+blisp	development.libraries
+blobwars	database.orm-drivers
+bluedevil	system.bluetooth
+bluez-cups	system.printing
+bluez-mesh	system.bluetooth
+blurble	
+bmusb	
+bogofilter-lmdb	database.embedded-db
+bolt	system.usb-thunderbolt
+booster	development.lang-c-cpp
+bore	network.vpn
+bottom	system.monitoring
+boxed-cpp	development.lang-c-cpp
+bpftrace	devops.monitoring-observability
+breeze5	development.lang-c-cpp
+breeze-icons	desktop.themes-icons
+brltty	
+brotli	system.archiving
+browserpass	network.browsers
+bslizr	network.chat-im
+btrbk	system.filesystems-tools
+bubblewrap	containers-virtualization.sandboxing
+budgie-control-center	desktop.desktop-environments
+budgie-session	desktop.desktop-environments
+buildah	containers-virtualization.image-tools
+bullet-docs	
+bun	development.testing
+busybox	cli.terminal-utilities
+c2hs	development.lang-haskell
+cabextract	
+cadaver	graphics.cad
+cairo-dock	desktop.panels-docks
+cairomm	development.lang-c-cpp
+caja-extensions-common	games.mmo-mud
+caja-share	desktop.display-managers
+calcurse	cli.text-processing
+calindori	office.calendar-pim
+camlp5	development.lang-functional
+cantor	security.anonymity
+caps	multimedia.music-production
+cardinal-standalone	multimedia.music-production
+cargo2junit	development.lang-rust
+cargo-audit	development.lang-rust
+cargo-c	development.lang-rust
+cargo-cyclonedx	development.lang-rust
+cargo-dist	development.lang-rust
+cargo-flamegraph	development.debuggers-profilers
+cargo-hack	development.lang-rust
+cargo-maelstrom	development.lang-rust
+cargo-nextest	development.lang-rust
+cargo-ratcn	development.lang-rust
+cargo-show-asm	development.lang-rust
+cargo-spellcheck	development.lang-rust
+cargo-udeps	development.lang-rust
+carla	multimedia.music-production
+cataclysm-dda	games.roguelike
+catdoc	security.anonymity
+cbatticon	system.power-management
+ccache	development.compilers-interpreters
+ccls	development.lang-c-cpp
+cdparanoia	development.vcs
+cellbroadcastd	system.terminal-emulators
+cern-vdt	development.libraries
+certbot-dns-dnsimple	network.dns-tools
+certbot-dns-inwx	network.dns-tools
+certbot-dns-rfc2136	network.dns-tools
+cfr	development.compilers-interpreters
+cgit-aurweb	development.vcs
+charls	development.lang-c-cpp
+check-docs	development.testing
+cherrytree	
+chicken	development.compilers-interpreters
+chntpw	system.time-date
+chrono-date	development.lang-c-cpp
+chuck	desktop.display-managers
+cinnamon-control-center	desktop.desktop-environments
+cinnamon-session	desktop.desktop-environments
+cjdns	network.dns-tools
+cksfv	
+clamui	security.anti-malware
+clang22	development.compilers-interpreters
+clap	multimedia.music-production
+cl-asdf-flv	development.ides
+clblast	science.math-numeric
+cl-fiveam	development.lang-functional
+clinfo	database.orm-drivers
+cliquer	
+cln	development.libraries
+cloudflare-speed-cli	system.terminal-emulators
+clpeak	system.launchers
+clthreads	development.lang-c-cpp
+clucene	development.lang-c-cpp
+cmake	development.build-tools
+cmctl	cli.terminal-utilities
+cni-plugins	
+cockpit-files	network.browsers
+cockpit-storaged	
+codesnap	system.terminal-emulators
+coin	development.libraries
+coin-or-coinutils	
+coin-or-osi	
+colord-gtk4	
+colord	
+communicator	security.anonymity
+compiler-rt21	development.compilers-interpreters
+compiz-core	
+composefs	containers-virtualization.image-tools
+concurrentqueue	development.lang-c-cpp
+conmon	system.monitoring
+containerd	containers-virtualization.container-engines
+contrast	system.terminal-emulators
+coolercontrold	security.anonymity
+copyq	desktop.clipboard
+corkscrew	network.vpn
+cosmic-app-library	development.libraries
+cosmic-icon-theme	desktop.themes-icons
+cosmic-notifications	desktop.notifications
+cosmic-randr	development.libraries
+cosmic-sound-theme	desktop.themes-icons
+cosmic-wallpapers	desktop.themes-icons
+couchdb	database.nosql
+cowsql	database.embedded-db
+cppcheck	development.lang-c-cpp
+cpptrace	development.lang-c-cpp
+cpuinfo	development.libraries
+crash	
+crictl	containers-virtualization.container-engines
+criu	
+crow-translate	
+crypto++	security.cryptography
+crystal	
+csound	network.chat-im
+ct	
+ctwm	desktop.window-managers
+cudss	development.libraries
+cups-filters	system.printing
+curlftpfs	network.download-managers
+cutensor	development.libraries
+cuyo	games.puzzle
+cxxopts	development.lang-c-cpp
+cyrus-sasl	
+d2	graphics.diagramming
+dante	network.servers-proxy
+darkstat	network.network-analysis
+dash	system.shells
+dav1d	multimedia.codecs
+dbc-parser-cpp	development.lang-c-cpp
+db	database.embedded-db
+dbus-docs	
+dcd	
+dcraw	development.vcs
+ddm	desktop.display-managers
+debootstrap	
+decoder	system.scanning
+deepin-anything	cli.file-search
+deepin-app-services	
+deepin-clipboard	desktop.clipboard
+deepin-desktop-schemas	development.ides
+deepin-downloader	network.download-managers
+deepin-font-manager	
+deepin-icon-theme	desktop.themes-icons
+deepin-lianliankan	games.puzzle
+deepin-pdfium	development.libraries
+deepin-printer	science.geospatial
+deepin-qt6platform-plugins	development.lang-c-cpp
+deepin-screensaver-pp	
+deepin-session-shell	system.shells
+deepin-system-monitor	system.monitoring
+deepin-util-dfm	system.file-managers
+default-cursors	
+deltachat-desktop	system.monitoring
+deno	development.lang-javascript
+desync	
+device-mapper	development.libraries
+dexed-clap	desktop.display-managers
+dfc	
+dgedit	
+dhall-json	
+dhcpcd	
+dialect	cli.text-processing
+diffnav	development.patch-review
+diff-so-fancy	development.patch-review
+digikam	network.dns-tools
+dioxus-cli	cli.terminal-utilities
+discount	
+disorderfs	system.filesystems-tools
+distrho-ports-lv2	games.strategy-rts
+distrobuilder	containers-virtualization.container-engines
+dive	desktop.panels-docks
+dleyna-docs	graphics.diagramming
+dmd-docs	
+dmtcp	
+dnsdist	network.dns-tools
+dnssec-anchors	network.dns-tools
+docbook-mathml	development.compilers-interpreters
+docbook-xsl	database.orm-drivers
+docker	desktop.panels-docks
+docx2txt	database.orm-drivers
+dolphin-emu	system.file-managers
+dontpanic	system.time-date
+dosbox	games.emulation
+dot-language-server	
+dotnet-runtime-9.0	development.lang-dotnet
+dotnet-sdk-9.0	development.lang-dotnet
+dotnet-source-built-artifacts-9.0	development.lang-dotnet
+dotnet-targeting-pack-9.0	development.lang-dotnet
+double-conversion	
+dovi-tool	graphics.diagramming
+dpf-plugins-clap	cli.text-processing
+dpf-plugins-standalone	cli.text-processing
+dqlite	database.embedded-db
+dracut-tpm2-totp	
+dragonfly-reverb-standalone	
+drawy	database.orm-drivers
+drm-info	
+drone-runner-ssh	
+drumgizmo	database.orm-drivers
+drumkv1-standalone	
+dsdp	development.ides
+dsq	system.terminal-emulators
+dtk6gui	development.lang-c-cpp
+dtkcore	development.lang-c-cpp
+dtools	
+duf	system.filesystems-tools
+dump_syms	network.browsers
+duperemove	system.filesystems-tools
+dvdauthor	
+dvisvgm	system.terminal-emulators
+e16	development.regex-parsing
+earlyoom	desktop.display-managers
+easy-pdk	
+easytier-core	network.vpn
+ecasound	cli.terminal-utilities
+ecm-tools	
+editline	cli.tui-apps
+edk2-riscv64	system.firmware
+efivar	
+egl-wayland2	database.orm-drivers
+eksctl	cli.terminal-utilities
+electron42	database.orm-drivers
+elektroid	
+element-web	office.suites
+elf2uf2-rs	system.file-managers
+elinks	network.browsers
+elvish	system.shells
+emacs-nox	development.editors-terminal
+embedded-mono-img	
+emby-theater	
+emptyepsilon	
+enchant	development.libraries
+enet	system.terminal-emulators
+enscript	system.printing
+eog	
+epic4	communications.irc
+erfa	science.astronomy
+erlang-dialyzer	development.lang-functional
+erlang-et	development.lang-functional
+erlang-inets	development.lang-functional
+erlang-observer	development.lang-functional
+erlang-reltool	development.lang-functional
+erlang-ssl	development.lang-functional
+erlang-xmerl	development.lang-functional
+esh	system.shells
+espeakup	security.anonymity
+espup	system.terminal-emulators
+etherape	security.anonymity
+eva	security.anonymity
+evince	office.pdf-viewers
+evolution-data-server	office.calendar-pim
+evtest	security.anonymity
+exiv2	development.libraries
+expected-lite	development.lang-c-cpp
+extra-cmake-modules	development.build-tools
+f3d	system.terminal-emulators
+facile	development.libraries
+falcosecurity-libs	
+fastd	network.vpn
+fatresize	system.disk-partitioning
+fbgrab	multimedia.screenshot
+fcft	development.libraries
+fcitx5-breeze	system.locale-i18n
+fcitx5-hangul	system.locale-i18n
+fcitx5-material-color	system.locale-i18n
+fcitx5-qt	system.locale-i18n
+fcitx5-table-other	system.locale-i18n
+fdkaac	
+featherpad	development.editors-terminal
+feeluown-netease	
+felix-rs	development.editors-terminal
+festival-us	
+ffmpeg	multimedia.video-transcoding
+fftw	development.libraries
+filebin	
+filezilla	network.file-transfer
+findomain	database.orm-drivers
+firecracker	system.terminal-emulators
+firefox-developer-edition-i18n-ach	network.browsers
+firefox-developer-edition-i18n-az	network.browsers
+firefox-developer-edition-i18n-bs	network.browsers
+firefox-developer-edition-i18n-cy	network.browsers
+firefox-developer-edition-i18n-en-ca	network.browsers
+firefox-developer-edition-i18n-es-cl	network.browsers
+firefox-developer-edition-i18n-fa	network.browsers
+firefox-developer-edition-i18n-fy-nl	network.browsers
+firefox-developer-edition-i18n-gu-in	network.browsers
+firefox-developer-edition-i18n-hu	network.browsers
+firefox-developer-edition-i18n-it	network.browsers
+firefox-developer-edition-i18n-km	network.browsers
+firefox-developer-edition-i18n-lv	network.browsers
+firefox-developer-edition-i18n-nb-no	network.browsers
+firefox-developer-edition-i18n-pa-in	network.browsers
+firefox-developer-edition-i18n-ro	network.browsers
+firefox-developer-edition-i18n-si	network.browsers
+firefox-developer-edition-i18n-sq	network.browsers
+firefox-developer-edition-i18n-te	network.browsers
+firefox-developer-edition-i18n-tr	network.browsers
+firefox-developer-edition-i18n-xh	network.browsers
+firefox	network.browsers
+firefox-i18n-ast	network.browsers
+firefox-i18n-br	network.browsers
+firefox-i18n-cs	network.browsers
+firefox-i18n-el	network.browsers
+firefox-i18n-es-ar	network.browsers
+firefox-i18n-eu	network.browsers
+firefox-i18n-fur	network.browsers
+firefox-i18n-gn	network.browsers
+firefox-i18n-hsb	network.browsers
+firefox-i18n-is	network.browsers
+firefox-i18n-kk	network.browsers
+firefox-i18n-lt	network.browsers
+firefox-i18n-my	network.browsers
+firefox-i18n-oc	network.browsers
+firefox-i18n-rm	network.browsers
+firefox-i18n-sc	network.browsers
+firefox-i18n-son	network.browsers
+firefox-i18n-ta	network.browsers
+firefox-i18n-trs	network.browsers
+firefox-i18n-vi	network.browsers
+firefoxpwa	network.browsers
+firejail	containers-virtualization.sandboxing
+firewalld-test	security.firewalls
+flac-doc	multimedia.codecs
+flashgbx	
+flatpak-docs	database.orm-drivers
+flawfinder	
+flint	development.lang-c-cpp
+flowblade	development.ides
+fluidsynth	multimedia.music-production
+fnlfmt	database.orm-drivers
+folks	development.libraries
+font-manager	system.monitoring
+foomatic-db-gutenprint-ppds	
+foot-terminfo	system.terminal-emulators
+forgejo	
+fortune-mod	cli.text-processing
+fpc	development.compilers-interpreters
+fq	
+framework-system	
+freecell-solver	desktop.display-managers
+freecol	cli.text-processing
+freeipmi	
+freerdp	network.remote-access
+freeverb3	development.libraries
+fribidi	
+frotz-ncurses	cli.tui-apps
+fsearch	system.terminal-emulators
+fswatch	security.anonymity
+ftjam	development.build-tools
+fuse2fs	system.virtual-filesystems
+fuse-overlayfs	system.virtual-filesystems
+fvm	
+fwupd-efi	system.firmware
+fzssh	development.libraries
+galculator	security.anonymity
+gambas3-gb-chart	
+gambas3-gb-crypt	
+gambas3-gb-db2-odbc	database.orm-drivers
+gambas3-gb-db-mysql	database.sql-servers
+gambas3-gb-desktop	system.monitoring
+gambas3-gb-form	database.orm-drivers
+gambas3-gb-gmp	
+gambas3-gb-highlight	cli.text-processing
+gambas3-gb-image-io	
+gambas3-gb-markdown	
+gambas3-gb-mongodb	database.nosql
+gambas3-gb-net-pop3	
+gambas3-gb-opengl	
+gambas3-gb-poppler	system.filesystems-tools
+gambas3-gb-qt6-webview	development.lang-c-cpp
+gambas3-gb-settings	
+gambas3-gb-v4l	development.ides
+gambas3-gb-web-gui	
+gambas3-ide	development.ides
+gamescope	desktop.window-managers
+gaphor	
+gavl	development.libraries
+gcc15-fortran	development.compilers-interpreters
+gcc-fortran	development.compilers-interpreters
+gcc-objc	development.compilers-interpreters
+gcolor3	cli.text-processing
+gcr	development.libraries
+gdbm	development.debuggers-profilers
+gdk-pixbuf2-docs	development.libraries
+gdu	system.terminal-emulators
+geckodriver	network.browsers
+gemini-cli	desktop.display-managers
+gengetopt	
+geocode-glib-docs	development.libraries
+geoip-database	office.mindmaps
+geonkick-lv2	multimedia.music-production
+gerbera	graphics.diagramming
+gexiv2	development.libraries
+gfold	development.vcs
+ggml-openvino	development.libraries
+ghc-libs	development.lang-haskell
+ghidra	
+ghostty-terminfo	
+gif2png	database.orm-drivers
+giggle	development.vcs
+gimp	multimedia.image-editors
+gimp-help-de	multimedia.image-editors
+gimp-help-es	multimedia.image-editors
+gimp-help-hu	multimedia.image-editors
+gimp-help-nl	multimedia.image-editors
+gimp-help-ro	multimedia.image-editors
+gimp-help-tr	multimedia.image-editors
+ginkgo-hpc-cuda	science.ai-ml
+gio-qt	
+git-branchless	development.vcs
+git-credential-oauth	development.vcs
+gitea-runner	development.vcs
+git-grab	development.vcs
+gitlab-container-registry	development.vcs
+gitlab-runner	development.vcs
+gitolite	development.vcs
+gitsign	development.vcs
+gitu	development.vcs
+gjs	development.lang-javascript
+glade	
+glbinding	development.lang-c-cpp
+glib2-docs	development.libraries
+glibmm-2.68-docs	development.lang-c-cpp
+glider	development.ides
+glm	development.lang-c-cpp
+gloox	development.lang-c-cpp
+glu	development.libraries
+glycin-gtk4	containers-virtualization.sandboxing
+gmm	development.lang-c-cpp
+gmt-doc	graphics.plotting-visualization
+gn	development.build-tools
+gnome-autoar	development.libraries
+gnome-break-timer	
+gnome-calls	
+gnome-commander	
+gnome-control-center	
+gnome-devel-docs	
+gnome-firmware	system.firmware
+gnome-initial-setup	system.terminal-emulators
+gnome-logs	office.notes
+gnome-mplayer	multimedia.video-players
+gnome-notes	
+gnome-photos	
+gnome-remote-desktop	network.remote-access
+gnome-shell-docs	system.shells
+gnome-shell-extension-desktop-icons-ng	system.shells
+gnome-software	
+gnome-taquin	
+gnome-tour	development.ides
+gnome-video-effects	development.ides
+gnucash-docs	
+gnugo	
+gnuplot-demos	graphics.plotting-visualization
+gnuradio-iqbal	
+gnustep-make	development.build-tools
+gobby	development.editors-terminal
+gocryptfs	graphics.scanning-ocr-graphics
+gofumpt	database.orm-drivers
+go-md2man	docs-knowledge.man-pages
+goocanvas	
+gopass-summon-provider	development.ides
+goreleaser	system.terminal-emulators
+go-tools	
+govulncheck	security.vulnerability-scanners
+gparted	system.disk-partitioning
+gpgme	security.cryptography
+gpicview	multimedia.image-viewers
+gpsbabel	development.lang-javascript
+gpsprune	
+gputils	
+gradle-doc	development.lang-jvm
+grafana-alloy	devops.monitoring-observability
+gram	security.anonymity
+granite	development.libraries
+graphicsmagick	graphics.image-processing-cli
+graphviz	graphics.diagramming
+greetd-gtkgreet	desktop.display-managers
+griffith	
+grobi	system.monitoring
+grpc-cli	
+grub-theme-vimix	development.editors-terminal
+gsettings-qt5	development.lang-c-cpp
+gsl	development.lang-c-cpp
+gsound	development.libraries
+gssproxy	
+gst-plugin-aws	graphics.diagramming
+gst-plugin-dav1d	multimedia.codecs
+gst-plugin-fallbackswitch	graphics.diagramming
+gst-plugin-gtk	graphics.diagramming
+gst-plugin-icecast	multimedia.streaming
+gst-plugin-livesync	graphics.diagramming
+gst-plugin-originalbuffer	graphics.diagramming
+gst-plugin-quinn	graphics.diagramming
+gst-plugin-rsanalytics	graphics.diagramming
+gst-plugin-rsflv	graphics.diagramming
+gst-plugin-rsrtsp	games.strategy-rts
+gst-plugins-bad-libs	graphics.diagramming
+gst-plugins-good	graphics.diagramming
+gst-plugin-streamgrouper	graphics.diagramming
+gst-plugin-textwrap	graphics.diagramming
+gst-plugin-webrtchttp	graphics.diagramming
+gstreamer	graphics.diagramming
+gthumb	multimedia.image-viewers
+gtk4-demos	database.orm-drivers
+gtk-doc	development.lang-c-cpp
+gtklock-userinfo-module	desktop.lock-screens
+gtk-session-lock	development.libraries
+gtksourceview5-docs	
+gtkspellmm-docs	science.ai-ml
+gtkwave	
+guake	cli.text-processing
+guichan	development.lang-c-cpp
+gulrak-filesystem	system.filesystems-tools
+gupnp-av-docs	development.libraries
+gupnp-igd	development.libraries
+guvcview-qt	development.ides
+gvfs-gphoto2	system.virtual-filesystems
+gvfs	system.virtual-filesystems
+gwenhywfar-gtk	development.libraries
+gxmessage	cli.text-processing
+hackrf	
+halp	system.printing
+handbrake	multimedia.video-transcoding
+harec	development.compilers-interpreters
+harfbuzz	
+hashcat	
+haskell-adjunctions	development.lang-haskell
+haskell-aeson-pretty	development.lang-haskell
+haskell-alsa-core	development.lang-haskell
+haskell-ansi-wl-pprint	development.lang-haskell
+haskell-arithmoi	development.lang-haskell
+haskell-asn1-types	development.lang-haskell
+haskell-atomic-write	development.lang-haskell
+haskell-authenticate-oauth	development.lang-haskell
+haskell-base16	development.lang-haskell
+haskell-basement	development.lang-haskell
+haskell-bencode	development.lang-haskell
+haskell-binary-orphans	development.lang-haskell
+haskell-bindings-uname	development.lang-haskell
+haskell-blaze-html	development.lang-haskell
+haskell-boring	development.lang-haskell
+haskell-breakpoint	development.lang-haskell
+haskell-butcher	development.lang-haskell
+haskell-bytes	development.lang-haskell
+haskell-bytestring-to-vector	development.lang-haskell
+haskell-cabal-install-parsers	development.lang-haskell
+haskell-casa-types	development.lang-haskell
+haskell-cborg-json	development.lang-haskell
+haskell-cheapskate	development.lang-haskell
+haskell-chunked-data	development.lang-haskell
+haskell-clash-lib	development.lang-haskell
+haskell-clock	development.lang-haskell
+haskell-co-log-core	development.lang-haskell
+haskell-commonmark	development.lang-haskell
+haskell-concurrent-extra	development.lang-haskell
+haskell-conduit	development.lang-haskell
+haskell-constraints	development.lang-haskell
+haskell-control-monad-free	development.lang-haskell
+haskell-cpphs	development.lang-c-cpp
+haskell-crypto-api-tests	development.lang-haskell
+haskell-cryptohash-sha1	development.lang-haskell
+haskell-crypton-conduit	development.lang-haskell
+haskell-crypton-pem	development.lang-haskell
+haskell-crypton-x509	development.lang-haskell
+haskell-curve25519	development.lang-haskell
+haskell-data-bword	development.lang-haskell
+haskell-data-default-instances-base	development.lang-haskell
+haskell-dataenc	development.lang-haskell
+haskell-data-inttrie	development.lang-haskell
+haskell-data-tree-print	development.lang-haskell
+haskell-dec	development.lang-haskell
+haskell-dependent-map	development.lang-haskell
+haskell-deriving-compat	development.lang-haskell
+haskell-dir-traverse	development.lang-haskell
+haskell-dlist	development.lang-haskell
+haskell-doctemplates	development.lang-haskell
+haskell-doctest-parallel	development.lang-haskell
+haskell-easy-file	development.lang-haskell
+haskell-edisoncore	development.lang-haskell
+haskell-emojis	development.lang-haskell
+haskell-equivalence	development.lang-haskell
+haskell-executable-path	development.lang-haskell
+haskell-fclabels	development.lang-haskell
+haskell-file-embed	development.lang-haskell
+haskell-filestore	development.lang-haskell
+haskell-fin	development.lang-haskell
+haskell-fmlist	development.lang-haskell
+haskell-foundation	development.lang-haskell
+haskell-gauge	development.lang-haskell
+haskell-generic-lens	development.lang-haskell
+haskell-geniplate-mirror	development.lang-haskell
+haskell-ghc-bignum-orphans	development.lang-haskell
+haskell-ghc-lib-parser-ex	development.lang-haskell
+haskell-ghc-syntax-highlighter	development.lang-haskell
+haskell-ghc-typelits-natnormalise	development.lang-haskell
+haskell-gi-cairo-render	development.lang-haskell
+haskell-gi-gdk3x11	development.lang-haskell
+haskell-gi-gio	development.lang-haskell
+haskell-gi-gsk	development.lang-haskell
+haskell-gi-harfbuzz	development.lang-haskell
+haskell-git-lfs	development.vcs
+haskell-glob	development.lang-haskell
+haskell-graphviz	development.lang-haskell
+haskell-gtk-scaling-image	development.lang-haskell
+haskell-haddock-library	development.lang-haskell
+haskell-happy-lib	development.lang-haskell
+haskell-hasql-dynamic-statements	development.lang-haskell
+haskell-heaps	development.lang-haskell
+haskell-heredoc	development.lang-haskell
+haskell-hie-compat	development.lang-haskell
+haskell-hjsmin	development.lang-haskell
+haskell-hls-call-hierarchy-plugin	development.lang-haskell
+haskell-hls-explicit-fixity-plugin	development.lang-haskell
+haskell-hls-gadt-plugin	development.lang-haskell
+haskell-hls-overloaded-record-dot-plugin	development.lang-haskell
+haskell-hls-rename-plugin	development.lang-haskell
+haskell-hoauth2	development.lang-haskell
+haskell-hourglass	development.lang-haskell
+haskell-hslogger	development.lang-haskell
+haskell-hslua-list	development.lang-haskell
+haskell-hslua-module-text	development.lang-haskell
+haskell-hslua-repl	development.lang-haskell
+haskell-hspec	development.lang-haskell
+haskell-hspec-expectations	development.lang-haskell
+haskell-hspec-meta	development.lang-haskell
+haskell-hsyaml-aeson	development.lang-haskell
+haskell-html-entity-map	development.lang-haskell
+haskell-http	development.lang-haskell
+haskell-http-common	development.lang-haskell
+haskell-http-media	development.lang-haskell
+haskell-hw-fingertree	development.lang-haskell
+haskell-hxt-regex-xmlschema	development.lang-haskell
+haskell-implicit-hie	development.lang-haskell
+haskell-indexed-traversable	development.lang-haskell
+haskell-input-parsers	development.lang-haskell
+haskell-integer-roots	development.lang-haskell
+haskell-io-storage	development.lang-haskell
+haskell-ipython-kernel	development.lang-haskell
+haskell-ixset-typed	development.lang-haskell
+haskell-js-flot	development.lang-haskell
+haskell-kan-extensions	development.lang-haskell
+haskell-lambdahack	development.lang-haskell
+haskell-language-glsl	development.lang-haskell
+haskell-lattices	development.lang-haskell
+haskell-lens-family-core	development.lang-haskell
+haskell-libmpd	development.lang-haskell
+haskell-lifted-base	development.lang-haskell
+haskell-listlike	development.lang-haskell
+haskell-loop	development.lang-haskell
+haskell-lsp-types	development.lang-haskell
+haskell-lumberjack	development.lang-haskell
+haskell-megaparsec	development.lang-haskell
+haskell-microlens-aeson	development.lang-haskell
+haskell-microlens-th	development.lang-haskell
+haskell-minimorph	development.lang-haskell
+haskell-mmap	development.lang-haskell
+haskell-mod	development.lang-haskell
+haskell-monad-loops	development.lang-haskell
+haskell-monadplus	development.lang-haskell
+haskell-monoid-subclasses	development.lang-haskell
+haskell-mueval	development.lang-haskell
+haskell-mutable-containers	development.lang-haskell
+haskell-nanospec	development.lang-haskell
+haskell-network-bsd	development.lang-haskell
+haskell-network	development.lang-haskell
+haskell-network-udp	development.lang-haskell
+haskell-nonempty-containers	development.lang-haskell
+haskell-numinstances	development.lang-haskell
+haskell-one-liner	development.lang-haskell
+haskell-openpgp-asciiarmor	development.lang-haskell
+haskell-optics-th	development.lang-haskell
+haskell-optparse-simple	development.lang-haskell
+haskell-pandoc	development.lang-haskell
+haskell-pango	development.lang-haskell
+haskell-paramtree	development.lang-haskell
+haskell-path	development.lang-haskell
+haskell-pcre-heavy	development.lang-haskell
+haskell-persistent-postgresql	development.lang-haskell
+haskell-pgp-wordlist	development.lang-haskell
+haskell-placeholders	development.lang-haskell
+haskell-posix-paths	development.lang-haskell
+haskell-prelude-extras	development.lang-haskell
+haskell-prettyprinter-ansi-terminal	development.lang-haskell
+haskell-primes	development.lang-haskell
+haskell-primitive	development.lang-haskell
+haskell-protolude	development.lang-haskell
+haskell-quickcheck-assertions	development.lang-haskell
+haskell-quickcheck-io	development.lang-haskell
+haskell-quote-quot	development.lang-haskell
+haskell-random	development.lang-haskell
+haskell-rawfilepath	development.lang-haskell
+haskell-recursion-schemes	development.compilers-interpreters
+haskell-reflection	development.lang-haskell
+haskell-regex-compat-tdfa	development.lang-haskell
+haskell-reinterpret-cast	development.lang-haskell
+haskell-rere	development.lang-haskell
+haskell-retry	development.lang-haskell
+haskell-roman-numerals	development.lang-haskell
+haskell-safecopy	development.lang-haskell
+haskell-sandwich	development.lang-haskell
+haskell-scientific	development.lang-haskell
+haskell-selective	development.lang-haskell
+haskell-serialise	development.lang-haskell
+haskell-servant-swagger	development.lang-haskell
+haskell-shakespeare	development.lang-haskell
+haskell-show-combinators	development.lang-haskell
+haskell-simple-sendfile	development.lang-haskell
+haskell-skylighting-core	development.lang-haskell
+haskell-skylighting-format-typst	development.lang-haskell
+haskell-snap-core	development.lang-haskell
+haskell-sop-core	development.lang-haskell
+haskell-split	development.lang-haskell
+haskell-src-exts-simple	development.lang-haskell
+haskell-statevar	development.lang-haskell
+haskell-stm-chans	development.lang-haskell
+haskell-storable-complex	development.lang-haskell
+haskell-store	development.lang-haskell
+haskell-strict-list	development.lang-haskell
+haskell-string-qq	development.lang-haskell
+haskell-svg-builder	development.lang-haskell
+haskell-tabular	development.lang-haskell
+haskell-tamarin-prover-export	development.lang-haskell
+haskell-tar-conduit	development.lang-haskell
+haskell-tasty-expected-failure	development.lang-haskell
+haskell-tasty-hunit	development.lang-haskell
+haskell-tasty-quickcheck	development.lang-haskell
+haskell-tasty-th	development.lang-haskell
+haskell-terminal-progress-bar	development.lang-haskell
+haskell-test-framework-hunit	development.lang-haskell
+haskell-texmath	development.lang-haskell
+haskell-text-builder	development.lang-haskell
+haskell-text-iso8601	development.lang-haskell
+haskell-text-rope	development.lang-haskell
+haskell-th-abstraction	development.lang-haskell
+haskell-th-expand-syns	development.lang-haskell
+haskell-threads	development.lang-haskell
+haskell-tidal-link	development.lang-haskell
+haskell-time-manager	development.lang-haskell
+haskell-tls	development.lang-haskell
+haskell-tostring	development.lang-haskell
+haskell-tuple-th	development.lang-haskell
+haskell-type-errors-pretty	development.lang-haskell
+haskell-tzdata	development.lang-haskell
+haskell-unbounded-delays	development.lang-haskell
+haskell-unicode-show	development.lang-haskell
+haskell-unix-compat	development.lang-haskell
+haskell-unordered-containers	development.lang-haskell
+haskell-url	development.lang-haskell
+haskell-validation-selective	development.lang-haskell
+haskell-vector-algorithms	development.lang-haskell
+haskell-vector-instances	development.lang-haskell
+haskell-vec	development.lang-haskell
+haskell-vty-unix	development.lang-haskell
+haskell-wai-extra	development.lang-haskell
+haskell-wai	development.lang-haskell
+haskell-wcwidth	development.lang-haskell
+haskell-wide-word	development.ides
+haskell-wizards	development.lang-haskell
+haskell-word8	development.lang-haskell
+haskell-x11-xft	development.lang-haskell
+haskell-xdg-desktop-entry	development.lang-haskell
+haskell-xml-helpers	development.lang-haskell
+haskell-yesod-auth	development.lang-haskell
+haskell-yesod-static	development.lang-haskell
+haskell-zinza	development.lang-haskell
+hatari	system.terminal-emulators
+hazelnut	cli.text-processing
+hcxkeys	
+hdf5-openmpi	development.libraries
+health	
+heh	
+help2man	
+hexedit	
+hexter	multimedia.music-production
+hieroglyphic	development.patch-review
+highway	development.ides
+hipblas	science.math-numeric
+hipify-clang	development.compilers-interpreters
+hipsolver	development.libraries
+hitori	games.puzzle
+hledger-ui	cli.tui-apps
+homebank	
+hotdoc	system.terminal-emulators
+hsa-rocr	graphics.scanning-ocr-graphics
+htmlcxx	development.lang-c-cpp
+httpbin	system.terminal-emulators
+httrack	network.browsers
+hunspell-el	office.reference-dictionaries
+hunspell-es_any	office.reference-dictionaries
+hunspell-es_cr	office.reference-dictionaries
+hunspell-es_gt	office.reference-dictionaries
+hunspell-es_pe	office.reference-dictionaries
+hunspell-es_ve	office.reference-dictionaries
+hunspell-hu	office.reference-dictionaries
+hunspell-ru	office.reference-dictionaries
+hwdata	development.ides
+hydra	development.patch-review
+hyperkitty	system.archiving
+hyphen-en	
+hyphen	development.libraries
+hyprgraphics	desktop.window-managers
+hyprland-qt-support	desktop.window-managers
+hyprpicker	graphics.color-tools
+hyprshutdown	desktop.window-managers
+hyprwire	system.terminal-emulators
+i3status	desktop.window-managers
+iana-etc	development.ides
+ibus	system.locale-i18n
+ibus-sunpinyin	system.locale-i18n
+ibus-unikey	system.locale-i18n
+icoextract	
+id3lib	development.libraries
+idris	
+ifplugd	
+igrep	
+ijs	development.libraries
+imapsync	
+immer	development.lang-c-cpp
+imv	multimedia.image-viewers
+incron	system.filesystems-tools
+indent	database.orm-drivers
+inferno	development.debuggers-profilers
+inja	development.lang-c-cpp
+inotify-tools	development.lang-c-cpp
+intel-gmmlib	development.libraries
+intel-lpmd	
+intel-metrics-discovery	development.libraries
+intel-oneapi-compiler-dpcpp-cpp-runtime	development.compilers-interpreters
+intel-oneapi-dev-utilities	
+intel-oneapi-openmp	development.libraries
+intel-pti	system.launchers
+interception-dual-function-keys	
+inxi	system.hardware-detection
+iotop	system.monitoring
+ipmitool	cli.terminal-utilities
+iptables	security.firewalls
+ipv6calc	
+ironbar	
+irssi	network.chat-im
+isoimagewriter	
+istio	devops.service-mesh
+iucode-tool	
+jaaa	
+jack-example-tools	
+jacktrip	database.orm-drivers
+jalv	system.terminal-emulators
+jansson	development.lang-c-cpp
+java-atk-wrapper-common	games.mmo-mud
+java-atk-wrapper-openjdk	development.compilers-interpreters
+java-commons-io	games.mmo-mud
+java-jline	development.lang-jvm
+java-rxtx	development.lang-jvm
+jc303-clap	
+jconvolver	
+jdk8-openjdk	development.compilers-interpreters
+jellyfin-ffmpeg	multimedia.video-transcoding
+jenkins	devops.ci-cd
+jhead	
+jlatexmath	science.math-symbolic
+jnv	development.regex-parsing
+jomon	network.network-analysis
+jp2a	graphics.terminal-graphics
+jre11-openjdk-headless	development.compilers-interpreters
+jre21-openjdk	development.compilers-interpreters
+jre-openjdk-headless	development.compilers-interpreters
+js140	development.compilers-interpreters
+json-c	
+jsonrpc-glib-docs	development.lang-c-cpp
+judy	development.lang-c-cpp
+jumpy	games.action
+jupyter-jsmol	science.data-analysis
+jupyterlab-rise	science.data-analysis
+jupyter-nbconvert	science.data-analysis
+jupyter-server	science.data-analysis
+jwt-ui	
+kaccounts-integration	
+kaffeine	multimedia.video-players
+kakoune-lsp	development.editors-terminal
+kalm	development.patch-review
+kanagram	
+kapptemplate	
+katomic	games.educational-games
+kbibtex	office.bibliography
+kbounce	graphics.cad
+kcachegrind	database.orm-drivers
+kclock	
+kcolorchooser	cli.text-processing
+kconfig5	
+kcoreaddons5	
+kcrash	
+kdbusaddons	
+kde-builder	
+kdecoration	development.libraries
+kde-education-meta	
+kdegraphics-thumbnailers	database.orm-drivers
+kde-network-meta	
+kdepim-runtime	office.calendar-pim
+kdesu	
+kdevelop-meta	development.ides
+kdiagram	graphics.diagramming
+kdlfmt	database.orm-drivers
+kdsingleapplication	
+keditbookmarks	docs-knowledge.bookmark-managers
+keepsecret	security.password-managers
+kew-data	database.orm-drivers
+keycloak-metrics-spi	development.ides
+keystone	database.orm-drivers
+kfr	development.lang-c-cpp
+kglobalaccel	
+kguiaddons5	
+khealthcertificate	security.cryptography
+kicad-demos	graphics.cad
+kiconthemes	desktop.themes-icons
+kidletime5	system.monitoring
+killbots	
+kimap	network.mail-servers
+kio-extras	
+kio-zeroconf	network.dns-tools
+kiriki	
+kitemviews	
+kitty-terminfo	system.terminal-emulators
+kjournald	office.notes
+kleopatra	security.cryptography
+klipper	system.firmware
+kmail-account-wizard	
+kmidimon	security.anonymity
+kmonad	desktop.input-methods
+kmscon	cli.text-processing
+knetwalk	
+knockd	
+knotifyconfig	network.dns-tools
+kodi-addon-audioencoder-vorbis	
+kodi-addon-inputstream-rtmp	multimedia.streaming
+kodi-addon-screensaver-matrixtrails	development.lang-ruby
+kodi-addon-visualization-shadertoy	
+kodi-eventclients	
+kolf	system.file-managers
+komodo	office.notes
+kongress	
+kontactinterface	development.libraries
+kopeninghours	development.libraries
+kpackage	
+kphotoalbum	
+kpmcore	development.libraries
+kquickcharts	games.strategy-rts
+krecorder	database.orm-drivers
+krfb	system.monitoring
+krun	cli.text-processing
+kscreen	system.terminal-multiplexers
+kshisen	system.shells
+ksnakeduel	
+kstars	science.astronomy
+ksystemlog	
+ktexteditor	development.editors-terminal
+ktimer	
+ktorrent	network.torrent
+kubeadm	desktop.display-managers
+kubectl-cert-manager	containers-virtualization.orchestration
+kubeone	containers-virtualization.orchestration
+kubetui	cli.tui-apps
+kuickshow	system.shells
+kuserfeedback	
+kvazaar	
+kwallet-pam	
+kwayland	development.libraries
+kwin	development.regex-parsing
+kxmlgui5	
+kylin-nm-plugin	development.libraries
+kyotocabinet	development.lang-c-cpp
+labwc	security.anonymity
+lager	development.lang-c-cpp
+lapack-doc	science.math-numeric
+laptop-detect	
+latex2html	security.anonymity
+lazarus	development.ides
+lazygit	development.vcs
+lcdproc	
+ld-lsb	
+ledger	cli.terminal-utilities
+lemonade-desktop	science.ai-ml
+leocad	graphics.cad
+leveldb	database.embedded-db
+lhasa	system.archiving
+lib32-at-spi2-core	development.libraries
+lib32-clang	development.compilers-interpreters
+lib32-directx-headers	development.libraries
+lib32-fontconfig	development.libraries
+lib32-gcc-libs	development.compilers-interpreters
+lib32-glu	development.libraries
+lib32-harfbuzz-icu	development.libraries
+lib32-json-glib	development.libraries
+lib32-libavtp	multimedia.codecs
+lib32-libdecor	development.ides
+lib32-libffi	development.libraries
+lib32-libgusb	system.locale-i18n
+lib32-libltdl	development.lang-c-cpp
+lib32-libnm	development.libraries
+lib32-libpsl	development.libraries
+lib32-libsndfile	development.lang-c-cpp
+lib32-libunistring	development.libraries
+lib32-libvorbis	database.orm-drivers
+lib32-libxcrypt-compat	development.libraries
+lib32-libxext	development.libraries
+lib32-libxkbcommon	desktop.input-methods
+lib32-libxrender	development.libraries
+lib32-libxv	development.ides
+lib32-mangohud	development.libraries
+lib32-ncurses	cli.tui-apps
+lib32-nvidia-utils	graphics.diagramming
+lib32-opus	multimedia.codecs
+lib32-pipewire	development.ides
+lib32-primus_vk	graphics.diagramming
+lib32-sndio	development.libraries
+lib32-systemd	system.init-system
+lib32-vulkan-broadcom	development.ides
+lib32-vulkan-intel	development.libraries
+lib32-vulkan-powervr	development.libraries
+lib32-vulkan-virtio	development.libraries
+lib32-zlib-ng-compat	development.libraries
+libabigail	development.libraries
+libad9361	development.libraries
+libaemu	development.libraries
+libappimage	office.calendar-pim
+libassuan	development.lang-c-cpp
+libavc1394	multimedia.codecs
+libayatana-indicator	development.libraries
+libblake3	development.libraries
+libblockdev-dm	development.libraries
+libblockdev-mpath	development.libraries
+libblockdev-swap	development.libraries
+libbsd	development.ides
+libcacard	graphics.terminal-graphics
+libcanberra	desktop.themes-icons
+libcddb	development.patch-review
+libcerf	development.ides
+libclapper	development.libraries
+libc++	development.lang-c-cpp
+libcoap	development.libraries
+libconfig	development.lang-c-cpp
+libcss	development.libraries
+libcurl-compat	network.download-managers
+libdatovka	development.libraries
+libdbi-drivers	database.sql-servers
+libdc1394	development.libraries
+libdex	development.libraries
+libdisplay-info	development.libraries
+libdom	development.libraries
+libdvdcss	games.roguelike
+libeatmydata	development.libraries
+libedit	development.libraries
+libemf	development.libraries
+libetebase	development.lang-c-cpp
+libevdev	development.libraries
+libexsid	development.libraries
+libfaketime	development.ides
+libfido2	development.libraries
+libfm-extra	development.libraries
+libforensic1394	security.forensics
+libftdi	development.libraries
+libgcc	development.compilers-interpreters
+libgda6-postgres	development.ides
+libgedit-gfls	development.libraries
+libgepub	office.ebooks
+libgirepository	development.libraries
+libglib-testing	system.terminal-emulators
+libgme	development.ides
+libgoa-docs	development.libraries
+libgoom2	development.libraries
+libgphoto2-docs	development.vcs
+libgsf-docs	development.libraries
+libgudev-docs	development.libraries
+libgweather-4-docs	development.libraries
+libharu	development.lang-c-cpp
+libhx	development.libraries
+libicns	development.libraries
+libidn	development.libraries
+libilbc	multimedia.codecs
+libindi	development.libraries
+libinput-tools	development.libraries
+libiptcdata	development.libraries
+libisoburn	development.libraries
+libjcat	development.libraries
+libjxl	database.orm-drivers
+libkdepim	office.calendar-pim
+libkeybinder3	development.libraries
+libkkc	development.libraries
+libkrunfw	development.lang-c-cpp
+libksysguard	development.libraries
+libkysdk-ai-private	development.libraries
+libkysdk-genai	graphics.diagramming
+liblc3	development.lang-c-cpp
+liblightdm-qt5	development.lang-c-cpp
+libloc	development.libraries
+liblqr	development.lang-c-cpp
+liblsp-audio-pipewire-lib	development.libraries
+liblzf	development.libraries
+libmanette-docs	development.libraries
+libmatio	development.lang-c-cpp
+libmcrypt	development.ides
+libmesode-doc	development.lang-c-cpp
+libmicrohttpd	development.build-tools
+libmms	development.libraries
+libmodsecurity	development.libraries
+libmpc	development.lang-c-cpp
+libmspub	development.libraries
+libmusicxml	development.lang-c-cpp
+libmysofa	development.lang-c-cpp
+libnbd	development.libraries
+libnetfilter_cthelper	development.libraries
+libnfc	development.libraries
+libnghttp3	development.libraries
+libnitrokey	development.libraries
+libnm	development.libraries
+libnova	development.libraries
+libnss_nis	development.libraries
+libnusqlite3	database.embedded-db
+libodfgen	development.libraries
+libolm	security.cryptography
+libopenmpt	development.libraries
+liborigin	development.libraries
+libotr	development.libraries
+libpam-google-authenticator	security.anonymity
+libpaper	development.libraries
+libpd	development.libraries
+libpeas	development.libraries
+libphonenumber	development.libraries
+libpkgmanifest	development.libraries
+libpoly	development.lang-c-cpp
+libportal-qt5	development.lang-c-cpp
+libprojectm	science.geospatial
+libpst	system.terminal-emulators
+libqalculate	cli.calculators
+libqrtr-glib	development.libraries
+libqxp	development.libraries
+libraw1394	development.ides
+libre-graph-api	office.suites
+libreoffice-fresh-am	office.suites
+libreoffice-fresh-bg	office.suites
+libreoffice-fresh-brx	office.suites
+libreoffice-fresh-cs	office.suites
+libreoffice-fresh-dsb	office.suites
+libreoffice-fresh-eo	office.suites
+libreoffice-fresh-fi	office.suites
+libreoffice-fresh-gd	office.suites
+libreoffice-fresh-hi	office.suites
+libreoffice-fresh-id	office.suites
+libreoffice-fresh-ka	office.suites
+libreoffice-fresh-kok	office.suites
+libreoffice-fresh-lo	office.suites
+libreoffice-fresh-ml	office.suites
+libreoffice-fresh-nb	office.suites
+libreoffice-fresh-nso	office.suites
+libreoffice-fresh-pl	office.suites
+libreoffice-fresh-ru	office.suites
+libreoffice-fresh-sdk	office.suites
+libreoffice-fresh-sl	office.suites
+libreoffice-fresh-st	office.suites
+libreoffice-fresh-te	office.suites
+libreoffice-fresh-tr	office.suites
+libreoffice-fresh-uz	office.suites
+libreoffice-fresh-zh-cn	office.suites
+libreoffice-still-ar	office.suites
+libreoffice-still-bn	office.suites
+libreoffice-still-bs	office.suites
+libreoffice-still-cy	office.suites
+libreoffice-still-dz	office.suites
+libreoffice-still-es	office.suites
+libreoffice-still-fr	office.suites
+libreoffice-still-gl	office.suites
+libreoffice-still-hr	office.suites
+libreoffice-still-it	office.suites
+libreoffice-still-km	office.suites
+libreoffice-still-ks	office.suites
+libreoffice-still-lv	office.suites
+libreoffice-still-mn	office.suites
+libreoffice-still-nl	office.suites
+libreoffice-still-om	office.suites
+libreoffice-still-pt	office.suites
+libreoffice-still-sat	office.suites
+libreoffice-still-sk	office.suites
+libreoffice-still-ss	office.suites
+libreoffice-still-ta	office.suites
+libreoffice-still-tr	office.suites
+libreoffice-still-uz	office.suites
+libreoffice-still-zh-cn	office.suites
+libre	development.libraries
+libressl	security.cryptography
+libretro-beetle-pce-fast	system.terminal-emulators
+libretro-blastem	science.math-numeric
+libretro-dolphin	system.file-managers
+libretro-mame	games.emulation
+libretro-mupen64plus-next	development.libraries
+libretro-play	development.libraries
+libretro-snes9x	games.emulation
+librime	desktop.input-methods
+librttopo	development.libraries
+libsbsms	development.libraries
+libsecret-docs	development.libraries
+libshout	development.libraries
+libsigc++-3.0	development.lang-c-cpp
+libsigrok	development.libraries
+libslirp	games.emulation
+libsodium	development.libraries
+libsoxr	multimedia.audio-conversion
+libspectre	development.libraries
+libspiro	development.libraries
+libsrtp	development.libraries
+libstaroffice-doc	cli.text-processing
+libstrophe-doc	development.lang-c-cpp
+libsysprof-capture	development.debuggers-profilers
+libteam-docs	development.libraries
+libtheora	development.ides
+libtomcrypt	security.cryptography
+libtpms	development.libraries
+libtsan	development.compilers-interpreters
+libuecc	development.libraries
+libunibreak	graphics.diagramming
+libunwind	development.libraries
+libusb-compat	system.locale-i18n
+libutf8proc	development.lang-c-cpp
+libva-utils	graphics.diagramming
+libvips	development.libraries
+libvirt-python	containers-virtualization.virtual-machines
+libvncserver	network.remote-access
+libvpl	development.ides
+libwapcaplet	development.libraries
+libwhich	development.libraries
+libwpd	development.libraries
+libx11	development.ides
+libxcb	development.ides
+libxcvt	development.libraries
+libxext	development.libraries
+libxfont2	development.libraries
+libxkbcommon-doc	desktop.input-methods
+libxlsxwriter	office.spreadsheets
+libxml2	development.libraries
+libxml++	development.lang-c-cpp
+libxnvctrl	graphics.diagramming
+libxrender	development.libraries
+libxss	development.libraries
+libxxf86vm	development.ides
+libyuv	development.libraries
+libzmf	development.libraries
+lifeograph	office.notes
+lightdm-pantheon-greeter	desktop.display-managers
+lightsoff	
+lilypond	
+lincity-ng	
+linux-apfs-rw-dkms	system.kernel-related
+linuxdoc-tools	database.orm-drivers
+linux-firmware-cirrus	system.firmware
+linux-firmware-mediatek	system.firmware
+linux-firmware-qcom	system.firmware
+linux-firmware-whence	system.firmware
+linux-lts-docs	
+linux-rt-headers	development.libraries
+linuxsampler	
+linux-zen-headers	development.libraries
+liquid-dsp	development.libraries
+lirc	communications.irc
+lite-xl	development.editors-terminal
+lksctp-tools	
+lld22	science.geospatial
+llhttp	
+llvm19	development.compilers-interpreters
+llvm21-libs	
+llvm-julia	development.compilers-interpreters
+lm32-elf-gcc	development.compilers-interpreters
+lmms	multimedia.music-production
+localsearch	system.filesystems-tools
+logcli	cli.terminal-utilities
+loki	devops.log-management
+loongarch64-linux-gnu-gdb	development.debuggers-profilers
+lostfiles	
+lowdown	
+lrzip	system.archiving
+lshw	system.hardware-detection
+lsp-plugins-clap	
+lsp-plugins-lv2	
+lsw	system.terminal-emulators
+lua51-alt-getopt	development.lang-lua
+lua51-bitop	system.monitoring
+lua51-compat53	
+lua51-dkjson	
+lua51-http	development.libraries
+lua51-linenoise	development.libraries
+lua51-luaossl	security.cryptography
+lua51-luautf8	
+lua51-mediator	security.anonymity
+lua51-psl	development.libraries
+lua51-std-debug	development.libraries
+lua51-testmore	development.testing
+lua52-alt-getopt	development.lang-lua
+lua52-bitop	system.monitoring
+lua52-compat53	
+lua52-dkjson	
+lua52-http	development.libraries
+lua52-loadkit	
+lua52-luaossl	security.cryptography
+lua52-luautf8	
+lua52-mediator	security.anonymity
+lua52-psl	development.libraries
+lua52-std-debug	development.libraries
+lua52-testmore	development.testing
+lua53-alt-getopt	development.lang-lua
+lua53-busted	development.testing
+lua53-cqueues	desktop.notifications
+lua53-fifo	development.libraries
+lua53-jsregexp	development.regex-parsing
+lua53-lpeg	
+lua53-luarocks-build-rust-mlua	development.lang-lua
+lua53-lut	
+lua53-penlight	
+lua53-sdl2	
+lua53-stdlib	development.libraries
+lua53-tl	development.compilers-interpreters
+lua54-argparse	
+lua54-cassowary	
+lua54-dbi	development.libraries
+lua54-filesystem	system.filesystems-tools
+lua54-lanes	development.libraries
+lua54-lpeg-patterns	
+lua54-luarocks	development.lang-lua
+lua54-luv	development.libraries
+lua54-posix	development.libraries
+lua54-semver	
+lua54-system	database.orm-drivers
+lua54-yaml	
+lua-binaryheap	
+lua-cldr	
+lua-decasify	development.ides
+lua-fluent	science.geospatial
+lua-lanes	development.libraries
+lua-loadkit	
+lua-luaossl	security.cryptography
+lua-luautf8	
+lua-mediator	security.anonymity
+luanti-server	containers-virtualization.sandboxing
+luarocks	development.lang-lua
+lua-socket	development.libraries
+lua-term	
+lua-yaml	
+luksmeta	security.cryptography
+lutris	games.game-launchers
+lv2lint	
+lxcfs	containers-virtualization.container-engines
+lxdm	desktop.display-managers
+lxmenu-data	system.monitoring
+lxqt-archiver	system.archiving
+lxqt-globalkeys	desktop.desktop-environments
+lxqt-policykit	desktop.desktop-environments
+lxqt-sudo	desktop.desktop-environments
+lxtask	desktop.desktop-environments
+ly	desktop.display-managers
+lzo	development.libraries
+m4	
+maelstrom-broker	
+maelstrom-worker	multimedia.streaming
+magma-hip	
+mailimporter	development.libraries
+mailnag-goa-plugin	
+make	development.build-tools
+mame	games.emulation
+mandown	docs-knowledge.man-pages
+man-pages-ar	docs-knowledge.man-pages
+man-pages-es	docs-knowledge.man-pages
+man-pages-it	docs-knowledge.man-pages
+man-pages-pl	docs-knowledge.man-pages
+man-pages-sv	docs-knowledge.man-pages
+man-pages-zh_tw	docs-knowledge.man-pages
+marble-common	games.mmo-mud
+mari0	
+mariadb-lts	database.sql-servers
+marisa	development.libraries
+markdown-oxide	development.ides
+marknote	network.dns-tools
+massif-visualizer	development.debuggers-profilers
+master_me-standalone	multimedia.streaming
+mate-applets	desktop.panels-docks
+mate-control-center	
+mate-menus	
+mate-power-manager	system.power-management
+mate-sensors-applet	desktop.panels-docks
+mate-themes	desktop.themes-icons
+matrix-appservice-irc	communications.irc
+mattermost	development.lang-go
+maui-clip	development.ides
+mauikit-filebrowsing	
+mauiman	development.lang-c-cpp
+maven	development.lang-jvm
+maxima-sbcl	science.math-symbolic
+mbox-importer	
+mcp-plugins	
+mdadm	system.monitoring
+mdds	
+mdk4	games.mmo-mud
+mediainfo-gui	graphics.diagramming
+mediawriter	graphics.diagramming
+meek	
+melange	
+memtest86+	
+mencoder	development.ides
+mercurial	development.vcs
+mesa-amber	
+meshbird	network.routing
+metadata-cleaner	
+mgard	
+micro	development.editors-terminal
+mididings-docs	
+milkytracker	system.terminal-emulators
+mimir	development.lang-jvm
+mingw-w64-gcc	development.compilers-interpreters
+minidlna	graphics.diagramming
+minisat	database.orm-drivers
+miniupnpd	
+miopen-hip	development.libraries
+mitmproxy2swagger	system.terminal-emulators
+mkcert	security.cryptography
+mkdocs	docs-knowledge.doc-generators
+mkinitcpio	
+mkinitcpio-tpm2-totp	
+mkvtoolnix-gui	multimedia.video-transcoding
+mmctl	development.lang-go
+mnxdom	database.orm-drivers
+modem-manager-gui	
+mod_passenger	
+monero-gui	
+mono	development.compilers-interpreters
+moonlight-qt	
+moreutils	
+most	system.terminal-emulators
+movit	development.ides
+mpd	multimedia.audio-players
+mpg123	multimedia.audio-players
+mpv-mpris	multimedia.video-players
+mruby	development.compilers-interpreters
+msgraph	development.libraries
+msolve	development.libraries
+mtpaint	
+muffin	network.mail-clients
+multilib-devel	development.libraries
+munge	development.lang-jvm
+mupdf	office.pdf-viewers
+musescore	
+mutter49	network.mail-clients
+mvt	security.forensics
+mypaint-brushes1	multimedia.image-editors
+mysql++	database.sql-servers
+mythes-fr	office.reference-dictionaries
+mythes-ro	office.reference-dictionaries
+namazu	
+nanosvg	
+nautilus-python	system.file-managers
+nawk	cli.text-processing
+ncdu	system.filesystems-tools
+ncompress	
+ndiff	development.patch-review
+nds32le-elf-gcc	development.compilers-interpreters
+nemo-audio-tab	system.file-managers
+nemo-image-converter	system.file-managers
+nemo-qml-plugin-notifications	system.file-managers
+neochat	cli.batch-automation
+neovim	development.editors-terminal
+netbeans	development.ides
+netcdf-fortran-openmpi	development.libraries
+nethack	games.roguelike
+netperf	development.debuggers-profilers
+netstandard-targeting-pack	
+nettle	development.lang-c-cpp
+networkmanager-docs	network.network-manager
+networkmanager-pptp	network.network-manager
+networkmanager-vpn-plugin-l2tp	network.vpn
+networkmanager-vpn-plugin-vpnc	network.vpn
+nextcloud-app-bookmarks	docs-knowledge.bookmark-managers
+nextcloud-app-news	network.news-feeds
+nextcloud-client	system.monitoring
+nftables	security.firewalls
+nginx-mainline-mod-mail	network.servers-web
+nginx-mod-acme	network.servers-web
+nginx-mod-geoip2	network.servers-web
+nginx-mod-memc	network.servers-web
+nginx-mod-njs-stream	network.servers-web
+nginx-mod-set-misc	network.servers-web
+nginx-src	network.servers-web
+nickel-docs	
+nikto	security.vulnerability-scanners
+nitrocli	cli.terminal-utilities
+njconnect	cli.tui-apps
+nmap	network.network-analysis
+nng	development.libraries
+nodejs-emojione	development.lang-javascript
+nodejs-nopt	development.lang-javascript
+noise-suppression-for-voice	
+nomad-driver-nspawn	containers-virtualization.orchestration
+notcurses	cli.tui-apps
+notmuch-mutt	network.mail-clients
+noto-fonts-emoji-3d	fonts.symbols-emoji
+npm-check-updates	development.lang-javascript
+nsd	network.dns-tools
+nspr	
+nsync	development.lang-c-cpp
+ntl	development.libraries
+nuklear	development.libraries
+numlockx	
+nvhpc-comm-libs	graphics.diagramming
+nvidia-open-dkms	system.kernel-related
+nvidia-utils	graphics.diagramming
+nvtop	system.monitoring
+nwg-dock	desktop.panels-docks
+nwg-look	security.anonymity
+nwg-shell	system.shells
+nzbget	network.download-managers
+obsidian	multimedia.streaming
+ob-xf-lv2	multimedia.music-production
+ocaml-augeas	development.lang-functional
+ocamlbuild	development.lang-functional
+ocaml-ctypes	development.lang-functional
+ocaml-hashcons	development.lang-functional
+ocaml-num	development.lang-functional
+ocaml-re	development.lang-functional
+ocaml-sha	development.lang-functional
+occt	system.monitoring
+ocrdesktop	graphics.scanning-ocr-graphics
+odin2-synthesizer	multimedia.music-production
+odin2-synthesizer-vst3	multimedia.music-production
+offlineimap	
+ogre	development.lang-c-cpp
+okteta	security.anonymity
+ollama-docs	science.ai-ml
+oneccl-arc	development.libraries
+onefetch	development.vcs
+oniri	desktop.display-managers
+onnxruntime-opt-rocm	science.ai-ml
+openai-codex-voice	
+openapi-tui	development.api-tools
+openbao-plugin-auth-github	development.vcs
+openbao-plugin-kms-gcp	
+openbao-plugin-secrets-aws	cli.text-processing
+openbao-plugin-secrets-nomad	containers-virtualization.orchestration
+openbox	desktop.window-managers
+opencc-doc	development.libraries
+opencl-nvidia	graphics.diagramming
+opencolorio	graphics.color-tools
+opencv	development.libraries
+opendht	development.lang-c-cpp
+openfact	
+opengl-man-pages	docs-knowledge.man-pages
+openipmi	database.orm-drivers
+openjdk11-src	development.compilers-interpreters
+openjdk25-doc	development.compilers-interpreters
+openjdk-src	development.compilers-interpreters
+openlibm	science.math-symbolic
+openmw	games.mmo-mud
+openpgl	development.libraries
+openpgp-ca	
+openrazer-daemon	games.strategy-rts
+openrgb	
+opensearch-alerting-plugin	
+opensearch-analysis-smartcn-plugin	
+opensearch-cli	
+opensearch-dashboards-maps-plugin	
+opensearch-dashboards-reports-plugin	games.strategy-rts
+opensearch-geospatial-plugin	science.geospatial
+opensearch-mapper-annotated-text-plugin	cli.text-processing
+opensearch-notifications-plugin	desktop.notifications
+opensearch-repository-azure-plugin	
+opensearch-sql-plugin	
+opensmtpd-filter-dkimsign	
+opensmtpd-table-postgres	database.sql-servers
+openssl	security.cryptography
+openttd	
+openvdb	
+open-vm-tools	containers-virtualization.virtual-machines
+openwiki	
+opnplug-standalone	multimedia.music-production
+opusfile	development.libraries
+or1k-elf-gdb	development.debuggers-profilers
+orbiton-nano	development.ides
+orc	development.compilers-interpreters
+osdbattery	system.power-management
+osmo	
+ossp	
+ot-bboi-docs	
+ot-chonk-standalone	desktop.display-managers
+ot-cryptid-vst3	multimedia.music-production
+otf-aurulent-nerd	development.lang-dotnet
+otf-cormorant	database.orm-drivers
+otf-fira-mono	development.lang-dotnet
+otf-hasklig-nerd	development.libraries
+otf-ipamjfont	cli.text-processing
+otf-material-icons	fonts
+otf-opendyslexic-nerd	development.libraries
+ot-keys-standalone	desktop.display-managers
+ot-simian-vst3	multimedia.music-production
+ouch	desktop.display-managers
+oxygen5	development.lang-c-cpp
+oxygen-sounds	desktop.themes-icons
+p2pool	cli.batch-automation
+package-notes	system.file-managers
+pacman-bintrans	
+pacman-offline	
+pacredir	network.dns-tools
+padthv1-lv2	multimedia.music-production
+palette	development.ides
+pam-krb5	science.robotics
+pam_wrapper	system.terminal-emulators
+pango	development.libraries
+pangomm-docs	development.lang-c-cpp
+pantheon-bluetooth-daemon	system.bluetooth
+pantheon-default-settings	
+pantheon-mail	
+pantheon-onboarding	
+pantheon-session	
+pantheon-terminal	system.terminal-emulators
+papers	database.orm-drivers
+pappl	development.libraries
+parallel-docs	cli.batch-automation
+pari-elldata	
+parla	
+partimage	database.orm-drivers
+pass-otp	security.password-managers
+pastel-docs	cli.terminal-utilities
+patchelf	system.file-managers
+pax	database.orm-drivers
+pciutils	development.libraries
+pcp-pmda-activemq	database.orm-drivers
+pcp-pmda-mysql	database.sql-servers
+pcp-pmda-postgresql	database.sql-servers
+pcsc-cyberjack	
+pdcurses	cli.tui-apps
+pdfio	development.lang-c-cpp
+pdfslicer	system.filesystems-tools
+pdnsd	network.dns-tools
+peco	
+pegtl	development.libraries
+percona-server-clients	database.sql-servers
+performous-freesongs	database.orm-drivers
+perl-alien-base-modulebuild	development.libraries
+perl-anyevent-i3	desktop.window-managers
+perl-app-docmake	development.build-tools
+perl-async-interrupt	development.libraries
+perl-b-debug-cpan	development.lang-perl
+perlbrew	
+perl-bytes-random-secure	security.cryptography
+perl-carp-always	desktop.display-managers
+perl-cgi-session	development.lang-perl
+perl-class-data-inheritable	development.libraries
+perl-class-methodmaker	development.build-tools
+perl-clone-choose	cli.text-processing
+perl-config-autoconf	development.build-tools
+perl-convert-asn1	development.lang-perl
+perl-cpanel-json-xs	development.lang-perl
+perl-crypt-blowfish	development.lang-perl
+perl-crypt-openssl-guess	security.cryptography
+perl-crypt-random-seed	development.ides
+perl-cryptx	security.cryptography
+perl-danga-socket	development.lang-perl
+perl-data-munge	development.libraries
+perl-data-uniqid	development.libraries
+perl-datetime-calendar-julian	office.calendar-pim
+perl-datetime-format-ical	database.orm-drivers
+perl-datetime-locale	system.locale-i18n
+perl-dbd-odbc	database.orm-drivers
+perl-dbi	development.libraries
+perl-devel-cycle	development.libraries
+perl-devel-stacktrace	development.libraries
+perl-digest-bubblebabble	network.dns-tools
+perl-dist-checkconflicts	development.libraries
+perl-email-address-xs	development.libraries
+perl-email-mime	development.libraries
+perl-email-simple	development.libraries
+perl-eval-closure	desktop.display-managers
+perl-extutils-cchecker	development.libraries
+perl-extutils-installpaths	development.libraries
+perl-fcgi	system.terminal-emulators
+perl-file-copy-recursive-reduced	development.libraries
+perl-file-find-rule-perl	games.mmo-mud
+perl-file-mmagic	development.libraries
+perl-file-readbackwards	development.libraries
+perl-file-sharedir-projectdistdir	science.geospatial
+perl-filesys-df	database.orm-drivers
+perl-font-ttf	development.lang-perl
+perl-gdtextutil	development.libraries
+perl-goocanvas2-cairotypes	development.libraries
+perl-graphics-toolkit-color	development.libraries
+perl-gtk3-simplelist	system.terminal-emulators
+perl-hook-lexwrap	development.libraries
+perl-html-parser	development.libraries
+perl-html-tagset	development.libraries
+perl-http-cookiejar	system.terminal-emulators
+perl-http-lite	development.lang-perl
+perl-ical-parser	development.lang-perl
+perl-importer	development.libraries
+perl-inline-filters	games.mmo-mud
+perl-io-captureoutput	development.libraries
+perl-io-multiplex	development.lang-perl
+perl-io-socket-ssl	desktop.display-managers
+perlio-via-dynamic	development.lang-perl
+perl-ipc-system-simple	development.libraries
+perl-json-xs	desktop.display-managers
+perl-libwww	development.ides
+perl-lingua-translit	development.libraries
+perl-list-moreutils-xs	development.ides
+perl-locale-maketext-lexicon	development.build-tools
+perl-log-message-simple	development.libraries
+perl-mail-authenticationresults	development.libraries
+perl-mail-imapclient	development.lang-perl
+perl-mailtools	development.libraries
+perl-math-round	development.libraries
+perl-mime-charset	database.orm-drivers
+perl-module-build-tiny	development.libraries
+perl-module-manifest	system.terminal-emulators
+perl-moo	system.terminal-emulators
+perl-mouse	development.libraries
+perl-namespace-clean	games.strategy-rts
+perl-net-dns-resolver-mock	network.dns-tools
+perl-net-idn-encode	development.ides
+perl-net-ipv6addr	development.lang-perl
+perl-net-oauth	development.libraries
+perl-net-ssleay	development.libraries
+perl-number-compare	development.libraries
+perl-object-realize-later	development.lang-perl
+perl-padwalker	development.libraries
+perl-params-validate	system.terminal-emulators
+perl-parse-recdescent	development.regex-parsing
+perl-path-isdev	development.libraries
+perl-perl-critic	development.libraries
+perl-pod-coverage	development.libraries
+perl-poe-component-client-dns	network.dns-tools
+perl-poe	development.libraries
+perl-ppix-utils	development.libraries
+perl-readonly	development.lang-jvm
+perl-rename	development.libraries
+perl-safe-isa	desktop.display-managers
+perl-sgmls	development.libraries
+perl-socket6	development.libraries
+perl-spiffy	development.libraries
+perl-string-shellquote	system.shells
+perl-sub-identify	development.ides
+perl-sub-prototype	development.libraries
+perl-switch	development.libraries
+perl-sys-virt	containers-virtualization.virtual-machines
+perl-term-progressbar	development.lang-perl
+perl-test2-tools-process	development.testing
+perl-test-exception	development.lang-perl
+perl-test-inter	system.terminal-emulators
+perl-test-mock-guard	development.libraries
+perl-test-most	system.terminal-emulators
+perl-test-output	system.terminal-emulators
+perl-test-requiresinternet	system.terminal-emulators
+perl-test-utf8	development.libraries
+perl-text-bibtex	office.bibliography
+perl-text-iconv	development.libraries
+perl-text-reform	database.orm-drivers
+perl-text-unidecode	development.ides
+perl-tie-cphash	development.lang-perl
+perl-timedate	science.electronics-eda
+perl-tk	development.libraries
+perl-type-tiny	development.libraries
+perl-universal-can	development.libraries
+perl-variable-magic	development.libraries
+perl-x11-protocol	development.lang-perl
+perl-xml-libxml-prettyprint	development.libraries
+perl-xml-parser-lite	development.regex-parsing
+perl-xml-sax-expat	development.libraries
+perl-xml-stream	development.lang-perl
+perl-yaml-libyaml	development.libraries
+permlib	development.lang-c-cpp
+pg_auto_failover	database.sql-servers
+pgpdump	database.orm-drivers
+phonegap	development.libraries
+phosh-tour	
+php-apcu	
+php-fpm	
+phpldapadmin	development.lang-php
+php-legacy-dblib	development.libraries
+php-legacy-grpc	development.lang-php
+php-legacy-odbc	database.orm-drivers
+php-legacy-snmp	
+php-libguestfs	development.lang-php
+php-pgsql	database.sql-servers
+php-sodium	
+phrase-pinyin-data	
+picocom	
+pigeonhole	network.mail-servers
+pimcommon	office.calendar-pim
+pinentry	cli.batch-automation
+pioneer	desktop.display-managers
+pipewire-alsa	development.ides
+pipewire-jack	development.ides
+pipewire-onnx	science.ai-ml
+pipewire-v4l2	development.ides
+pius	
+pkcs11-helper	development.ides
+pkgstats	science.geospatial
+planner	science.geospatial
+plasma5-integration	development.lang-c-cpp
+plasma-applet-window-buttons	desktop.panels-docks
+plasma-disks	system.monitoring
+plasma-meta	desktop.desktop-environments
+plasma-pass	security.password-managers
+plasmatube	development.ides
+plasma-workspace-wallpapers	desktop.themes-icons
+playerctl	development.libraries
+plotutils	graphics.plotting-visualization
+plymouth-kcm	desktop.themes-icons
+png++	development.lang-c-cpp
+pocl	desktop.display-managers
+podman-desktop	containers-virtualization.container-engines
+poke	security.anonymity
+polkit-kde-agent	
+polymake	development.build-tools
+popeye	development.debuggers-profilers
+poppler-glib	development.libraries
+popt	
+posix-c-development	system.shells
+posterazor	system.filesystems-tools
+postfix-lmdb	network.mail-servers
+postfix-sqlite	network.mail-servers
+postgresql-ip4r	database.sql-servers
+postgrey	network.mail-servers
+powerdns	network.dns-tools
+powertop	system.power-management
+ppp	
+pptpclient	network.vpn
+pre-commit	
+prettier	database.orm-drivers
+primus_vk	graphics.diagramming
+prjtrellis-db	science.geospatial
+procinfo-ng	database.orm-drivers
+profanity	network.chat-im
+progress	cli.terminal-utilities
+prometheus	devops.monitoring-observability
+prometheus-fastly-exporter	devops.monitoring-observability
+prometheus-nginx-exporter	network.servers-web
+prometheus-smartctl-exporter	system.filesystems-tools
+prometheus-unbound-exporter	network.dns-tools
+protege	security.anonymity
+protontricks	games.mmo-mud
+protozero	development.lang-c-cpp
+proxytunnel	network.vpn
+psensor	system.monitoring
+psmisc	
+ptunnel	network.vpn
+pulldown-cmark	games.mmo-mud
+pulseaudio-equalizer-ladspa	
+pulseaudio-zeroconf	
+puppet	containers-virtualization.provisioners
+pvoc	system.archiving
+py3status	desktop.window-managers
+pydf	system.filesystems-tools
+pypinyin	development.lang-python
+pyright	
+pystatgrab	development.libraries
+python-aafigure	graphics.terminal-graphics
+python-adblock	development.libraries
+python-agate-sql	development.libraries
+python-aiodns	network.dns-tools
+python-aiogram	network.chat-im
+python-aiohttp-openmetrics	development.ides
+python-aiomisc-pytest	development.testing
+python-aiorpcx	development.libraries
+python-aiothreads	development.libraries
+python-alpm	development.libraries
+python-aniso8601	development.libraries
+python-ansicolor	development.patch-review
+python-anysqlite	database.embedded-db
+python-apispec	development.api-tools
+python-aresponses	development.libraries
+python-argparse-manpage	docs-knowledge.man-pages
+python-arrow-adbc-driver-postgresql	database.sql-servers
+python-asgiref	development.libraries
+python-astral	development.libraries
+python-asttokens	database.orm-drivers
+python-asyncssh	development.libraries
+python-attrdict	development.ides
+python-audit	development.libraries
+python-authres	development.libraries
+python-av	development.libraries
+python-axolotl-curve25519	development.libraries
+python-backrefs	development.regex-parsing
+python-basemap	graphics.plotting-visualization
+python-beautifulsoup4	development.regex-parsing
+python-better-exceptions	development.libraries
+python-binaryornot	development.lang-python
+python-bleach	cli.text-processing
+python-blosc2	development.libraries
+python-boto3	development.libraries
+python-bracex	system.shells
+python-btrees	development.lang-jvm
+python-cached-ipaddress	development.libraries
+python-cairocffi	development.libraries
+python-caldav	development.libraries
+python-can	development.libraries
+python-cart	development.libraries
+python-cbor2	development.libraries
+python-cfgv	development.libraries
+python-chardet	security.anonymity
+python-cherrypy	development.libraries
+python-claripy	development.libraries
+python-click-aliases	development.libraries
+python-click	development.libraries
+python-cloudflare	development.lang-python
+python-cogapp	security.anonymity
+python-colored-traceback	desktop.display-managers
+python-commonmark	games.mmo-mud
+python-configclass	development.libraries
+python-constantly	desktop.display-managers
+python-copr	development.libraries
+python-cram	development.libraries
+python-crazy-complete	system.shells
+python-crispy-bootstrap4	database.orm-drivers
+python-cross-web	development.libraries
+python-cssbeautifier	security.anonymity
+python-cuda-bindings	development.libraries
+python-cudnn-frontend	development.libraries
+python-cupy-rocm-gfx9	development.libraries
+python-cvxopt	development.libraries
+python-cyclopts	cli.text-processing
+python-cysystemd	system.init-system
+python-daemonize	development.libraries
+python-dask	cli.batch-automation
+python-dateparser-docs	development.libraries
+python-dbus-deviation	development.libraries
+python-dbus	development.libraries
+python-decasify	development.ides
+python-dependency-groups	development.libraries
+python-diff-cover	development.patch-review
+python-discid	development.libraries
+python-distorm	database.orm-drivers
+python-django-allauth	science.geospatial
+python-django-debug-toolbar	database.orm-drivers
+python-django-guardian	development.libraries
+python-django-picklefield	development.libraries
+python-dleyna	development.libraries
+python-docs	development.libraries
+python-dogpile.cache	cli.text-processing
+python-dotty-dict	office.reference-dictionaries
+python-dulwich	development.vcs
+python-ebooklib	office.ebooks
+python-editor	security.anonymity
+python-elementpath	system.time-date
+python-enlighten	development.libraries
+python-erbsland-sphinx-ansi	docs-knowledge.doc-generators
+python-euclid3	development.libraries
+python-executing	database.orm-drivers
+python-extras	development.libraries
+python-falcon	system.terminal-emulators
+python-fastjsonschema	security.anonymity
+python-fastnumbers	system.terminal-emulators
+python-fast-zip-decryption	development.libraries
+python-feedparser-sgmllib	development.ides
+python-filetype	development.libraries
+python-fissix	development.libraries
+python-flake8	development.libraries
+python-flask-compress	development.libraries
+python-flask-mailman	development.libraries
+python-flask-paranoid	development.libraries
+python-flask-talisman	development.libraries
+python-flexparser	development.regex-parsing
+python-fluent.runtime	development.libraries
+python-fluidity	development.libraries
+python-fontpens	system.time-date
+python-fpylll	development.libraries
+python-frozendict	office.reference-dictionaries
+python-funcparserlib	development.libraries
+python-gaphas	development.libraries
+python-gdstk	development.lang-python
+python-geographiclib	development.libraries
+python-geopandas	science.data-analysis
+python-gflags	development.libraries
+python-github3py	development.vcs
+python-globre	development.libraries
+python-gobject-docs	development.libraries
+python-google-auth	development.libraries
+python-gpgme	security.cryptography
+python-granian	network.servers-web
+python-graph-tool	development.lang-python
+python-griffecli	development.libraries
+python-gssapi	development.ides
+python-guessit	development.ides
+python-h5netcdf	system.filesystems-tools
+python-halo	development.libraries
+python-hatch-fancy-pypi-readme	development.lang-python
+python-hatch-nodejs-version	development.lang-javascript
+python-heatclient	development.libraries
+python-hidapi	network.chat-im
+python-hishel	development.libraries
+python-hstspreload	development.lang-python
+python-html-text	development.libraries
+python-http-server-mock	network.servers-web
+python-httpx	development.libraries
+python-humanfriendly	desktop.display-managers
+python-hyperlink	development.libraries
+python-i3ipc	desktop.window-managers
+python-id	development.ides
+python-igraph	development.libraries
+python-immutabledict	development.libraries
+python-indexed-gzip	system.terminal-emulators
+python-inflection	development.lang-ruby
+python-intelhex	development.lang-python
+python-invoke	development.libraries
+python-ipip-ipdb	development.libraries
+python-ipython-autoimport	desktop.display-managers
+python-iso8601	development.libraries
+python-itanium-demangler	development.lang-c-cpp
+python-itsdangerous	security.password-managers
+python-janus	development.libraries
+python-jaraco.functools	development.libraries
+python-jaraco.test	system.terminal-emulators
+python-jellyfish	development.lang-python
+python-jiter	development.regex-parsing
+python-josepy	development.libraries
+python-json5	database.orm-drivers
+python-jsonpatch	database.orm-drivers
+python-json-rpc	development.libraries
+python-json-stream	development.regex-parsing
+python-jupyter-core	science.data-analysis
+python-jupyter-sphinx	science.data-analysis
+python-kaitaistruct	development.libraries
+python-keyring	development.libraries
+python-khoca	development.lang-c-cpp
+python-kubernetes	containers-virtualization.orchestration
+python-langchain-core	science.ai-ml
+python-langcodes	development.libraries
+python-langgraph-checkpoint-postgres	development.libraries
+python-language-data	cli.text-processing
+python-lazr.delegates	desktop.display-managers
+python-ldapdomaindump	database.orm-drivers
+python-lexicon	development.libraries
+python-libcamera	development.libraries
+python-libnmstate	development.libraries
+python-libusb1	system.locale-i18n
+python-linkify-it-py	development.libraries
+python-lmdb	database.embedded-db
+python-logfire-api	development.libraries
+python-log_symbols	development.libraries
+python-lsp-jsonrpc	development.ides
+python-lxc	containers-virtualization.container-engines
+python-lz4	system.archiving
+python-magic-wormhole-transit-relay	database.orm-drivers
+python-managesieve	desktop.display-managers
+python-marisa	development.libraries
+python-markdown-math	development.libraries
+python-marshmallow	development.libraries
+python-matroid-database	development.libraries
+python-mcp-types	development.libraries
+python-mediafile	development.libraries
+python-merge3	development.libraries
+python-mido	development.lang-python
+python-minio	development.lang-python
+python-ml-dtypes	science.math-numeric
+python-mongomock	database.nosql
+python-mpd2	multimedia.audio-players
+python-mpv-jsonipc	multimedia.video-players
+python-mujson	system.terminal-emulators
+python-multivolumefile	development.libraries
+python-mutagen	development.lang-python
+python-mysqlclient	database.sql-servers
+python-narwhals	science.data-analysis
+python-ndg-httpsclient	development.ides
+python-netcdf4	development.lang-c-cpp
+python-neutronclient	development.libraries
+python-nkdfu	system.firmware
+python-notify2	desktop.notifications
+python-ntlm-auth	development.libraries
+python-numpydoc	science.math-numeric
+python-nvtx	development.libraries
+python-odfpy	development.libraries
+python-onigurumacffi	development.libraries
+python-onnxruntime-opt-cuda	science.ai-ml
+python-openai-whisper	graphics.diagramming
+python-openbabel	development.lang-javascript
+python-openpyxl	development.lang-python
+python-opentelemetry-api	devops.monitoring-observability
+python-opentelemetry-exporter-otlp	system.power-management
+python-opentelemetry-instrumentation-aiohttp-client	devops.monitoring-observability
+python-opentelemetry-instrumentation-asyncpg	devops.monitoring-observability
+python-opentelemetry-instrumentation-dbapi	devops.monitoring-observability
+python-opentelemetry-instrumentation-flask	devops.monitoring-observability
+python-opentelemetry-instrumentation-logging	devops.monitoring-observability
+python-opentelemetry-instrumentation-psycopg	devops.monitoring-observability
+python-opentelemetry-instrumentation-sqlalchemy	database.orm-drivers
+python-opentelemetry-instrumentation-threading	devops.monitoring-observability
+python-opentelemetry-processor-baggage	devops.monitoring-observability
+python-opentelemetry-resource-detector-containerid	devops.monitoring-observability
+python-opentelemetry-test-utils	devops.monitoring-observability
+python-opt_einsum	science.math-numeric
+python-orjson	development.libraries
+python-oscpy	network.file-transfer
+python-oslo-db	development.libraries
+python-oslo-utils	development.libraries
+python-outcome	development.libraries
+python-packaging	development.lang-python
+python-pandas	science.data-analysis
+python-param	development.build-tools
+python-parso	development.patch-review
+python-pastedeploy	development.libraries
+python-pathable	development.libraries
+python-patsy	development.lang-python
+python-pcbnewtransition	development.libraries
+python-pdm-backend	system.terminal-emulators
+python-peewee	database.orm-drivers
+python-persistent	development.libraries
+python-phitigra	security.anonymity
+python-pigment64	development.libraries
+python-pillow-heif-docs	development.libraries
+python-pipcl	development.libraries
+python-pivy	development.libraries
+python-playwright	development.lang-python
+python-plotly	graphics.plotting-visualization
+python-podcastparser	multimedia.podcast
+python-poetry-plugin-up	science.geospatial
+python-polars-runtime-compat	science.data-analysis
+python-potr	development.libraries
+python-prctl	development.libraries
+python-prettytable	development.lang-python
+python-process-tests	development.libraries
+python-prompt_toolkit	cli.prompt-shell-integration
+python-proton-keyring-linux	development.libraries
+python-proxy_tools	development.libraries
+python-psycopg	database.sql-servers
+python-publicsuffix2	development.libraries
+python-purl	development.libraries
+python-pyacoustid	development.libraries
+python-pyaml	cli.text-processing
+python-pyasynchat	development.build-tools
+python-pybcj	development.libraries
+python-pycares	development.libraries
+python-pyclip	database.orm-drivers
+python-pycparser	security.anonymity
+python-pycryptodome	security.cryptography
+python-pycurl	network.download-managers
+python-pydantic-monty	containers-virtualization.sandboxing
+python-pydbus	development.libraries
+python-pydocket	desktop.panels-docks
+python-pydyf	system.filesystems-tools
+python-pyerfa	development.libraries
+python-pygal	development.libraries
+python-pygfxd	development.libraries
+python-pygobject-stubs	development.libraries
+python-pyicu	development.libraries
+python-pykeepass	security.password-managers
+python-pylatexenc	development.libraries
+python-pyliblo	development.lang-c-cpp
+python-pylint-plugin-utils	development.libraries
+python-pylsqpack	development.libraries
+python-pymdown-extensions	development.libraries
+python-pymupdf	office.pdf-viewers
+python-pynormaliz	database.orm-drivers
+python-pyopenssl	security.cryptography
+python-py-partiql-parser	development.libraries
+python-pyperformance	database.orm-drivers
+python-pyproject-api	science.geospatial
+python-pyqt5	development.lang-c-cpp
+python-pyqt6-charts	development.lang-c-cpp
+python-pyqt6-sip	development.lang-c-cpp
+python-pyreqwest	system.terminal-emulators
+python-pyrss2gen	network.news-feeds
+python-pysdl3	development.libraries
+python-pysmi	development.libraries
+python-pysolr	development.libraries
+python-pystemmer	database.orm-drivers
+python-pytesseract	graphics.scanning-ocr-graphics
+python-pytest-click	development.testing
+python-pytest-datadir	development.testing
+python-pytest-django	development.testing
+python-pytest-expect	development.testing
+python-pytest-httpbin	development.testing
+python-pytest-integration	development.testing
+python-pytest-localserver	development.testing
+python-pytest-mypy-plugins	development.testing
+python-pytest-param-files	development.testing
+python-pytest-randomly	development.testing
+python-pytest-rerunfailures	development.testing
+python-pytest-services	development.testing
+python-pytest-subtesthack	development.testing
+python-pytest-textual-snapshot	development.testing
+python-pytest-twisted	development.testing
+python-python-multipart	multimedia.streaming
+python-pytokens	development.libraries
+python-pytorch-opt-rocm	science.ai-ml
+python-pytorch-xpu	science.ai-ml
+python-pyuca	development.libraries
+python-pyvirtualdisplay	network.remote-access
+python-pyxbe	development.libraries
+python-pyyaml-env-tag	development.libraries
+python-qdldl	development.libraries
+python-qrencode	development.libraries
+python-qt-material	development.ides
+python-quart-trio	development.libraries
+python-rangehttpserver	development.libraries
+python-ratarmountcore	development.libraries
+python-reactivex	development.libraries
+python-rebulk	database.orm-drivers
+python-reflink	development.libraries
+python-repo-review	development.libraries
+python-requests-credssp	development.libraries
+python-requests-kerberos	science.robotics
+python-requests-ratelimiter	development.libraries
+python-resolvelib	network.dns-tools
+python-retrying	development.libraries
+python-rfc6555	development.libraries
+python-rjsmin	development.lang-javascript
+python-rope	development.libraries
+python-rpy2-robjects	development.libraries
+python-rtmidi	development.libraries
+python-ruff-api	development.libraries
+python-saml	development.libraries
+python-scapy	development.libraries
+python-scikit-image	graphics.image-processing-cli
+python-scs	development.libraries
+python-selinux	development.libraries
+python-sentinels	development.lang-javascript
+python-setuptools	development.lang-python
+python-setuptools-scm	development.lang-python
+python-should-dsl	development.libraries
+python-simpleitk	development.libraries
+python-siosocks	fonts.sans-serif
+python-smbprotocol	development.libraries
+python-snappy	development.libraries
+python-socksio	fonts.sans-serif
+python-soundfile	development.lang-python
+python-speg	development.compilers-interpreters
+python-sphinx-autoapi	docs-knowledge.doc-generators
+python-sphinx-book-theme	desktop.themes-icons
+python-sphinxcontrib-autoprogram	docs-knowledge.doc-generators
+python-sphinxcontrib-jquery	development.regex-parsing
+python-sphinxcontrib-qthelp	docs-knowledge.doc-generators
+python-sphinxext-opengraph	docs-knowledge.doc-generators
+python-sphinx-issues	docs-knowledge.doc-generators
+python-sphinx	docs-knowledge.doc-generators
+python-sphinx-theme-builder	desktop.themes-icons
+python-splat64	science.geospatial
+python-sqlalchemy	database.orm-drivers
+python-sqlparse	development.libraries
+python-sshtunnel	network.vpn
+python-standard-cgi	development.libraries
+python-standard-nntplib	system.time-date
+python-standard-telnetlib	network.remote-access
+python-statsmodels	science.statistics
+python-stevedore	development.libraries
+python-streamlit-pdf	system.filesystems-tools
+python-subunit	development.testing
+python-svgwrite	development.lang-python
+python-sympy	science.math-symbolic
+python-tabview	system.terminal-emulators
+python-tcolorpy	desktop.display-managers
+python-tenacity	development.libraries
+python-tensorflow-opt	science.ai-ml
+python-terminado	development.libraries
+python-testpath	system.terminal-emulators
+python-testtools	development.testing
+python-tftpy	development.libraries
+python-three-merge	development.lang-python
+python-tiktoken	system.terminal-emulators
+python-titlecase	development.libraries
+python-tlv8	development.lang-python
+python-tomli-w	development.libraries
+python-torchvision-cuda	graphics.diagramming
+python-tox	development.libraries
+python-traitlets	development.libraries
+python-trio	development.lang-python
+python-truststore	security.cryptography
+python-txtorcon	development.libraries
+python-typing-inspection	development.libraries
+python-ubjson	development.libraries
+python-uharfbuzz	development.libraries
+python-ulid-transform	database.orm-drivers
+python-unearth	development.lang-python
+python-unittest-mixins	system.terminal-emulators
+python-uritemplate	development.libraries
+python-urwid	development.libraries
+python-utidylib	development.libraries
+python-uv-build	development.lang-python
+python-validators	development.libraries
+python-vcversioner	development.vcs
+python-vigra	development.libraries
+python-vl-convert	graphics.plotting-visualization
+python-voluptuous	development.libraries
+python-waitress	development.libraries
+python-watchfiles	database.orm-drivers
+python-weasyprint	development.libraries
+python-webob	system.terminal-emulators
+python-webtest	system.terminal-emulators
+python-whelk	system.shells
+python-wiktionaryparser	office.reference-dictionaries
+python-wsgidav	system.virtual-filesystems
+python-wxpython	database.orm-drivers
+python-xattr	system.filesystems-tools
+python-xlrd	development.libraries
+python-xmlsec	development.libraries
+python-yaml	development.libraries
+python-yubico	development.libraries
+python-zeroconf	network.dns-tools
+python-zipp	development.libraries
+python-zodbpickle	development.libraries
+python-zope-deferredimport	network.dns-tools
+python-zope-i18nmessageid	system.locale-i18n
+python-zope-security	development.libraries
+python-zxcvbn	development.libraries
+pyzo	development.ides
+qastools	system.monitoring
+qcachegrind	database.orm-drivers
+qcoro	development.lang-c-cpp
+qemu-audio-alsa	containers-virtualization.virtual-machines
+qemu-audio-pipewire	containers-virtualization.virtual-machines
+qemu-block-dmg	containers-virtualization.virtual-machines
+qemu-chardev-spice	science.electronics-eda
+qemu-full	containers-virtualization.virtual-machines
+qemu-hw-display-virtio-gpu-pci	containers-virtualization.virtual-machines
+qemu-hw-display-virtio-vga	containers-virtualization.virtual-machines
+qemu-hw-usb-redirect	containers-virtualization.virtual-machines
+qemu-system-alpha-firmware	system.firmware
+qemu-system-hexagon	containers-virtualization.virtual-machines
+qemu-system-microblaze-firmware	system.firmware
+qemu-system-ppc	containers-virtualization.virtual-machines
+qemu-system-s390x	containers-virtualization.virtual-machines
+qemu-system-x86-firmware	system.firmware
+qemu-ui-curses	cli.tui-apps
+qemu-ui-sdl	containers-virtualization.virtual-machines
+qemu-user-static-binfmt	containers-virtualization.virtual-machines
+qgis	science.geospatial
+qhull	
+qmidiarp-standalone	security.anonymity
+qml-box2d	
+qopenvpn	network.vpn
+qps	
+qrca	system.scanning
+qrtfreader	development.libraries
+qscintilla-qt6	development.lang-c-cpp
+qsynth	
+qt5-imageformats	development.lang-c-cpp
+qt5-quickcontrols	development.lang-c-cpp
+qt5-tools	development.lang-c-cpp
+qt5-xmlpatterns	development.lang-c-cpp
+qt6-charts	development.lang-c-cpp
+qt6-doc	development.lang-c-cpp
+qt6-imageformats	development.lang-c-cpp
+qt6-mqtt	development.lang-c-cpp
+qt6-openapi	development.lang-c-cpp
+qt6-quickcontrols-nemo	development.lang-c-cpp
+qt6-sensors	development.lang-c-cpp
+qt6-svg	development.lang-c-cpp
+qt6-virtualkeyboard	development.lang-c-cpp
+qt6-webview	development.lang-c-cpp
+qtdbusextended	
+qtikz	graphics.diagramming
+qtpbfimageplugin-qt6	development.lang-c-cpp
+qtxdg-tools	
+quassel-common	games.mmo-mud
+quiche	
+quilt	development.build-tools
+qwindowkit	database.orm-drivers
+qxlsx	office.spreadsheets
+rabbitmqadmin	cli.terminal-utilities
+radare2	
+radicle-desktop	system.monitoring
+rage-encryption	security.cryptography
+rainfrog	cli.tui-apps
+rapidcheck	development.lang-c-cpp
+rapydscript-ng	development.lang-javascript
+rattler-build	system.terminal-emulators
+raylib	development.libraries
+rccl	development.libraries
+rdkit	database.orm-drivers
+readest	office.ebooks
+reapack	multimedia.audio-editors
+rebuild-detector	security.anonymity
+recode	games.strategy-rts
+redland-storage-postgresql	database.sql-servers
+redo-python	
+refine	
+rekor	
+remmina	network.remote-access
+repose	
+reproducible-faketools-date	
+reproducible-faketools-lib	development.libraries
+repro-get	
+restic	system.backup
+retroarch-assets-ozone	games.emulation
+retsnoop	
+rfdump	database.orm-drivers
+rhit	network.servers-web
+rhvoice-language-croatian	
+rhvoice-language-kyrgyz	
+rhvoice-language-slovak	
+rhvoice-voice-alan	
+rhvoice-voice-anna	
+rhvoice-voice-cezary	
+rhvoice-voice-evgeniy-eng	
+rhvoice-voice-jasietka	
+rhvoice-voice-lyubov	
+rhvoice-voice-mikhail	
+rhvoice-voice-ondro	
+rhvoice-voice-slt	
+rhvoice-voice-timofey	
+rhvoice-voice-volodymyr	
+rime-bopomofo	
+rime-essay	
+rime-prelude	
+rime-wugniu	
+ripgrep-all	cli.file-search
+riscv64-elf-gcc	development.compilers-interpreters
+riscv64-linux-gnu-gdb	development.debuggers-profilers
+river-classic	
+rkward	development.ides
+rng-tools	security.anonymity
+robotfindskitten	
+rocfft	
+rocksndiamonds	
+rocm-gdb	development.debuggers-profilers
+rocm-language-runtime	
+rocm-opencl-sdk	database.orm-drivers
+rocprofiler-register	development.debuggers-profilers
+rocrand	graphics.scanning-ocr-graphics
+rocthrust	development.libraries
+rofi-calc	system.launchers
+root	development.compilers-interpreters
+ropr	system.terminal-emulators
+roundcubemail-plugin-twofactor-webauthn	security.anonymity
+rpcsvc-proto	
+rpm-sequoia	
+rqbit-desktop	network.torrent
+r-simpleitk	development.libraries
+rss2email	network.news-feeds
+rtaudio	development.ides
+rtl-sdr	
+rtosc-docs	
+rubberband-lv2	development.libraries
+ruby-abbrev	development.libraries
+ruby	
+ruby-async	development.libraries
+ruby-async-http-cache	development.libraries
+ruby-async-safe	system.monitoring
+ruby-attr_extras	development.libraries
+ruby-bake	development.libraries
+ruby-bcrypt_pbkdf	system.filesystems-tools
+ruby-build	development.libraries
+ruby-bundler	development.lang-ruby
+ruby-childprocess	development.lang-ruby
+ruby-colorator	security.anonymity
+ruby-console	development.libraries
+ruby-cri	development.libraries
+ruby-cucumber-core	development.libraries
+ruby-cucumber-query	development.libraries
+ruby-debug	development.libraries
+ruby-docile	development.libraries
+ruby-dry-inflector	security.anonymity
+ruby-em-proxy	database.orm-drivers
+ruby-eventmachine	development.libraries
+ruby-falcon	network.servers-web
+ruby-faraday-multipart	database.orm-drivers
+ruby-faraday-retry	database.orm-drivers
+ruby-fiber-local	development.build-tools
+rubygems	
+ruby-globalid	development.build-tools
+ruby-haml	development.libraries
+ruby-hocon	database.orm-drivers
+ruby-http-form_data	database.orm-drivers
+ruby-immutable-struct	development.libraries
+ruby-irb	cli.terminal-utilities
+ruby-json-schema	database.orm-drivers
+ruby-language_server-protocol	development.libraries
+ruby-lint_roller	development.static-analysis
+ruby-llhttp-ffi	development.libraries
+ruby-loofah	cli.text-processing
+ruby-mail-gpg	security.cryptography
+ruby-markly	desktop.display-managers
+ruby-memoist3	development.libraries
+ruby-mercenary	cli.terminal-utilities
+ruby-metrics	development.libraries
+ruby-mini_portile2	development.build-tools
+ruby-minitest-memory	development.libraries
+ruby-minitest-reporters	system.terminal-emulators
+ruby-minitest-stub-const	system.terminal-emulators
+ruby-mkmf-lite	development.libraries
+ruby-multi_json	games.mmo-mud
+ruby-mustermann	development.libraries
+ruby-net-dns	network.dns-tools
+ruby-net-pop	development.libraries
+ruby-network_interface	development.libraries
+ruby-observer	multimedia.streaming
+ruby-paint	development.libraries
+ruby-parslet	development.libraries
+ruby-pcaprub	development.libraries
+ruby-pg	database.sql-servers
+ruby-prawn-icon	development.libraries
+ruby-process-metrics	development.ides
+ruby-protocol-rack	development.libraries
+ruby-ptools	development.libraries
+ruby-puppet-resource_api	containers-virtualization.provisioners
+ruby-rack-protection	development.lang-ruby
+ruby-rails-html-sanitizer	development.debuggers-profilers
+ruby-rake	development.build-tools
+ruby-rbs	development.libraries
+ruby-redcloth	development.libraries
+ruby-resolv-replace	network.dns-tools
+ruby-rr	system.terminal-emulators
+ruby-rspec-memory	development.libraries
+ruby-rss	network.news-feeds
+ruby-ruby-coverage	development.libraries
+ruby-ruby-rc4	development.libraries
+ruby-safe_yaml	development.libraries
+ruby-sass	development.build-tools
+ruby-sequel	development.libraries
+ruby-simplecov-html	database.orm-drivers
+ruby-slim	games.strategy-rts
+ruby-sqlite3	database.embedded-db
+ruby-subprocess	development.libraries
+ruby-sus-fixtures-benchmark	system.terminal-emulators
+ruby-syntax	development.lang-ruby
+ruby-temple	development.libraries
+ruby-test-unit	development.testing
+ruby-thor	cli.terminal-utilities
+ruby-tins	development.libraries
+ruby-traces	devops.monitoring-observability
+ruby-tzinfo	development.patch-review
+ruby-unicorn-engine	security.anonymity
+ruby-warnings_logger	desktop.display-managers
+ruby-x25519	development.patch-review
+rucola	cli.text-processing
+runst	system.terminal-emulators
+rustc-dev	development.compilers-interpreters
+rustnet	development.ides
+rustup	development.lang-rust
+rxvt-unicode-terminfo	
+s2n-tls	
+safeint	development.lang-c-cpp
+sagemath-doc	science.math-symbolic
+samba	
+samply	development.debuggers-profilers
+sarg	network.servers-proxy
+sbc	development.libraries
+sc3-plugins	development.ides
+scapy	
+schedtool	
+scim	database.orm-drivers
+scotch-metis	development.libraries
+scratch	
+screenkey	multimedia.screencast
+scummvm	containers-virtualization.virtual-machines
+sdbus-cpp-doc	development.lang-c-cpp
+sdedit	graphics.diagramming
+sdl2_image	development.libraries
+sdl3_image	development.libraries
+sdl_image	development.libraries
+sdparm	
+seatd	development.libraries
+semi	development.ides
+sentencepiece	cli.text-processing
+sequoia-sq	cli.terminal-utilities
+serf	development.libraries
+setbfree-common	games.mmo-mud
+setzer	security.anonymity
+sfizz-ui	development.libraries
+sg-323-lv2	development.vcs
+sh2-elf-gdb	development.debuggers-profilers
+shaderc	
+shairport-sync	multimedia.audio-players
+shared_meataxe	office.presentations
+sheldon	system.shells
+shfs-utils	system.shells
+shmdata	development.libraries
+showmethekey	
+shy	
+sigil	office.ebooks
+signond	database.orm-drivers
+signstar-configure	system.archiving
+sigrok-firmware-fx2lafw	system.firmware
+simde	
+simpleitk	system.monitoring
+sing-box	database.orm-drivers
+sip	development.build-tools
+skate	
+skktools	office.reference-dictionaries
+sleuthkit	security.forensics
+sloccount	
+slumber	development.api-tools
+smartdns	network.dns-tools
+smlnj	development.compilers-interpreters
+smplayer-skins	multimedia.video-players
+snapper	system.filesystems-tools
+snd	multimedia.audio-editors
+sniffit	network.network-analysis
+snowball	
+soapynetsdr	
+soapyrtlsdr	
+sofia-sip	development.libraries
+solanum	
+sonic	
+soplex	
+sord-docs	development.lang-c-cpp
+soundscope	cli.tui-apps
+sowing	
+sparsehash	development.libraries
+spectacle	multimedia.screenshot
+spectmorph-tools	
+speex	multimedia.codecs
+spice-protocol	science.electronics-eda
+spin	database.orm-drivers
+spirv-headers	development.libraries
+spotify-launcher	multimedia.audio-players
+spytrap-adb	system.terminal-emulators
+sqlite-analyzer	database.embedded-db
+sqlmap	
+squeak-vm	
+srgn	
+srslte	
+ssfconv	database.orm-drivers
+ssh-keyonly	desktop.display-managers
+sshtunnel	network.vpn
+sslsplit	system.terminal-emulators
+stalonetray	development.libraries
+stampdalf	multimedia.audio-players
+stb	development.lang-c-cpp
+stella	games.emulation
+step	
+stk-docs	development.lang-c-cpp
+stochas-standalone	
+stp	
+stress-ng	system.terminal-emulators
+s-tui	cli.tui-apps
+stylua	database.orm-drivers
+sudo-rs	
+sugar-activity-imageviewer	multimedia.image-viewers
+sugar-activity-read	
+sugar-artwork	desktop.themes-icons
+suil	development.lang-c-cpp
+sunpinyin-data	science.statistics
+superlu_dist	system.terminal-emulators
+supertuxkart	games.racing
+surge-xt-standalone	multimedia.music-production
+suwidgets	
+svt-av1	multimedia.codecs
+swaptop	system.monitoring
+swaylock	desktop.window-managers
+sweethome3d	
+swi-prolog	
+switchboard-plug-desktop	system.monitoring
+switchboard-plug-network	
+switchboard-plug-printers	
+switchboard-plug-wacom	
+sword	development.libraries
+syd	cli.text-processing
+symfpu	development.libraries
+sympow	
+syncthing	cli.file-sync
+syndication5	development.libraries
+synfigstudio	security.anonymity
+synthv1	development.vcs
+syslinux	system.boot-loaders
+syslog-ng	
+syslog-ng-sql	
+systembus-notify	desktop.notifications
+systemdgenie	system.init-system
+systemd-sysvcompat	system.init-system
+systemsettings	
+systray-x-kde	network.mail-clients
+taffybar	system.monitoring
+tali	games.card-board
+tangler	
+tar-scripts	system.backup
+taskwarrior-tui	office.notes
+tcl-brltty	
+tcplay	cli.text-processing
+tealdeer	system.terminal-emulators
+tecla	desktop.input-methods
+tela-circle-icon-theme-all	desktop.themes-icons
+tela-circle-icon-theme-green	desktop.themes-icons
+tela-circle-icon-theme-pink	desktop.themes-icons
+tela-circle-icon-theme-yellow	desktop.themes-icons
+telepathy-mission-control	
+template-glib-docs	development.libraries
+tensorflow-cuda	science.ai-ml
+termdown	
+termshark	network.network-analysis
+tesseract-data-afr	graphics.scanning-ocr-graphics
+tesseract-data-aze	graphics.scanning-ocr-graphics
+tesseract-data-bre	graphics.scanning-ocr-graphics
+tesseract-data-chi_sim	graphics.scanning-ocr-graphics
+tesseract-data-cos	graphics.scanning-ocr-graphics
+tesseract-data-deu	graphics.scanning-ocr-graphics
+tesseract-data-enm	graphics.scanning-ocr-graphics
+tesseract-data-fao	graphics.scanning-ocr-graphics
+tesseract-data-frk	graphics.scanning-ocr-graphics
+tesseract-data-glg	graphics.scanning-ocr-graphics
+tesseract-data-hin	graphics.scanning-ocr-graphics
+tesseract-data-ind	graphics.scanning-ocr-graphics
+tesseract-data-jpn	graphics.scanning-ocr-graphics
+tesseract-data-kaz	graphics.scanning-ocr-graphics
+tesseract-data-kor_vert	graphics.scanning-ocr-graphics
+tesseract-data-ltz	graphics.scanning-ocr-graphics
+tesseract-data-mon	graphics.scanning-ocr-graphics
+tesseract-data-nld	graphics.scanning-ocr-graphics
+tesseract-data-pan	graphics.scanning-ocr-graphics
+tesseract-data-ron	graphics.scanning-ocr-graphics
+tesseract-data-slk	graphics.scanning-ocr-graphics
+tesseract-data-sqi	graphics.scanning-ocr-graphics
+tesseract-data-swe	graphics.scanning-ocr-graphics
+tesseract-data-tgk	graphics.scanning-ocr-graphics
+tesseract-data-tur	graphics.scanning-ocr-graphics
+tesseract-data-uzb	graphics.scanning-ocr-graphics
+testssl.sh	
+texi2html	games.strategy-rts
+texlive-binextra	
+texlive-fontsrecommended	
+texlive-langarabic	
+texlive-langenglish	
+texlive-langitalian	development.vcs
+texlive-langportuguese	
+texlive-luatex	
+texlive-pictures	graphics.diagramming
+texmaker	development.build-tools
+tftp-hpa	
+thermald	
+threadweaver	
+thunar-media-tags-plugin	system.file-managers
+thunderbird-dark-reader	network.mail-clients
+thunderbird-i18n-bg	network.mail-clients
+thunderbird-i18n-cy	network.mail-clients
+thunderbird-i18n-en-gb	network.mail-clients
+thunderbird-i18n-eu	network.mail-clients
+thunderbird-i18n-gd	network.mail-clients
+thunderbird-i18n-hu	network.mail-clients
+thunderbird-i18n-ja	network.mail-clients
+thunderbird-i18n-lt	network.mail-clients
+thunderbird-i18n-pa-in	network.mail-clients
+thunderbird-i18n-ro	network.mail-clients
+thunderbird-i18n-sr	network.mail-clients
+thunderbird-i18n-uz	network.mail-clients
+thunderbird-ublock-origin	network.mail-clients
+tilda	cli.text-processing
+timeshift	system.backup
+tinc	network.vpn
+tinygo	development.compilers-interpreters
+tinysparql-docs	system.filesystems-tools
+tinyxxd	development.editors-terminal
+tldr	docs-knowledge.cheatsheets
+tlp-pd	system.power-management
+tmate	
+toastify	system.monitoring
+tokodon	
+tomcat-native	database.orm-drivers
+toolbox	
+torbrowser-launcher	network.browsers
+totem-pl-parser	multimedia.video-players
+tpm2-abrmd	database.orm-drivers
+tpm2-totp	system.terminal-emulators
+tracer	
+translate-toolkit	development.patch-review
+transmission-remote-gtk	network.torrent
+treeland	
+tree-sitter-c	
+tree-sitter-markdown	
+tree-sitter-vim	development.editors-terminal
+trojan	development.ides
+ts-node	development.lang-javascript
+ttc-iosevka-etoile	fonts.monospace
+ttc-iosevka-ss04	fonts.monospace
+ttc-iosevka-ss09	fonts.monospace
+ttc-iosevka-ss14	fonts.monospace
+ttc-iosevka	fonts.monospace
+ttf-annotationmono-nerd	development.lang-dotnet
+ttf-arphic-uming	fonts
+ttf-bitstream-vera-mono-nerd	development.lang-dotnet
+ttf-cascadia-mono-nerd	graphics.cad
+ttf-crimson-pro	desktop.display-managers
+ttf-dejavu	fonts.sans-serif
+ttf-eurof	fonts
+ttf-fira-mono	development.lang-dotnet
+ttf-gohu-nerd	development.libraries
+ttf-hannom	fonts
+ttf-inconsolata-go-nerd	development.libraries
+ttf-input	fonts
+ttf-iosevkatermslab-nerd	fonts.monospace
+ttf-junicode-variable	fonts
+ttf-liberation-mono-nerd	development.lang-dotnet
+ttf-martian-mono-nerd	development.lang-dotnet
+ttf-monaspace-frozen	development.vcs
+ttf-monoid-nerd	development.libraries
+ttf-nerd-fonts-symbols	fonts
+ttf-overpass	security.password-managers
+ttf-roboto-mono	fonts.sans-serif
+ttf-sharetech-mono-nerd	development.lang-dotnet
+ttf-tinos-nerd	development.libraries
+ttf-vlgothic	fonts
+tty-solitaire	games.card-board
+tukai	
+tuning-library	development.libraries
+tuxcards	development.ides
+twolame	multimedia.audio-conversion
+typescript-language-server	development.lang-javascript
+typos-lsp	
+uasm	
+ucblogo	development.compilers-interpreters
+udisks2-btrfs	system.filesystems-tools
+udns	network.dns-tools
+ueberzugpp	development.lang-c-cpp
+uglify-js	development.lang-javascript
+ukui-interface	
+ukui-window-switch	
+ultramaster-kr106-vst3	multimedia.music-production
+umurmur	network.voip-videoconf
+unclutter	
+unicode-cldr-annotations	system.locale-i18n
+union	
+unordered_dense	system.terminal-emulators
+unrealircd	communications.irc
+up	
+upower	system.power-management
+urh	network.wifi-tools
+urxvt-perls	
+usb_modeswitch	
+usd	database.orm-drivers
+util-linux-libs	
+uusi	development.lang-haskell
+uwsgi-plugin-cgi	
+uwsgi-plugin-php-legacy	development.lang-php
+uwsgi-plugin-webdav	system.virtual-filesystems
+v2ray	security.password-managers
+v4l-utils	development.ides
+vali	development.lang-c-cpp
+vamp-aubio-plugins	
+vaporizer2-common	games.mmo-mud
+vapoursynth-plugin-bestsource	
+vault	devops.secrets-management
+vc	development.lang-c-cpp
+vcsh	development.vcs
+vdpauinfo	
+vehicle-command	
+vhba-module-dkms	system.kernel-related
+vicious	desktop.window-managers
+vifm	system.file-managers
+vim-auto-pairs	development.editors-terminal
+vim-grammalecte	development.editors-terminal
+vim-latexsuite	development.editors-terminal
+vim-runtime	development.editors-terminal
+vim-spell-ca	development.editors-terminal
+vim-spell-el	development.editors-terminal
+vim-spell-fr	development.editors-terminal
+vim-spell-hr	development.editors-terminal
+vim-spell-la	development.editors-terminal
+vim-spell-ms	development.editors-terminal
+vim-spell-pl	development.editors-terminal
+vim-spell-sk	development.editors-terminal
+vim-spell-tet	development.editors-terminal
+vim-spell-uk	development.editors-terminal
+vim-tabular	development.editors-terminal
+vinyl-cache	database.orm-drivers
+virt-manager	containers-virtualization.virtual-machines
+virtualbox-guest-utils	containers-virtualization.virtual-machines
+virt-viewer	system.terminal-emulators
+vis-lexers	
+vivaldi	network.browsers
+vkmark	
+vlc-gui-qt	multimedia.video-players
+vlc-plugin-alsa	multimedia.video-players
+vlc-plugin-ass	multimedia.video-players
+vlc-plugin-chromecast	multimedia.video-players
+vlc-plugin-dvb	multimedia.video-players
+vlc-plugin-flac	multimedia.video-players
+vlc-plugin-gstreamer	multimedia.video-players
+vlc-plugin-kate	multimedia.video-players
+vlc-plugin-mad	multimedia.video-players
+vlc-plugin-mpg123	multimedia.video-players
+vlc-plugin-ogg	multimedia.video-players
+vlc-plugins-all	multimedia.video-players
+vlc-plugin-sftp	network.file-transfer
+vlc-plugin-srt	multimedia.video-players
+vlc-plugin-theora	multimedia.video-players
+vlc-plugin-vpx	multimedia.video-players
+vmaf	development.ides
+vnstat	system.monitoring
+volatility3	security.forensics
+vorta	system.monitoring
+vscode-css-languageserver	development.ides
+vst3sdk-docs	system.terminal-emulators
+vte4-utils	system.terminal-emulators
+vtr	graphics.cad
+vulkan-extra-layers	
+vulkan-html-docs	
+vulkan-nouveau	graphics.diagramming
+vulkan-swrast	system.terminal-emulators
+vulscan	network.network-analysis
+w3c-mathml2	development.compilers-interpreters
+waifu2x-ncnn-vulkan	
+warehouse	
+wasi-compiler-rt	development.compilers-interpreters
+wasm-component-ld	desktop.display-managers
+wasm-tools	desktop.display-managers
+wavpack	database.orm-drivers
+wayland	
+waylock	
+wdiff	development.patch-review
+webkit2gtk-4.1-docs	
+webrtc-audio-processing-0.3	development.libraries
+websvn	development.vcs
+wezterm	system.terminal-emulators
+wget	network.download-managers
+whisper-cpp	development.lang-c-cpp
+wifite	network.wifi-tools
+wild	system.terminal-emulators
+wine	
+wingpanel-indicator-bluetooth	system.bluetooth
+wingpanel-indicator-notifications	desktop.panels-docks
+wireguard-tools	network.vpn
+wiremix	cli.tui-apps
+wireshark-cli	network.network-analysis
+wit-bindgen	security.anonymity
+wl-mirror	
+wlr-sunclock	system.shells
+wmname	desktop.window-managers
+woff2	database.orm-drivers
+wolf-shaper-dssi	security.anonymity
+wolf-spectrum	
+woodpecker-cli	devops.ci-cd
+workerd	development.lang-javascript
+wp-cli	network.remote-access
+wqy-bitmapfont	fonts.serif
+wsdd	
+wvstreams	development.lang-c-cpp
+wxwidgets-qt5	development.lang-c-cpp
+x42-plugins-lv2	
+xalan-c	database.orm-drivers
+xapian-core	development.libraries
+xaw3d	
+xca	security.cryptography
+xcb-util-cursor	development.libraries
+xcb-util	
+xcolor	graphics.color-tools
+xcursor-vanilla-dmz-aa	desktop.themes-icons
+xdg-desktop-portal-cosmic	desktop.file-dialogs-portals
+xdg-desktop-portal-hyprland	desktop.window-managers
+xdg-desktop-portal-wlcom	desktop.file-dialogs-portals
+xdg-user-dirs	system.monitoring
+xdotool	cli.terminal-utilities
+xf86-input-elographics	system.terminal-multiplexers
+xf86-input-void	
+xf86-video-fbdev	development.ides
+xf86-video-vesa	development.ides
+xfce4-calculator-plugin	desktop.desktop-environments
+xfce4-dict	desktop.desktop-environments
+xfce4-generic-slider	development.ides
+xfce4-mount-plugin	desktop.desktop-environments
+xfce4-panel	desktop.desktop-environments
+xfce4-screensaver	desktop.desktop-environments
+xfce4-smartbookmark-plugin	desktop.desktop-environments
+xfce4-time-out-plugin	desktop.desktop-environments
+xfce4-weather-plugin	desktop.desktop-environments
+xfdesktop	system.monitoring
+xh	system.terminal-emulators
+xjadeo	development.ides
+xl2tpd	
+xmldiff	development.patch-review
+xmms2	database.orm-drivers
+xmonad	desktop.window-managers
+xonotic-data	database.orm-drivers
+xorg-fonts-100dpi	
+xorg-fonts-alias-misc	
+xorg-fonttosfnt	system.filesystems-tools
+xorgproto	development.libraries
+xorg-server-xnest	system.terminal-emulators
+xorg-smproxy	
+xorg-xbacklight	cli.text-processing
+xorg-xcmsdb	graphics.color-tools
+xorg-xdriinfo	database.orm-drivers
+xorg-xfontsel	
+xorg-xkbcomp	desktop.input-methods
+xorg-xload	
+xorg-xmag	games.strategy-rts
+xorg-xpr	
+xorg-xset	
+xorg-xwininfo	database.orm-drivers
+xpad	
+xprintidle	
+xscreensaver	system.terminal-multiplexers
+xsettingsd	development.ides
+xtensor	development.lang-c-cpp
+xtrlock	
+xwax	
+yaak	
+yadm	
+yaml-cpp	development.lang-c-cpp
+yapf	development.ides
+yate	
+ydotool	cli.terminal-utilities
+yices	
+yoshimi-docs	desktop.display-managers
+yrd	network.dns-tools
+yubico-c	development.lang-c-cpp
+yubihsm-shell	system.shells
+yubikey-personalization-gui	
+z3-java	database.orm-drivers
+zabbix-proxy	devops.monitoring-observability
+zam-plugins-ladspa	multimedia.music-production
+zanshin	cli.text-processing
+zathura	office.pdf-viewers
+zbar	development.libraries
+zeitgeist-explorer	security.anonymity
+zenmap	network.network-analysis
+zerocode	system.terminal-emulators
+zettlr	security.anonymity
+zim	development.editors-terminal
+zip	system.archiving
+zita-bls1	network.chat-im
+zita-lrx	
+zita-rev1	desktop.display-managers
+zlib	development.libraries
+zmap	development.ides
+zopfli	development.libraries
+zsa-wally-cli	
+zshdb	system.shells
+zsnes	games.emulation
+zug	development.lang-c-cpp
+zydis	development.libraries
+ack	desktop.display-managers
+altree-examples	
+altree	database.orm-drivers
+animals	
+appstream-compose	
+boolstuff-dev	development.libraries
+boolstuff	
+broot	system.file-managers
+budgie-wallstreet	desktop.desktop-environments
+cargo-debstatus	development.lang-rust
+castxml	desktop.display-managers
+cbonsai	cli.text-processing
+cherrytree	office.notes
+clearcut	desktop.display-managers
+cowdancer	
+cvsgraph	graphics.diagramming
+dar	system.archiving
+dar-docs	system.archiving
+dar-static	system.archiving
+ddir	
+debtree	
+device-tree-compiler	development.compilers-interpreters
+dh-linktree	
+dirdiff	development.patch-review
+dopewars-data	
+dopewars	
+dt-schema	
+dt-utils	
+elpa-avy	development.editors-terminal
+elpa-dap-mode	development.editors-terminal
+elpa-ivy-avy	
+elpa-lsp-treemacs	development.editors-terminal
+elpa-neotree	development.ides
+elpa-org-tree-slide	development.ides
+elpa-treemacs-evil	development.editors-terminal
+elpa-treemacs-magit	development.editors-terminal
+elpa-treemacs-projectile	development.editors-terminal
+elpa-treemacs	development.editors-terminal
+elpa-treepy	
+elpa-undo-tree	development.editors-terminal
+elpa-ztree	
+erlang-p1-mqtree	development.lang-functional
+erlang-syntax-tools	development.lang-functional
+fastdnaml	
+fasttree	development.ides
+figtree	
+fpart	
+fuse-convmvfs	system.virtual-filesystems
+geany-plugin-treebrowser	network.browsers
+geneagrapher	science.geospatial
+gir1.2-osmgpsmap-1.0	development.libraries
+gir1.2-ostree-1.0	system.filesystems-tools
+gis-osm	science.geospatial
+gitk	development.vcs
+git-subrepo	development.vcs
+git-ubuntu	development.vcs
+gnuaisgui	science.geospatial
+golang-github-a8m-tree-dev	development.vcs
+golang-github-altree-bigfloat-dev	development.vcs
+golang-github-armon-go-radix-dev	development.vcs
+golang-github-bboreham-go-loser-dev	development.vcs
+golang-github-beevik-etree-dev	development.vcs
+golang-github-cznic-b-dev	development.vcs
+golang-github-disiqueira-gotree-dev	development.vcs
+golang-github-disiqueira-gotree-dev	development.vcs
+golang-github-google-btree-dev	development.vcs
+golang-github-hashicorp-go-immutable-radix-dev	development.vcs
+golang-github-hashicorp-go-immutable-radix-v2-dev	development.vcs
+golang-github-hashicorp-go-memdb-dev	development.vcs
+golang-github-kentik-patricia-dev	development.vcs
+golang-github-nebulouslabs-merkletree-dev	development.vcs
+golang-github-ostreedev-ostree-go-dev	development.vcs
+golang-github-petar-gollrb-dev	development.vcs
+golang-github-prysmaticlabs-gohashtree-dev	development.vcs
+golang-github-robfig-pathtree-dev	development.vcs
+golang-github-seancfoley-bintree-dev	development.vcs
+golang-github-sjoerdsimons-ostree-go-dev	development.vcs
+golang-github-smartystreets-assertions-dev	development.vcs
+golang-github-smartystreets-go-aws-auth-dev	development.vcs
+golang-github-smartystreets-goconvey-dev	development.vcs
+golang-github-smartystreets-gunit-dev	development.vcs
+golang-github-tchap-go-patricia-dev	development.vcs
+golang-github-thejerf-suture-dev	development.vcs
+golang-github-tidwall-btree-dev	development.vcs
+golang-github-tidwall-rtree-dev	development.vcs
+golang-github-transparency-dev-merkle-dev	development.vcs
+golang-github-vbatts-go-mtree-dev	development.vcs
+golang-github-xlab-treeprint-dev	development.vcs
+gotd	
+got	development.vcs
+graphlan	office.presentations
+icingaweb2-module-map	science.geospatial
+iitii	
+iqtree3	
+iqtree	
+jmapviewer	science.geospatial
+josm	security.anonymity
+josm-installer	security.anonymity
+josm-l10n	security.anonymity
+jtb	security.anonymity
+keymapper	development.compilers-interpreters
+lace-stubble	
+lapispuzzle.app	system.terminal-emulators
+ldap2zone	network.dns-tools
+libai-decisiontree-perl	development.lang-perl
+libalgorithm-dependency-perl	development.libraries
+libavl1t64	multimedia.codecs
+libavl-dev	multimedia.codecs
+libbase-ocaml-dev	development.lang-functional
+libbase-ocaml	development.lang-functional
+libboolstuff-0.1-0	development.libraries
+libb-utils-perl	development.lang-perl
+libclass-isa-perl	development.libraries
+libcneartree7t64	development.libraries
+libcneartree-dev	development.libraries
+libdata-treedumper-oo-perl	development.libraries
+libdata-treedumper-perl	development.lang-perl
+libdata-treedumper-renderer-dhtml-perl	development.libraries
+libdbix-class-tree-nestedset-perl	development.lang-perl
+libdbix-class-tree-perl	development.lang-perl
+libdtovl0	development.libraries
+libdtovl-dev	development.libraries
+libdt-utils5t64	development.libraries
+libdt-utils-dev	development.libraries
+libdune-typetree-dev	development.libraries
+libdune-typetree-doc	development.libraries
+libfdt1	development.libraries
+libfdt-dev	development.libraries
+libfile-checktree-perl	development.lang-perl
+libfile-treecreate-perl	development.lang-perl
+libforest-perl	development.libraries
+libgeo-coder-osm-perl	science.geospatial
+libgeo-osm-tiles-perl	development.lang-perl
+libghc-directory-tree-dev	development.lang-haskell
+libghc-directory-tree-doc	development.lang-haskell
+libghc-directory-tree-prof	development.lang-haskell
+libghc-dual-tree-dev	development.lang-haskell
+libghc-dual-tree-doc	development.lang-haskell
+libghc-dual-tree-prof	development.lang-haskell
+libghc-fingertree-dev	development.lang-haskell
+libghc-fingertree-doc	development.lang-haskell
+libghc-fingertree-prof	development.lang-haskell
+libghc-ghc-lib-parser-ex-dev	development.lang-haskell
+libghc-ghc-lib-parser-ex-doc	development.lang-haskell
+libghc-ghc-lib-parser-ex-prof	development.lang-haskell
+libghc-language-glsl-dev	development.lang-haskell
+libghc-language-glsl-doc	development.lang-haskell
+libghc-language-glsl-prof	development.lang-haskell
+libghc-src-exts-util-dev	development.lang-haskell
+libghc-src-exts-util-doc	development.lang-haskell
+libghc-src-exts-util-prof	development.lang-haskell
+libhtml-html5-sanity-perl	development.build-tools
+libhtml-popuptreeselect-perl	development.lang-perl
+libhtml-prettyprinter-perl	development.lang-perl
+libhtml-query-perl	development.regex-parsing
+libhtml-tagtree-perl	development.lang-perl
+libhtml-treebuilder-libxml-perl	development.libraries
+libhtml-treebuilder-xpath-perl	development.lang-perl
+libhtml-tree-perl	development.lang-perl
+libhx32t64	development.lang-c-cpp
+libhx43t64	development.lang-c-cpp
+libiitii-dev	development.libraries
+libjane-street-headers-ocaml	development.lang-functional
+libjane-street-headers-ocaml-dev	development.lang-functional
+libjs-functional-red-black-tree	development.libraries
+libjs-jquery-jstree	development.regex-parsing
+libjs-jquery-treetable	development.regex-parsing
+libjs-jquery-ui-theme-south-street	development.regex-parsing
+libjst-config-ocaml	development.lang-functional
+libjst-config-ocaml-dev	development.lang-functional
+libkdtree++-dev	development.lang-c-cpp
+libkpim6mimetreeparser6	office.calendar-pim
+libkpim6mimetreeparsercore6	office.calendar-pim
+libkpim6mimetreeparserwidgets6	office.calendar-pim
+libmath-vector-real-kdtree-perl	system.monitoring
+libmaven-dependency-tree-java	development.lang-jvm
+libmavibot-java	development.libraries
+libmimetreeparser-data	development.libraries
+libmimetreeparser-dev	development.libraries
+libnanoflann-dev	development.lang-c-cpp
+libofapi0	development.libraries
+libofapi-dev	development.libraries
+libofapi-example	development.libraries
+libosmgpsmap-1.0-1	development.libraries
+libosmgpsmap-1.0-dev	development.libraries
+libosmpbf1	development.libraries
+libosmpbf-dev	development.libraries
+libosmpbf-java	development.libraries
+libostree-1-1	development.libraries
+libostree-dev	development.libraries
+libostree-doc	development.libraries
+libpath-finddev-perl	development.lang-perl
+libpath-isdev-perl	development.lang-perl
+libpcl-kdtree1.15	development.libraries
+libpcl-octree1.15	development.libraries
+libpod-abstract-perl	development.libraries
+libpod-tree-perl	development.lang-perl
+libppx-js-style-ocaml	development.lang-functional
+libppx-js-style-ocaml-dev	development.lang-functional
+libppxlib-jane-ocaml-dev	development.lang-functional
+libppxlib-jane-ocaml	development.lang-functional
+libptmap-ocaml-dev	development.lang-functional
+libptmap-ocaml	development.lang-functional
+libqt6tasktree6	development.lang-c-cpp
+libquicktree-dev	development.libraries
+librdp-taxonomy-tree-java	network.remote-access
+libreadosm1	development.libraries
+libreadosm-dev	development.libraries
+libreadosm-doc	development.libraries
+librust-auditable-extract-dev	development.lang-rust
+librust-auditable-info-dev	development.lang-rust
+librust-bet-dev	system.terminal-emulators
+librust-bk-tree-dev	system.terminal-emulators
+librust-btree-range-map-dev	system.terminal-emulators
+librust-btree-slab-dev	system.terminal-emulators
+librust-built-dev	development.ides
+librust-cargo-lock-dev	development.lang-rust
+librust-cranelift-dev	security.anonymity
+librust-dbus-tree-dev	system.terminal-emulators
+librust-device-tree-dev	system.terminal-emulators
+librust-document-tree-dev	office.presentations
+librust-dolby-vision-dev	graphics.diagramming
+librust-ego-tree-dev	system.terminal-emulators
+librust-git-testament-derive-dev	development.vcs
+librust-git-testament-dev	development.vcs
+librust-gix-archive-dev	system.archiving
+librust-gix-dev	development.vcs
+librust-gix-error-dev	development.ides
+librust-gix-status-dev	development.ides
+librust-gix-testtools-dev	development.ides
+librust-gix-worktree-dev	development.ides
+librust-gix-worktree-state-dev	development.ides
+librust-gix-worktree-stream-dev	development.vcs
+librust-intervaltree-dev	system.terminal-emulators
+librust-lddtree-dev	system.terminal-emulators
+librust-libcst-dev	development.libraries
+librust-maplit-dev	science.robotics
+librust-patricia-tree-dev	system.terminal-emulators
+librust-predicates-tree-dev	system.terminal-emulators
+librust-prefixtree-dev	development.libraries
+librust-prefix-trie-dev	development.ides
+librust-prettyplease-dev	system.terminal-emulators
+librust-prodash-dev	system.terminal-emulators
+librust-rctree-dev	system.terminal-emulators
+librust-rowan-dev	system.terminal-emulators
+librust-roxmltree-dev	system.terminal-emulators
+librust-rstar-dev	development.regex-parsing
+librust-rustsec-dev	development.libraries
+librust-rust-unixfs-dev	system.filesystems-tools
+librust-serde-value-dev	system.terminal-emulators
+librust-streebog-dev	system.terminal-emulators
+librust-taffy-dev	development.libraries
+librust-temptree-dev	system.terminal-emulators
+librust-termtree-dev	system.terminal-emulators
+librust-text-trees-dev	system.terminal-emulators
+librust-tracing-tree-dev	devops.monitoring-observability
+librust-treediff-dev	development.patch-review
+librust-tree-edit-distance-dev	system.terminal-emulators
+librust-treeline-dev	system.terminal-emulators
+librust-tree-magic-db-dev	system.terminal-emulators
+librust-tree-magic-mini-dev	system.terminal-emulators
+librust-tree-sitter-asm-dev	system.terminal-emulators
+librust-tree-sitter-bash-dev	system.shells
+librust-tree-sitter-c-dev	system.terminal-emulators
+librust-tree-sitter-cli-dev	system.terminal-emulators
+librust-tree-sitter-config-dev	system.terminal-emulators
+librust-tree-sitter-cpp-dev	development.lang-c-cpp
+librust-tree-sitter-dev	development.libraries
+librust-tree-sitter-generate-dev	system.terminal-emulators
+librust-tree-sitter-go-dev	system.terminal-emulators
+librust-tree-sitter-highlight-dev	database.orm-drivers
+librust-tree-sitter-ini-dev	system.terminal-emulators
+librust-tree-sitter-iter-dev	security.anonymity
+librust-tree-sitter-java-dev	system.terminal-emulators
+librust-tree-sitter-json-dev	system.terminal-emulators
+librust-tree-sitter-language-dev	science.statistics
+librust-tree-sitter-loader-dev	system.terminal-emulators
+librust-tree-sitter-lua-dev	system.terminal-emulators
+librust-tree-sitter-md-dev	system.terminal-emulators
+librust-tree-sitter-php-dev	development.lang-php
+librust-tree-sitter-powershell-dev	system.shells
+librust-tree-sitter-query-dev	system.terminal-emulators
+librust-tree-sitter-ruby-dev	system.terminal-emulators
+librust-tree-sitter-rust-orchard-dev	system.terminal-emulators
+librust-tree-sitter-sdml-dev	system.terminal-emulators
+librust-tree-sitter-tags-dev	development.libraries
+librust-tree-sitter-tsquery-dev	system.terminal-emulators
+librust-tree-sitter-verilog-dev	science.electronics-eda
+librust-tree-sitter-vim-dev	development.editors-terminal
+librust-tree-sitter-vimdoc-dev	development.editors-terminal
+librust-tree-sitter-yaml-dev	system.terminal-emulators
+librust-tui-tree-widget-dev	cli.tui-apps
+librust-ungrammar-dev	system.terminal-emulators
+librust-vcpkg-dev	system.terminal-emulators
+librust-vec-collections-dev	development.libraries
+librust-vm-fdt-dev	multimedia.streaming
+librust-wasmi-collections-dev	development.compilers-interpreters
+librust-wasmi-dev	development.compilers-interpreters
+librust-wasmparser-dev	development.libraries
+librust-xmltree-dev	system.terminal-emulators
+librust-xmltree+indexmap-dev	development.libraries
+librust-zvariant-2-dev	system.terminal-emulators
+librust-zvariant-dev	system.terminal-emulators
+libset-intervaltree-perl	database.orm-drivers
+libterraces0	development.libraries
+libterraces-dev	development.libraries
+libtest-classapi-perl	development.api-tools
+libtree-dagnode-perl	development.libraries
+libtreelayout-java	development.libraries
+libtree	development.libraries
+libtree-multinode-perl	development.libraries
+libtree-perl	development.lang-perl
+libtree-rb-perl	development.libraries
+libtree-redblack-perl	development.libraries
+libtree-r-perl	development.libraries
+libtree-simple-perl	development.libraries
+libtree-simple-visitorfactory-perl	security.anonymity
+libtree-sitter0.22	development.libraries
+libtree-sitter0.26	development.libraries
+libtree-sitter-dev	development.libraries
+libtree-xpathengine-perl	development.libraries
+libtrie-ocaml-dev	development.lang-functional
+libtrie-ocaml	development.lang-functional
+libwww-mechanize-treebuilder-perl	development.lang-perl
+libxml-compacttree-perl	system.terminal-emulators
+libxml-handler-trees-perl	development.lang-perl
+libxml-libxml-iterator-perl	security.anonymity
+libxml-parser-easytree-perl	development.libraries
+libxml-parser-lite-tree-perl	development.libraries
+libxml-simpleobject-perl	cli.text-processing
+libxml-smart-perl	development.lang-perl
+libxml-treebuilder-perl	development.regex-parsing
+libxml-treepp-perl	development.lang-perl
+libxml-treepuller-perl	development.libraries
+libxml-twig-perl	development.lang-perl
+libxml-xpathengine-perl	development.libraries
+libxml-xql-perl	development.lang-perl
+libxpathselect1.4v5	development.libraries
+libxpathselect-dev	development.libraries
+locate	
+makefs	development.build-tools
+maptool	science.geospatial
+merkaartor	security.anonymity
+minetest-mod-ltool	
+minetest-mod-ltool	system.terminal-emulators
+mkgmap	science.geospatial
+mtree-netbsd	system.terminal-emulators
+ncdt	
+nemos-dev-cert-u-boot	system.file-managers
+neovim-treesitter	development.editors-terminal
+njplot	graphics.plotting-visualization
+node-acorn	
+node-astring	development.lang-javascript
+node-braintree-sanitize-url	development.compilers-interpreters
+node-configurable-http-proxy	desktop.display-managers
+node-css-tree	
+node-d3-quadtree	graphics.diagramming
+node-eslint-visitor-keys	security.anonymity
+node-estree-walker	system.terminal-emulators
+node-findit2	desktop.display-managers
+node-functional-red-black-tree	development.libraries
+node-jsdom	development.lang-javascript
+node-map2tree	
+node-parse5-htmlparser2-tree-adapter	
+node-postcss-value-parser	database.orm-drivers
+node-react-json-tree	
+node-recast	development.lang-javascript
+node-regjsgen	
+node-static-module	
+node-to-regex	development.regex-parsing
+node-tree-kill	network.chat-im
+obs-scene-tree-view	multimedia.streaming
+openstreetmap-carto-common	science.geospatial
+openstreetmap-carto	science.geospatial
+osm2pgrouting	science.geospatial
+osm2pgsql	science.geospatial
+osmcoastline	science.geospatial
+osmctools	science.geospatial
+osmium-tool	science.geospatial
+osmosis	science.geospatial
+osmpbf-bin	development.libraries
+ostree-boot	system.boot-loaders
+ostree	system.filesystems-tools
+ostree-push	
+ostree-tests	system.filesystems-tools
+parsinsert	
+php-parser	development.lang-php
+phybin	
+phyutility	
+phyx	
+postgresql-18-address-standardizer	database.sql-servers
+prime-phylo	
+pyprof2calltree	system.launchers
+python3-anytree	development.compilers-interpreters
+python3-asciitree	development.compilers-interpreters
+python3-astroid	development.compilers-interpreters
+python3-asttokens	development.compilers-interpreters
+python3-baron	development.compilers-interpreters
+python3-braintree	development.compilers-interpreters
+python3-btrees	development.compilers-interpreters
+python3-django-mptt	development.compilers-interpreters
+python3-django-sitetree	development.compilers-interpreters
+python3-django-treebeard	development.compilers-interpreters
+python3-django-tree-queries	development.compilers-interpreters
+python3-dm-tree	development.compilers-interpreters
+python3-dtcwt	development.compilers-interpreters
+python3-ete3	development.compilers-interpreters
+python3-fscacher	development.compilers-interpreters
+python3-geneagrapher	development.compilers-interpreters
+python3-intervaltree-bio	development.compilers-interpreters
+python3-intervaltree	development.compilers-interpreters
+python3-iow	development.compilers-interpreters
+python3-kdtree	development.compilers-interpreters
+python3-libcst	development.compilers-interpreters
+python3-libfdt	development.compilers-interpreters
+python3-logging-tree	development.compilers-interpreters
+python3-osmapi	development.compilers-interpreters
+python3-osmnx	development.compilers-interpreters
+python3-overpass	development.compilers-interpreters
+python3-overpy	development.compilers-interpreters
+python3-pipdeptree	development.compilers-interpreters
+python3-priority	development.compilers-interpreters
+python3-pykdtree	development.compilers-interpreters
+python3-pymbolic	development.compilers-interpreters
+python3-radix	development.compilers-interpreters
+python3-rtree	development.compilers-interpreters
+python3-scantree	development.compilers-interpreters
+python3-seedir	development.compilers-interpreters
+python3-sphinx-remove-toctrees	development.compilers-interpreters
+python3-subnettree	development.compilers-interpreters
+python3-tktreectrl	development.compilers-interpreters
+python3-treelib	development.compilers-interpreters
+python3-tree-sitter-sdml	development.compilers-interpreters
+python3-tree-sitter-sql	development.compilers-interpreters
+python3-treetime	development.compilers-interpreters
+python3-typeshed	development.compilers-interpreters
+python3-urwidtrees	development.compilers-interpreters
+python-btrees-doc	development.lang-jvm
+python-django-mptt-doc	development.libraries
+python-django-sitetree-doc	docs-knowledge.cheatsheets
+python-django-treebeard-doc	development.libraries
+python-django-tree-queries-doc	system.terminal-emulators
+python-dm-tree-doc	development.lang-c-cpp
+python-osmnx-doc	science.geospatial
+python-tktreectrl-doc	development.libraries
+qgit	development.vcs
+qml6-module-org-kde-kirigamiaddons-treeview	
+qml6-module-org-kde-mimetreeparser	
+qml6-module-qtquick-timeline-blendtrees	
+qml-module-org-kde-kirigami-addons-treeview	development.lang-c-cpp
+qt6-tasktree-dev	development.lang-c-cpp
+qt6-tasktree-examples	development.lang-c-cpp
+quicktree	
+raku-file-find	system.terminal-emulators
+raxml	
+r-bioc-ctc	
+r-bioc-ctc	
+r-cran-d3network	development.lang-javascript
+r-cran-ddrtree	
+r-cran-deadwood	
+r-cran-dynamictreecut	
+r-cran-ggdendro	graphics.diagramming
+r-cran-knn.covertree	
+r-cran-lobstr	multimedia.streaming
+r-cran-lobstr	multimedia.streaming
+r-cran-maptree	graphics.plotting-visualization
+r-cran-psychotree	cli.text-processing
+r-cran-psychotree	cli.text-processing
+r-cran-quitefastmst	development.ides
+r-cran-rotl	
+r-cran-rpart	
+r-cran-tgp	
+r-cran-treespace	science.statistics
+r-cran-triebeard	development.lang-c-cpp
+r-cran-xmlparsedata	science.electronics-eda
+ruby-acts-as-tree	development.libraries
+ruby-arbre	development.libraries
+ruby-ast	development.lang-ruby
+ruby-avl-tree	development.libraries
+ruby-htree	development.libraries
+ruby-rbtree	development.libraries
+ruby-roda	development.libraries
+ruby-ruby2ruby	desktop.display-managers
+ruby-tdiff	development.patch-review
+ruby-treetop	system.monitoring
+stubble-kernel	
+stubble	
+sumtrees	
+terraphast	system.terminal-emulators
+tilemaker	development.build-tools
+tktreectrl	development.regex-parsing
+tre-command	
+tree	
+treeland-protocols	
+treeline	
+tree-ppuzzle	cli.batch-automation
+tree-puzzle-doc	
+tree-puzzle	
+treesheets	office.spreadsheets
+tree-sitter-asm-src	
+tree-sitter-bash-src	system.shells
+tree-sitter-cli	cli.terminal-utilities
+tree-sitter-cpp-src	development.lang-c-cpp
+tree-sitter-c-src	
+tree-sitter-go-src	
+tree-sitter-ini-src	
+tree-sitter-java-src	
+tree-sitter-json-src	development.regex-parsing
+tree-sitter-lua-src	
+tree-sitter-markdown-inline-src	
+tree-sitter-markdown-src	
+tree-sitter-php-src	development.lang-php
+tree-sitter-powershell-src	system.shells
+tree-sitter-query-src	
+tree-sitter-ruby-src	
+tree-sitter-rust-orchard-src	system.terminal-emulators
+tree-sitter-verilog-src	science.electronics-eda
+tree-sitter-vimdoc-src	development.editors-terminal
+tree-sitter-vim-src	development.editors-terminal
+tree-sitter-yaml-src	
+treetop	system.monitoring
+treeview	
+treeviewx	
+tryton-modules-account-payment-braintree	database.orm-drivers
+veryfasttree	
+wallstreet	
+yarnpkg	
+ytree	system.file-managers
+zx	development.lang-javascript

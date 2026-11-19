@@ -1,0 +1,19 @@
+$ yapacc doctor
+ok    platform              — apt: tier 1, a main target
+ok    native-manager        — apt lists 324 installed packages
+ok    config                — /home/tester/.config/yapacc/config.toml (not present, defaults active)
+n/a   component:yapacc-tui  — not installed (optional: the interactive interface)
+n/a   component:yapacc-mcp  — not installed (optional: the MCP server for AI assistants)
+n/a   sandbox               — only used for source builds on pacman systems
+n/a   ledger:user           — no journal (nothing recorded yet)
+n/a   ledger:system         — no journal (nothing recorded yet)
+n/a   tool:flatpak          — not on PATH (only needed for Flatpak applications)
+n/a   tool:gpgv             — not on PATH (only needed to check a repository signature: install tx-apt, tx-rpm with --keyring)
+n/a   tool:bwrap            — not on PATH (only used for source builds on pacman systems)
+ok    repo-index            — repository indexes are on disk
+ok    tool:curl             — on PATH
+ok    undo                  — old versions from the configured repositories, then the apt cache, then snapshot.debian.org
+ok    backend-maturity      — apt: exercised on virtual machines of Debian 13 and Ubuntu 24.04; not on real hardware
+ok    timeline              — reads /var/log/dpkg.log and its rotated predecessor
+ok    privilege             — changes run through sudo
+ok    briefing              — security-update labels and reboot hints; no distribution news feed

@@ -1,0 +1,81 @@
+# cmd: dpkg-query -W -f ${Package}\t${Version}\t${db:Status-Abbrev}\t${Installed-Size}\t${Essential}\t${Priority}\t${binary:Summary}\n
+apt	3.0.4	ii 	4481	no	required	commandline package manager
+base-files	13.8+deb13u7	ii 	500	yes	required	Debian base system miscellaneous files
+base-passwd	3.6.7	ii 	272	yes	required	Debian base system master password and group files
+bash	5.2.37-2+b10	ii 	7196	yes	required	GNU Bourne Again SHell
+bsdutils	1:2.41.5-0+deb13u1	ii 	401	yes	required	basic utilities from 4.4BSD-Lite
+coreutils	9.7-3	ii 	18457	yes	required	GNU core utilities
+dash	0.5.12-12	ii 	207	yes	required	POSIX-compliant shell
+debconf	1.5.91	ii 	497	no	required	Debian configuration management system
+debian-archive-keyring	2025.1	ii 	302	no	important	OpenPGP archive certificates of the Debian archive
+debianutils	5.23.2	ii 	225	yes	required	Miscellaneous utilities specific to Debian
+diffutils	1:3.10-4	ii 	1768	yes	required	File comparison utilities
+dpkg	1.22.22	ii 	6587	yes	required	Debian package management system
+findutils	4.10.0-3	ii 	2160	yes	required	utilities for finding files--find, xargs
+gcc-14-base	14.2.0-19	ii 	112	no	optional	GCC, the GNU Compiler Collection (base package)
+grep	3.11-4	ii 	1266	yes	required	GNU grep, egrep and fgrep
+gzip	1.13-1+deb13u1	ii 	256	yes	required	GNU compression utilities
+hostname	3.25	ii 	50	yes	required	utility to set/show the host name or domain name
+init-system-helpers	1.69~deb13u1	ii 	133	yes	required	helper tools for all init systems
+libacl1	2.3.2-2+b1	ii 	74	no	optional	access control list - shared library
+libapt-pkg7.0	3.0.4	ii 	3856	no	optional	package management runtime library
+libattr1	1:2.5.2-3	ii 	60	no	optional	extended attribute handling - shared library
+libaudit-common	1:4.0.2-2+deb13u1	ii 	25	no	optional	Dynamic library for security auditing - common files
+libaudit1	1:4.0.2-2+deb13u1	ii 	198	no	optional	Dynamic library for security auditing
+libblkid1	2.41.5-0+deb13u1	ii 	453	no	optional	block device ID library
+libbsd0	0.12.2-2	ii 	214	no	optional	utility functions from BSD systems - shared library
+libbz2-1.0	1.0.8-6	ii 	96	no	optional	high-quality block-sorting file compressor library - runtime
+libc-bin	2.41-12+deb13u4	ii 	2122	yes	required	GNU C Library: Binaries
+libc6	2.41-12+deb13u4	ii 	13226	no	optional	GNU C Library: Shared libraries
+libcap-ng0	0.8.5-4+b1	ii 	66	no	optional	alternate POSIX capabilities library
+libcap2	1:2.75-10+deb13u1+b3	ii 	92	no	optional	POSIX 1003.1e capabilities (library)
+libcrypt1	1:4.4.38-1	ii 	234	no	optional	libcrypt shared library
+libdb5.3t64	5.3.28+dfsg2-9	ii 	1854	no	optional	Berkeley v5.3 Database Libraries [runtime]
+libdebconfclient0	0.280	ii 	38	no	optional	Debian Configuration Management System (C-implementation library)
+libgcc-s1	14.2.0-19	ii 	197	no	optional	GCC support library
+libgmp10	2:6.3.0+dfsg-3	ii 	882	no	optional	Multiprecision arithmetic library
+libhogweed6t64	3.10.1-1	ii 	483	no	optional	low level cryptographic library (public-key cryptos)
+liblastlog2-2	2.41.5-0+deb13u1	ii 	75	no	optional	lastlog2 database shared library
+liblz4-1	1.10.0-4	ii 	173	no	optional	Fast LZ compression algorithm library - runtime
+liblzma5	5.8.1-1+deb13u2	ii 	435	no	optional	XZ-format compression library
+libmd0	1.1.0-2+b1	ii 	94	no	optional	message digest functions from BSD systems - shared library
+libmount1	2.41.5-0+deb13u1	ii 	565	no	optional	device mounting library
+libnettle8t64	3.10.1-1	ii 	560	no	optional	low level cryptographic library (symmetric and one-way cryptos)
+libpam-modules	1.7.0-5	ii 	923	no	required	Pluggable Authentication Modules for PAM
+libpam-modules-bin	1.7.0-5	ii 	206	no	required	Pluggable Authentication Modules for PAM - helper binaries
+libpam-runtime	1.7.0-5	ii 	1028	no	required	Runtime support for the PAM library
+libpam0g	1.7.0-5	ii 	194	no	optional	Pluggable Authentication Modules library
+libpcre2-8-0	10.46-1~deb13u3	ii 	774	no	optional	New Perl Compatible Regular Expression Library- 8 bit runtime files
+libseccomp2	2.6.0-2	ii 	201	no	optional	high level interface to Linux seccomp filter
+libselinux1	3.8.1-1	ii 	229	no	optional	SELinux runtime shared libraries
+libsemanage-common	3.8.1-1	ii 	21	no	optional	Common files for SELinux policy management libraries
+libsemanage2	3.8.1-1	ii 	313	no	optional	SELinux policy management library
+libsepol2	3.8.1-1	ii 	835	no	optional	SELinux library for manipulating binary security policies
+libsmartcols1	2.41.5-0+deb13u1	ii 	377	no	optional	smart column output alignment library
+libsqlite3-0	3.46.1-7+deb13u2	ii 	1834	no	optional	SQLite 3 shared library
+libssl3t64	3.5.7-1~deb13u3	ii 	8115	no	optional	Secure Sockets Layer toolkit - shared libraries
+libstdc++6	14.2.0-19	ii 	3019	no	optional	GNU Standard C++ Library v3
+libsystemd0	257.13-1~deb13u1	ii 	1223	no	optional	systemd utility library
+libtinfo6	6.5+20250216-2	ii 	569	no	optional	shared low-level terminfo library for terminal handling
+libudev1	257.13-1~deb13u1	ii 	357	no	optional	libudev shared library
+libuuid1	2.41.5-0+deb13u1	ii 	98	no	optional	Universally Unique ID library
+libxxhash0	0.8.3-2	ii 	92	no	optional	shared library for xxhash
+libzstd1	1.5.7+dfsg-1	ii 	847	no	optional	fast lossless compression algorithm
+login	1:4.16.0-2+really2.41.5-0+deb13u1	ii 	287	no	required	system login tools
+login.defs	1:4.17.4-2	ii 	214	no	required	system user management configuration
+mawk	1.3.4.20250131-1	ii 	292	no	required	Pattern scanning and text processing language
+mount	2.41.5-0+deb13u1	ii 	497	no	required	tools for mounting and manipulating filesystems
+ncurses-base	6.5+20250216-2	ii 	389	yes	required	basic terminal type definitions
+ncurses-bin	6.5+20250216-2	ii 	665	yes	required	terminal-related programs and man pages
+openssl-provider-legacy	3.5.7-1~deb13u3	ii 	424	no	optional	Secure Sockets Layer toolkit - cryptographic utility
+passwd	1:4.17.4-2	ii 	4758	no	required	change and administer password and group data
+perl-base	5.40.1-6+deb13u1	ii 	7815	yes	required	minimal Perl system
+sed	4.9-2+deb13u1	ii 	991	yes	required	GNU stream editor for filtering/transforming text
+sqv	1.3.0-3+b2	ii 	1855	no	optional	OpenPGP signature verification program from Sequoia
+sysvinit-utils	3.14-4	ii 	104	yes	required	System-V-like utilities
+tar	1.35+dfsg-3.1	ii 	3085	yes	required	GNU version of the tar archiving utility
+tree	2.2.1-1	ii 	129	no	optional	displays an indented directory tree, in color
+tzdata	2026f-0+deb13u1	ii 	1360	no	required	time zone and daylight-saving time data
+util-linux	2.41.5-0+deb13u1	ii 	4986	yes	required	miscellaneous system utilities
+zlib1g	1:1.3.dfsg+really1.3.1-1+b1	ii 	173	no	optional	compression library - runtime
+# exit: 0

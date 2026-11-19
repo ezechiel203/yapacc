@@ -1,0 +1,3 @@
+# cmd: dpkg-query -S /usr/bin/env
+coreutils: /usr/bin/env
+# exit: 0

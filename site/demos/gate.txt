@@ -1,0 +1,15 @@
+$ yapacc install repo figlet --dryrun
+Plan: install figlet (through apt)
+
+apt's own simulation (apt-get -s -y install -- figlet):
+…
+The following NEW packages will be installed:
+  figlet
+0 upgraded, 1 newly installed, 0 to remove and 24 not upgraded.
+Inst figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])
+Conf figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])
+
+Will run:
+  sudo apt-get install -y -- figlet
+
+DRY-RUN: nothing was changed. Run again without --dryrun to apply.

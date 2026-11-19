@@ -1,0 +1,8 @@
+# cmd: dnf -q repoquery --upgrades --qf %{name}	%{evr}	%{repoid}
+# NOTE: SYNTHETIC. The captured image had no pending upgrades, so these three
+# lines were written by hand in the exact format dnf5 prints (see search.txt
+# for a real example of the same --qf mechanism).
+bash	5.3.20-1.fc45	updates
+glibc	2.44-3.fc45	updates
+kernel-core	1:6.20.3-200.fc45	updates-testing
+# exit: 0

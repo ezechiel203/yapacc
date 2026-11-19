@@ -1,0 +1,3 @@
+# cmd: dnf -q repoquery --upgrades --qf %{name}	%{evr}	%{repoid}
+
+# exit: 0

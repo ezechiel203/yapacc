@@ -1,0 +1,95 @@
+[workspace]
+members = ["crates/octo-head", "crates/xtask"]
+resolver = "3"
+
+[workspace.package]
+# The same version as that of the root package below; `cargo xtask dist` and
+# a test in crates/xtask refuse to go on when the two differ.
+version = "0.1.0"
+edition = "2024"
+# Lowest toolchain the workspace is checked with (the `msrv` job of
+# .github/workflows/ci.yml).
+rust-version = "1.89"
+authors = ["Alexandre BETRY <ezechiel203@users.noreply.github.com>"]
+license = "GPL-2.0-only"
+repository = "https://github.com/ezechiel203/yapacc"
+homepage = "https://ezechiel203.github.io/yapacc/"
+# Not on crates.io: the root package depends on the unpublished octo-head by
+# path. Install from a release archive or a distribution package.
+publish = false
+
+[workspace.dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+
+[package]
+name = "yapacc"
+# Literal on purpose: the release workflow, contrib/test/pkg-lifecycle.sh and
+# the website generator read the first `version` line after this section's
+# header. Keep it equal to the workspace one. (Do not write that header in a
+# comment of this file: the website generator looks for its first occurrence.)
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+description = "yapacc (Yet Another PACkage Companion) — source resolution, provenance and gated changes beside your native package manager"
+readme = "README.md"
+keywords = ["package-manager", "pacman", "apt", "dnf", "provenance"]
+categories = ["command-line-utilities"]
+default-run = "yapacc"
+
+# Several small binaries instead of one large one (docs/ARCHITECTURE.md).
+# Only `yapacc` is required; the others are optional components.
+[[bin]]
+name = "yapacc"
+path = "src/main.rs"
+
+[[bin]]
+name = "yapacc-tui"
+path = "src/bin/yapacc-tui.rs"
+required-features = ["tui"]
+
+[[bin]]
+name = "yapacc-mcp"
+path = "src/bin/yapacc-mcp.rs"
+
+[features]
+default = ["tui"]
+# Native libalpm reads/transactions, for local builds on Arch only. Without
+# it the core builds on any distribution and the pacman lane uses the pacman
+# command line.
+#
+# LICENCE: the `alpm` and `alpm-sys` crates are GPL-3.0, and yapacc is
+# GPL-2.0-only. A binary built with this feature combines the two and may
+# only be distributed under the terms of GPL-3; build it for your own use,
+# do not redistribute it as yapacc. No released artifact and no recipe in
+# contrib/packaging enables this feature, and deny.toml makes
+# `cargo deny --features alpm check licenses` fail for that reason.
+alpm = ["dep:alpm", "dep:anyhow"]
+# The interactive interface; pulls in ratatui + crossterm for yapacc-tui only.
+tui = ["dep:ratatui", "dep:crossterm"]
+
+[dependencies]
+aho-corasick = "1.1.5"
+alpm = { version = "5.0.2", optional = true }
+anyhow = { version = "1.0.104", optional = true }
+clap = { version = "4.6.7", features = ["derive", "wrap_help"] }
+clap_complete = "4.6.11"
+crossterm = { version = "0.29.0", optional = true }
+octo-head = { path = "crates/octo-head" }
+ratatui = { version = "0.30.2", features = ["crossterm_0_29"], optional = true }
+serde.workspace = true
+serde_json = "1.0.154"
+sha2 = "0.11.1"
+toml = "1.2.1"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[dev-dependencies]
+serde_json = "1.0.154"

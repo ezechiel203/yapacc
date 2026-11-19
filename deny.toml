@@ -1,0 +1,56 @@
+# cargo-deny configuration: which licences and which sources the crates
+# linked into yapacc may have.
+#
+#   cargo deny check licenses bans sources
+#
+# is run by CI (.github/workflows/ci.yml, job `deny`) for the default
+# features, which are those of every released artifact.
+
+[graph]
+# The targets yapacc is released and packaged for. Crates that are only
+# compiled for other systems are not linked into anything that ships.
+targets = [
+    "x86_64-unknown-linux-gnu",
+    "x86_64-unknown-linux-musl",
+    "aarch64-unknown-linux-gnu",
+    "aarch64-unknown-linux-musl",
+]
+all-features = false
+
+[licenses]
+# yapacc is GPL-2.0-only and its binaries link every crate statically, so a
+# crate must offer at least one licence that can be combined with GPL
+# version 2. A crate under "MIT OR Apache-2.0" passes through MIT.
+#
+# Deliberately absent:
+#   Apache-2.0  not compatible with GPL version 2 (patent clauses); a crate
+#               offered under Apache-2.0 alone must not be linked.
+#   GPL-3.0     not compatible with GPL-2.0-only. This is what the optional
+#               `alpm` feature pulls in (the `alpm` and `alpm-sys` crates):
+#               `cargo deny --features alpm check licenses` fails, and it
+#               must. See the comment on the feature in Cargo.toml.
+allow = [
+    "GPL-2.0-only",
+    "MIT",
+    "BSL-1.0",
+    "Zlib",
+    "Unicode-3.0",
+]
+confidence-threshold = 0.93
+
+[bans]
+multiple-versions = "allow"
+wildcards = "deny"
+allow-wildcard-paths = true
+deny = [
+    { crate = "alpm", reason = "GPL-3.0: a yapacc binary built with the `alpm` feature may only be distributed under GPL-3 terms, and yapacc is GPL-2.0-only. The feature is for local builds; no released artifact or recipe may enable it (Cargo.toml, [features])." },
+    { crate = "alpm-sys", reason = "GPL-3.0, pulled in by the `alpm` feature; see the entry for `alpm`." },
+]
+
+[sources]
+# Every crate comes from crates.io at the version and checksum pinned in
+# Cargo.lock: no git dependency, no other registry.
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

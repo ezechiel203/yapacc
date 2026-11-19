@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-root="{{root}}">
+<head>
+<title>{{title}} · yapacc handbook</title>
+<meta name="description" content="{{title}}: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+{{> head}}
+</head>
+<body>
+{{> masthead}}
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      {{sidebar}}
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · {{section}}</p>
+        <h1>{{title}}</h1>
+      </header>
+      <article class="prose">
+{{content}}
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page">{{prevnext}}</nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="{{edit_url}}">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      {{toc}}
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+{{> footer}}
+</body>
+</html>

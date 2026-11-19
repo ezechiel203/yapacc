@@ -1,0 +1,24 @@
+# cmd: dnf -q repoquery --userinstalled --qf %{name}
+
+bash
+bzip2
+coreutils
+dnf5
+dnf5-plugins
+fedora-release-container
+filesystem
+gawk
+glibc-minimal-langpack
+gzip
+rootfiles
+rpm
+shadow-utils
+sudo
+systemd-standalone-sysusers
+tar
+tzdata
+util-linux-core
+vim-minimal
+xz
+zstd
+# exit: 0

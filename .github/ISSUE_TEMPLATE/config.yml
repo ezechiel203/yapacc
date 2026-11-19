@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/ezechiel203/yapacc/security/advisories/new
+    about: Report a vulnerability privately; do not open a public issue for it.
+  - name: Handbook
+    url: https://ezechiel203.github.io/yapacc/
+    about: How yapacc works and what each command does.

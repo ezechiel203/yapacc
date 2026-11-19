@@ -1,0 +1,43 @@
+# https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# rustfmt decides the rest.
+[*.rs]
+max_line_length = 100
+
+[*.{yml,yaml,json,html,css,js}]
+indent_size = 2
+
+# Markdown: two trailing spaces are a line break.
+[*.md]
+trim_trailing_whitespace = false
+
+# Tabs where the format or the project's convention wants them.
+[{Makefile,*.mk,rules}]
+indent_style = tab
+
+[*.sh]
+indent_style = tab
+
+[{APKBUILD,template}]
+indent_style = tab
+
+[PKGBUILD]
+indent_size = 2
+
+# Captures and generated files are left exactly as they are.
+[{fixtures/**,Cargo.lock,LICENSE,*.1}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset

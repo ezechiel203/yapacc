@@ -1,0 +1,16 @@
+# cmd: dnf history info 3
+Transaction ID : 3
+Begin time     : 2026-11-15 19:41:04
+Begin rpmdb    : 25f19c088779758cdea8799b78c9aacd16a7b12af2a8cf59014bb5bb9d4b08a0
+End time       : 2026-11-15 19:41:04
+End rpmdb      : 034066abc544ed8a79b9dc29a31686a0991e376f549ee8161399acee2a69cc8d
+User           : 0 Super User <root>
+Status         : Ok
+Releasever     : 45
+Description    : dnf -q -y install tree
+Comment        : 
+Packages altered:
+  Action  Package                    Reason Repository
+  Install tree-0:2.3.1-2.fc45.x86_64 User   fedora
+
+# exit: 0

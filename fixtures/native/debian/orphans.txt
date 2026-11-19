@@ -1,0 +1,9 @@
+# cmd: apt-get -s autoremove
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  tree
+0 upgraded, 0 newly installed, 1 to remove and 1 not upgraded.
+Remv tree [2.2.1-1]
+# exit: 0

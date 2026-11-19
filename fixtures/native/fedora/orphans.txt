@@ -1,0 +1,4 @@
+# cmd: dnf -q repoquery --unneeded --qf %{name}
+
+tree
+# exit: 0

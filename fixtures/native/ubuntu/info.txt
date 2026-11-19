@@ -1,0 +1,26 @@
+# cmd: apt-cache show --no-all-versions bash
+Package: bash
+Priority: required
+Section: shells
+Installed-Size: 2020
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Version: 5.3-3ubuntu1
+Recommends: bash-completion
+Suggests: bash-doc
+Depends: base-files (>= 2.1.12), debianutils (>= 5.6-0.1)
+Pre-Depends: libc6 (>= 2.38), libtinfo6 (>= 6)
+Essential: yes
+Filename: pool/main/b/bash/bash_5.3-3ubuntu1_amd64.deb
+Size: 857024
+SHA512: 05fc4be7d1457e8e853a04c259d73c2c16de18154275612051f0d8efd6d4ec74c23f85b80c6a60c11e217aa4756a6a27650dd03502733b53141ac69c0732d3b4
+Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
+Description: GNU Bourne Again SHell
+Description-md5: 3522aa7b4374048d6450e348a5bb45d9
+Multi-Arch: foreign
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Origin: Ubuntu
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Task: minimal
+
+# exit: 0

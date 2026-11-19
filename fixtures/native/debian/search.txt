@@ -1,0 +1,448 @@
+# cmd: apt-cache search tree
+libtreelayout-java - Efficient and customizable TreeLayout Algorithm in Java
+ack - grep-like program specifically for large source trees
+altree - program to perform phylogeny-based association and localization analysis
+altree-examples - example files for ALTree
+animals - Traditional AI animal guessing engine using a binary tree DB
+python3-anytree - Powerful and Lightweight Python Tree Data Structure with various plugins
+appstream-compose - Compose metadata catalogs from directory trees
+python3-asciitree - Draw tree structures using (ASCII or Unicode) characters
+python3-astroid - rebuild a new abstract syntax tree from Python's AST (Python3)
+elpa-avy - jump to things in Emacs tree-style
+boolstuff - programs for operating on boolean expression binary trees
+boolstuff-dev - library for operating on boolean expression binary trees - devel
+libboolstuff-0.1-0 - library for operating on boolean expression binary trees
+budgie-wallstreet - Change wallpaper from a folder on a schedule
+castxml - C-family abstract syntax tree XML output tool
+cbonsai - terminal-based bonsai tree generator
+cherrytree - hierarchical note taking application
+clearcut - extremely efficient phylogenetic tree reconstruction
+cowdancer - Copy-on-write directory tree utility
+cvsgraph - Create a tree of revisions/branches from a CVS/RCS file
+elpa-dap-mode - DAP UI controls implemented using treemacs
+dar - Disk ARchive: Backup directory tree and files
+dar-docs - Disk ARchive: Backup directory tree and files
+dar-static - Disk ARchive: Backup directory tree and files
+ddir - display hierarchical directory tree
+gis-osm - OpenStreetMap related programs
+debtree - package dependency graphs on steroids
+device-tree-compiler - Device Tree Compiler for Flat Device Trees
+libfdt-dev - Flat Device Trees manipulation library - development files
+libfdt1 - Flat Device Trees manipulation library
+python3-libfdt - Flat Device Trees manipulation library - Python bindings
+dh-linktree - Create symlink trees within a Debian package
+dirdiff - Display and merge changes between two directory trees
+python-django-sitetree-doc - site tree, menu and breadcrumbs navigation for Django (Documentation)
+python3-django-sitetree - site tree, menu and breadcrumbs navigation for Django (Python3 version)
+python-dm-tree-doc - library for working with nested data structures (Documentation)
+python3-dm-tree - library for working with nested data structures (Python3 version)
+dopewars - drug-dealing game set in streets of New York City
+dopewars-data - drug-dealing game set in streets of New York City - data files
+dt-utils - Device tree and barebox related tools
+libdt-utils-dev - Device tree related library (development files)
+libdt-utils5t64 - Device tree related library
+libdune-typetree-dev - toolbox for solving PDEs -- typed tree template library (development files)
+libdune-typetree-doc - toolbox for solving PDEs -- typed tree template library (documentation)
+elpa-undo-tree - Emacs minor mode for handling undo history as tree
+elpa-ivy-avy - enhance Ivy's selection's with Avy's "balanced decision tree"
+elpa-neotree - directory tree sidebar for Emacs that is like NERDTree for Vim
+erlang-syntax-tools - Erlang/OTP modules for handling abstract Erlang syntax trees
+erlang-p1-mqtree - index tree for MQTT topic filters
+fastdnaml - Tool for construction of phylogenetic trees of DNA sequences
+fasttree - phylogenetic trees from alignments of nucleotide or protein sequences
+figtree - graphical phylogenetic tree viewer
+locate - maintain and query an index of a directory tree
+fpart - sort file trees and pack them into bags
+python3-fscacher - caching results of operations on heavy file trees
+fuse-convmvfs - mirrors a whole filesystem tree from one charset to another
+geany-plugin-treebrowser - tree browser plugin for Geany
+geneagrapher - Create tree from Mathematics Genealogy Project (executable)
+python3-geneagrapher - Create tree from Mathematics Genealogy Project (module)
+gitk - fast, scalable, distributed revision control system (revision tree visualizer)
+git-subrepo - Alternative to git-submodule(1) and git-subtree(1)
+gnuaisgui - OpenStreetMap GUI for gnuais
+golang-github-a8m-tree-dev - implementation of the tree command
+golang-github-altree-bigfloat-dev - Additional operations for the standard library big.Float type (library)
+golang-github-armon-go-radix-dev - Golang implementation of Radix trees
+golang-github-bboreham-go-loser-dev - Loser Tree data structure, for fast k-way merge (library)
+golang-github-beevik-etree-dev - parse and generate XML easily in go
+golang-github-cznic-b-dev - B+tree implementation
+golang-github-disiqueira-gotree-dev - Tree printer module written in GoLang (library)
+golang-github-google-btree-dev - BTree implementation for Go
+golang-github-hashicorp-go-immutable-radix-dev - immutable radix tree implementation in Golang
+golang-github-hashicorp-go-memdb-dev - in-memory database built on immutable radix trees
+golang-github-kentik-patricia-dev - Garbage collector-sensitive patricia tree (library)
+golang-github-nebulouslabs-merkletree-dev - Go package for working with Merkle trees
+golang-github-ostreedev-ostree-go-dev - Golang bindings for httt://github.com/ostreedev/ostree
+golang-github-petar-gollrb-dev - LLRB implementation of balanced binary search trees for Go
+golang-github-seancfoley-bintree-dev - Binary trees and tries
+golang-github-sjoerdsimons-ostree-go-dev - Golang bindings for OSTree
+golang-github-smartystreets-assertions-dev - fluent assertion-style functions
+golang-github-smartystreets-go-aws-auth-dev - Go library to signs requests to Amazon Web Services
+golang-github-smartystreets-goconvey-dev - Go testing in browser - sources
+golang-github-smartystreets-gunit-dev - xUnit-style test fixture adapter for go test
+golang-github-thejerf-suture-dev - supervisor trees for Go
+golang-github-tidwall-btree-dev - B-Tree implementation for Go
+golang-github-tidwall-rtree-dev - RTree implementation for Go
+golang-github-transparency-dev-merkle-dev - create and manipulate Merkle trees in Go (library)
+golang-github-vbatts-go-mtree-dev - file systems verification library, in likeness of mtree(8)
+golang-github-xlab-treeprint-dev - simple ASCII tree composing tool
+golang-github-tchap-go-patricia-dev - generic patricia trie (also called radix tree)
+golang-github-robfig-pathtree-dev - Go library for fast lookups using trees
+got - game of trees version control system
+gotd - game of trees repository server
+graphlan - circular representations of taxonomic and phylogenetic trees
+libghc-directory-tree-dev - simple directory-like tree datatype, with IO functions
+libghc-directory-tree-doc - simple directory-like tree datatype, with IO functions; documentation
+libghc-directory-tree-prof - simple directory-like tree datatype, with IO functions; profiling libraries
+libghc-dual-tree-dev - Rose trees with cached and accumulating monoidal annotations
+libghc-dual-tree-doc - Rose trees with cached and accumulating monoidal annotations; documentation
+libghc-dual-tree-prof - Rose trees with cached and accumulating monoidal annotations; profiling libraries
+libghc-fingertree-dev - Generic finger-tree data structure implementation in Haskell
+libghc-fingertree-doc - Generic finger-tree data structure implementation in Haskell; documentation
+libghc-fingertree-prof - Generic finger-tree data structure implementation in Haskell; profiling libraries
+libghc-ghc-lib-parser-ex-dev - algorithms on GHC parse trees
+libghc-ghc-lib-parser-ex-doc - algorithms on GHC parse trees; documentation
+libghc-ghc-lib-parser-ex-prof - algorithms on GHC parse trees; profiling libraries
+libghc-language-glsl-dev - GLSL abstract syntax tree, parser, and pretty-printer
+libghc-language-glsl-doc - GLSL abstract syntax tree, parser, and pretty-printer; documentation
+libghc-language-glsl-prof - GLSL abstract syntax tree, parser, and pretty-printer; profiling libraries
+libghc-src-exts-util-dev - helper functions for working with haskell-src-exts trees
+libghc-src-exts-util-doc - helper functions for working with haskell-src-exts trees; documentation
+libghc-src-exts-util-prof - helper functions for working with haskell-src-exts trees; profiling libraries
+wallstreet - fill your console with Wall Street-like news and stats
+icingaweb2-module-map - Displays host objects as markers on openstreetmap
+iitii - Implicit Interval Tree with Interpolation Index
+libiitii-dev - Implicit Interval Tree with Interpolation Index (devel)
+iqtree - efficient phylogenetic software by maximum likelihood
+libjane-street-headers-ocaml - common header files for Jane Street packages (runtime files)
+libjane-street-headers-ocaml-dev - common header files for Jane Street projects (dev files)
+libbase-ocaml - Jane Street's alternative standard library (runtime)
+libbase-ocaml-dev - Jane Street's alternative standard library (development)
+jmapviewer - Java OpenStreetMap Tile Viewer
+josm - Editor for OpenStreetMap
+josm-l10n - Editor for OpenStreetMap - translation files
+libjs-jquery-treetable - jQuery treeTable Plugin
+libjs-jquery-ui-theme-south-street - South Street theme for jQuery UI
+libjst-config-ocaml - compile-time configuration for Jane Street packages (runtime files)
+libjst-config-ocaml-dev - compile-time configuration for Jane Street packages (dev files)
+jtb - syntax tree builder and visitors generator for JavaCC
+keymapper - Keyboard map decision tree builder and interpreter
+qml6-module-org-kde-kirigamiaddons-treeview - treeview module for QML
+qml-module-org-kde-kirigami-addons-treeview - treeview module for QML on Qt5
+ldap2zone - Extract DNS zones from LDAP trees
+libai-decisiontree-perl - module to create decision trees from training data
+libalgorithm-dependency-perl - Base class for implementing various dependency trees in Perl
+libavl-dev - AVL tree manipulation library - development
+libavl1t64 - AVL tree manipulation library - runtime
+libb-utils-perl - Perl module assisting with op tree manipulation
+libclass-isa-perl - report the search path for a class's ISA tree
+libdata-treedumper-oo-perl - Object-oriented interface to Data::TreeDumper
+libdata-treedumper-perl - module for dumping data structures in various formats
+libdata-treedumper-renderer-dhtml-perl - simple Perl DHTML renderer for Data::TreeDumper
+libdbix-class-tree-nestedset-perl - module to manage trees of data using the nested set model
+libdbix-class-tree-perl - module to manipulate and anaylze tree structured data
+libfile-checktree-perl - module for running many filetest checks on a tree
+libfile-treecreate-perl - Perl module to recursively create and populate a directory tree
+libforest-perl - collection of N-ary tree related modules
+libgeo-coder-osm-perl - Geocode addresses with the OpenStreetMap Nominatim API
+libgeo-osm-tiles-perl - module for calculating tile numbers for OpenStreetMap
+libhtml-html5-sanity-perl - make HTML5 DOM trees less insane
+libhtml-popuptreeselect-perl - Perl module for HTML popup tree widget
+libhtml-prettyprinter-perl - module that generates nice HTML files from HTML syntax trees
+libhtml-query-perl - HTML::Tree add-on to allow jQuery-like queries on HTML::Element trees
+libhtml-tagtree-perl - module that generates HTML via a tree of tag objects
+libhtml-tree-perl - Perl module to represent and create HTML syntax trees
+libhtml-treebuilder-libxml-perl - HTML::TreeBuilder and XPath compatible interface with libxml
+libhtml-treebuilder-xpath-perl - Perl module to add XPath support to HTML::TreeBuilder
+libhx32t64 - C library providing queue, tree, I/O and utility functions
+libjs-jquery-jstree - jquery plugin providing interactive trees
+libkdtree++-dev - C++ template container implementation of kd-tree sorting
+python3-kdtree - container for kd-tree sorting for Python 3
+libmath-vector-real-kdtree-perl - kd-Tree implementation for Perl on top of Math::Vector::Real
+libpath-finddev-perl - Perl module to find a development source tree somewhere in an upper hierarchy
+libpath-isdev-perl - Perl module to determine if a given Path resembles a development source tree
+libpod-abstract-perl - abstract document tree for Perl POD documents
+libpod-tree-perl - module for creating a static syntax tree for a POD
+librdp-taxonomy-tree-java - taxonomy tree library from Ribosomal Database Project (RDP)
+libset-intervaltree-perl - Perform range-based lookups on sets of ranges
+libtest-classapi-perl - Perl extension for basic first-pass API testing for class trees
+libtree - ldd as a tree
+libtree-dagnode-perl - Perl (super)class for representing nodes in a tree
+libtree-multinode-perl - multi node tree object
+libtree-r-perl - Perl extension for the R-tree data structure and algorithms
+libtree-rb-perl - Perl implementation of the Red/Black tree
+libtree-redblack-perl - Perl implementation of Red/Black tree, a balanced tree
+libtree-simple-perl - implementation of a simple tree object
+libtree-simple-visitorfactory-perl - collection of dispensing visitor objects for Tree::Simple
+libtree-xpathengine-perl - re-usable XPath engine
+libwww-mechanize-treebuilder-perl - Perl module integrating WWW::Mechanize and HTML::TreeBuilder
+libxml-compacttree-perl - fast parser of XML document into nested arrays
+libxml-handler-trees-perl - Perl module for building tree structures using PerlSAX handlers
+libxml-libxml-iterator-perl - Iterator for XML parse-trees generated by XML::LibXML
+libxml-parser-easytree-perl - easier tree style for XML::Parser
+libxml-parser-lite-tree-perl - lightweight XML tree builder
+libxml-simpleobject-perl - Objectoriented Perl interface to a parsed XML::Parser tree
+libxml-smart-perl - Perl module for access to parsed XML trees
+libxml-treebuilder-perl - XML parser providing XML::Elements DOM similar to HTML::Element
+libxml-treepp-perl - Pure Perl module for parsing/writing XML files
+libxml-treepuller-perl - pull interface to work with XML document fragments
+libxml-twig-perl - Perl module for processing huge XML documents in tree mode
+libxml-xpathengine-perl - re-usable XPath engine for DOM-like trees
+libxml-xql-perl - Perl module for querying XML tree structures with XQL
+python3-logging-tree - introspect and display the logging tree in Python3
+elpa-lsp-treemacs - treemacs integration for Emacs LSP
+makefs - create a cd9660 or ffs filesystem image from a directory tree
+libmaven-dependency-tree-java - Maven Dependency Tree
+libmavibot-java - Apache Mavibot - MVCC BTree Java Implementation
+merkaartor - map editor for OpenStreetMap.org
+libkpim6mimetreeparser6 - KDE PIM Mime Tree parser library
+libkpim6mimetreeparsercore6 - core library for a MIME tree parser
+libkpim6mimetreeparserwidgets6 - widgets library for a MIME tree parser
+libmimetreeparser-data - MIME tree parser - data files
+libmimetreeparser-dev - MIME tree parser - development files
+qml6-module-org-kde-mimetreeparser - QML module for a MIME tree parser
+minetest-mod-ltool - Minetest mod providing utils for L-system trees.
+mkgmap - Generate Garmin maps from OpenStreetMap data
+mtree-netbsd - Validates directory tree against specification
+libnanoflann-dev - C++11 header-only library for Nearest Neighbor Search with KD-Trees
+maptool - Converts OpenStreetMap maps to Navit
+ncdt - Display directory tree
+libcneartree-dev - Library and headers for solving the Nearest Neighbor Problem
+libcneartree7t64 - Library for solving the Nearest Neighbor Problem
+njplot - phylogenetic tree drawing program
+node-configurable-http-proxy - configurable-on-the-fly HTTP Proxy in Node.js
+node-css-tree - toolset to work with CSS
+node-d3-quadtree - Two-dimensional recursive spatial subdivision
+node-eslint-visitor-keys - Constants and utilities about visitor keys to traverse AST
+node-estree-walker - traverse an ESTree-compliant AST in Node.js
+node-findit2 - walk a directory tree recursively with events
+libjs-functional-red-black-tree - fully persistent balanced binary search tree - browser library
+node-functional-red-black-tree - fully persistent balanced binary search tree - Node.js library
+node-jsdom - javascript implementation of the W3C DOM
+node-parse5-htmlparser2-tree-adapter - node-htmlparser2 tree adapter
+node-postcss-value-parser - Transforms css values and at-rule params into the tree
+node-recast - Pretty printer and syntax tree transformer for JavaScript
+node-map2tree - Node.js pure function to convert a map into a tree structure
+node-react-json-tree - React.js JSON viewer component
+node-regjsgen - Regular expression from abstract syntax trees in Node.js
+node-static-module - convert module usage to inline expressions
+node-to-regex - regex generator from string or array of strings
+yarnpkg - Fast, reliable, and secure dependency management
+zx - tool to launch modern Javascript scripts
+obs-scene-tree-view - plugin for OBS Studio that adds a scene tree folder dock
+libptmap-ocaml - Maps over integers implemented as Patricia trees (Runtime library)
+libptmap-ocaml-dev - Maps over integers implemented as Patricia trees (Development package)
+libtrie-ocaml - strict impure trie tree in OCaml (runtime)
+libtrie-ocaml-dev - strict impure trie tree in OCaml (dev)
+libofapi-dev - OpenFirmware device-tree parsing library - development files
+libofapi-example - OpenFirmware device-tree parsing library - example files
+libofapi0 - OpenFirmware device-tree parsing library - runtime
+openstreetmap-carto - Setup for standard OpenStreetMap Mapnik stylesheet
+openstreetmap-carto-common - standard OpenStreetMap Mapnik stylesheet
+elpa-org-tree-slide - presentation tool for org-mode
+gir1.2-osmgpsmap-1.0 - GTK+ library to embed OpenStreetMap maps - Python bindings
+libosmgpsmap-1.0-1 - GTK+ library to embed OpenStreetMap maps
+libosmgpsmap-1.0-dev - GTK+ library to embed OpenStreetMap maps - development files
+osm2pgrouting - Tool to import OpenStreetMap data into a pgRouting database
+osm2pgsql - OpenStreetMap data to PostgreSQL converter
+osmcoastline - Extract coastline data from OpenStreetMap planet file
+osmctools - Some tools to manipulate OpenStreetMap files
+osmium-tool - Command line tool for working with OpenStreetMap data
+python-osmnx-doc - tool to study street networks from OpenStreetMap -- doc
+python3-osmnx - tool to study street networks from OpenStreetMap -- Python3
+osmosis - Command line OpenStreetMap data processor
+libosmpbf-dev - C headers for OpenStreetMap PBF file format
+libosmpbf-java - Java access library for OpenStreetMap PBF file format
+libosmpbf1 - OpenStreetMap PBF file format library
+osmpbf-bin - OpenStreetMap PBF file format library - tools
+gir1.2-ostree-1.0 - content-addressed filesystem for operating system binaries (introspection)
+libostree-1-1 - content-addressed filesystem for operating system binaries (library)
+libostree-dev - Development files for the libostree library
+libostree-doc - Development documentation for the libostree library
+ostree - content-addressed filesystem for operating system binaries
+ostree-boot - libostree boot loader and initramfs integration
+ostree-tests - content-addressed filesystem for operating system binaries - tests
+ostree-push - push commits from local OSTree repo to a remote
+python3-overpass - wrapper for the OpenStreetMap Overpass API (Python 3)
+parsinsert - Parsimonious Insertion of unclassified sequences into phylogenetic trees
+libpcl-kdtree1.15 - Point Cloud Library - kdtree library
+libpcl-octree1.15 - Point Cloud Library - octree library
+php-parser - convert PHP code into abstract syntax tree
+phybin - binning/clustering newick trees by topology
+phyutility - simple analyses or modifications on both phylogenetic trees and data matrices
+phyx - UNIX-style phylogenetic analyses on trees and sequences
+libppx-js-style-ocaml - code style checker for Jane Street packages (runtime)
+libppx-js-style-ocaml-dev - code style checker for Jane Street packages (dev files)
+libppxlib-jane-ocaml - utilities to work on AST of the Jane Street OCaml compiler (runtime)
+libppxlib-jane-ocaml-dev - utilities to work on AST of the Jane Street OCaml compiler (development)
+prime-phylo - bayesian estimation of gene trees taking the species tree into account
+python3-radix - radix tree implementation for storage of IPv4 and IPv6 networks (Python 3)
+python3-pykdtree - Fast kd-tree implementation with OpenMP-enabled queries (Python 3 version)
+python3-pymbolic - Expression tree and symbolic manipulation library
+pyprof2calltree - visualise Python cProfile data with this kcachegrind converter
+python3-subnettree - Python 3 Module for CIDR Lookups
+python3-asttokens - annotate Python asbtract syntax trees with code references (Python 3)
+python3-baron - Full Syntax Tree for python for refactoring code
+python3-braintree - Braintree Python library
+python-btrees-doc - scalable persistent object containers for Python - documentation
+python3-btrees - scalable persistent object containers for Python 3
+sumtrees - Phylogenetic Tree Summarization and Annotation
+python-django-mptt-doc - Modified Preorder Tree Traversal Django application (documentation)
+python3-django-mptt - Modified Preorder Tree Traversal Django application
+python-django-tree-queries-doc - Adjacency-list trees for Django (Documentation)
+python3-django-tree-queries - Adjacency-list trees for Django (Python3 version)
+python-django-treebeard-doc - Efficient implementations of tree data structures for Django (documentation)
+python3-django-treebeard - Efficient implementations of tree data structures for Django (Python3 version)
+python3-ete3 - Python Environment for (phylogenetic) Tree Exploration - Python 3.X
+python3-intervaltree - mutable, self-balancing interval tree (Python 3)
+python3-intervaltree-bio - Interval tree convenience classes for genomic data -- Python 3 library
+python3-iow - balanced parentheses tree structure
+python3-libcst - Concrete Syntax Tree (CST) parser and serializer library for Python
+python3-osmapi - Python 3 interface to OpenStreetMap API
+python3-overpy - wrapper to access the OpenStreetMap Overpass API (Python 3)
+python3-pipdeptree - display dependency tree of the installed Python 3 packages
+python3-priority - pure-Python implementation of the HTTP/2 priority tree (Python 3)
+python3-rtree - R-Tree spatial index for Python GIS - Python 3 module
+python3-scantree - Flexible recursive directory iterator: scandir meets glob("**", recursive=True)
+python3-seedir - Package for creating, editing, and reading folder tree diagrams
+python-tktreectrl-doc - documentation and examples for Python TkTreeCtrl
+python3-tktreectrl - Tkinter-based wrapper for Tk TreeCtrl for Python 3
+python3-treetime - inference of time stamped phylogenies and ancestral reconstruction (Python 3)
+python3-urwidtrees - Urwid Tree Container API
+qgit - Qt application for viewing GIT trees
+qml6-module-qtquick-timeline-blendtrees - Qt 6 Quick Timeline BlendTrees QML module
+libquicktree-dev - Neighbor-Joining algorithm for phylogenies (development)
+quicktree - Neighbor-Joining algorithm for phylogenies
+r-bioc-ctc - Cluster and Tree Conversion
+r-cran-d3network - GNU R tools for creating D3 JavaScript network, tree, dendrogram etc.
+r-cran-ddrtree - GNU R learning principal graphs with DDRTree
+r-cran-dynamictreecut - Methods for Detection of Clusters in Hierarchical Clustering
+r-cran-ggdendro - GNU R create dendrograms and tree diagrams using 'ggplot2'
+r-cran-knn.covertree - GNU R accurate kNN implementation with multiple distance measures
+r-cran-lobstr - visualize R data structures with trees
+r-cran-maptree - GNU R mapping, pruning, and graphing tree models
+r-cran-psychotree - GNU R recursive partitioning based on psychometric models
+r-cran-rotl - GNU R interface to the 'Open Tree of Life' API
+r-cran-tgp - GNU R Bayesian treed Gaussian process models
+r-cran-treespace - Statistical Exploration of Landscapes of Phylogenetic Trees
+r-cran-triebeard - GNU R radix trees in Rcpp
+r-cran-xmlparsedata - Parse Data of R Code as an XML Tree
+raku-file-find - Get a lazy list of a directory tree
+raxml - Randomized Axelerated Maximum Likelihood of phylogenetic trees
+libreadosm-dev - simple library to parse OpenStreetMap files - headers
+libreadosm-doc - simple library to parse OpenStreetMap files - documentation
+libreadosm1 - simple library to parse OpenStreetMap files
+r-cran-rpart - GNU R package for recursive partitioning and regression trees
+ruby-acts-as-tree - simple tree behaviour to active_record models
+ruby-ast - Ruby library for working with abstract syntax trees
+ruby-avl-tree - AVL and red-black trees in Ruby
+ruby-htree - HTML/XML tree library for Ruby
+ruby-rbtree - sorted associative collection for Ruby
+ruby-ruby2ruby - Generate pure ruby code easily from ParseTree's Sexps
+ruby-tdiff - Calculates the differences between two tree-like structures
+ruby-treetop - Ruby-based text parsing and interpretation DSL
+treetop - Ruby-based text parsing and interpretation (command-line utility)
+librust-auditable-extract-dev - Extract the dependency trees embedded in binaries by `cargo auditable` - Rust source code
+librust-auditable-info-dev - High-level crate to extract the dependency trees embedded in binaries by `cargo auditable` - Rust source code
+librust-bet-dev - Helps parsing and evaluating binary expression trees - Rust source code
+librust-bk-tree-dev - Rust BK-tree implementation - Rust source code
+broot - tree view, file manager, configurable launcher
+librust-btree-range-map-dev - B-tree range map implementation - Rust source code
+librust-btree-slab-dev - Memory compact Slab-based B-tree implementation - Rust source code
+cargo-debstatus - print dependency tree of a Rust project using Cargo
+librust-cargo-lock-dev - Self-contained Cargo.lock parser - Rust source code
+librust-dbus-tree-dev - Framework for writing D-Bus method handlers (legacy) - Rust source code
+librust-device-tree-dev - Reads and parses Linux device tree images - Rust source code
+librust-document-tree-dev - ReStructuredText??s DocumentTree representation - Rust source code
+librust-dolby-vision-dev - Dolby Vision metadata parsing and writing - Rust source code
+librust-ego-tree-dev - Vec-backed ID-tree - Rust source code
+librust-git-testament-dev - Record git working tree status when compiling your crate - Rust source code
+librust-git-testament-derive-dev - Record git working tree status when compiling your crate - inner procedural macro - Rust source code
+librust-gix-dev - Interact with git repositories just like git would - Rust source code
+librust-gix-archive-dev - Archive generation from of a worktree stream - Rust source code
+librust-gix-status-dev - The gitoxide project dealing with 'git status'-like functionality - Rust source code
+librust-gix-worktree-dev - The gitoxide project for shared worktree related types and utilities - Rust source code
+librust-gix-worktree-state-dev - The gitoxide project implementing setting the worktree to a particular state - Rust source code
+librust-gix-worktree-stream-dev - Generate a byte-stream from a git-tree - Rust source code
+librust-intervaltree-dev - Simple and generic implementation of an immutable interval tree - Rust source code
+librust-lddtree-dev - Read the ELF dependency tree - Rust source code
+librust-libcst-dev - Python parser and Concrete Syntax Tree library - Rust source code
+librust-maplit-dev - Literal macros for HashMap, HashSet, BTreeMap, BTreeSet - Rust source code
+librust-predicates-tree-dev - Render boolean-valued predicate functions results as a tree - Rust source code
+librust-prefixtree-dev - Hash-table-based prefix tree library - Rust source code
+librust-prettyplease-dev - Minimal `syn` syntax tree pretty-printer - Rust source code
+librust-prodash-dev - Dashboard for progress of async and blocking tasks - Rust source code
+librust-rctree-dev - 'DOM-like' tree implemented using reference counting - Rust source code
+librust-rowan-dev - Generic lossless syntax trees - Rust source code
+librust-roxmltree-dev - Represent an XML as a read-only tree - Rust source code
+librust-rust-unixfs-dev - UnixFs tree support - Rust source code
+librust-serde-value-dev - Serialization value trees - Rust source code
+librust-streebog-dev - Streebog (GOST R 34.11-2012) hash function - Rust source code
+librust-temptree-dev - Temporary trees of files - Rust source code
+librust-termtree-dev - Visualize tree-like data on the command-line - Rust source code
+librust-text-trees-dev - simple textual output for tree-like structures - Rust source code
+librust-tracing-tree-dev - Tracing Layer which prints a tree of spans and events - Rust source code
+tre-command - Tree command, improved
+librust-tree-magic-db-dev - Packages the FreeDesktop.org shared MIME database for optional use with tree_magic_mini - Rust source code
+librust-tree-magic-mini-dev - Determines the MIME type of a file by traversing a filetype tree - Rust source code
+librust-treediff-dev - Find the difference between arbitrary data structures - Rust source code
+librust-treeline-dev - Visualizing tree structured data - Rust source code
+librust-ungrammar-dev - DSL for describing concrete syntax trees - Rust source code
+librust-vcpkg-dev - Find native dependencies in a vcpkg tree at build time - Rust source code
+librust-vec-collections-dev - Collctions (set and maps) that wrap SmallVec
+librust-xmltree+indexmap-dev - Parse an XML file into a simple tree-like structure - feature "indexmap" and 1 more
+librust-xmltree-dev - Parse an XML file into a simple tree-like structure - Rust source code
+librust-zvariant-dev - D-Bus & GVariant encoding & decoding - Rust source code
+librust-zvariant-2-dev - D-Bus & GVariant encoding & decoding - Rust source code
+python3-sphinx-remove-toctrees - Reduce sphinx documentation build times
+libterraces-dev - enumerate terraces in phylogenetic tree space (development lib)
+libterraces0 - enumerate terraces in phylogenetic tree space (shared lib)
+terraphast - enumerate terraces in phylogenetic tree space
+tilemaker - Generates vector tiles from OpenStreetMap data
+tktreectrl - Flexible listbox widget for Tcl/Tk
+tree - displays an indented directory tree, in color
+tree-ppuzzle - Parallelized reconstruction of phylogenetic trees by maximum likelihood
+tree-puzzle - Reconstruction of phylogenetic trees by maximum likelihood
+tree-puzzle-doc - Reconstruction of phylogenetic trees by maximum likelihood (doc)
+librust-tree-sitter-cli-dev - command-line for Tree-sitter parsers - Rust source code
+librust-tree-sitter-config-dev - user configuration of tree-sitter's CLI programs - Rust source code
+librust-tree-sitter-dev - bindings to the tree-sitter parsing library - Rust source code
+librust-tree-sitter-highlight-dev - perform syntax highlighting with tree-sitter - Rust source code
+librust-tree-sitter-loader-dev - locates, builds, and loads tree-sitter grammars - Rust source code
+librust-tree-sitter-tags-dev - library for extracting tag information - Rust source code
+libtree-sitter-dev - incremental parsing system for programming tools (development files)
+libtree-sitter0.22 - incremental parsing system for programming tools
+tree-sitter-cli - command-line for Tree-sitter parsers
+librust-tree-sitter-c-dev - C grammar for the tree-sitter parser - Rust source code
+tree-sitter-c-src - C parser for Tree-sitter (source files)
+librust-tree-sitter-lua-dev - Lua grammar for the tree-sitter parser - Rust source code
+tree-sitter-lua-src - Lua parser for Tree-sitter (source files)
+librust-tree-sitter-md-dev - Markdown grammar for the tree-sitter parser - Rust source code
+tree-sitter-markdown-inline-src - inline markdown parser for Tree-sitter (source files)
+tree-sitter-markdown-src - markdown parser for Tree-sitter (source files)
+librust-tree-sitter-query-dev - query grammar for the tree-sitter parser - Rust source code
+tree-sitter-query-src - Tree-sitter queries parser for Tree-sitter (source files)
+librust-tree-sitter-sdml-dev - sdml grammar for the tree-sitter parser - Rust source code
+python3-tree-sitter-sdml - sdml grammar for the tree-sitter parser - Python bindings
+librust-tree-sitter-vim-dev - Vimscript grammar for the tree-sitter parser - Rust source code
+tree-sitter-vim-src - Vimscript parser for Tree-sitter (source files)
+librust-tree-sitter-vimdoc-dev - Vimdoc grammar for the tree-sitter parser - Rust source code
+tree-sitter-vimdoc-src - Vim help file parser for Tree-sitter (source files)
+treeland-protocols - Wayland protocol extensions for treeland
+python3-treelib - Python implementation of tree structure
+treeline - versatile tree-like structured custom data manager
+elpa-treemacs - tree layout file explorer for Emacs
+elpa-treemacs-evil - tree layout file explorer for Emacs - evil support
+elpa-treemacs-magit - tree layout file explorer for Emacs - magit support
+elpa-treemacs-projectile - tree layout file explorer for Emacs - projectile support
+elpa-treepy - Generic tree traversal tools
+treesheets - Data organizer that covers spreadsheets, mind mappers, and small databases
+treeview - Java re-implementation of Michael Eisen's TreeView
+treeviewx - Displays and prints phylogenetic trees
+tryton-modules-account-payment-braintree - Tryton application platform - account payment braintree module
+python3-typeshed - collection of library stubs for Python, with static types
+veryfasttree - Speeding up the estimation of phylogenetic trees from sequences
+ytree - File manager for terminals
+elpa-ztree - text mode directory tree
+# exit: 0

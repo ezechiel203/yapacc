@@ -1,0 +1,14 @@
+# cmd: apt-get -s upgrade
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  tree
+Use 'apt autoremove' to remove it.
+The following packages will be upgraded:
+  zlib1g
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Inst zlib1g [1:1.3.dfsg+really1.3.1-1+b1] (1:1.3.dfsg+really1.3.1-1+deb13u1 Debian-Security:13/stable-security [amd64])
+Conf zlib1g (1:1.3.dfsg+really1.3.1-1+deb13u1 Debian-Security:13/stable-security [amd64])
+# exit: 0

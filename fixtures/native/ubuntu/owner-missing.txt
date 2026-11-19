@@ -1,0 +1,3 @@
+# cmd: dpkg-query -S /nonexistent/yapacc-fixture
+dpkg-query: no path found matching pattern /nonexistent/yapacc-fixture
+# exit: 1

@@ -1,0 +1,42 @@
+# cmd: tail -n 40 /var/log/dpkg.log
+2026-11-05 15:25:25 status installed libapt-pkg7.0:amd64 3.3.3ubuntu0.1
+2026-11-05 15:25:25 startup archives unpack
+2026-11-05 15:25:26 upgrade apt:amd64 3.3.3 3.3.3ubuntu0.1
+2026-11-05 15:25:26 status half-configured apt:amd64 3.3.3
+2026-11-05 15:25:26 status unpacked apt:amd64 3.3.3
+2026-11-05 15:25:26 status half-installed apt:amd64 3.3.3
+2026-11-05 15:25:26 status unpacked apt:amd64 3.3.3ubuntu0.1
+2026-11-05 15:25:26 startup packages configure
+2026-11-05 15:25:26 configure apt:amd64 3.3.3ubuntu0.1 <none>
+2026-11-05 15:25:26 status unpacked apt:amd64 3.3.3ubuntu0.1
+2026-11-05 15:25:26 status half-configured apt:amd64 3.3.3ubuntu0.1
+2026-11-05 15:25:26 status installed apt:amd64 3.3.3ubuntu0.1
+2026-11-05 15:25:26 startup archives unpack
+2026-11-05 15:25:26 upgrade libpcre2-8-0:amd64 10.46-1build1 10.46-1ubuntu1
+2026-11-05 15:25:26 status half-configured libpcre2-8-0:amd64 10.46-1build1
+2026-11-05 15:25:26 status unpacked libpcre2-8-0:amd64 10.46-1build1
+2026-11-05 15:25:26 status half-installed libpcre2-8-0:amd64 10.46-1build1
+2026-11-05 15:25:26 status triggers-pending libselinux1:amd64 3.11-2.1
+2026-11-05 15:25:26 status unpacked libpcre2-8-0:amd64 10.46-1ubuntu1
+2026-11-05 15:25:26 startup packages configure
+2026-11-05 15:25:26 configure libpcre2-8-0:amd64 10.46-1ubuntu1 <none>
+2026-11-05 15:25:26 status unpacked libpcre2-8-0:amd64 10.46-1ubuntu1
+2026-11-05 15:25:26 status half-configured libpcre2-8-0:amd64 10.46-1ubuntu1
+2026-11-05 15:25:26 status installed libpcre2-8-0:amd64 10.46-1ubuntu1
+2026-11-05 15:25:26 startup packages configure
+2026-11-05 15:25:26 trigproc libselinux1:amd64 3.11-2.1 <none>
+2026-11-05 15:25:26 status half-configured libselinux1:amd64 3.11-2.1
+2026-11-05 15:25:26 status installed libselinux1:amd64 3.11-2.1
+2026-11-05 15:25:26 trigproc libc-bin:amd64 2.44-1ubuntu2 <none>
+2026-11-05 15:25:26 status half-configured libc-bin:amd64 2.44-1ubuntu2
+2026-11-05 15:25:26 status installed libc-bin:amd64 2.44-1ubuntu2
+2026-11-15 19:30:32 startup archives unpack
+2026-11-15 19:30:32 install tree:amd64 <none> 2.3.2-1
+2026-11-15 19:30:32 status half-installed tree:amd64 2.3.2-1
+2026-11-15 19:30:32 status unpacked tree:amd64 2.3.2-1
+2026-11-15 19:30:32 startup packages configure
+2026-11-15 19:30:32 configure tree:amd64 2.3.2-1 <none>
+2026-11-15 19:30:32 status unpacked tree:amd64 2.3.2-1
+2026-11-15 19:30:32 status half-configured tree:amd64 2.3.2-1
+2026-11-15 19:30:32 status installed tree:amd64 2.3.2-1
+# exit: 0

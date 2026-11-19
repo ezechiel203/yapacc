@@ -1,0 +1,53 @@
+name: Bug report
+description: yapacc did something wrong, or said something that is not true
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time. yapacc works beside your package
+        manager on several distributions, so the output of the three
+        commands below tells us most of what we need.
+
+        Do not report a security problem here: use "Report a vulnerability"
+        on the Security tab of the repository.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command you ran, what it printed, and what you expected instead.
+      placeholder: |
+        $ yapacc why firefox
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: yapacc --version, and how it was installed
+      description: Release archive, distribution package (which one), or built from source (which commit, which features).
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: platform
+    attributes:
+      label: Output of `yapacc platform`
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `yapacc doctor`
+      description: It reads; it changes nothing. Remove anything you do not want to publish.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Exit code (`echo $?`), whether it happens every time, what you tried.
+    validations:
+      required: false

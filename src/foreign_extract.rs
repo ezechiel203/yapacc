@@ -4010,10 +4010,14 @@ mod tests {
             return;
         }
         let repo = Repo::new();
-        // gpgv's own output is the text that is parsed
+        // gpgv's own output is the text that is parsed. Some versions of
+        // gpgv end it with one more empty line, which the parser skips.
         let signed =
             verify_clearsigned(&repo.path("dists/stable/InRelease"), &repo.keyring()).unwrap();
-        assert_eq!(signed, FIX_RELEASE);
+        assert_eq!(
+            signed.trim_end_matches('\n'),
+            FIX_RELEASE.trim_end_matches('\n')
+        );
 
         let r = repo.resolve(true, false).unwrap();
         assert!(r.signature_verified);

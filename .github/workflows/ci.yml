@@ -241,10 +241,16 @@ jobs:
           - { image: "archlinux:latest", manager: pacman, pkg: bash }
           - { image: "opensuse/tumbleweed:latest", manager: zypper, pkg: bash, refresh: "zypper --non-interactive refresh" }
           - { image: "alpine:latest", manager: apk, pkg: busybox, refresh: "apk update" }
-          - { image: "ghcr.io/void-linux/void-glibc:latest", manager: xbps, pkg: base-files, refresh: "xbps-install -S" }
+          - { image: "ghcr.io/void-linux/void-glibc:latest", manager: xbps, pkg: base-files, refresh: "xbps-install -S", prepare: "xbps-install -Syu xbps || true; xbps-install -y libstdc++" }
     container:
       image: ${{ matrix.image }}
     steps:
+      # For the runner, not for yapacc: the actions below are run by the
+      # runner's own Node, which needs libstdc++, and the Void image has
+      # none. `cargo xtask ci` runs the binary in the image as it ships.
+      - name: what the runner's actions need in this image
+        if: matrix.prepare
+        run: ${{ matrix.prepare }}
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: yapacc-static

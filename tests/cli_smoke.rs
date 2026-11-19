@@ -620,7 +620,6 @@ fn get_explain_resolves_repo_lane() {
 #[test]
 fn get_explain_falls_back_to_recipe() {
     let o = run(&["get", "definitely-not-a-real-pkg-xyz-42", "--explain"]);
-    assert!(o.status.success(), "stderr: {}", stderr(&o));
     let out = stdout(&o);
     assert!(
         out.contains("Resolution: definitely-not-a-real-pkg-xyz-42"),
@@ -628,11 +627,18 @@ fn get_explain_falls_back_to_recipe() {
     );
     if !have_pacman() {
         // no recipe lane without pacman: a name found nowhere resolves to
-        // nothing, and --explain says so
+        // nothing, --explain says so, and that is "not found"
         assert!(out.contains("chosen: none"), "out: {out}");
         assert!(!out.contains("recipe"), "out: {out}");
+        assert_eq!(o.status.code(), Some(4), "stderr: {}", stderr(&o));
+        assert!(
+            stderr(&o).contains("no source was chosen"),
+            "stderr: {}",
+            stderr(&o)
+        );
         return;
     }
+    assert!(o.status.success(), "stderr: {}", stderr(&o));
     assert!(out.contains("chosen: recipe"), "out: {out}");
     assert!(out.contains("review-gated"), "out: {out}");
 }
@@ -794,17 +800,18 @@ fn plugin_lane_end_to_end_with_mock_adapter() {
         "some-random-thing-xyz",
         "--explain",
     ]);
-    assert!(res.status.success(), "stderr: {}", stderr(&res));
     let rout = stdout(&res);
     if have_pacman() {
+        assert!(res.status.success(), "stderr: {}", stderr(&res));
         assert!(rout.contains("mocklane"), "lane missing: {rout}");
         assert!(rout.contains("mock-store"), "out: {rout}");
         assert!(rout.contains("chosen: mocklane"), "out: {rout}");
     } else {
         // Without pacman the resolver knows the repo and flatpak lanes
         // only: the adapter is listed above but not asked. The name exists
-        // nowhere, so nothing is chosen.
+        // nowhere, so nothing is chosen, and that is "not found".
         assert!(rout.contains("chosen: none"), "out: {rout}");
+        assert_eq!(res.status.code(), Some(4), "stderr: {}", stderr(&res));
     }
 
     let _ = std::fs::remove_dir_all(&dir);
@@ -853,7 +860,18 @@ fn mcp_stdio_handshake_and_tool_call() {
     assert!(names.iter().any(|t| t["name"] == "yapacc_search"));
     let install: serde_json::Value = serde_json::from_str(lines[2]).unwrap();
     let itext = install["result"]["content"][0]["text"].as_str().unwrap();
-    assert!(itext.contains("PLAN ONLY"), "safety gate: {itext}");
+    if have_pacman() {
+        // a name found nowhere resolves to a recipe to write: there is a plan
+        assert!(itext.contains("PLAN ONLY"), "safety gate: {itext}");
+    } else {
+        // without pacman there is no recipe lane, so there is no plan; either
+        // way nothing is applied
+        assert!(itext.contains("PLAN FAILED"), "safety gate: {itext}");
+        assert!(
+            itext.contains("nothing was changed"),
+            "safety gate: {itext}"
+        );
+    }
 }
 
 #[test]

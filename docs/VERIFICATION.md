@@ -402,6 +402,24 @@ developer's machine, an Arch system. After the fix the whole test suite
 (680 tests) was run in `ubuntu:26.04` and `fedora:latest` containers,
 which have no pacman, and passed in both.
 
+**The release of 0.1.0 (2026-11-19).** The tag `v0.1.0` started
+`release.yml` for the first time. Its three jobs passed: the tests, the
+build with `cargo xtask dist --require-aarch64` on toolchain 1.98.1, and
+the attestation with the draft release. Checked afterwards, from the
+release page: `sha256sum -c SHA256SUMS` holds for the four archives;
+`gh attestation verify` passes for both binary archives and for
+`SHA256SUMS`; the three binaries of each architecture are byte for byte
+the ones built on the developer's machine with the same toolchain (the
+archives differ, the binaries in them do not); the handbook's install
+commands, run in a fresh `debian:stable` container, fetched the x86_64
+archive, checked it, unpacked it into `/usr/local`, and `yapacc
+--version`, `doctor` and `why bash` answered. Two things were changed by
+hand before the draft was published: the two links of the notes, which
+were relative and led nowhere from a release page (the notes generator
+now writes them in full), and the pre-release mark the workflow gave to
+every 0.x version (the workflow no longer does). Not checked: the aarch64
+archive on an aarch64 machine.
+
 ## Continuous integration, run locally
 
 **CI commands run locally (2026-11-18; not a substitute for the runner):** the `portable` job's fmt, clippy and test commands (`--no-default-features --features tui`) pass (275 lib, 85 octo-head, 36 CLI tests), and the `musl` job's checks hold on the local static build (static-pie, no dynamic dependencies, `--version` runs, 5,199,920 bytes against the 6 MiB budget). The `arch` job was run in a podman `archlinux:base-devel` container (clippy, full tests, read-only command surface) and the `families` matrix against all seven images with the static binary. That found two defects CI would have hit, both fixed: `inspect owns` of an unowned symlink (Alpine's `/usr/bin/env -> /bin/busybox`) now follows the link like `apk info -W` does, and `container_plan_reports_engine` assumed a container engine exists (now it also accepts the clear "no supported engine" refusal). After the fixes the Arch container run passes and all seven `families` rows pass with the rebuilt static binary. The GitHub runner has not run these jobs.

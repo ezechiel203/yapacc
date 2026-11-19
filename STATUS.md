@@ -1,6 +1,6 @@
 # yapacc status
 
-Version 0.1.0, the first public release. Last updated: 2026-11-19.
+Version 0.1.0, the first public release. Last updated: 2026-11-20.
 
 This file says what is true of the code today: what was checked and how,
 what is known not to work, and what was never checked. The run-by-run
@@ -29,9 +29,12 @@ difference that matters: its `portable` job runs on the developer's
 machine, which has pacman when that machine is Arch, while the hosted job
 runs on Ubuntu without it. The first hosted runs found three defects the
 local run could not see; [docs/VERIFICATION.md](docs/VERIFICATION.md) has
-them. The release workflow (`release.yml`) runs for the first time on the
-tag of this release. `site.yml` has never run: the website is published by
-`site/publish.sh`, which pushes the built files to the branch `gh-pages`.
+them. The release workflow (`release.yml`) has run once, for the tag
+`v0.1.0`: it built the archives, attested them and created the release.
+The six binaries it built, for x86_64 and aarch64, are byte for byte the
+ones `cargo +1.98.1 xtask dist` builds on a developer's machine. `site.yml`
+has never run: the website is published by `site/publish.sh`, which pushes
+the built files to the branch `gh-pages`.
 
 ## Support, by package manager
 
@@ -168,9 +171,9 @@ how.
 - **Derivatives.** Linux Mint, Pop!_OS, Manjaro, EndeavourOS, AlmaLinux,
   RHEL and SLES were not run. `undo`'s archive fallback knows Debian,
   Ubuntu and Arch only.
-- **The release workflow before this release.** It was not rehearsed on
-  GitHub: the tag of 0.1.0 is its first run, and with it the first build
-  provenance attestation.
+- **The published release on other machines.** The x86_64 archive was
+  installed from the release page in one Debian container, with the
+  handbook's commands. Nobody else has downloaded and run it.
 - **Restoring a snapshot.** yapacc does not do it, so there is nothing of
   its own to test.
 - **Ubuntu 26.04.** The image boots in the harness; yapacc was never run

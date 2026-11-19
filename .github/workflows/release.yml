@@ -161,10 +161,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          # 0.x and anything with a suffix (v1.0.0-rc1) is a pre-release.
+          # A version with a suffix (v1.0.0-rc1) is a pre-release.
           flags=()
           case "$GITHUB_REF_NAME" in
-            v0.* | *-*) flags+=(--prerelease) ;;
+            *-*) flags+=(--prerelease) ;;
           esac
           gh release create "$GITHUB_REF_NAME" \
             --repo "$GITHUB_REPOSITORY" \

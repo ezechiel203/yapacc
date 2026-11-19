@@ -577,25 +577,46 @@ pub fn changelog_section(changelog: &str, version: &str) -> Option<String> {
     (!text.is_empty()).then_some(text)
 }
 
+/// A release page is not inside the repository, so a link written for
+/// CHANGELOG.md (`[STATUS.md](STATUS.md)`) leads nowhere from it. Point
+/// every such link at the file as it is at the tag of the release.
+pub fn absolute_links(text: &str, repository: &str, version: &str) -> String {
+    let mut out = String::with_capacity(text.len());
+    let mut rest = text;
+    while let Some(i) = rest.find("](") {
+        let (before, after) = rest.split_at(i + 2);
+        out.push_str(before);
+        let leaves_alone = ["http://", "https://", "mailto:", "#"]
+            .iter()
+            .any(|prefix| after.starts_with(prefix));
+        if !leaves_alone {
+            out.push_str(&format!("{repository}/blob/v{version}/"));
+        }
+        rest = after;
+    }
+    out.push_str(rest);
+    out
+}
+
 /// `cargo xtask release-notes [VERSION]`: print the section of CHANGELOG.md
 /// for the version (default: the one in Cargo.toml). The release workflow
 /// gives it to `gh release create --notes-file`.
 pub fn release_notes(root: &Path, args: &[String]) -> Result<(), String> {
+    let manifest = fs::read_to_string(root.join("Cargo.toml"))
+        .map_err(|e| format!("cannot read Cargo.toml: {e}"))?;
     let version = match args {
-        [] => {
-            let manifest = fs::read_to_string(root.join("Cargo.toml"))
-                .map_err(|e| format!("cannot read Cargo.toml: {e}"))?;
-            version_of(&manifest)?
-        }
+        [] => version_of(&manifest)?,
         [version] if !version.starts_with('-') => version.trim_start_matches('v').to_string(),
         _ => return Err("usage: cargo xtask release-notes [VERSION]".into()),
     };
+    let repository = manifest_value(&manifest, "workspace.package", "repository")
+        .ok_or("Cargo.toml: no repository in [workspace.package]")?;
     let changelog = fs::read_to_string(root.join("CHANGELOG.md"))
         .map_err(|e| format!("cannot read CHANGELOG.md: {e}"))?;
     let section = changelog_section(&changelog, &version).ok_or_else(|| {
         format!("CHANGELOG.md has no section `## [{version}] - <date>` with text under it")
     })?;
-    println!("{section}");
+    println!("{}", absolute_links(&section, &repository, &version));
     Ok(())
 }
 
@@ -1064,6 +1085,23 @@ mod tests {
             changelog_section("## 1.0.0\ntext\n", "1.0.0").as_deref(),
             Some("text")
         );
+    }
+
+    #[test]
+    fn links_into_the_repository_are_made_absolute_for_the_release_page() {
+        let repo = "https://example.org/yapacc";
+        assert_eq!(
+            absolute_links(
+                "See [STATUS.md](STATUS.md) and\n[the log](docs/VERIFICATION.md#x), \
+                 [the site](https://example.org/), [below](#limits) and [d][d].",
+                repo,
+                "0.1.0"
+            ),
+            "See [STATUS.md](https://example.org/yapacc/blob/v0.1.0/STATUS.md) and\n\
+             [the log](https://example.org/yapacc/blob/v0.1.0/docs/VERIFICATION.md#x), \
+             [the site](https://example.org/), [below](#limits) and [d][d]."
+        );
+        assert_eq!(absolute_links("no link", repo, "1.0.0"), "no link");
     }
 
     #[test]

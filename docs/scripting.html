@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Scripting: JSON and exit codes · yapacc handbook</title>
+<meta name="description" content="Scripting: JSON and exit codes: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html" aria-current="page">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>Scripting: JSON and exit codes</h1>
+      </header>
+      <article class="prose">
+<p>yapacc is meant to be usable from scripts without parsing prose. Two things
+make that possible: read commands can print JSON, and the exit code says
+what kind of outcome it was.</p>
+<h2 id="exit-codes">Exit codes<a class="anchor" href="#exit-codes" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Name</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>0</td><td>ok</td><td>the command did what was asked</td></tr>
+<tr><td>1</td><td>failed</td><td>the operation ran and failed</td></tr>
+<tr><td>2</td><td>usage</td><td>bad arguments, or a configuration file that does not parse</td></tr>
+<tr><td>3</td><td>refused</td><td>a gate or a guard said no; nothing was changed</td></tr>
+<tr><td>4</td><td>not found</td><td>the package, record or plan does not exist</td></tr>
+<tr><td>5</td><td>integrity</td><td>a hash, signature or chain check failed</td></tr>
+<tr><td>6</td><td>unavailable</td><td>something the command needs is not available: a tool or an optional component that is not installed, a file this user may not read, a feature this build lacks, or a command that does not exist for this package manager</td></tr>
+</tbody></table>
+</div>
+<p>The message goes to standard error as <code>error: …</code>.</p>
+<p>The codes that matter most in a script are 3 and 6. A 3 means the system is
+exactly as it was, by decision. A 6 means the machine lacks something, and
+the message names it.</p>
+<figure class="code" data-lang="sh"><pre><code>yapacc --script upgrade --yes
+case $? in
+  0) echo &quot;upgraded&quot; ;;
+  3) echo &quot;refused, nothing changed&quot; ;;
+  6) echo &quot;a tool is missing&quot; ;;
+  *) echo &quot;failed&quot; ;;
+esac
+</code></pre></figure>
+<h2 id="never-waiting-for-input">Never waiting for input<a class="anchor" href="#never-waiting-for-input" aria-label="Link to this section">§</a></h2>
+<p><code>--script</code> promises that yapacc never prompts. A command that would have
+asked <code>[y/N]</code> is refused unless <code>--yes</code> or <code>--dryrun</code> is given, and a
+privilege tool that would have asked for a password is called in its
+non-interactive mode and fails at once.</p>
+<p>Without <code>--script</code>, yapacc still never reads an answer from a pipe:
+standard input that is not a terminal cannot confirm anything.</p>
+<h2 id="json">JSON<a class="anchor" href="#json" aria-label="Link to this section">§</a></h2>
+<p><code>--json</code> is a global option and goes before the command:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json platform</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json why bash</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json timeline --since 2026-11-01</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json list --explicit</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json doctor</span></span>
+</code></pre></figure>
+<p>These commands have a JSON form on every system: <code>why</code>, <code>timeline</code>,
+<code>briefing</code>, <code>clean</code>, <code>restart</code>, <code>configs</code>, <code>doctor</code>, <code>platform</code>, <code>list</code>,
+<code>info</code>, <code>search</code>, <code>check</code>, <code>inspect owns</code>, <code>inspect files</code>,
+<code>inspect orphans</code>, <code>names</code>, <code>get --explain</code>, <code>snapshot list</code>, <code>config</code>,
+<code>capabilities</code>, and the ledger reads. <code>yapacc docs json</code> prints the complete
+list, including the Arch-only ones.</p>
+<p>A command with no JSON form prints nothing and exits with code 2
+("no JSON output for this command"). It never prints prose with a success
+status, so a script cannot mistake one for the other.</p>
+<p>Fields are only ever added. Treat a key you do not know as ignorable, and
+do not depend on the order of keys.</p>
+<p>An empty answer is an empty array. In text mode the same answer is one
+line in parentheses, such as "(no orphan: every package installed as a
+dependency is still needed)", so that a blank screen never has to be
+interpreted.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json platform</span></span>
+<span class="ln">{</span>
+<span class="ln">  &quot;os&quot;: {</span>
+<span class="ln">    &quot;id&quot;: &quot;debian&quot;,</span>
+<span class="ln">    &quot;id_like&quot;: [],</span>
+<span class="ln">    &quot;pretty_name&quot;: &quot;Debian GNU/Linux 13 (trixie)&quot;,</span>
+<span class="ln">    &quot;version_id&quot;: &quot;13&quot;</span>
+<span class="ln">  },</span>
+<span class="ln">  &quot;family&quot;: &quot;debian&quot;,</span>
+<span class="ln">  &quot;arch&quot;: &quot;x86_64&quot;,</span>
+<span class="ln">  &quot;libc&quot;: &quot;glibc&quot;,</span>
+<span class="ln">  &quot;native_pkg_manager&quot;: &quot;apt&quot;,</span>
+<span class="ln">  &quot;pkg_managers&quot;: [</span>
+<span class="ln">    &quot;apt&quot;</span>
+<span class="ln">  ],</span>
+<span class="ln">  &quot;extra_sources&quot;: [],</span>
+<span class="ln">  &quot;init&quot;: &quot;systemd&quot;,</span>
+<span class="ln">  &quot;boot&quot;: {</span>
+<span class="ln">    &quot;firmware&quot;: &quot;bios&quot;,</span>
+<span class="ln">    &quot;managers&quot;: [],</span>
+<span class="ln">    &quot;loaders&quot;: [</span>
+<span class="ln">      &quot;grub&quot;</span>
+<span class="ln">    ],</span>
+<span class="ln">    &quot;incomplete&quot;: true</span>
+<span class="ln">  },</span>
+<span class="ln">  &quot;log_systems&quot;: [</span>
+<span class="ln">    &quot;journald&quot;</span>
+<span class="ln">  ],</span>
+<span class="ln">  &quot;package_logs&quot;: [</span>
+<span class="ln">    &quot;/var/log/dpkg.log&quot;,</span>
+<span class="ln">    &quot;/var/log/apt/history.log&quot;</span>
+<span class="ln">  ],</span>
+<span class="ln">  &quot;snapshot_providers&quot;: [],</span>
+<span class="ln">  &quot;root_fstype&quot;: &quot;ext4&quot;,</span>
+<span class="ln">  &quot;container&quot;: false,</span>
+<span class="ln">  &quot;image_based&quot;: false,</span>
+<span class="ln">  &quot;support_tier&quot;: 1</span>
+<span class="ln">}</span>
+</code></pre></figure>
+<p>What a command has to add in words (a source it could not read, "no
+repository metadata on disk") goes to standard error as <code>note: …</code> lines.
+Standard output holds the JSON alone, so <code>yapacc --json check | jq</code> works
+on a machine that has never refreshed: the array is empty and the note
+says why.</p>
+<p>A few shapes that are useful to know:</p>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Shape</th></tr></thead><tbody>
+<tr><td><code>platform</code></td><td>one object; <code>native_pkg_manager</code> is <code>"pacman"</code>, <code>"apt"</code>, <code>"dnf"</code>, <code>"zypper"</code>, <code>"apk"</code>, <code>"xbps"</code> or <code>"pkg"</code>; <code>package_logs_unreadable</code> lists the logs that exist and that this user may not read, and is left out when there is none</td></tr>
+<tr><td><code>why NAME</code></td><td>one object; <code>native.manager</code>, <code>native.reason</code>, <code>native.required_by[]</code>, <code>native.base</code>, and <code>orphan</code> (<code>true</code>, <code>false</code> or <code>null</code>)</td></tr>
+<tr><td><code>timeline</code></td><td>array of <code>{ts, source, action, name, old_version, new_version}</code>; <code>ts</code> is Unix seconds</td></tr>
+<tr><td><code>doctor</code></td><td>array of <code>{name, state, detail}</code>; <code>state</code> is <code>ok</code>, <code>warn</code>, <code>fail</code> or <code>n/a</code></td></tr>
+<tr><td><code>clean</code></td><td>array of <code>{what, size_bytes, count, safety, command, detail[]}</code></td></tr>
+<tr><td><code>list</code></td><td>array of <code>{name, version, description, …}</code></td></tr>
+<tr><td><code>check</code></td><td>array of <code>{name, old_version, new_version, repo}</code> on every package manager; on apt <code>repo</code> holds every origin, separated by <code>", "</code>; on pacman it is <code>""</code> for a repository update and <code>"aur"</code> for an AUR update</td></tr>
+</tbody></table>
+</div>
+<p>The shapes of <code>info</code> and <code>inspect orphans</code> differ between pacman and the
+other package managers; <code>yapacc docs json</code> describes both.</p>
+<h2 id="a-health-check-in-two-lines">A health check in two lines<a class="anchor" href="#a-health-check-in-two-lines" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="sh"><pre><code><span class="k"># Print the failing checks, and exit non-zero when there is one.</span>
+yapacc --json doctor | jq -r '.[] | select(.state == &quot;fail&quot;) | &quot;\(.name): \(.detail)&quot;'
+yapacc --json doctor | jq -e 'all(.[]; .state != &quot;fail&quot;)' &gt; /dev/null
+</code></pre></figure>
+<p>The same list, filtered the other way: everything that is not <code>ok</code> on the
+machine of the <a href="quick-start.html">quick start</a>.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json doctor | jq -r '.[] | select(.state != &quot;ok&quot;) | [.state, .name] | @tsv'</span></span>
+<span class="ln"><span class="st-na">n/a</span>	component:yapacc-tui</span>
+<span class="ln"><span class="st-na">n/a</span>	component:yapacc-mcp</span>
+<span class="ln"><span class="st-na">n/a</span>	sandbox</span>
+<span class="ln"><span class="st-na">n/a</span>	ledger:user</span>
+<span class="ln"><span class="st-na">n/a</span>	ledger:system</span>
+<span class="ln"><span class="st-na">n/a</span>	tool:flatpak</span>
+<span class="ln"><span class="st-na">n/a</span>	tool:gpgv</span>
+<span class="ln"><span class="st-na">n/a</span>	tool:bwrap</span>
+</code></pre></figure>
+<h2 id="shell-completions">Shell completions<a class="anchor" href="#shell-completions" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc completions bash &gt; ~/.local/share/bash-completion/completions/yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc completions zsh  &gt; ~/.zsh/completions/_yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc completions fish &gt; ~/.config/fish/completions/yapacc.fish</span></span>
+</code></pre></figure>
+<p>The release archive and the distribution packages install them for you.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="configuration.html"><span>Previous</span>Configuration</a><a class="next" href="tui.html"><span>Next</span>The interactive interface</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/scripting.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#exit-codes">Exit codes</a></li>
+<li class="toc-2"><a href="#never-waiting-for-input">Never waiting for input</a></li>
+<li class="toc-2"><a href="#json">JSON</a></li>
+<li class="toc-2"><a href="#a-health-check-in-two-lines">A health check in two lines</a></li>
+<li class="toc-2"><a href="#shell-completions">Shell completions</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>AI assistants (MCP) · yapacc handbook</title>
+<meta name="description" content="AI assistants (MCP): the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html" aria-current="page">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>AI assistants (MCP)</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc mcp</code> runs a server that speaks the Model Context Protocol over
+standard input and output. An AI assistant that supports MCP can connect to
+it and use yapacc as a set of tools: ask why a package is installed, read
+the timeline, get the upgrade briefing, and propose a change.</p>
+<p>It is an optional component, the separate program <code>yapacc-mcp</code>. yapacc
+contains no AI and holds no API key. The assistant, the model and the
+billing are whatever you already use; yapacc is only the tool it calls.</p>
+<h2 id="what-an-assistant-can-and-cannot-do">What an assistant can and cannot do<a class="anchor" href="#what-an-assistant-can-and-cannot-do" aria-label="Link to this section">§</a></h2>
+<p>By default an assistant can <strong>read</strong> and <strong>propose</strong>. It cannot apply.</p>
+<p>When it asks for an install, a removal, an upgrade or an undo, the server
+returns the plan and the exact command for <em>you</em> to run in your own
+terminal, where <a href="gate.html">the gate</a> asks you. The tool's answer tells the
+assistant not to claim that anything was changed.</p>
+<p>This does not depend on the assistant behaving well. The tools accept a
+<code>confirm</code> argument, and an assistant can set it to true and say you
+approved. It makes no difference: unless the machine's administrator has
+said otherwise, the server never applies.</p>
+<h3 id="letting-an-assistant-apply">Letting an assistant apply<a class="anchor" href="#letting-an-assistant-apply" aria-label="Link to this section">§</a></h3>
+<p>Two things are needed, and both must be true:</p>
+<ol>
+<li><code>apply = "allow"</code> under <code>[mcp]</code> in a configuration file that is <strong>owned
+by root and not writable by anyone else</strong>, passed to the server with
+<code>--config</code>;</li>
+<li>the assistant sets <code>confirm</code> to true on the call.</li>
+</ol>
+<figure class="code" data-lang="toml"><pre><code><span class="k"># /etc/yapacc/mcp.toml, owned by root, mode 0644</span>
+[mcp]
+<span class="k"># plan   propose only (default)</span>
+<span class="k"># allow  the assistant may apply a change when it states that you approved</span>
+apply = &quot;allow&quot;
+</code></pre></figure>
+<p>The file has to be root's because your own configuration file is something
+an assistant with access to your files could edit. <code>apply = "allow"</code> in a
+file you own is ignored: the server prints a warning when it starts and
+stays in plan mode.</p>
+<aside class="callout callout-warning"><p class="callout-title">Warning</p>
+<p><code>apply = "allow"</code> means you trust the assistant's statement that you
+approved. Privileges still apply: a change needs <code>sudo</code> or <code>doas</code>, and
+with no terminal those are called in non-interactive mode, so it works
+only where passwordless privileges exist for that command. Think before
+combining the two. Nothing records that a change was requested by an
+assistant: the native log shows it like any other.</p>
+</aside>
+<h2 id="connecting-it">Connecting it<a class="anchor" href="#connecting-it" aria-label="Link to this section">§</a></h2>
+<p>Point your assistant's MCP configuration at the command <code>yapacc mcp</code>. For
+clients that use a JSON configuration:</p>
+<figure class="code" data-lang="json"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;yapacc&quot;: { &quot;command&quot;: &quot;yapacc&quot;, &quot;args&quot;: [&quot;mcp&quot;] }
+  }
+}
+</code></pre></figure>
+<p>The server speaks protocol revision 2024-11-05.</p>
+<h2 id="the-tools">The tools<a class="anchor" href="#the-tools" aria-label="Link to this section">§</a></h2>
+<p>Read-only tools, which change nothing:</p>
+<div class="table-wrap"><table><thead><tr><th>Tool</th><th>What it returns</th></tr></thead><tbody>
+<tr><td><code>yapacc_platform</code></td><td>the kind of machine: distribution, package manager, init, snapshots</td></tr>
+<tr><td><code>yapacc_doctor</code></td><td>what works on this machine</td></tr>
+<tr><td><code>yapacc_why</code></td><td>why a package is installed</td></tr>
+<tr><td><code>yapacc_timeline</code></td><td>package changes, newest first</td></tr>
+<tr><td><code>yapacc_briefing</code></td><td>what the next upgrade will do</td></tr>
+<tr><td><code>yapacc_check</code></td><td>pending updates</td></tr>
+<tr><td><code>yapacc_clean_report</code></td><td>what can be reclaimed</td></tr>
+<tr><td><code>yapacc_restart_report</code></td><td>what must be restarted after an upgrade</td></tr>
+<tr><td><code>yapacc_pending_configs</code></td><td>configuration files left unmerged</td></tr>
+<tr><td><code>yapacc_snapshots</code></td><td>existing filesystem snapshots</td></tr>
+<tr><td><code>yapacc_search</code>, <code>yapacc_resolve</code>, <code>yapacc_plan</code></td><td>find a package, choose a source, show the install plan</td></tr>
+<tr><td><code>yapacc_names</code></td><td>what a package is called on other distributions</td></tr>
+<tr><td><code>yapacc_ledger</code>, <code>yapacc_capabilities</code>, <code>yapacc_news</code></td><td>installs outside the package manager; host capabilities; Arch news</td></tr>
+</tbody></table>
+</div>
+<p>Staged tools. The answer of each begins with one of these lines, so that
+neither you nor the assistant has to guess what happened:</p>
+<div class="table-wrap"><table><thead><tr><th>The answer begins with</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>PLAN ONLY — nothing was changed.</code></td><td>the plan, and the command for you to run in your own terminal</td></tr>
+<tr><td><code>PLAN ONLY (confirm=false) — nothing was changed.</code></td><td>applying is allowed, and the call did not say <code>confirm: true</code></td></tr>
+<tr><td><code>PLAN FAILED — nothing was changed.</code></td><td>the plan could not be made: a package no source has, a package to remove that is not installed, a failed simulation</td></tr>
+<tr><td><code>APPLIED: …</code></td><td>the change was made; only when applying is allowed</td></tr>
+<tr><td><code>FAILED: …</code></td><td>the change was tried and failed</td></tr>
+</tbody></table>
+</div>
+<div class="table-wrap"><table><thead><tr><th>Tool</th><th>Proposes</th></tr></thead><tbody>
+<tr><td><code>yapacc_install</code></td><td>installing a package</td></tr>
+<tr><td><code>yapacc_remove</code></td><td>removing native packages</td></tr>
+<tr><td><code>yapacc_upgrade</code></td><td>a full system upgrade</td></tr>
+<tr><td><code>yapacc_undo_last</code></td><td>taking the last transaction back</td></tr>
+</tbody></table>
+</div>
+<h2 id="what-reaches-the-network">What reaches the network<a class="anchor" href="#what-reaches-the-network" aria-label="Link to this section">§</a></h2>
+<p>The server itself opens no socket and listens on nothing. Some tools make
+yapacc contact a server, exactly as the matching command does: see
+<a href="safety.html#what-leaves-the-machine">safety and privacy</a>. <code>yapacc_names</code>
+sends the package name to repology.org, and its description tells the
+assistant so.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="tui.html"><span>Previous</span>The interactive interface</a><a class="next" href="safety.html"><span>Next</span>Safety and privacy</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/mcp.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#what-an-assistant-can-and-cannot-do">What an assistant can and cannot do</a></li>
+<li class="toc-3"><a href="#letting-an-assistant-apply">Letting an assistant apply</a></li>
+<li class="toc-2"><a href="#connecting-it">Connecting it</a></li>
+<li class="toc-2"><a href="#the-tools">The tools</a></li>
+<li class="toc-2"><a href="#what-reaches-the-network">What reaches the network</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

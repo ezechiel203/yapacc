@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Troubleshooting and questions · yapacc handbook</title>
+<meta name="description" content="Troubleshooting and questions: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html" aria-current="page">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>Troubleshooting and questions</h1>
+      </header>
+      <article class="prose">
+<h2 id="questions">Questions<a class="anchor" href="#questions" aria-label="Link to this section">§</a></h2>
+<h3 id="do-i-have-to-stop-using-apt-pacman-or-dnf">Do I have to stop using apt, pacman or dnf?<a class="anchor" href="#do-i-have-to-stop-using-apt-pacman-or-dnf" aria-label="Link to this section">§</a></h3>
+<p>No. Keep using them. yapacc reads what they record and is never confused
+by a change you made directly. Its own <code>install</code>, <code>remove</code> and <code>upgrade</code>
+are a convenience with a uniform gate, not a requirement.</p>
+<h3 id="does-it-keep-its-own-database-of-my-packages">Does it keep its own database of my packages?<a class="anchor" href="#does-it-keep-its-own-database-of-my-packages" aria-label="Link to this section">§</a></h3>
+<p>No. Every answer is read from the package manager at the moment you ask.
+The only thing yapacc records is what it installed <em>outside</em> the package
+manager (an AppImage, an isolated install), because nothing else would
+remember those.</p>
+<h3 id="does-anything-run-in-the-background">Does anything run in the background?<a class="anchor" href="#does-anything-run-in-the-background" aria-label="Link to this section">§</a></h3>
+<p>No. There is no daemon, no timer and no package-manager hook. A timer for
+update checks exists as an option you have to install yourself with
+<code>yapacc monitor daemon-install</code>.</p>
+<h3 id="can-undo-break-my-system">Can <code>undo</code> break my system?<a class="anchor" href="#can-undo-break-my-system" aria-label="Link to this section">§</a></h3>
+<p>It changes packages, so it deserves the same care as any downgrade. It is
+built to refuse when it cannot do the whole job: it will not apply half an
+undo, will not remove the running kernel, and shows the native manager's
+own simulation before asking. What it cannot do is restore configuration
+or data that the upgrade changed. For that, take a
+<a href="snapshots.html">snapshot</a> before big upgrades.</p>
+<h3 id="how-far-back-can-i-undo">How far back can I undo?<a class="anchor" href="#how-far-back-can-i-undo" aria-label="Link to this section">§</a></h3>
+<p>One transaction: the last one. And only if the old versions can still be
+found. On pacman, apt on Debian and apt on Ubuntu there is a distribution
+archive to fall back on. On dnf and zypper there is not.</p>
+<h3 id="why-is-there-no-curl-sh-installer">Why is there no <code>curl | sh</code> installer?<a class="anchor" href="#why-is-there-no-curl-sh-installer" aria-label="Link to this section">§</a></h3>
+<p>Because the point of the tool is that you see what will happen first. The
+<a href="install.html">install page</a> is six lines, and you can read every one.</p>
+<h3 id="is-it-safe-to-give-an-ai-assistant-access">Is it safe to give an AI assistant access?<a class="anchor" href="#is-it-safe-to-give-an-ai-assistant-access" aria-label="Link to this section">§</a></h3>
+<p>In the default configuration the assistant can read and propose, and
+cannot apply. See <a href="mcp.html">AI assistants</a> for what changes if you allow
+more.</p>
+<h3 id="what-does-tier-1-in-yapacc-platform-mean">What does "tier 1" in <code>yapacc platform</code> mean?<a class="anchor" href="#what-does-tier-1-in-yapacc-platform-mean" aria-label="Link to this section">§</a></h3>
+<p>It is the support level of your package manager; see
+<a href="support.html#tiers">what works where</a>.</p>
+<h3 id="why-gpl-2-0-only">Why GPL-2.0-only?<a class="anchor" href="#why-gpl-2-0-only" aria-label="Link to this section">§</a></h3>
+<p>It is the licence the author chose. yapacc runs your package manager as a
+separate program and links none of its code.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="anchor" href="#troubleshooting" aria-label="Link to this section">§</a></h2>
+<h3 id="error-is-not-on-path-exit-code-6"><code>error: … is not on PATH</code> (exit code 6)<a class="anchor" href="#error-is-not-on-path-exit-code-6" aria-label="Link to this section">§</a></h3>
+<p>A tool that command needs is missing, and the message names it. Common
+ones: <code>curl</code> (for <code>names</code>, the news feed and <code>undo</code> downloads), <code>sudo</code> or
+<code>doas</code> (for any change as an ordinary user).</p>
+<p><code>sudo yapacc …</code> cannot find the binary on openSUSE when it is installed in
+<code>/usr/local/bin</code>: openSUSE's <code>sudo</code> does not search there. Use the full
+path or install into <code>/usr/bin</code>.</p>
+<h3 id="timeline-or-undo-says-it-cannot-read-the-log"><code>timeline</code> or <code>undo</code> says it cannot read the log<a class="anchor" href="#timeline-or-undo-says-it-cannot-read-the-log" aria-label="Link to this section">§</a></h3>
+<p>Some distributions keep the package log readable by root only (openSUSE's
+<code>/var/log/zypp/history</code>). Run the command with <code>sudo</code>.</p>
+<h3 id="timeline-is-empty"><code>timeline</code> is empty<a class="anchor" href="#timeline-is-empty" aria-label="Link to this section">§</a></h3>
+<ul>
+<li>On Void: xbps keeps no log, so there is nothing to show.</li>
+<li>On Alpine: <code>/var/log/apk.log</code> is written by apk-tools 3 only.</li>
+<li>After a log rotation: rotated and compressed logs are read, but a
+distribution that deletes old logs deletes that history.</li>
+</ul>
+<h3 id="undo-is-refused-in-no-cache-repository-or-archive"><code>undo</code> is refused: "in no cache, repository or archive"<a class="anchor" href="#undo-is-refused-in-no-cache-repository-or-archive" aria-label="Link to this section">§</a></h3>
+<p>The exact old version of some package can no longer be found. On rolling
+distributions without an archive (Tumbleweed) this happens a day or two
+after an upgrade. A filesystem snapshot is the remedy next time; there is
+no remedy afterwards.</p>
+<h3 id="script-fails-with-authorization-required-or-a-password-is-required"><code>--script</code> fails with "Authorization required" or "a password is required"<a class="anchor" href="#script-fails-with-authorization-required-or-a-password-is-required" aria-label="Link to this section">§</a></h3>
+<p><code>--script</code> never prompts, so <code>sudo</code> or <code>doas</code> is called in its
+non-interactive mode. Either run as root, or allow that one command
+without a password in <code>sudoers</code> or <code>doas.conf</code>. yapacc tells you whether
+the tool refused for lack of a password or for lack of a rule.</p>
+<h3 id="the-command-stopped-with-exit-code-3">The command stopped with exit code 3<a class="anchor" href="#the-command-stopped-with-exit-code-3" aria-label="Link to this section">§</a></h3>
+<p>That is a refusal, and nothing was changed. Either you answered no, or the
+command could not ask (<code>--script</code>, a pipe, no terminal) and you gave
+neither <code>--yes</code> nor <code>--dryrun</code>. See <a href="gate.html">the gate</a>.</p>
+<h3 id="briefing-shows-no-security-section"><code>briefing</code> shows no security section<a class="anchor" href="#briefing-shows-no-security-section" aria-label="Link to this section">§</a></h3>
+<p>It depends on the system having a source for that: the security repository
+on Debian and Ubuntu, advisory data on dnf and zypper, <code>arch-audit</code> on
+Arch. Where there is none, a <code>note:</code> line says so.</p>
+<h3 id="restart-lists-nothing-but-i-just-upgraded"><code>restart</code> lists nothing, but I just upgraded<a class="anchor" href="#restart-lists-nothing-but-i-just-upgraded" aria-label="Link to this section">§</a></h3>
+<p>As an ordinary user you can only examine your own processes. The last
+lines say how many could not be examined. Run it with <code>sudo</code>.</p>
+<h3 id="the-y-n-question-is-in-another-language">The <code>[y/N]</code> question is in another language<a class="anchor" href="#the-y-n-question-is-in-another-language" aria-label="Link to this section">§</a></h3>
+<p>It follows your locale (<code>LC_MESSAGES</code>). English <code>y</code> and <code>yes</code> are accepted
+in every locale.</p>
+<h2 id="reporting-a-problem">Reporting a problem<a class="anchor" href="#reporting-a-problem" aria-label="Link to this section">§</a></h2>
+<p>Open an issue at
+<a href="https://github.com/ezechiel203/yapacc/issues">github.com/ezechiel203/yapacc</a>
+with the output of these two commands and the exact command that
+misbehaved:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc platform</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc doctor</span></span>
+</code></pre></figure>
+<p><code>yapacc timeline --html &gt; timeline.html</code> adds the recent package history
+as one self-contained file, if the problem appeared after an upgrade. Look
+through it first: it lists your installed package names.</p>
+<p>For a security problem, do not open a public issue. See
+<a href="safety.html#reporting-a-vulnerability">safety and privacy</a>.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="safety.html"><span>Previous</span>Safety and privacy</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/faq.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#questions">Questions</a></li>
+<li class="toc-3"><a href="#do-i-have-to-stop-using-apt-pacman-or-dnf">Do I have to stop using apt, pacman or dnf?</a></li>
+<li class="toc-3"><a href="#does-it-keep-its-own-database-of-my-packages">Does it keep its own database of my packages?</a></li>
+<li class="toc-3"><a href="#does-anything-run-in-the-background">Does anything run in the background?</a></li>
+<li class="toc-3"><a href="#can-undo-break-my-system">Can undo break my system?</a></li>
+<li class="toc-3"><a href="#how-far-back-can-i-undo">How far back can I undo?</a></li>
+<li class="toc-3"><a href="#why-is-there-no-curl-sh-installer">Why is there no curl | sh installer?</a></li>
+<li class="toc-3"><a href="#is-it-safe-to-give-an-ai-assistant-access">Is it safe to give an AI assistant access?</a></li>
+<li class="toc-3"><a href="#what-does-tier-1-in-yapacc-platform-mean">What does &quot;tier 1&quot; in yapacc platform mean?</a></li>
+<li class="toc-3"><a href="#why-gpl-2-0-only">Why GPL-2.0-only?</a></li>
+<li class="toc-2"><a href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-3"><a href="#error-is-not-on-path-exit-code-6">error: … is not on PATH (exit code 6)</a></li>
+<li class="toc-3"><a href="#timeline-or-undo-says-it-cannot-read-the-log">timeline or undo says it cannot read the log</a></li>
+<li class="toc-3"><a href="#timeline-is-empty">timeline is empty</a></li>
+<li class="toc-3"><a href="#undo-is-refused-in-no-cache-repository-or-archive">undo is refused: &quot;in no cache, repository or archive&quot;</a></li>
+<li class="toc-3"><a href="#script-fails-with-authorization-required-or-a-password-is-required">--script fails with &quot;Authorization required&quot; or &quot;a password is required&quot;</a></li>
+<li class="toc-3"><a href="#the-command-stopped-with-exit-code-3">The command stopped with exit code 3</a></li>
+<li class="toc-3"><a href="#briefing-shows-no-security-section">briefing shows no security section</a></li>
+<li class="toc-3"><a href="#restart-lists-nothing-but-i-just-upgraded">restart lists nothing, but I just upgraded</a></li>
+<li class="toc-3"><a href="#the-y-n-question-is-in-another-language">The [y/N] question is in another language</a></li>
+<li class="toc-2"><a href="#reporting-a-problem">Reporting a problem</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

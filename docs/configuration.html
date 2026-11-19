@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Configuration · yapacc handbook</title>
+<meta name="description" content="Configuration: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html" aria-current="page">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>Configuration</h1>
+      </header>
+      <article class="prose">
+<p>yapacc needs no configuration. Without a file, the defaults below apply,
+and they are the safe ones: nothing is snapshotted or applied on its own.</p>
+<h2 id="where-the-file-lives">Where the file lives<a class="anchor" href="#where-the-file-lives" aria-label="Link to this section">§</a></h2>
+<p><code>~/.config/yapacc/config.toml</code>, or <code>$XDG_CONFIG_HOME/yapacc/config.toml</code>.
+Another path can be given for one run with <code>--config PATH</code>. An
+<code>XDG_CONFIG_HOME</code> that is empty or not an absolute path is ignored, as the
+XDG specification says, and the same holds for the cache, state and data
+directories: yapacc never derives one of its paths from the directory you
+happen to be in.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc config</span></span>
+</code></pre></figure>
+<p>prints the effective values and the file they were loaded from. yapacc
+never writes this file.</p>
+<p>A file that does not parse, or a known key with an invalid value, is an
+error (exit code 2). yapacc does not fall back to defaults silently,
+because a protective setting that quietly stops applying is worse than a
+command that refuses to run. A section or key it does not know gets one
+warning line each, and <code>yapacc config</code> lists them, so a typo such as
+<code>[safty]</code> does not go unnoticed.</p>
+<p>Paths in the file must be absolute or start with <code>~/</code>.</p>
+<h2 id="the-keys">The keys<a class="anchor" href="#the-keys" aria-label="Link to this section">§</a></h2>
+<p>A complete example, <a href="https://github.com/ezechiel203/yapacc/blob/main/yapacc.example.toml"><code>yapacc.example.toml</code></a>,
+ships with the source. The keys most people will want:</p>
+<h3 id="safety"><code>[safety]</code><a class="anchor" href="#safety" aria-label="Link to this section">§</a></h3>
+<figure class="code" data-lang="toml"><pre><code>[safety]
+<span class="k"># Snapshot before install, remove and upgrade through yapacc.</span>
+<span class="k">#   off               (default)</span>
+<span class="k">#   auto              take one if a tool is found; if it fails, refuse the change</span>
+<span class="k">#   auto-best-effort  take one if a tool is found; if it fails, warn and go on</span>
+snapshot = &quot;off&quot;
+
+<span class="k"># Which tool: auto | snapper | timeshift | zfs | none</span>
+snapshot_provider = &quot;auto&quot;
+</code></pre></figure>
+<p>See <a href="snapshots.html">snapshots</a>.</p>
+<h3 id="mcp"><code>[mcp]</code><a class="anchor" href="#mcp" aria-label="Link to this section">§</a></h3>
+<figure class="code" data-lang="toml"><pre><code>[mcp]
+<span class="k"># What an AI assistant connected through yapacc-mcp may do.</span>
+<span class="k">#   plan   it can read and propose; you run the command yourself (default)</span>
+<span class="k">#   allow  it may apply a change when it states that you approved;</span>
+<span class="k">#          honoured only in a file owned by root</span>
+apply = &quot;plan&quot;
+</code></pre></figure>
+<p>See <a href="mcp.html">AI assistants</a>.</p>
+<h3 id="build"><code>[build]</code><a class="anchor" href="#build" aria-label="Link to this section">§</a></h3>
+<p>For builds of third-party recipes (the AUR on Arch).</p>
+<figure class="code" data-lang="toml"><pre><code>[build]
+<span class="k"># require  refuse to build without a working sandbox (default)</span>
+<span class="k"># prefer   warn and build unconfined when the sandbox is unavailable</span>
+<span class="k"># off      never sandbox</span>
+sandbox = &quot;require&quot;
+
+<span class="k"># fetch-only  network only while downloading sources (default)</span>
+<span class="k"># always      network for the whole build</span>
+network = &quot;fetch-only&quot;
+</code></pre></figure>
+<h3 id="repair"><code>[repair]</code><a class="anchor" href="#repair" aria-label="Link to this section">§</a></h3>
+<figure class="code" data-lang="toml"><pre><code>[repair]
+<span class="k"># Classify a failed build and suggest a fix. The one fix that changes the</span>
+<span class="k"># system, installing missing build dependencies, always asks first.</span>
+enabled = true
+max_attempts = 3
+</code></pre></figure>
+<h3 id="install"><code>[install]</code><a class="anchor" href="#install" aria-label="Link to this section">§</a></h3>
+<figure class="code" data-lang="toml"><pre><code>[install]
+<span class="k"># The order in which `yapacc get` looks for a source.</span>
+order = [&quot;repo&quot;, &quot;aur&quot;, &quot;flatpak&quot;, &quot;recipe&quot;]
+</code></pre></figure>
+<h3 id="ledger"><code>[ledger]</code><a class="anchor" href="#ledger" aria-label="Link to this section">§</a></h3>
+<p>The ledger records what yapacc installed <em>outside</em> the native package
+manager (AppImages, flatpaks, isolated installs). Native packages are never
+recorded there; the package manager's own log is their record.</p>
+<figure class="code" data-lang="toml"><pre><code>[ledger]
+<span class="k"># Where to copy the ledger head after every change, so that tampering can be</span>
+<span class="k"># detected and not only accidental corruption: &quot;journald&quot;, or a file path</span>
+<span class="k"># (ideally on another machine's mount).</span>
+witnesses = []
+</code></pre></figure>
+<h2 id="environment">Environment<a class="anchor" href="#environment" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Variable</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>XDG_CONFIG_HOME</code>, <code>XDG_CACHE_HOME</code>, <code>XDG_STATE_HOME</code>, <code>XDG_DATA_HOME</code></td><td>where the configuration, caches, the ledger and data live</td></tr>
+<tr><td><code>LC_ALL</code>, <code>LC_MESSAGES</code>, <code>LANG</code></td><td>the letters of the <code>[y/N]</code> question</td></tr>
+<tr><td><code>NO_COLOR</code></td><td>honoured by the interactive interface; the command line prints no colour codes</td></tr>
+</tbody></table>
+</div>
+<h2 id="command-line-options-that-apply-everywhere">Command-line options that apply everywhere<a class="anchor" href="#command-line-options-that-apply-everywhere" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>--config PATH</code></td><td>use this configuration file</td></tr>
+<tr><td><code>--json</code></td><td>machine-readable output on the read commands; goes before the command</td></tr>
+<tr><td><code>--script</code></td><td>never prompt; fail fast instead</td></tr>
+<tr><td><code>--noconfirm</code></td><td>consent in advance, like <code>--yes</code></td></tr>
+</tbody></table>
+</div>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="commands.html"><span>Previous</span>Every command</a><a class="next" href="scripting.html"><span>Next</span>Scripting: JSON and exit codes</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/configuration.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#where-the-file-lives">Where the file lives</a></li>
+<li class="toc-2"><a href="#the-keys">The keys</a></li>
+<li class="toc-3"><a href="#safety">[safety]</a></li>
+<li class="toc-3"><a href="#mcp">[mcp]</a></li>
+<li class="toc-3"><a href="#build">[build]</a></li>
+<li class="toc-3"><a href="#repair">[repair]</a></li>
+<li class="toc-3"><a href="#install">[install]</a></li>
+<li class="toc-3"><a href="#ledger">[ledger]</a></li>
+<li class="toc-2"><a href="#environment">Environment</a></li>
+<li class="toc-2"><a href="#command-line-options-that-apply-everywhere">Command-line options that apply everywhere</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

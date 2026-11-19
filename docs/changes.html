@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>install, remove, upgrade · yapacc handbook</title>
+<meta name="description" content="install, remove, upgrade: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html" aria-current="page">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Changing the system</p>
+        <h1>install, remove, upgrade</h1>
+      </header>
+      <article class="prose">
+<p>yapacc can make the common changes through your package manager. It adds
+three things to running the native command yourself: the plan and the
+native simulation are always shown first, the <a href="gate.html">gate</a> is the same
+on every system, and a <a href="snapshots.html">snapshot</a> can be taken before the
+change.</p>
+<p>You never have to use these commands. Changes you make directly with
+<code>apt</code>, <code>pacman</code> or <code>dnf</code> are just as visible to <code>timeline</code> and <code>undo</code>.</p>
+<h2 id="the-commands">The commands<a class="anchor" href="#the-commands" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>yapacc install repo PKG…</code></td><td>install packages from the distribution's repositories</td></tr>
+<tr><td><code>yapacc remove repo PKG…</code></td><td>remove packages</td></tr>
+<tr><td><code>yapacc remove orphans</code></td><td>remove dependencies that nothing needs any more</td></tr>
+<tr><td><code>yapacc upgrade</code></td><td>full system upgrade</td></tr>
+<tr><td><code>yapacc refresh</code></td><td>refresh the repository indexes only</td></tr>
+<tr><td><code>yapacc get NAME</code></td><td>choose a source for NAME, then install it</td></tr>
+</tbody></table>
+</div>
+<p>All of them take <code>--dryrun</code> and <code>--yes</code>, and all of them stop at the gate
+without one of the two.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc install repo figlet --dryrun</span></span>
+<span class="ln">Plan: install figlet (through apt)</span>
+<span class="ln"></span>
+<span class="ln">apt's own simulation (apt-get -s -y install -- figlet):</span>
+<span class="ln">…</span>
+<span class="ln">The following NEW packages will be installed:</span>
+<span class="ln">  figlet</span>
+<span class="ln">0 upgraded, 1 newly installed, 0 to remove and 24 not upgraded.</span>
+<span class="ln">Inst figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])</span>
+<span class="ln">Conf figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])</span>
+<span class="ln"></span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get install -y -- figlet</span>
+<span class="ln"></span>
+<span class="ln"><span class="k">DRY-RUN: nothing was changed. Run again without --dryrun to apply.</span></span>
+</code></pre></figure>
+<p>A full upgrade reads the same way. This is the machine of the
+<a href="quick-start.html">quick start</a>, two months behind:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc upgrade</span></span>
+<span class="ln">Plan: upgrade the system (through apt)</span>
+<span class="ln"></span>
+<span class="ln">apt's own simulation (apt-get -s -y upgrade --with-new-pkgs):</span>
+<span class="ln">…</span>
+<span class="ln">The following NEW packages will be installed:</span>
+<span class="ln">  linux-image-6.12.117+deb13-amd64</span>
+<span class="ln">The following packages will be upgraded:</span>
+<span class="ln">  apt apt-utils bind9-host bind9-libs ca-certificates curl libapt-pkg7.0 libbrotli1 libcurl4t64 libexpat1</span>
+<span class="ln">  liblzma5 libpcre2-8-0 libpng16-16t64 libssl3t64 linux-image-amd64 openssl openssl-provider-legacy tzdata</span>
+<span class="ln">  vim vim-common vim-runtime vim-tiny xz-utils zlib1g</span>
+<span class="ln">24 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.</span>
+<span class="ln">Inst liblzma5 [5.8.1-1+deb13u1] (5.8.1-1+deb13u2 Debian-Security:13/stable-security [amd64])</span>
+<span class="ln">Conf liblzma5 (5.8.1-1+deb13u2 Debian-Security:13/stable-security [amd64])</span>
+<span class="ln">…</span>
+<span class="ln"></span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get update</span>
+<span class="ln">  sudo apt-get upgrade --with-new-pkgs -y</span>
+<span class="ln"><span class="k">note: the preview uses the index from the last `apt-get update`; the upgrade refreshes first</span></span>
+<span class="ln">Proceed [y/N]? y</span>
+<span class="ln">…</span>
+<span class="ln"></span>
+<span class="ln">Done. `yapacc timeline` shows the change; `yapacc undo` can take it back.</span>
+</code></pre></figure>
+<h2 id="what-is-run-exactly">What is run, exactly<a class="anchor" href="#what-is-run-exactly" aria-label="Link to this section">§</a></h2>
+<p>yapacc builds no shell command. Package names are validated, then passed as
+separate arguments after <code>--</code>, so a name can never be read as an option.
+This is the command behind each verb:</p>
+<div class="table-wrap"><table><thead><tr><th>Manager</th><th>install</th><th>remove</th><th>upgrade</th><th>refresh</th></tr></thead><tbody>
+<tr><td>pacman</td><td><code>pacman -S</code></td><td><code>pacman -Rs</code></td><td><code>pacman -Syu</code></td><td><code>pacman -Sy</code></td></tr>
+<tr><td>apt</td><td><code>apt-get install -y</code></td><td><code>apt-get remove -y</code></td><td><code>apt-get update</code>, then <code>apt-get upgrade --with-new-pkgs -y</code></td><td><code>apt-get update</code></td></tr>
+<tr><td>dnf</td><td><code>dnf install -y</code></td><td><code>dnf remove -y</code></td><td><code>dnf upgrade --refresh -y</code></td><td><code>dnf makecache --refresh</code></td></tr>
+<tr><td>zypper</td><td><code>zypper install</code></td><td><code>zypper remove</code></td><td><code>zypper dist-upgrade</code> on rolling releases, <code>zypper update</code> otherwise</td><td><code>zypper refresh</code></td></tr>
+<tr><td>apk</td><td><code>apk add</code></td><td><code>apk del</code></td><td><code>apk update</code>, then <code>apk upgrade</code></td><td><code>apk update</code></td></tr>
+<tr><td>xbps</td><td><code>xbps-install -y</code></td><td><code>xbps-remove -y</code></td><td><code>xbps-install -Syu</code></td><td><code>xbps-install -S</code></td></tr>
+<tr><td>pkg</td><td><code>pkg install -y</code></td><td><code>pkg delete -y</code></td><td><code>pkg upgrade -y</code></td><td><code>pkg update</code></td></tr>
+</tbody></table>
+</div>
+<p>The simulation shown before the gate is the same manager's dry run of the
+same request (<code>apt-get -s</code>, <code>dnf --assumeno</code>, <code>zypper --dry-run</code>,
+<code>apk --simulate</code>, <code>xbps-install -n</code>, <code>pkg -n</code>, <code>pacman --print</code>). If the
+simulation itself fails, the change is refused (exit code 3) before you are
+asked anything: an unknown name or a broken dependency stops there.</p>
+<p>Two simulations cannot be judged by their status: dnf's <code>--assumeno</code>
+always ends with an error status, and so does <code>pkg install -n</code> whenever
+there is something to install. yapacc reads what they print instead. When
+dnf says it could not resolve the request (an unknown name, a conflict, a
+protected package), an install or a removal is refused in the same way,
+with exit code 3.</p>
+<p>An upgrade is the one change a failed simulation does not refuse, on dnf
+and on pacman: the simulation runs without the refresh the real command
+begins with, so its failure says little. A note says that the simulation
+failed, and you are still asked.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc install repo no-such-package-xyz --dryrun</span></span>
+<span class="ln">Plan: install no-such-package-xyz (through apt)</span>
+<span class="ln"></span>
+<span class="ln">apt's own simulation (apt-get -s -y install -- no-such-package-xyz):</span>
+<span class="ln">…</span>
+<span class="ln">E: Unable to locate package no-such-package-xyz</span>
+<span class="ln">error: apt-get -s -y install -- no-such-package-xyz failed (status 100): the change cannot be made as asked; nothing was changed</span>
+</code></pre></figure>
+<p>A removal of something that is not installed never gets that far. It is
+"not found" (exit code 4) on every package manager. A name that an
+installed package provides, and a pacman group with installed members, are
+not refused.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc remove repo cowsay</span></span>
+<span class="ln">Plan: remove cowsay (through apt)</span>
+<span class="ln">error: cannot remove cowsay: not installed. Nothing was changed.</span>
+</code></pre></figure>
+<p>On FreeBSD yapacc asks the catalogue on disk first and refuses a name that
+is not in it (exit code 4), with the hint to run <code>pkg update</code>. A name pkg
+itself answers "No packages available to install matching" for is refused
+with the same code. With no catalogue on disk, <code>pkg install -n</code> prints
+nothing; a note under the simulation heading then says that there is no
+repository metadata and names <code>pkg update</code>.</p>
+<p>On Arch, before the repository databases were ever fetched, <code>install repo</code>
+is refused with exit code 6: nothing can be planned from no database. The
+message names <code>pacman -Syu</code> and <code>yapacc upgrade</code>, which runs it behind the
+gate.</p>
+<p>A removal on pacman is <code>-Rs</code>: the package and the dependencies nothing
+else needs. Configuration files you modified are kept as <code>.pacsave</code>.
+pacman is always run with <code>--noconfirm</code>: you answered at the gate, and
+pacman does not ask a second time.</p>
+<h2 id="what-the-last-line-means">What the last line means<a class="anchor" href="#what-the-last-line-means" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>It says</th><th>What happened</th></tr></thead><tbody>
+<tr><td><code>Done.</code></td><td>the packages changed as planned</td></tr>
+<tr><td><code>Nothing was changed: apt had nothing to do …</code></td><td>the command ran without error and the installed packages are the same as before</td></tr>
+<tr><td><code>No package was changed: … refreshed its repository indexes and had nothing to upgrade</code></td><td>an <code>upgrade</code> with nothing pending</td></tr>
+<tr><td><code>Nothing was changed: the installed packages are the same as before.</code></td><td>the command failed before touching a package</td></tr>
+<tr><td><code>Packages were changed before it failed: `yapacc timeline` shows what was changed.</code></td><td>the command failed part of the way</td></tr>
+</tbody></table>
+</div>
+<p>yapacc works this out by comparing the installed packages before and
+after, so the line is true even when the native manager's exit status is
+not informative.</p>
+<aside class="callout callout-note"><p class="callout-title">Note</p>
+<p>On apt, <code>upgrade</code> uses <code>--with-new-pkgs</code>, so kernel upgrades that need a
+new package are included. It does not remove packages; use your package
+manager's <code>full-upgrade</code> when a release change requires that.</p>
+</aside>
+<h2 id="before-a-full-upgrade">Before a full upgrade<a class="anchor" href="#before-a-full-upgrade" aria-label="Link to this section">§</a></h2>
+<p>Run <a href="briefing.html"><code>yapacc briefing</code></a> first. It tells you whether the
+upgrade touches the kernel, the C library, the package manager or ssh, and
+shows the distribution's announcements.</p>
+<p>After it, <a href="housekeeping.html#restart"><code>yapacc restart</code></a> says what still runs
+old code and whether a reboot is due, and
+<a href="housekeeping.html#configs"><code>yapacc configs</code></a> lists configuration files the
+upgrade left for you to merge. If the upgrade went wrong,
+<a href="undo.html"><code>yapacc undo</code></a> takes it back.</p>
+<h2 id="get-choosing-a-source">get: choosing a source<a class="anchor" href="#get-choosing-a-source" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc get NAME</code> looks for NAME in the sources this machine has and
+installs from the first that has it. The distribution's own package comes
+first. <code>--explain</code> shows the decision and stops.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc get ripgrep --explain</span></span>
+<span class="ln">== Resolution: ripgrep ==</span>
+<span class="ln"> → repo     found    ripgrep 14.1.1-1+b4                      exact name in the apt repositories</span>
+<span class="ln">   flatpak  missing  —                                        flatpak is not installed on this system</span>
+<span class="ln">chosen: repo (the distribution's own package wins when it exists)</span>
+</code></pre></figure>
+<p>Off Arch, <code>get</code> knows the distribution's repositories and flatpak; it shows
+a flatpak match and does not install it for you. On Arch it also knows the
+AUR and local recipes, and takes the first source in the order
+<code>repo, aur, flatpak, recipe</code> that has the name; <code>[install] order</code> in the
+<a href="configuration.html">configuration</a> changes that order, and
+<code>--from repo|aur|flatpak|recipe</code> forces one source for one run.</p>
+<h2 id="more-than-the-repositories">More than the repositories<a class="anchor" href="#more-than-the-repositories" aria-label="Link to this section">§</a></h2>
+<p>The commands above cover the native package manager, which is what most
+people need. yapacc also has specialist commands for other sources:
+flatpak, AppImages, the AUR on Arch with a review step and a sandboxed
+build, and isolated installs of packages made for another distribution.
+<code>yapacc --help</code> does not list them; <a href="commands.html">every command</a> does.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="gate.html"><span>Previous</span>The gate</a><a class="next" href="snapshots.html"><span>Next</span>Snapshots</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/changes.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#the-commands">The commands</a></li>
+<li class="toc-2"><a href="#what-is-run-exactly">What is run, exactly</a></li>
+<li class="toc-2"><a href="#what-the-last-line-means">What the last line means</a></li>
+<li class="toc-2"><a href="#before-a-full-upgrade">Before a full upgrade</a></li>
+<li class="toc-2"><a href="#get-choosing-a-source">get: choosing a source</a></li>
+<li class="toc-2"><a href="#more-than-the-repositories">More than the repositories</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

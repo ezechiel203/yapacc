@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Safety and privacy · yapacc handbook</title>
+<meta name="description" content="Safety and privacy: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html" aria-current="page">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>Safety and privacy</h1>
+      </header>
+      <article class="prose">
+<p>What yapacc protects you from, what it does not, what it sends over the
+network and what it writes to disk. The design reasoning behind this page
+is in <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/SECURITY.md">SECURITY.md</a>.</p>
+<h2 id="what-it-protects-against">What it protects against<a class="anchor" href="#what-it-protects-against" aria-label="Link to this section">§</a></h2>
+<p><strong>Changing the system without your say.</strong> Every change goes through
+<a href="gate.html">the gate</a>. Without <code>--yes</code> it asks; with nobody to ask it
+refuses. An AI assistant connected through <a href="mcp.html">MCP</a> cannot apply
+anything unless you enabled that in the configuration.</p>
+<p><strong>Surprises in what is run.</strong> The plan, the native manager's own
+simulation of it, and the exact command are printed before the question.</p>
+<p><strong>Names that are not names.</strong> Package names are validated against the
+character set a package name can have, and passed to the native manager as
+separate arguments after <code>--</code>. No shell command line is ever built from
+package data, log contents or network answers.</p>
+<p><strong>Half-applied undos.</strong> <code>undo</code> is all or nothing. If one old version cannot
+be found, or one download fails its check, nothing is changed.</p>
+<p><strong>Removing the ground you stand on.</strong> An undo that would remove the running
+kernel is refused.</p>
+<p><strong>Hostile build recipes</strong> (the AUR on Arch). The PKGBUILD is shown for
+review before anything is built. The build then runs in a bubblewrap
+sandbox: your home directory and <code>/run</code> are hidden, the environment is
+cleared, and the network is available only while sources are downloaded.</p>
+<p><strong>Terminal tricks.</strong> Escape sequences in package names, file names and log
+lines are neutralised before they are printed.</p>
+<h2 id="what-it-does-not-protect-against">What it does not protect against<a class="anchor" href="#what-it-does-not-protect-against" aria-label="Link to this section">§</a></h2>
+<p><strong>A package you agreed to install.</strong> Once you answer yes, the native
+package manager runs as root and package scripts do what they do. yapacc
+is not a sandbox for native packages.</p>
+<p><strong>Lost configuration or data.</strong> <code>undo</code> restores package versions only. If
+an upgrade rewrote a configuration file or migrated a database, undo does
+not bring the old one back. A <a href="snapshots.html">snapshot</a> does.</p>
+<p><strong>A compromised repository.</strong> yapacc relies on your package manager's
+signature checks and adds none of its own for native packages.</p>
+<p><strong>Weakly verified archive downloads.</strong> When <code>undo</code> has to fetch an old
+version from an archive, the verification depends on the archive. A package
+from the Arch Linux Archive must carry a signature that verifies, or the
+undo stops. A file from snapshot.debian.org is compared with the hash the
+service records, which is not a signature. Launchpad downloads are not
+verified. The plan says which case applies to each package before you are
+asked.</p>
+<p><strong>A determined build.</strong> The build sandbox has no seccomp filter and no
+resource limits. It keeps a recipe away from your files; it is not a
+virtual machine.</p>
+<p><strong>A local attacker who is already you.</strong> The configuration file and the
+ledger of non-native installs live in your home directory. Something
+running as you can change them.</p>
+<h2 id="what-reaches-your-terminal">What reaches your terminal<a class="anchor" href="#what-reaches-your-terminal" aria-label="Link to this section">§</a></h2>
+<p>Some of what yapacc prints is other people's text. Answers from the AUR
+and from Repology, and the names of systemd units, are printed with
+control characters replaced or escaped, so that a crafted name cannot move
+the cursor, recolour the screen or hide a line. Package names are
+validated before they are used in a plan.</p>
+<h2 id="what-leaves-the-machine">What leaves the machine<a class="anchor" href="#what-leaves-the-machine" aria-label="Link to this section">§</a></h2>
+<p>yapacc has no telemetry, no update check of its own and no listening
+socket. These are the only cases in which it contacts a server:</p>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Contacts</th><th>What is sent</th></tr></thead><tbody>
+<tr><td><code>names NAME</code></td><td>repology.org</td><td>the package name</td></tr>
+<tr><td><code>undo</code></td><td>the distribution's archive: archive.archlinux.org, snapshot.debian.org or launchpad.net</td><td>the name and version of each package it needs</td></tr>
+<tr><td><code>briefing</code></td><td>the distribution's news feed, where there is one (Arch); skipped with <code>--offline</code></td><td>nothing but the request</td></tr>
+<tr><td><code>check</code>, <code>get</code>, and the AUR commands, on Arch</td><td>aur.archlinux.org</td><td>the names of packages that are not in the repositories; the name you ask for</td></tr>
+<tr><td><code>install</code>, <code>remove</code>, <code>upgrade</code>, <code>refresh</code></td><td>your repositories, through your package manager</td><td>whatever your package manager sends</td></tr>
+<tr><td>anything you give a URL to</td><td>that URL</td><td></td></tr>
+</tbody></table>
+</div>
+<p>Every other read command works offline, from what is on disk. On a machine
+with no network at all, <code>why</code>, <code>timeline</code>, <code>clean</code>, <code>restart</code>, <code>configs</code>,
+<code>doctor</code>, <code>platform</code>, <code>list</code>, <code>info</code>, <code>search</code> and <code>check</code> answer as usual.</p>
+<h2 id="what-it-writes">What it writes<a class="anchor" href="#what-it-writes" aria-label="Link to this section">§</a></h2>
+<p>Read commands write nothing. The complete list of places yapacc writes to:</p>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>When</th></tr></thead><tbody>
+<tr><td><code>~/.cache/yapacc/</code></td><td>old packages while an <code>undo</code> runs (deleted when it ends); build caches and the throwaway home of a sandboxed build</td></tr>
+<tr><td><code>~/.local/state/yapacc/ledger/</code> (or <code>/var/lib/yapacc/ledger/</code> as root)</td><td>when you install something <em>outside</em> the package manager through yapacc</td></tr>
+<tr><td><code>~/.local/share/yapacc/</code>, <code>~/Applications/yapacc/</code></td><td>AppImages, isolated installs and recipes, if you use those commands</td></tr>
+<tr><td><code>./NAME-aur-build</code> in the current directory</td><td><code>install aur NAME</code> (Arch)</td></tr>
+<tr><td>a file you name</td><td><code>plan … --out FILE</code>, <code>index build --path FILE</code> and similar</td></tr>
+<tr><td>systemd timer units</td><td>only if you run <code>monitor daemon-install</code></td></tr>
+</tbody></table>
+</div>
+<p>It never writes its configuration file, never edits your shell startup
+files, and never adds a hook to your package manager.</p>
+<h2 id="reporting-a-vulnerability">Reporting a vulnerability<a class="anchor" href="#reporting-a-vulnerability" aria-label="Link to this section">§</a></h2>
+<p>Please report security problems privately, as described in
+<a href="https://github.com/ezechiel203/yapacc/blob/main/SECURITY.md">SECURITY.md at the top of the repository</a>, and not in a
+public issue.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="mcp.html"><span>Previous</span>AI assistants (MCP)</a><a class="next" href="faq.html"><span>Next</span>Troubleshooting and questions</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/safety.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#what-it-protects-against">What it protects against</a></li>
+<li class="toc-2"><a href="#what-it-does-not-protect-against">What it does not protect against</a></li>
+<li class="toc-2"><a href="#what-reaches-your-terminal">What reaches your terminal</a></li>
+<li class="toc-2"><a href="#what-leaves-the-machine">What leaves the machine</a></li>
+<li class="toc-2"><a href="#what-it-writes">What it writes</a></li>
+<li class="toc-2"><a href="#reporting-a-vulnerability">Reporting a vulnerability</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

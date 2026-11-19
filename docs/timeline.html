@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>yapacc timeline · yapacc handbook</title>
+<meta name="description" content="yapacc timeline: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html" aria-current="page">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Everyday commands</p>
+        <h1>yapacc timeline</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc timeline</code> lists package installs, upgrades and removals, newest
+first, from the logs your package manager already keeps. It is read-only and
+it keeps no log of its own.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc timeline --limit 8</span></span>
+<span class="ln">2026-11-19 13:11 (local)  apt     install    jq  1.7.1-6+deb13u4</span>
+<span class="ln">2026-11-19 13:11 (local)  apt     install    libjq1  1.7.1-6+deb13u4</span>
+<span class="ln">2026-11-19 13:11 (local)  apt     install    libonig5  6.9.9-1+b1</span>
+<span class="ln">2026-11-19 13:10 (local)  apt     downgrade  libpng16-16t64  1.6.48-1+deb13u6 -&gt; 1.6.48-1+deb13u5</span>
+<span class="ln">2026-11-19 13:10 (local)  apt     downgrade  libcurl4t64  8.14.1-2+deb13u7 -&gt; 8.14.1-2+deb13u5</span>
+<span class="ln">2026-11-19 13:10 (local)  apt     downgrade  curl  8.14.1-2+deb13u7 -&gt; 8.14.1-2+deb13u5</span>
+<span class="ln">2026-11-19 13:10 (local)  apt     downgrade  libbrotli1  1.1.0-2+deb13u1 -&gt; 1.1.0-2+b7</span>
+<span class="ln">2026-11-19 13:10 (local)  apt     downgrade  xz-utils  5.8.1-1+deb13u2 -&gt; 5.8.1-1+deb13u1</span>
+</code></pre></figure>
+<p>Each line is the time, the log it came from, what happened (<code>install</code>,
+<code>upgrade</code>, <code>downgrade</code>, <code>reinstall</code>, <code>remove</code>), the package and the
+version: old and new for an upgrade or a downgrade. dpkg's log calls every
+version change an upgrade; yapacc compares the two versions as dpkg does
+and says which it was. The downgrades above are an
+<a href="undo.html"><code>undo</code></a>: it is a transaction like any other.</p>
+<h2 id="what-changed-since-it-last-worked">What changed since it last worked?<a class="anchor" href="#what-changed-since-it-last-worked" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc timeline --since-boot</span></span>
+<span class="ln">Changes since the start of the previous boot: 2026-11-19 13:07 UTC (from journalctl --list-boots)</span>
+<span class="ln">── boot: 2026-11-19 13:12 UTC ──</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    linux-image-amd64  6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    libpng16-16t64  1.6.48-1+deb13u5 -&gt; 1.6.48-1+deb13u6</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    libcurl4t64  8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln">…</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    xz-utils  5.8.1-1+deb13u1 -&gt; 5.8.1-1+deb13u2</span>
+<span class="ln"><span class="k">note: apt and zypper log local time without a zone and yapacc reads it as UTC: their changes within the zone offset of the boot instant can be on the wrong side of it</span></span>
+</code></pre></figure>
+<p><code>--since-boot</code> starts at the boot before the current one, because the
+question is usually "it worked yesterday, then I rebooted". The first line
+says which moment was used and where it came from, and a <code>── boot ──</code> line
+marks where the machine restarted: what is listed below it was changed
+before the reboot. When only the current boot is known, a note says so and
+the list starts there instead.</p>
+<p>The boot time comes from <code>journalctl --list-boots</code> where there is a
+journal, otherwise from the kernel (<code>/proc/stat</code> on Linux,
+<code>sysctl kern.boottime</code> on FreeBSD).</p>
+<h2 id="options">Options<a class="anchor" href="#options" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>--since YYYY-MM-DD</code></td><td>only changes on or after that day (UTC)</td></tr>
+<tr><td><code>--since-boot</code></td><td>only changes since the previous boot</td></tr>
+<tr><td><code>--limit N</code></td><td>at most N changes; the default is 50</td></tr>
+<tr><td><code>--html</code></td><td>write one self-contained HTML page to standard output</td></tr>
+</tbody></table>
+</div>
+<p><code>--html</code> is meant for bug reports: <code>yapacc timeline --html &gt; timeline.html</code>
+gives a single file with no external reference. It cannot be combined with
+<code>--json</code>.</p>
+<h2 id="where-the-entries-come-from">Where the entries come from<a class="anchor" href="#where-the-entries-come-from" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Package manager</th><th>Log read</th></tr></thead><tbody>
+<tr><td>pacman</td><td><code>/var/log/pacman.log</code></td></tr>
+<tr><td>apt</td><td><code>/var/log/dpkg.log</code>, including rotated and compressed files</td></tr>
+<tr><td>dnf</td><td>dnf's own history database (<code>dnf history</code>)</td></tr>
+<tr><td>zypper</td><td><code>/var/log/zypp/history</code>, including rotated and compressed files</td></tr>
+<tr><td>apk</td><td><code>/var/log/apk.log</code>, when it exists</td></tr>
+<tr><td>pkg (FreeBSD)</td><td><code>/var/log/messages</code></td></tr>
+<tr><td>xbps</td><td>none: xbps keeps no log, and <code>timeline</code> says so</td></tr>
+</tbody></table>
+</div>
+<p>Some of these logs are readable by root only (openSUSE's
+<code>/var/log/zypp</code> is one). <code>timeline</code> then says which file exists and may not
+be read, tells you to run <code>sudo yapacc timeline</code>, and exits with code 6.
+<code>yapacc platform</code> marks such a log <code>(exists; not readable by this user)</code>.</p>
+<p>Times are printed as the log wrote them. A log that records local time
+without a zone (apt, zypper) is labelled <code>(local)</code>. With <code>--since-boot</code>
+such a time is compared with the boot instant as if it were UTC, so a
+change made within your zone offset of the reboot can land on the wrong
+side of it; a note says so whenever it applies.</p>
+<p>A log can be silent about a run. apk run with <code>--quiet</code> records that it ran
+and not what it did, and <code>timeline</code> then says how many runs it could not
+describe ("3 apk run(s) were logged without package details") instead of
+leaving them out without a word.</p>
+<h2 id="in-a-script">In a script<a class="anchor" href="#in-a-script" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json timeline --limit 1</span></span>
+<span class="ln">[</span>
+<span class="ln">  {</span>
+<span class="ln">    &quot;ts&quot;: 1795093887,</span>
+<span class="ln">    &quot;source&quot;: &quot;apt&quot;,</span>
+<span class="ln">    &quot;action&quot;: &quot;install&quot;,</span>
+<span class="ln">    &quot;name&quot;: &quot;jq&quot;,</span>
+<span class="ln">    &quot;old_version&quot;: &quot;&quot;,</span>
+<span class="ln">    &quot;new_version&quot;: &quot;1.7.1-6+deb13u4&quot;</span>
+<span class="ln">  }</span>
+<span class="ln">]</span>
+</code></pre></figure>
+<p><code>ts</code> is seconds since the Unix epoch. <code>action</code> is <code>install</code>, <code>upgrade</code>,
+<code>downgrade</code>, <code>reinstall</code> or <code>remove</code>; a reinstall has an empty
+<code>old_version</code>.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="why.html"><span>Previous</span>why</a><a class="next" href="briefing.html"><span>Next</span>briefing</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/timeline.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#what-changed-since-it-last-worked">What changed since it last worked?</a></li>
+<li class="toc-2"><a href="#options">Options</a></li>
+<li class="toc-2"><a href="#where-the-entries-come-from">Where the entries come from</a></li>
+<li class="toc-2"><a href="#in-a-script">In a script</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

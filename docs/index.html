@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>The yapacc handbook · yapacc handbook</title>
+<meta name="description" content="The yapacc handbook: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html" aria-current="page">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Start</p>
+        <h1>The yapacc handbook</h1>
+      </header>
+      <article class="prose">
+<p>yapacc is an optional companion to the package manager you already have. It
+answers four questions that every system eventually asks, and it can make
+changes through your package manager without taking it over.</p>
+<div class="table-wrap"><table><thead><tr><th>The question</th><th>The command</th></tr></thead><tbody>
+<tr><td>Why is this package here?</td><td><a href="why.html"><code>yapacc why NAME</code></a></td></tr>
+<tr><td>What changed since the machine last worked?</td><td><a href="timeline.html"><code>yapacc timeline --since-boot</code></a></td></tr>
+<tr><td>What will the next upgrade do?</td><td><a href="briefing.html"><code>yapacc briefing</code></a></td></tr>
+<tr><td>Can I take the last change back?</td><td><a href="undo.html"><code>yapacc undo</code></a></td></tr>
+</tbody></table>
+</div>
+<p>It works beside <code>pacman</code>, <code>apt</code>, <code>dnf</code>, <code>zypper</code>, <code>apk</code>, <code>xbps</code> and FreeBSD's
+<code>pkg</code>. You keep using them. yapacc reads what they already record and, when
+you ask it to change something, runs the command they would run, after
+showing it to you.</p>
+<h2 id="how-to-read-this-handbook">How to read this handbook<a class="anchor" href="#how-to-read-this-handbook" aria-label="Link to this section">§</a></h2>
+<ul>
+<li>New here: <a href="install.html">install</a> it, then take the
+<a href="quick-start.html">ten-minute tour</a>. Every command in the tour is read-only.</li>
+<li>Before you let it change anything, read <a href="gate.html">the gate</a>. It is one
+page and it explains every prompt you will see.</li>
+<li>Looking for one command: <a href="commands.html">every command</a> lists them all,
+including the specialist ones that <code>yapacc --help</code> leaves out.</li>
+<li>Wondering whether it works on your system:
+<a href="support.html">what works where</a> says what was run, on which system, and
+what was not.</li>
+</ul>
+<p>The same text ships inside the program. <code>yapacc docs</code> lists the built-in
+topics and <code>yapacc docs --man | man -l -</code> shows the manual page, so the
+documentation is there when the network is not.</p>
+<h2 id="the-rules-yapacc-keeps">The rules yapacc keeps<a class="anchor" href="#the-rules-yapacc-keeps" aria-label="Link to this section">§</a></h2>
+<p>These are promises about behaviour, and each one can be checked against the
+code. They decide what yapacc will never do.</p>
+<ol>
+<li><strong>Your package manager stays yours.</strong> yapacc keeps no copy of what the
+native manager knows. Install or remove anything directly and yapacc is
+never confused by it.</li>
+<li><strong>Nothing runs unless you ask.</strong> No daemon, timer, hook or shell alias is
+installed by default.</li>
+<li><strong>Read commands change nothing</strong>, and work on a machine that has never
+used yapacc before.</li>
+<li><strong>Removable without trace.</strong> Delete yapacc and everything it installed
+keeps working, and can be removed with native tools.</li>
+<li><strong>Every change is gated.</strong> A plain command asks. <code>--yes</code> consents.
+<code>--dryrun</code> only plans. A refusal exits with code 3 and changes nothing.</li>
+<li><strong>Changes go through your package manager</strong>, as the command it would run
+itself, shown in full, after its own simulation. The native log is the
+record; <code>timeline</code> and <code>undo</code> read it.</li>
+<li><strong>A protection says what it does not protect against</strong>, in the output
+and not only in the manual.</li>
+</ol>
+<p>One read command talks to the outside: <a href="commands.html#names"><code>names</code></a> sends
+the package name you give it to repology.org, and says so. Everything a
+command may contact is listed under
+<a href="safety.html#what-leaves-the-machine">safety and privacy</a>.</p>
+<h2 id="what-yapacc-is-not">What yapacc is not<a class="anchor" href="#what-yapacc-is-not" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>Not a package manager.</strong> It has no repository and no package format.</li>
+<li><strong>Not a backup.</strong> <code>undo</code> restores package versions. It does not restore
+configuration files or data; a <a href="snapshots.html">filesystem snapshot</a> does.</li>
+<li><strong>Not a service.</strong> Nothing stays running and nothing contacts a server
+on its own.</li>
+<li><strong>Not a configuration system.</strong> It does not manage dotfiles, services or
+a fleet of machines.</li>
+</ul>
+<h2 id="the-three-programs">The three programs<a class="anchor" href="#the-three-programs" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Program</th><th>What it is</th><th>Needed</th></tr></thead><tbody>
+<tr><td><code>yapacc</code></td><td>the command line; everything in this handbook</td><td>yes</td></tr>
+<tr><td><code>yapacc-tui</code></td><td><a href="tui.html">an interactive interface</a>, started with <code>yapacc i</code></td><td>no</td></tr>
+<tr><td><code>yapacc-mcp</code></td><td><a href="mcp.html">a server for AI assistants</a>, started with <code>yapacc mcp</code></td><td>no</td></tr>
+</tbody></table>
+</div>
+<p>The core is one static file of under 6 MB with no shared library. When a
+command needs a tool the machine lacks (<code>curl</code> for the news feed, <code>sudo</code> or
+<code>doas</code> for a change), it names the tool and exits with code 6.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><span></span><a class="next" href="install.html"><span>Next</span>Install</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/README.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#how-to-read-this-handbook">How to read this handbook</a></li>
+<li class="toc-2"><a href="#the-rules-yapacc-keeps">The rules yapacc keeps</a></li>
+<li class="toc-2"><a href="#what-yapacc-is-not">What yapacc is not</a></li>
+<li class="toc-2"><a href="#the-three-programs">The three programs</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

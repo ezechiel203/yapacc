@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>The interactive interface · yapacc handbook</title>
+<meta name="description" content="The interactive interface: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html" aria-current="page">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>The interactive interface</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc i</code> opens a full-screen interface in the terminal. It is an optional
+component, the separate program <code>yapacc-tui</code>; when it is not installed,
+<code>yapacc i</code> says so and exits with code 6.</p>
+<p>It shows the same reports as the command line and adds nothing of its own.
+It is for exploring: reading the timeline, filtering the installed list,
+looking at what <code>clean</code> found.</p>
+<h2 id="the-home-screen">The home screen<a class="anchor" href="#the-home-screen" aria-label="Link to this section">§</a></h2>
+<p>The home screen is a menu of questions: what changed recently, what the
+next upgrade will do, what can be cleaned up, what works on this machine.
+<code>Enter</code> opens the highlighted line, and each line also has its own letter.</p>
+<h2 id="keys">Keys<a class="anchor" href="#keys" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Where</th><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td>everywhere</td><td><code>?</code></td><td>help</td></tr>
+<tr><td></td><td><code>Esc</code> or <code>q</code></td><td>back; <code>q</code> on the home screen quits</td></tr>
+<tr><td></td><td><code>Ctrl-C</code></td><td>quit at once</td></tr>
+<tr><td></td><td><code>j</code> <code>k</code>, arrows, <code>PgUp</code> <code>PgDn</code>, <code>g</code> <code>G</code></td><td>move</td></tr>
+<tr><td>reports</td><td><code>/</code></td><td>filter by text</td></tr>
+<tr><td></td><td><code>r</code></td><td>read again</td></tr>
+<tr><td></td><td><code>Enter</code></td><td>show the whole line when it is cut</td></tr>
+<tr><td></td><td><code>u</code></td><td>in the upgrade briefing: plan the upgrade</td></tr>
+<tr><td></td><td><code>o</code></td><td>in the clean-up report: plan the removal of unneeded packages</td></tr>
+<tr><td>browsing</td><td><code>Tab</code>, <code>1</code>–<code>6</code></td><td>change tab</td></tr>
+<tr><td>Installed</td><td><code>/</code> filter, <code>Space</code> select, <code>i</code> why, <code>d</code> dependencies, <code>x</code> remove, <code>e</code> mark explicit</td><td></td></tr>
+<tr><td>Search</td><td>type and <code>Enter</code>; <code>a</code> install, <code>i</code> info, <code>A</code> include the AUR (Arch)</td><td></td></tr>
+<tr><td>External</td><td><code>Enter</code> details, <code>x</code> remove</td><td></td></tr>
+<tr><td>Run</td><td>type any yapacc arguments; the output is shown, and nothing can prompt</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="changing-the-system-from-the-interface">Changing the system from the interface<a class="anchor" href="#changing-the-system-from-the-interface" aria-label="Link to this section">§</a></h2>
+<p>The interface never answers a confirmation for you.</p>
+<p>Every change is first shown as a plan, which is a dry run: nothing has
+happened yet. To carry it out you move to <code>[ Apply ]</code> and press <code>Enter</code>.
+The interface then leaves the screen and runs the command in your terminal,
+where yapacc itself shows the plan and asks, exactly as described in
+<a href="gate.html">the gate</a>. The <code>sudo</code> or <code>doas</code> password prompt appears there as
+well.</p>
+<p>Run the interface as yourself. There is no reason to start it as root.</p>
+<p>The Run tab shows output only. It does not run a command with <code>--yes</code> or
+<code>--noconfirm</code>, because nothing typed there has been through the plan
+screen. Without a terminal, <code>yapacc i</code> exits with code 6.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="scripting.html"><span>Previous</span>Scripting: JSON and exit codes</a><a class="next" href="mcp.html"><span>Next</span>AI assistants (MCP)</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/tui.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#the-home-screen">The home screen</a></li>
+<li class="toc-2"><a href="#keys">Keys</a></li>
+<li class="toc-2"><a href="#changing-the-system-from-the-interface">Changing the system from the interface</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

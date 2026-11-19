@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Snapshots · yapacc handbook</title>
+<meta name="description" content="Snapshots: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html" aria-current="page">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Changing the system</p>
+        <h1>Snapshots</h1>
+      </header>
+      <article class="prose">
+<p><a href="undo.html"><code>undo</code></a> restores package versions. A filesystem snapshot restores
+everything else: configuration files, data that package scripts rewrote,
+and the packages too. yapacc does not implement snapshots. It drives the
+snapshot tool the machine already has.</p>
+<h2 id="which-tools">Which tools<a class="anchor" href="#which-tools" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Tool</th><th>List</th><th>Create</th><th>Notes</th></tr></thead><tbody>
+<tr><td>snapper</td><td>yes</td><td>yes</td><td>the usual tool on openSUSE; works on any btrfs layout snapper is configured for</td></tr>
+<tr><td>timeshift</td><td>yes</td><td>yes</td><td>rsync mode and btrfs mode</td></tr>
+<tr><td>zfs</td><td>yes</td><td>yes</td><td>snapshots the dataset of the root filesystem</td></tr>
+<tr><td>plain btrfs</td><td>yes</td><td>no</td><td>subvolumes are listed; yapacc does not create plain btrfs snapshots</td></tr>
+</tbody></table>
+</div>
+<p><code>yapacc platform</code> shows which of these it detected, on the <code>snapshots</code>
+line.</p>
+<h2 id="the-commands">The commands<a class="anchor" href="#the-commands" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc snapshot list                       </span><span class="k">  # read-only</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc snapshot create --description &quot;before the big upgrade&quot;</span></span>
+</code></pre></figure>
+<p><code>snapshot create</code> is a change, so it goes through <a href="gate.html">the gate</a>:
+<code>--dryrun</code> shows the command, <code>--yes</code> skips the question, and yapacc calls
+<code>sudo</code> or <code>doas</code> as it does for any change. <code>snapshot list</code> is a read
+command and elevates nothing: where the tool only answers root, it says so
+(exit code 6), and you run <code>sudo yapacc snapshot list</code>.</p>
+<p>On a machine without a snapshot tool, both say what was looked for:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc snapshot list</span></span>
+<span class="ln">error: no snapshot provider is usable on this machine. Looked for: snapper with a root config (/etc/snapper/configs/root), timeshift, zfs with `/` on ZFS, btrfs with `/` on btrfs.</span>
+<span class="ln">Filesystem of `/`: ext4.</span>
+<span class="ln">`yapacc undo` still works without one, within its limits: it restores package versions only, not configuration files or data.</span>
+</code></pre></figure>
+<h2 id="a-snapshot-before-every-change">A snapshot before every change<a class="anchor" href="#a-snapshot-before-every-change" aria-label="Link to this section">§</a></h2>
+<p>Set this in the <a href="configuration.html">configuration</a> and yapacc takes a
+snapshot before <code>install</code>, <code>remove</code> and <code>upgrade</code>, after you have consented
+and before the native command runs.</p>
+<figure class="code" data-lang="toml"><pre><code>[safety]
+<span class="k"># off (default) | auto | auto-best-effort</span>
+snapshot = &quot;auto&quot;
+<span class="k"># auto (default) | snapper | timeshift | zfs | none</span>
+snapshot_provider = &quot;auto&quot;
+</code></pre></figure>
+<div class="table-wrap"><table><thead><tr><th>Value</th><th>When a tool is found</th><th>When the snapshot fails</th></tr></thead><tbody>
+<tr><td><code>off</code></td><td>nothing</td><td>n/a</td></tr>
+<tr><td><code>auto</code></td><td>a snapshot is taken first</td><td>the change is refused (exit code 3)</td></tr>
+<tr><td><code>auto-best-effort</code></td><td>a snapshot is taken first</td><td>a warning is printed and the change goes on</td></tr>
+</tbody></table>
+</div>
+<p>The plan names the tool and the command before you are asked, and a dry
+run never takes a snapshot; it only says one would be taken.</p>
+<h3 id="when-no-snapshot-can-be-taken">When no snapshot can be taken<a class="anchor" href="#when-no-snapshot-can-be-taken" aria-label="Link to this section">§</a></h3>
+<p>The plan tells you before the question, and a dry run tells you the same:</p>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th><code>auto</code></th><th><code>auto-best-effort</code></th></tr></thead><tbody>
+<tr><td><code>snapshot_provider = "auto"</code> and the machine has no snapshot tool</td><td>the change runs without a snapshot; the plan says "No snapshot will be taken: … there is no snapshot tool on this machine"</td><td>the same</td></tr>
+<tr><td>a named provider that cannot work here</td><td>refused (exit code 3), with the reason and the three ways out</td><td>a warning in the plan; the change runs without a snapshot</td></tr>
+<tr><td>the snapshot command fails</td><td>refused (exit code 3); nothing was changed</td><td>a warning; the change goes on</td></tr>
+</tbody></table>
+</div>
+<p>The reason for a named provider is one of: the tool is not installed,
+snapper has no root config (<code>snapper -c root create-config /</code> sets one
+up), <code>/</code> is not on ZFS, or the provider is plain btrfs, which yapacc lists
+and does not create.</p>
+<p>The first row is deliberate. <code>auto</code> for the provider means "use what is
+there", and on a machine with nothing there, refusing every change would
+make the setting unusable in a configuration shared between machines. If
+you want a change refused whenever no snapshot is possible, name the
+provider.</p>
+<aside class="callout callout-warning"><p class="callout-title">Warning</p>
+<p>If timeshift was never set up, its first <code>--create</code> picks a snapshot
+device on its own and writes its configuration. Set timeshift up yourself
+before letting anything call it. yapacc prints this warning in the plan
+when it applies.</p>
+</aside>
+<h2 id="restoring">Restoring<a class="anchor" href="#restoring" aria-label="Link to this section">§</a></h2>
+<p>yapacc creates and lists snapshots. It does not restore them. Rolling a
+root filesystem back is done with the snapshot tool itself, often from a
+rescue or boot environment:</p>
+<ul>
+<li>snapper: <code>snapper rollback</code>, or boot a snapshot from the boot menu on
+openSUSE;</li>
+<li>timeshift: <code>timeshift --restore</code>;</li>
+<li>zfs: <code>zfs rollback</code>, or boot environments with <code>bectl</code> on FreeBSD.</li>
+</ul>
+<p>This is deliberate. A rollback of the running root is the kind of operation
+where a companion tool should step aside.</p>
+<h2 id="what-was-verified">What was verified<a class="anchor" href="#what-was-verified" aria-label="Link to this section">§</a></h2>
+<p>Creating and listing were run against the real tools on virtual machines:
+snapper on openSUSE Leap 16.1 and Tumbleweed and on Arch, timeshift 24.06
+in rsync mode on Debian 13 and 26.11 in btrfs mode on Arch, and zfs on
+FreeBSD 14.5 and 15.1 with a ZFS root. Not verified: a restore of any
+kind (yapacc does not do one), and snapper on a distribution other than
+those three.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="changes.html"><span>Previous</span>install, remove, upgrade</a><a class="next" href="support.html"><span>Next</span>What works where</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/snapshots.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#which-tools">Which tools</a></li>
+<li class="toc-2"><a href="#the-commands">The commands</a></li>
+<li class="toc-2"><a href="#a-snapshot-before-every-change">A snapshot before every change</a></li>
+<li class="toc-3"><a href="#when-no-snapshot-can-be-taken">When no snapshot can be taken</a></li>
+<li class="toc-2"><a href="#restoring">Restoring</a></li>
+<li class="toc-2"><a href="#what-was-verified">What was verified</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

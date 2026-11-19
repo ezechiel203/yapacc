@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>yapacc undo · yapacc handbook</title>
+<meta name="description" content="yapacc undo: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html" aria-current="page">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Everyday commands</p>
+        <h1>yapacc undo</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc undo</code> takes the last package transaction back. It reads the last
+transaction from the native log, works out its reverse, shows you the plan
+and the exact command, and asks before doing anything. On apt the plan
+includes apt's own simulation of the reverse; on dnf it is dnf's own
+description of the transaction.</p>
+<p>It works on pacman, apt, dnf and zypper. On apk, xbps and FreeBSD's pkg it
+says that undo is not available there.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc undo --dryrun</span></span>
+<span class="ln">Last transaction: 2026-11-19 13:08 (local)  (apt-get install -y -- curl)</span>
+<span class="ln">  upgraded    libcurl4t64:amd64 8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln">  upgraded    curl:amd64 8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln"></span>
+<span class="ln">To undo it:</span>
+<span class="ln">  restore curl:amd64 8.14.1-2+deb13u5  (from the configured repositories)</span>
+<span class="ln">  restore libcurl4t64:amd64 8.14.1-2+deb13u5  (from the configured repositories)</span>
+<span class="ln"></span>
+<span class="ln">apt's own simulation (apt-get install -s -y --allow-downgrades -- curl:amd64=8.14.1-2+deb13u5 libcurl4t64:amd64=8.14.1-2+deb13u5):</span>
+<span class="ln">…</span>
+<span class="ln">The following packages will be DOWNGRADED:</span>
+<span class="ln">  curl libcurl4t64</span>
+<span class="ln">0 upgraded, 0 newly installed, 2 downgraded, 0 to remove and 22 not upgraded.</span>
+<span class="ln">Inst curl [8.14.1-2+deb13u7] (8.14.1-2+deb13u5 Debian:13.7/stable [amd64]) []</span>
+<span class="ln">Inst libcurl4t64 [8.14.1-2+deb13u7] (8.14.1-2+deb13u5 Debian:13.7/stable [amd64])</span>
+<span class="ln">Conf curl (8.14.1-2+deb13u5 Debian:13.7/stable [amd64])</span>
+<span class="ln">Conf libcurl4t64 (8.14.1-2+deb13u5 Debian:13.7/stable [amd64])</span>
+<span class="ln"></span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get install -y --allow-downgrades -- curl:amd64=8.14.1-2+deb13u5 libcurl4t64:amd64=8.14.1-2+deb13u5</span>
+<span class="ln"><span class="k">note: Undo restores package versions only. It does not restore configuration files or data that package scripts changed; a filesystem snapshot does.</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="k">DRY-RUN: nothing was changed. Run again without --dryrun to apply.</span></span>
+</code></pre></figure>
+<p>That is the plan for taking back an upgrade of two packages on Debian 13.
+A whole system upgrade is undone the same way. This one was a
+<code>yapacc upgrade</code> of 24 packages and a new kernel, taken back for real on a
+virtual machine:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc undo</span></span>
+<span class="ln">Last transaction: 2026-11-19 13:08 (local)  (apt-get upgrade --with-new-pkgs -y)</span>
+<span class="ln">  installed   linux-image-6.12.117+deb13-amd64:amd64 6.12.117-1</span>
+<span class="ln">  upgraded    bind9-host:amd64 1:9.20.26-1~deb13u1 -&gt; 1:9.20.30-1~deb13u1</span>
+<span class="ln">  upgraded    apt:amd64 3.0.3 -&gt; 3.0.4</span>
+<span class="ln">  upgraded    tzdata:amd64 2026c-0+deb13u1 -&gt; 2026f-0+deb13u1</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">To undo it:</span>
+<span class="ln">  remove  linux-image-6.12.117+deb13-amd64:amd64</span>
+<span class="ln">  restore openssl:amd64 3.5.7-1~deb13u2  (from the configured repositories)</span>
+<span class="ln">  restore libpng16-16t64:amd64 1.6.48-1+deb13u5  (from the configured repositories)</span>
+<span class="ln">  restore zlib1g:amd64 1:1.3.dfsg+really1.3.1-1+b1  (from the configured repositories)</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">…</span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get install -y --allow-downgrades -- openssl:amd64=3.5.7-1~deb13u2 …</span>
+<span class="ln"><span class="k">note: Undo restores package versions only. It does not restore configuration files or data that package scripts changed; a filesystem snapshot does.</span></span>
+<span class="ln">Undo this transaction [y/N]? y</span>
+<span class="ln">…</span>
+<span class="ln">Undone. `yapacc timeline` shows it as a new transaction.</span>
+<span class="ln">Verified: 25 of 25 package(s) are at the planned state.</span>
+</code></pre></figure>
+<p>The last line is a check. When the native command has returned, yapacc
+reads the installed versions again and compares them with the plan.</p>
+<h2 id="what-undo-means">What "undo" means<a class="anchor" href="#what-undo-means" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>The transaction did this</th><th>Undo does this</th></tr></thead><tbody>
+<tr><td>installed a package</td><td>removes it</td></tr>
+<tr><td>removed a package</td><td>installs that version again</td></tr>
+<tr><td>upgraded a package</td><td>restores the previous version</td></tr>
+<tr><td>downgraded a package</td><td>restores the newer version</td></tr>
+</tbody></table>
+</div>
+<p>Undo acts on one transaction: the most recent one in the native log. An
+undo is itself a transaction, and <a href="timeline.html"><code>timeline</code></a> shows it like
+any other.</p>
+<aside class="callout callout-important"><p class="callout-title">Important</p>
+<p>Undo restores <strong>package versions</strong>. It does not restore configuration
+files, databases or anything a package script changed. Only a filesystem
+snapshot does that; see <a href="snapshots.html">snapshots</a>. The output repeats
+this every time.</p>
+</aside>
+<h2 id="where-old-versions-come-from">Where old versions come from<a class="anchor" href="#where-old-versions-come-from" aria-label="Link to this section">§</a></h2>
+<p>To restore a previous version, yapacc has to find that exact version. It
+looks in this order and tells you, per package, where it found it:</p>
+<div class="table-wrap"><table><thead><tr><th>Package manager</th><th>Sources, in order</th><th>Verification</th></tr></thead><tbody>
+<tr><td>pacman</td><td>the pacman cache, then the Arch Linux Archive</td><td>the archive's detached signature, verified with <code>pacman-key</code> before the package is installed</td></tr>
+<tr><td>apt on Debian</td><td>the configured repositories, the apt cache, then snapshot.debian.org</td><td>repositories: apt's own; snapshot.debian.org: checked against the recorded hash, not signature-verified</td></tr>
+<tr><td>apt on Ubuntu</td><td>the configured repositories, the apt cache, then Launchpad</td><td>repositories: apt's own; Launchpad downloads are not verified, and the output says so</td></tr>
+<tr><td>dnf</td><td>the enabled repositories, through dnf's own <code>history undo</code></td><td>dnf's own</td></tr>
+<tr><td>zypper</td><td>the configured repositories only</td><td>zypper's own</td></tr>
+</tbody></table>
+</div>
+<p><strong>All or nothing.</strong> If one old version cannot be found anywhere, the whole
+undo is refused (exit code 3) and nothing is changed. yapacc does not apply
+half of an undo.</p>
+<p>On dnf, the old versions are checked for availability before the gate, so a
+refusal comes from the dry run and not from the middle of the real one. On
+zypper there is no archive to fall back on: on a rolling distribution such
+as Tumbleweed, the repositories drop old versions quickly, and an undo of an
+upgrade more than a day or two old is usually refused for that reason.</p>
+<p>A dry run downloads nothing: it asks the archive whether the file exists
+and reports where each version would come from, with its size when the
+archive gives one. The real run downloads after you have agreed, into a
+private directory under <code>~/.cache/yapacc/undo</code> that is deleted when the
+undo ends. On apt, when files have to be downloaded, you are asked twice:
+once before the download, and once more with apt's simulation of the
+restore in front of you. <code>--yes</code> answers both.</p>
+<p>An archive that does not answer is not an archive that lacks the version.
+A lookup waits 20 seconds for the connection and 60 in all, and is tried
+twice. If there is still no answer the undo is refused (exit code 3) with
+"did not answer … so it is not known whether it has that version", and you
+try again later. Only an archive that answered "no" produces "is in no
+local cache and no configured repository, and the archive of this
+distribution … does not have it".</p>
+<p>On zypper the same care applies to the repositories: without repository
+metadata on disk, yapacc cannot know whether a repository still has the old
+version, says so, and refuses. <code>zypper refresh</code> first.</p>
+<h2 id="after-the-command-ran">After the command ran<a class="anchor" href="#after-the-command-ran" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>The last lines say</th><th>What happened</th></tr></thead><tbody>
+<tr><td><code>Verified: N of N package(s) are at the planned state.</code></td><td>the undo is complete</td></tr>
+<tr><td><code>The package versions were restored (N of N verified), but apt reported an error …</code></td><td>every version is back, and the native manager still ended with an error, often a package script that failed. Read its output above; exit code 1</td></tr>
+<tr><td><code>K of N package(s) are not at the planned state: …</code></td><td>the native command failed part of the way, or reported success and left a difference. The packages are named; <code>yapacc timeline</code> shows the current state; exit code 1</td></tr>
+</tbody></table>
+</div>
+<h2 id="guards">Guards<a class="anchor" href="#guards" aria-label="Link to this section">§</a></h2>
+<p>Undo refuses rather than doing something it cannot stand behind.</p>
+<ul>
+<li><strong>The running kernel.</strong> An undo that would remove the kernel the machine
+is running on is refused until you have rebooted into another kernel.</li>
+<li><strong>Packages that something else needs.</strong> If removing a package would break
+a package installed since, the native manager's dependency check refuses
+it and yapacc stops.</li>
+<li><strong>Failed verification.</strong> A file from the Arch Linux Archive without a
+signature that verifies, or a file from snapshot.debian.org whose hash
+does not match, is deleted and the undo stops with exit code 5.</li>
+<li><strong>More than was planned.</strong> On apt, if the simulation shows that the undo
+would also remove a package that was not part of the transaction, the
+undo is refused.</li>
+<li><strong>Unknown history on zypper.</strong> libzypp records an upgrade as an install
+of the new version, so for a package with no earlier record yapacc cannot
+tell "new dependency" from "upgraded". When undoing a whole <code>zypper up</code> or
+<code>dup</code>, it names those packages and asks at the terminal whether to remove
+them. <code>--yes</code>, <code>--script</code> and a pipe do not answer that question: without
+a terminal the undo is refused.</li>
+</ul>
+<h2 id="privileges">Privileges<a class="anchor" href="#privileges" aria-label="Link to this section">§</a></h2>
+<p>Reading the last transaction may itself need root: openSUSE keeps
+<code>/var/log/zypp/history</code> readable by root only, so there you run
+<code>sudo yapacc undo</code>. Elsewhere, run it as yourself; yapacc calls <code>sudo</code> or
+<code>doas</code> for the one command that changes the system.</p>
+<h2 id="options">Options<a class="anchor" href="#options" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>--dryrun</code></td><td>show the last transaction and the plan; download and apply nothing</td></tr>
+<tr><td><code>--yes</code></td><td>apply without the <code>[y/N]</code> question</td></tr>
+</tbody></table>
+</div>
+<p>Without either, undo shows the plan and asks. See <a href="gate.html">the gate</a>.</p>
+<p>With <code>[safety] snapshot</code> set, a <a href="snapshots.html">snapshot</a> is taken after you
+consent and before the first package is touched, as for any other change.</p>
+<p>On dnf the plan names the transaction by its ID, and that ID is what is
+undone, even if another transaction has been committed since you read the
+plan. On Debian and Ubuntu, multiarch packages are shown and handled with
+their architecture (<code>libfoo:i386</code>).</p>
+<h2 id="limits">Limits<a class="anchor" href="#limits" aria-label="Link to this section">§</a></h2>
+<ul>
+<li>One transaction, the last one. There is no "undo the last three" and no
+undo of a transaction further back.</li>
+<li>A restored package is upgraded again by the next full upgrade unless you
+hold it yourself (<code>IgnorePkg</code> in pacman.conf, <code>apt-mark hold</code>, a dnf or
+zypper lock).</li>
+<li>Undoing an install removes the package and does not purge it. On apt its
+configuration files stay, as after any <code>apt-get remove</code> (state <code>rc</code> in
+<code>dpkg -l</code>).</li>
+<li>apt does not remove a package it counts as essential under <code>-y</code>, and
+yapacc does not override that, with one exception: packages of a foreign
+architecture that the transaction itself installed. An undo that would
+need more is refused, and the message says which package.</li>
+<li>No undo on apk, xbps or pkg.</li>
+<li>It has been run end to end on booted virtual machines of Arch, Debian 13,
+Ubuntu 24.04, Fedora 45, Rocky Linux 9.9, openSUSE Leap 16.1 and
+Tumbleweed, including kernel upgrades followed by a real reboot. It has
+not been run on real hardware.
+<a href="support.html">What works where</a> has the detail.</li>
+</ul>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="briefing.html"><span>Previous</span>briefing</a><a class="next" href="housekeeping.html"><span>Next</span>clean, restart, configs</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/undo.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#what-undo-means">What &quot;undo&quot; means</a></li>
+<li class="toc-2"><a href="#where-old-versions-come-from">Where old versions come from</a></li>
+<li class="toc-2"><a href="#after-the-command-ran">After the command ran</a></li>
+<li class="toc-2"><a href="#guards">Guards</a></li>
+<li class="toc-2"><a href="#privileges">Privileges</a></li>
+<li class="toc-2"><a href="#options">Options</a></li>
+<li class="toc-2"><a href="#limits">Limits</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

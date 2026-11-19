@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Notes per distribution · yapacc handbook</title>
+<meta name="description" content="Notes per distribution: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html" aria-current="page">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · By system</p>
+        <h1>Notes per distribution</h1>
+      </header>
+      <article class="prose">
+<p>What is specific to each system: which commands yapacc runs, where the
+history comes from, and the things worth knowing before you rely on it.</p>
+<h2 id="arch-linux-pacman">Arch Linux (pacman)<a class="anchor" href="#arch-linux-pacman" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>Changes</strong> run <code>pacman -S</code>, <code>pacman -Rs</code> and <code>pacman -Syu</code>, always with
+<code>--noconfirm</code>: you answer once, at yapacc's gate, with pacman's plan in
+front of you. yapacc never runs <code>pacman -Sy</code> followed by an install: a
+partial upgrade is the usual way to break an Arch system. <code>yapacc refresh</code> exists and prints that warning.</li>
+<li><strong>Timeline</strong> reads <code>/var/log/pacman.log</code>.</li>
+<li><strong>Undo</strong> looks in <code>/var/cache/pacman/pkg</code> first, then downloads from the
+Arch Linux Archive with the package's signature; a package whose
+signature is missing or does not verify stops the undo. A restored
+package is upgraded again by the next <code>pacman -Syu</code> unless you
+add it to <code>IgnorePkg</code>.</li>
+<li><strong>Briefing</strong> shows the Arch news feed, which is where manual
+interventions are announced. Security labels need <code>arch-audit</code>. The
+pending list comes from <code>checkupdates</code> (pacman-contrib) when it is
+installed, which does not touch the system's sync database; when it is
+installed and fails, the briefing says the list is not current and why.</li>
+<li><strong>Before the first <code>pacman -Syu</code></strong> (a fresh image, a new container)
+there is no sync database. <code>list</code> then cannot tell which packages are
+foreign and says so instead of calling all of them foreign. <code>check</code> and
+<code>search</code> say "no repository metadata on disk" and name <code>pacman -Syu</code>;
+<code>check</code> does not ask the AUR in that state, because it cannot tell which
+installed packages come from there and would send every name.
+<code>install repo</code> is refused with exit code 6 and the same advice.</li>
+<li><strong>Network:</strong> on Arch, <code>check</code> asks the AUR about packages that are not in
+the repositories, and <code>get</code> asks it about the name you give. See
+<a href="safety.html#what-leaves-the-machine">safety and privacy</a>.</li>
+<li><strong>libalpm.</strong> The release binaries talk to pacman through its command and
+are not linked against libalpm. A few specialist commands (<code>install alpm</code>, <code>inspect alpm …</code>) exist only in a build made with the <code>alpm</code>
+feature; in any other build they exit with code 6 and name the command
+that does the same through pacman.</li>
+<li><strong>The AUR</strong> is available through specialist commands (<code>yapacc install aur NAME</code>): the PKGBUILD is shown for review before anything is built,
+and the build runs in a bubblewrap sandbox. The name is looked up first:
+one that is not in the AUR is "not found" (exit code 4) before anything
+is cloned, and when aur.archlinux.org cannot be reached the command stops
+with exit code 6. <code>aur pkgbuild NAME</code> needs only <code>curl</code>. See
+<a href="commands.html#arch-only">every command</a>.</li>
+</ul>
+<h2 id="debian-and-ubuntu-apt">Debian and Ubuntu (apt)<a class="anchor" href="#debian-and-ubuntu-apt" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>Changes</strong> run <code>apt-get install</code>, <code>apt-get remove</code>, and for an upgrade
+<code>apt-get update</code> then <code>apt-get upgrade --with-new-pkgs</code>. That installs new
+kernels and never removes a package; a release upgrade that needs
+removals is still <code>apt full-upgrade</code>, by hand.</li>
+<li><strong>Timeline</strong> reads <code>/var/log/dpkg.log</code> and its rotated, compressed
+predecessors. dpkg logs local time without a zone, so entries are
+labelled <code>(local)</code>. A fresh cloud image has no <code>dpkg.log</code> until the
+first change; <code>doctor</code> says so.</li>
+<li><strong>Undo</strong> tries the configured repositories, then
+<code>/var/cache/apt/archives</code>, then the distribution's archive:
+snapshot.debian.org on Debian (the file is checked against the hash the
+service records) and Launchpad on Ubuntu (not verified, and the output
+says so). It refuses to remove the kernel the machine is running.</li>
+<li><strong>Multiarch</strong> names are kept as they are: <code>libfoo:i386</code> stays
+<code>libfoo:i386</code> through <code>undo</code>, and <code>why</code> answers for a package of a
+foreign architecture with its own reason and origin. Three gaps remain:
+<code>why libfoo:i386</code> is refused as a name (ask for <code>libfoo</code>), <code>list</code> shows
+a package installed for two architectures as two rows that look alike,
+and <code>timeline</code> drops the architecture suffix.</li>
+<li><strong>Briefing</strong> marks updates that come from the security repository
+(<code>-security</code> on both; on Ubuntu an update offered by <code>-security</code> and
+<code>-updates</code> at once counts). There is no machine-readable news feed for
+Debian or Ubuntu, and the briefing says so.</li>
+<li><strong>Why</strong> tells an orphan from a dependency that apt keeps because another
+package recommends or suggests it: only the first is in
+<code>yapacc inspect orphans</code>, and only the first would go with
+<code>apt-get autoremove</code>.</li>
+<li><strong>Restart</strong> honours <code>/run/reboot-required</code>. On a Debian 13 machine,
+after the C library was reinstalled, it listed the same services as
+<code>needrestart</code>.</li>
+</ul>
+<h2 id="fedora-rocky-linux-and-relatives-dnf">Fedora, Rocky Linux and relatives (dnf)<a class="anchor" href="#fedora-rocky-linux-and-relatives-dnf" aria-label="Link to this section">§</a></h2>
+<ul>
+<li>Both dnf 4 (Rocky 9, RHEL 9 family) and dnf5 (Fedora) are handled; their
+history output differs and both are parsed.</li>
+<li><strong>Changes</strong> run <code>dnf install</code>, <code>dnf remove</code> and <code>dnf upgrade --refresh</code>.
+dnf can only simulate as root, so as an ordinary user the simulation runs
+through <code>sudo</code>; in a run that may not ask for a password it runs behind
+<code>sudo -n</code> when that works, and is left out, with a line saying so, when
+it does not. The simulation (<code>--assumeno</code>) always ends with an error
+status, so yapacc reads dnf's messages, which it asks for in English
+(<code>LC_ALL=C</code>): a request dnf cannot resolve is refused before the gate.
+That includes the removal of a package dnf protects, such as <code>sudo</code>.</li>
+<li><strong>Read commands never fetch.</strong> Left alone, dnf downloads repository
+metadata whenever its cache is stale, even for a query. yapacc asks it
+for cached data only (<code>-C</code>), and on a machine with no metadata on disk it
+says so and names <code>dnf makecache</code> instead of answering from nothing.</li>
+<li><strong>Timeline</strong> reads dnf's own history database.</li>
+<li><strong>Clean</strong> reports downloaded packages and repository metadata as two
+items, with <code>dnf clean packages</code> and <code>dnf clean metadata</code>. dnf5 also
+copies the repository metadata into <code>~/.cache/libdnf5</code> whenever an
+ordinary user asks it a question (84 MiB on a fresh Fedora 45), and
+<code>check</code>, <code>search</code> and <code>briefing</code> make it do so. yapacc cannot prevent
+that: pointed at the system cache, dnf5 fails for an ordinary user,
+because it writes there. <code>clean</code> lists the copy as an item of its own
+when it exists.</li>
+<li><strong>Undo</strong> is dnf's own <code>dnf history undo</code> for the transaction shown, behind
+the gate. Before asking, yapacc checks that every old version is still in
+an enabled repository, because dnf would otherwise fail half-way through
+the question. There is no archive fallback: once the repository drops a
+version, that upgrade cannot be undone.</li>
+<li><strong>Briefing</strong> takes security labels from <code>dnf updateinfo</code>.</li>
+<li><strong>Restart</strong> uses <code>needs-restarting -r</code> for the reboot verdict.</li>
+</ul>
+<h2 id="opensuse-leap-and-tumbleweed-zypper">openSUSE Leap and Tumbleweed (zypper)<a class="anchor" href="#opensuse-leap-and-tumbleweed-zypper" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>Run <code>undo</code> and <code>timeline</code> with <code>sudo</code>.</strong> <code>/var/log/zypp/history</code> is
+readable by root only. openSUSE's <code>sudo</code> asks for the <em>root</em> password by
+default, and <code>/usr/local/bin</code> is not on its path, so install the binary
+into <code>/usr/bin</code> or give the full path.</li>
+<li><strong>Changes</strong> run <code>zypper install</code>, <code>zypper remove</code>, and for an upgrade
+<code>zypper dist-upgrade</code> on Tumbleweed and <code>zypper update</code> on Leap.</li>
+<li><strong>dnf installed beside zypper</strong> (openSUSE packages it) does not make
+the machine a dnf system: zypper stays the native manager, and
+<code>yapacc platform</code> lists dnf under <code>other managers</code>.</li>
+<li><strong>Read commands never fetch.</strong> As root, zypper refreshes repositories on
+its own before answering. yapacc calls it for repository data only when
+every enabled repository has metadata on disk; otherwise it names the
+repositories that lack it and tells you to run <code>zypper refresh</code>.</li>
+<li><strong>Why</strong> gives the repository that offers the package now. The zypp
+history does not record where the installed version came from, and the
+<code>from</code> line says so.</li>
+<li><strong>Undo</strong> finds old versions in the repositories only. On Tumbleweed they
+are gone within a day or two of an upgrade; on Leap they stay longer.
+Kernels are multiversion packages: undoing a kernel upgrade removes the
+new kernel and leaves the old one, and is refused while the new kernel
+is the one running.</li>
+<li><strong>Packages with no earlier record.</strong> libzypp writes an upgrade and a new
+install the same way. When undoing a whole upgrade, yapacc names the
+packages it cannot classify and asks at the terminal whether to remove
+them. <code>--yes</code> does not answer that question.</li>
+<li><strong>Snapshots</strong> through snapper are the natural safety net here; see
+<a href="snapshots.html">snapshots</a>.</li>
+<li><strong>Restart</strong> honours <code>/run/reboot-needed</code>.</li>
+</ul>
+<h2 id="alpine-linux-apk">Alpine Linux (apk)<a class="anchor" href="#alpine-linux-apk" aria-label="Link to this section">§</a></h2>
+<ul>
+<li>Alpine uses <code>doas</code>, and yapacc uses it when there is no <code>sudo</code>. With
+opendoas, <code>persist</code> is tied to the calling process, so each yapacc run
+asks for the password once.</li>
+<li><strong>Changes</strong> run <code>apk add</code>, <code>apk del</code>, and <code>apk update</code> then <code>apk upgrade</code>.</li>
+<li><strong>Timeline</strong> reads <code>/var/log/apk.log</code>. Only apk-tools 3 writes that file,
+and only when run as root; on older Alpine releases there is no history,
+and <code>timeline</code> says so.</li>
+<li><strong>No undo.</strong> yapacc does not reverse apk transactions.</li>
+<li>A run made with <code>apk --quiet</code> is logged without its package lines, so
+<code>timeline</code> cannot show what it changed. It counts those runs in a note.</li>
+<li>Use the static binary: Alpine is a musl system and the release archive
+is built for exactly that.</li>
+</ul>
+<h2 id="void-linux-xbps">Void Linux (xbps)<a class="anchor" href="#void-linux-xbps" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>Changes</strong> run <code>xbps-install</code>, <code>xbps-remove</code> and <code>xbps-install -Syu</code>.</li>
+<li><strong>No timeline and no undo.</strong> xbps keeps no log of transactions. <code>doctor</code>
+reports both as unavailable on Void, with that reason.</li>
+<li>Void's runit is detected; <code>restart</code> lists programs holding replaced
+files and tells you to restart services with <code>sv restart NAME</code>.</li>
+</ul>
+<h2 id="freebsd-pkg">FreeBSD (pkg)<a class="anchor" href="#freebsd-pkg" aria-label="Link to this section">§</a></h2>
+<ul>
+<li>Build yapacc on FreeBSD itself; see <a href="install.html#freebsd">install</a>.</li>
+<li><strong>Changes</strong> run <code>pkg install</code>, <code>pkg delete</code> and <code>pkg upgrade</code>. These
+cover packages, not the base system: <code>freebsd-update</code> and pkgbase
+upgrades of the base system remain yours to run. <code>pkg install -n</code> ends
+with an error status whenever there is something to install, so yapacc
+cannot judge the simulation by its status; it asks the catalogue on disk
+whether the name exists and refuses an unknown one before the gate, and
+it refuses when pkg itself says no package matches the name.</li>
+<li><strong>Timeline</strong> reads the <code>pkg</code> lines in <code>/var/log/messages</code>. syslog stamps
+have no year and no zone; yapacc works the year out and keeps the time as
+written.</li>
+<li><strong>Restart</strong> compares <code>freebsd-version -k</code>, <code>-r</code> and <code>-u</code> for the reboot
+verdict. Listing processes that hold replaced files needs the
+<code>sysutils/checkrestart</code> package.</li>
+<li><strong>Snapshots</strong> on a ZFS root are taken with <code>zfs snapshot</code> of the root
+dataset. yapacc does not create boot environments; <code>bectl</code> is the tool
+for that.</li>
+<li><strong>No undo.</strong></li>
+<li>With no network, <code>pkg</code> itself can wait for minutes before giving up, and
+yapacc waits with it. The read commands answer from the catalogue on
+disk at once.</li>
+<li><code>sudo</code> and <code>doas</code> both work. On FreeBSD <code>doas</code> with no terminal would
+wait forever for a password, so yapacc calls it non-interactively
+whenever nobody could type one.</li>
+</ul>
+<h2 id="everywhere-else">Everywhere else<a class="anchor" href="#everywhere-else" aria-label="Link to this section">§</a></h2>
+<p>Run <code>yapacc platform</code> and <code>yapacc doctor</code>. They do not guess: an unknown
+system gets "unknown" and the commands that cannot work there say so
+instead of trying.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="support.html"><span>Previous</span>What works where</a><a class="next" href="commands.html"><span>Next</span>Every command</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/systems.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#arch-linux-pacman">Arch Linux (pacman)</a></li>
+<li class="toc-2"><a href="#debian-and-ubuntu-apt">Debian and Ubuntu (apt)</a></li>
+<li class="toc-2"><a href="#fedora-rocky-linux-and-relatives-dnf">Fedora, Rocky Linux and relatives (dnf)</a></li>
+<li class="toc-2"><a href="#opensuse-leap-and-tumbleweed-zypper">openSUSE Leap and Tumbleweed (zypper)</a></li>
+<li class="toc-2"><a href="#alpine-linux-apk">Alpine Linux (apk)</a></li>
+<li class="toc-2"><a href="#void-linux-xbps">Void Linux (xbps)</a></li>
+<li class="toc-2"><a href="#freebsd-pkg">FreeBSD (pkg)</a></li>
+<li class="toc-2"><a href="#everywhere-else">Everywhere else</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

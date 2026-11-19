@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>clean, restart, configs · yapacc handbook</title>
+<meta name="description" content="clean, restart, configs: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html" aria-current="page">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Everyday commands</p>
+        <h1>clean, restart, configs</h1>
+      </header>
+      <article class="prose">
+<p>Three reports for the day after an upgrade. All three are read-only: each
+prints what it found and the command you would run yourself, and none of
+them runs it for you.</p>
+<h2 id="clean">clean<a class="anchor" href="#clean" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc clean</code> measures what can be reclaimed.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc clean</span></span>
+<span class="ln"> 124.9 MiB  [safe] downloaded packages kept by apt (/var/cache/apt/archives) — 28 item(s)</span>
+<span class="ln">            reclaim: sudo apt-get clean</span>
+<span class="ln">            size is a lower bound (some directories are readable by root only); safe, with one cost: `yapacc undo` looks here first for the previous version; an emptied cache means undo has to download it</span>
+<span class="ln"></span>
+<span class="ln">Measured total: 124.9 MiB. Nothing was changed: `clean` only reports.</span>
+</code></pre></figure>
+<p>It looks at:</p>
+<ul>
+<li>packages installed as dependencies that nothing needs any more (orphans);</li>
+<li>the package manager's download cache;</li>
+<li>yapacc's own cache;</li>
+<li>unused runtimes of other sources, such as flatpak, when they are present.</li>
+</ul>
+<p>Each item is labelled <code>[safe]</code> or <code>[review]</code>. <code>safe</code> means removing it loses
+nothing that cannot be fetched again, and the line says what the cost is.
+<code>review</code> means read the list first: an orphan may be something you use
+directly.</p>
+<p>When part of a cache cannot be read without root, the size is a lower bound
+and the output says so. Only package files are counted: a cache directory
+that holds nothing but a lock file or an index is not listed.</p>
+<p>On dnf the cache is reported as two items with two commands, because they
+are two different decisions: the downloaded packages
+(<code>sudo dnf clean packages</code>) and the repository metadata
+(<code>sudo dnf clean metadata</code>), which dnf fetches again on its next run. On
+Fedora a third item can appear: the copy of the repository metadata dnf5
+keeps for each ordinary user in <code>~/.cache/libdnf5</code>. It is labelled <code>safe</code>,
+and dnf makes the copy again the next time that user asks it about the
+repositories.</p>
+<p>Orphans come from the package manager's own answer. On a machine with no
+repository metadata on disk, dnf and zypper cannot give that answer;
+<code>clean</code> then says "orphans are not known" and why, and reports the rest.</p>
+<p>To remove orphans through yapacc, with the list shown and a question asked:
+<code>yapacc remove orphans</code>. See <a href="changes.html">install, remove, upgrade</a>.</p>
+<h2 id="restart">restart<a class="anchor" href="#restart" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc restart</code> says what still runs old code after an upgrade.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">sudo yapacc restart</span></span>
+<span class="ln">Reboot: yes</span>
+<span class="ln">  a newer kernel is installed: reboot to use it (6.12.117+deb13-amd64 was written after the running 6.12.107+deb13-amd64; judged by date only, so a second kernel kept side by side also shows up here)</span>
+<span class="ln">  the distribution asks for a reboot (/run/reboot-required or /run/reboot-needed exists)</span>
+<span class="ln">  asked for by: linux-image-6.12.117+deb13-amd64</span>
+<span class="ln"></span>
+<span class="ln">Services to restart: 9</span>
+<span class="ln">  dbus.service (system unit, pid 740)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0, /usr/lib/x86_64-linux-gnu/libexpat.so.1.12.3</span>
+<span class="ln">      sudo systemctl restart dbus.service</span>
+<span class="ln">      caution: restarting the message bus breaks the programs connected to it: reboot (or log out and in) instead</span>
+<span class="ln">  ssh.service (system unit, pid 784)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libcrypto.so.3, /usr/lib/x86_64-linux-gnu/libz.so.1.3.1, /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0</span>
+<span class="ln">      sudo systemctl restart ssh.service</span>
+<span class="ln">  systemd-logind.service (system unit, pid 748)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0, /usr/lib/x86_64-linux-gnu/libcrypto.so.3, /usr/lib/x86_64-linux-gnu/libz.so.1.3.1</span>
+<span class="ln">      sudo systemctl restart systemd-logind.service</span>
+<span class="ln">      caution: restarting it can end the graphical sessions that are open: save your work first, or reboot instead</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">Programs to restart: 3</span>
+<span class="ln">  (sd-pam) (pid 837, uid 1000)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0, /usr/lib/x86_64-linux-gnu/libcrypto.so.3, /usr/lib/x86_64-linux-gnu/libz.so.1.3.1</span>
+<span class="ln">  systemd (pid 1, uid 0)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libcrypto.so.3, /usr/lib/x86_64-linux-gnu/libz.so.1.3.1, /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0</span>
+<span class="ln">      pid 1 cannot be restarted: `sudo systemctl daemon-reexec` on systemd, otherwise reboot</span>
+<span class="ln">  systemd (pid 835, uid 1000)</span>
+<span class="ln">      still maps: /usr/lib/x86_64-linux-gnu/libcrypto.so.3, /usr/lib/x86_64-linux-gnu/libz.so.1.3.1, /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0</span>
+<span class="ln"></span>
+<span class="ln">Examined 104 process(es).</span>
+<span class="ln">Limits: Detects programs still mapping replaced files. Does not detect: interpreters holding replaced scripts, statically linked programs built against a replaced library, kernel live patches.</span>
+<span class="ln">Nothing was restarted: `restart` only reports.</span>
+</code></pre></figure>
+<p>That is a Debian 13 machine just after an upgrade that brought a new
+kernel and new OpenSSL, zlib and PCRE libraries. Each service comes with
+the command to restart it, and with a caution where restarting it would
+hurt (the message bus, the login manager). After the reboot it asks for,
+the same command has nothing left to say:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">sudo yapacc restart</span></span>
+<span class="ln">Reboot: no</span>
+<span class="ln">  running kernel 6.12.117+deb13-amd64 still has its modules, no other kernel is more recent, no distribution flag is set</span>
+<span class="ln"></span>
+<span class="ln">Services to restart: 0</span>
+<span class="ln"></span>
+<span class="ln">Programs to restart: 0</span>
+<span class="ln"></span>
+<span class="ln">Examined 102 process(es).</span>
+<span class="ln">Limits: Detects programs still mapping replaced files. Does not detect: interpreters holding replaced scripts, statically linked programs built against a replaced library, kernel live patches.</span>
+<span class="ln">Nothing was restarted: `restart` only reports.</span>
+</code></pre></figure>
+<p><strong>Reboot</strong> is <code>yes</code>, <code>no</code> or <code>unknown</code>, with the reason. It uses what the
+system offers: the distribution's own reboot flag (<code>/run/reboot-required</code>,
+<code>/run/reboot-needed</code>), <code>needs-restarting -r</code> on dnf systems, a comparison of
+the running kernel with the installed ones, and <code>freebsd-version</code> on
+FreeBSD. <code>unknown</code> means none of these could answer, and the line says why.</p>
+<p><strong>Services</strong> and <strong>programs</strong> are processes that still map a file an
+upgrade replaced. On systemd, processes are matched to their service. On
+other init systems the programs are listed and the output tells you how to
+restart a service there.</p>
+<p>An ordinary user cannot read every process. <code>restart</code> then says how many it
+could not examine ("Not examined: 16 process(es) that this user may not
+read") and to run it as root for the whole picture: on the machine above,
+before the reboot, the same command without <code>sudo</code> found the kernel and
+none of the nine services. The <code>Limits</code> line
+at the end states what this method cannot see at all.</p>
+<h2 id="configs">configs<a class="anchor" href="#configs" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc configs</code> lists configuration files that an upgrade left for you to
+merge: <code>.pacnew</code> and <code>.pacsave</code> on Arch; <code>.dpkg-dist</code>, <code>.dpkg-old</code>,
+<code>.dpkg-new</code> and <code>.ucf-dist</code> on Debian and Ubuntu; <code>.rpmnew</code> and <code>.rpmsave</code>
+on Fedora and openSUSE; <code>.apk-new</code> on Alpine.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc configs</span></span>
+<span class="ln">/etc/ca-certificates.conf.dpkg-old</span>
+<span class="ln">    belongs to: /etc/ca-certificates.conf</span>
+<span class="ln">    .dpkg-old: your old file, saved; the package's version is live</span>
+<span class="ln">    written: 2026-09-14; your file: 2026-11-19</span>
+<span class="ln">    the files differ: compare them, merge what you want, then delete the pending file</span>
+<span class="ln">      diff -u /etc/ca-certificates.conf /etc/ca-certificates.conf.dpkg-old</span>
+<span class="ln"></span>
+<span class="ln">1 pending file(s) under /etc. Nothing was changed: `configs` only reports.</span>
+<span class="ln">5 directories under /etc could not be read and are not covered: run as root to see them.</span>
+</code></pre></figure>
+<p>For each file it says which file it belongs to, which of the two is yours,
+when each was written, and the command to compare them. A saved file whose
+live file is gone (a <code>.pacsave</code> or <code>.rpmsave</code> left by a removed package) is
+described as that: "your old file, saved; the live file no longer exists".
+It merges nothing.
+Directories under <code>/etc</code> that an ordinary user cannot read are counted and
+reported, so you know when to run it again as root.</p>
+<p><a href="briefing.html"><code>yapacc briefing</code></a> shows the same list in short form, because
+unmerged configuration is worth settling before the next upgrade adds to
+it.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="undo.html"><span>Previous</span>undo</a><a class="next" href="doctor.html"><span>Next</span>doctor and platform</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/housekeeping.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#clean">clean</a></li>
+<li class="toc-2"><a href="#restart">restart</a></li>
+<li class="toc-2"><a href="#configs">configs</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

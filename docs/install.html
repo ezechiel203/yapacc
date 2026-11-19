@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Install · yapacc handbook</title>
+<meta name="description" content="Install: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html" aria-current="page">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Start</p>
+        <h1>Install</h1>
+      </header>
+      <article class="prose">
+<p>yapacc is one static binary. There are three ways to get it: a release
+archive, a build from source, or a distribution package you build from the
+recipe kept beside the source.</p>
+<p>There is deliberately no <code>curl | sh</code> installer. A tool whose job is to show
+you what will happen before it happens should not start by asking you to
+run something you have not read.</p>
+<h2 id="release-archive-any-linux-x86-64-or-aarch64">Release archive (any Linux, x86_64 or aarch64)<a class="anchor" href="#release-archive-any-linux-x86-64-or-aarch64" aria-label="Link to this section">§</a></h2>
+<p>Each release publishes one archive per architecture and a <code>SHA256SUMS</code>
+file. The binaries are linked statically against musl: they need no shared
+library and run on any Linux distribution.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">V=0.1.0; A=$(uname -m)</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">curl -fsSLO https://github.com/ezechiel203/yapacc/releases/download/v$V/yapacc-$V-$A-linux-musl.tar.gz</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">curl -fsSLO https://github.com/ezechiel203/yapacc/releases/download/v$V/SHA256SUMS</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">sha256sum -c --ignore-missing SHA256SUMS</span></span>
+<span class="ln">yapacc-0.1.0-x86_64-linux-musl.tar.gz: OK</span>
+</code></pre></figure>
+<p>Unpack it into a prefix. System-wide:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">sudo tar -xzf yapacc-$V-$A-linux-musl.tar.gz --strip-components=1 -C /usr/local</span></span>
+</code></pre></figure>
+<p>Or for yourself only, without root:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">mkdir -p ~/.local</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">tar -xzf yapacc-$V-$A-linux-musl.tar.gz --strip-components=1 -C ~/.local</span></span>
+</code></pre></figure>
+<p>Make sure <code>~/.local/bin</code> is on your <code>PATH</code> in that case. Then:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --version</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc doctor</span></span>
+</code></pre></figure>
+<h3 id="what-is-in-the-archive">What is in the archive<a class="anchor" href="#what-is-in-the-archive" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Path under the prefix</th><th>What</th></tr></thead><tbody>
+<tr><td><code>bin/yapacc</code></td><td>the command line</td></tr>
+<tr><td><code>lib/yapacc/yapacc-tui</code></td><td>the optional interactive interface (<code>yapacc i</code>)</td></tr>
+<tr><td><code>lib/yapacc/yapacc-mcp</code></td><td>the optional server for AI assistants (<code>yapacc mcp</code>)</td></tr>
+<tr><td><code>share/man/man1/yapacc.1</code></td><td>the manual page</td></tr>
+<tr><td><code>share/bash-completion/</code>, <code>share/zsh/</code>, <code>share/fish/</code></td><td>shell completions</td></tr>
+<tr><td><code>LICENSE</code>, <code>README.md</code></td><td>the licence and the readme</td></tr>
+</tbody></table>
+</div>
+<p>Only <code>bin/yapacc</code> is required. Delete the other two binaries if you do not
+want them; <code>yapacc doctor</code> then reports them as optional components that
+are not installed.</p>
+<h3 id="checking-where-the-archive-was-built">Checking where the archive was built<a class="anchor" href="#checking-where-the-archive-was-built" aria-label="Link to this section">§</a></h3>
+<p>The release workflow attaches a build provenance attestation to every
+archive. With the GitHub command line tool:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">gh attestation verify yapacc-$V-$A-linux-musl.tar.gz --repo ezechiel203/yapacc</span></span>
+</code></pre></figure>
+<p>The checksum proves the file is the one that was published. The attestation
+proves which workflow run, from which commit, built it.</p>
+<h2 id="from-source">From source<a class="anchor" href="#from-source" aria-label="Link to this section">§</a></h2>
+<p>You need Rust 1.89 or newer and a C linker.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">git clone https://github.com/ezechiel203/yapacc.git</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">cd yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">cargo build --release</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">./target/release/yapacc doctor</span></span>
+</code></pre></figure>
+<p>That builds the three binaries. For the core alone, which is all the
+commands in this handbook need:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">cargo build --release --no-default-features --bin yapacc</span></span>
+</code></pre></figure>
+<p>For a static binary you can copy to another machine:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">rustup target add x86_64-unknown-linux-musl</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">cargo build --release --no-default-features --target x86_64-unknown-linux-musl --bin yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">ls -lh target/x86_64-unknown-linux-musl/release/yapacc</span></span>
+</code></pre></figure>
+<h3 id="freebsd">FreeBSD<a class="anchor" href="#freebsd" aria-label="Link to this section">§</a></h3>
+<p>Build on FreeBSD itself, with the Rust from packages:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">pkg install rust git</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">git clone https://github.com/ezechiel203/yapacc.git &amp;&amp; cd yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">cargo build --release --no-default-features --bin yapacc</span></span>
+</code></pre></figure>
+<p>This was done on FreeBSD 15.1 and takes about two minutes. There is no
+pre-built FreeBSD binary.</p>
+<h3 id="build-features">Build features<a class="anchor" href="#build-features" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Default</th><th>What it adds</th></tr></thead><tbody>
+<tr><td><code>tui</code></td><td>on</td><td>builds <code>yapacc-tui</code></td></tr>
+<tr><td><code>alpm</code></td><td>off</td><td>links libalpm on Arch for transaction analysis; see the note below</td></tr>
+</tbody></table>
+</div>
+<aside class="callout callout-note"><p class="callout-title">Note</p>
+<p>The <code>alpm</code> feature uses a Rust crate published under GPL-3.0, while
+yapacc is GPL-2.0-only. It is there for local builds on Arch. No release
+archive or packaging recipe enables it, and everything in this handbook
+works without it.</p>
+</aside>
+<h2 id="distribution-packages">Distribution packages<a class="anchor" href="#distribution-packages" aria-label="Link to this section">§</a></h2>
+<p>Recipes for five distributions live in
+<a href="https://github.com/ezechiel203/yapacc/blob/main/contrib/packaging/README.md"><code>contrib/packaging</code></a>. They are not in
+any distribution's repository yet; you build the package yourself and
+install it with your package manager, which then owns the files.</p>
+<div class="table-wrap"><table><thead><tr><th>Distribution</th><th>Recipe</th><th>Build</th></tr></thead><tbody>
+<tr><td>Arch Linux</td><td><code>arch/PKGBUILD</code></td><td><code>makepkg -si</code></td></tr>
+<tr><td>Debian, Ubuntu</td><td><code>debian/</code></td><td><code>dpkg-buildpackage -us -uc -b</code></td></tr>
+<tr><td>Fedora and relatives</td><td><code>rpm/yapacc.spec</code></td><td><code>rpmbuild -ba</code></td></tr>
+<tr><td>Alpine Linux</td><td><code>alpine/APKBUILD</code></td><td><code>abuild -r</code></td></tr>
+<tr><td>Void Linux</td><td><code>void/template</code></td><td><code>./xbps-src pkg yapacc</code></td></tr>
+</tbody></table>
+</div>
+<p>The packaging README has the details for each, including which Rust
+version the distribution needs.</p>
+<h2 id="after-installing">After installing<a class="anchor" href="#after-installing" aria-label="Link to this section">§</a></h2>
+<p>Nothing has to be configured. yapacc works with no configuration file, and
+the read commands need no setup at all. Start with the
+<a href="quick-start.html">quick start</a>.</p>
+<p>Shell completions are installed by the archive and the packages. For a
+source build:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc completions bash &gt; ~/.local/share/bash-completion/completions/yapacc</span></span>
+</code></pre></figure>
+<h2 id="uninstall">Uninstall<a class="anchor" href="#uninstall" aria-label="Link to this section">§</a></h2>
+<p>yapacc installs no service, no hook and no timer, so removing it is
+removing its files.</p>
+<ul>
+<li><strong>Archive:</strong> delete <code>bin/yapacc</code>, <code>lib/yapacc/</code>, the manual page and the
+three completion files from the prefix you unpacked into.</li>
+<li><strong>Package:</strong> remove it with your package manager.</li>
+</ul>
+<p>Files yapacc may have created under your home directory, all safe to
+delete:</p>
+<div class="table-wrap"><table><thead><tr><th>Path</th><th>What</th></tr></thead><tbody>
+<tr><td><code>~/.config/yapacc/</code></td><td>your configuration file, if you wrote one; yapacc never writes it</td></tr>
+<tr><td><code>~/.cache/yapacc/</code></td><td>build caches, and downloads of an <code>undo</code> while it runs</td></tr>
+<tr><td><code>~/.local/state/yapacc/</code></td><td>the ledger of installs made <em>outside</em> the package manager</td></tr>
+<tr><td><code>~/.local/share/yapacc/</code></td><td>AppImages, recipes and isolated installs, if you used those commands</td></tr>
+</tbody></table>
+</div>
+<p>Native packages installed or upgraded through yapacc belong to your package
+manager and are not affected.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="index.html"><span>Previous</span>Introduction</a><a class="next" href="quick-start.html"><span>Next</span>Quick start</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/install.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#release-archive-any-linux-x86-64-or-aarch64">Release archive (any Linux, x86_64 or aarch64)</a></li>
+<li class="toc-3"><a href="#what-is-in-the-archive">What is in the archive</a></li>
+<li class="toc-3"><a href="#checking-where-the-archive-was-built">Checking where the archive was built</a></li>
+<li class="toc-2"><a href="#from-source">From source</a></li>
+<li class="toc-3"><a href="#freebsd">FreeBSD</a></li>
+<li class="toc-3"><a href="#build-features">Build features</a></li>
+<li class="toc-2"><a href="#distribution-packages">Distribution packages</a></li>
+<li class="toc-2"><a href="#after-installing">After installing</a></li>
+<li class="toc-2"><a href="#uninstall">Uninstall</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

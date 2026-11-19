@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>yapacc briefing · yapacc handbook</title>
+<meta name="description" content="yapacc briefing: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html" aria-current="page">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Everyday commands</p>
+        <h1>yapacc briefing</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc briefing</code> tells you what the next upgrade will do before you run
+it. It is read-only: it reads the list of pending updates and reports what
+deserves attention.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc briefing</span></span>
+<span class="ln">Upgrade briefing — 25 package(s) pending (apt)</span>
+<span class="ln"></span>
+<span class="ln">Needs attention</span>
+<span class="ln">  reboot  new kernel — reboot to use it: linux-image-6.12.117+deb13-amd64 6.12.117-1, linux-image-amd64 6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">  care    the package manager itself — let it finish alone; do not interrupt: apt 3.0.3 -&gt; 3.0.4</span>
+<span class="ln">  care    remote access — if you are connected over ssh, keep a second session open until you have reconnected: libssl3t64 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3, openssl 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3</span>
+<span class="ln"></span>
+<span class="ln">Security fixes (24)</span>
+<span class="ln">  liblzma5</span>
+<span class="ln">  openssl-provider-legacy</span>
+<span class="ln">  zlib1g</span>
+<span class="ln">  libssl3t64</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">Disk</span>
+<span class="ln">  /: 17.7 GiB free</span>
+<span class="ln"></span>
+<span class="ln">Safety net</span>
+<span class="ln">  no snapshot tool detected: `yapacc undo` can restore package versions, not configuration or data</span>
+<span class="ln"><span class="k">note: pending list is as of the last repository refresh; yapacc does not refresh on a read command</span></span>
+<span class="ln"><span class="k">note: news: this distribution has no machine-readable upgrade announcements yapacc reads; check its release notes for manual steps</span></span>
+<span class="ln"></span>
+<span class="ln">Next: `yapacc upgrade` shows the native manager's plan and asks before changing anything.</span>
+</code></pre></figure>
+<h2 id="the-sections">The sections<a class="anchor" href="#the-sections" aria-label="Link to this section">§</a></h2>
+<p><strong>Needs attention</strong> sorts the pending packages by what they mean for you:</p>
+<div class="table-wrap"><table><thead><tr><th>Label</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>reboot</code></td><td>a kernel, C library or init system update: the new code runs only after a reboot. Kernels are recognised under the names each system gives them (<code>linux-image-…</code>, <code>kernel-default</code>, <code>linux6.12</code>, <code>linux-lts</code>, FreeBSD's <code>FreeBSD-kernel-…</code>)</td></tr>
+<tr><td><code>care</code></td><td>the package manager itself, the boot loader or remote access is being updated: do not interrupt, and keep a second session open over ssh</td></tr>
+<tr><td><code>info</code></td><td>major version changes, worth a look at the release notes</td></tr>
+</tbody></table>
+</div>
+<p><strong>Security fixes</strong> lists the pending updates that fix known
+vulnerabilities, where the system has a source for that: the security
+repository on Debian and Ubuntu (an update that several repositories offer
+counts when one of them is the security one), the advisory data of dnf and
+zypper, and <code>arch-audit</code> on Arch when it is installed. Where there is no
+source, a note says so instead of printing an empty list.</p>
+<p><strong>Distribution news</strong> shows recent announcements from the distribution's
+feed. Lines marked <code>!</code> announce a manual step. This is the one part of
+<code>briefing</code> that uses the network (through <code>curl</code>); <code>--offline</code> skips it.
+Distributions without a machine-readable feed get a note saying so, as
+Debian does above. On Arch, which has one:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc briefing</span></span>
+<span class="ln">Upgrade briefing — 25 package(s) pending (pacman)</span>
+<span class="ln"></span>
+<span class="ln">Needs attention</span>
+<span class="ln">  reboot  C library — every running program keeps the old one until restarted; reboot when convenient: glibc 2.44+r50+g1848099f063e-1 -&gt; 2.44+r78+gfcfb867c58ab-1</span>
+<span class="ln">  reboot  init system — reboot recommended: systemd 262.1-1 -&gt; 262.2-1, systemd-libs 262.1-1 -&gt; 262.2-1</span>
+<span class="ln">  care    the package manager itself — let it finish alone; do not interrupt: pacman 7.1.0.r9.g54d9411-3 -&gt; 7.1.0.r9.g54d9411-4</span>
+<span class="ln">  care    remote access — if you are connected over ssh, keep a second session open until you have reconnected: openssl 3.6.5-1 -&gt; 4.1.0-1</span>
+<span class="ln">  info    major version changes (1): openssl 3.6.5-1 -&gt; 4.1.0-1</span>
+<span class="ln"></span>
+<span class="ln">Distribution news (newest first) — manual steps are announced here</span>
+<span class="ln">    Update to php ≥ 8.5.12 and/or php-legacy ≥ 8.3.36 to prevent remote code execution  (Wed, 21 Oct 2026 13:58:42 +0000)</span>
+<span class="ln">    Update to ca-certificates-mozilla ≥ 3.131.1-1 to prevent man-in-the-middle attacks  (Wed, 21 Oct 2026 13:52:37 +0000)</span>
+<span class="ln">  ! Mkinitcpio &gt;=42 requires manual intervention for TPM2-based unlocking of LUKS devices  (Tue, 22 Sep 2026 09:09:27 +0000)</span>
+<span class="ln">  ! virtualbox-ext-vnc &gt;= 7.2.12-2 requires manual intervention  (Tue, 21 Jul 2026 13:01:46 +0000)</span>
+<span class="ln"></span>
+<span class="ln">…</span>
+</code></pre></figure>
+<p><strong>Configuration files still unmerged</strong> lists what earlier upgrades left
+for you to merge. <a href="housekeeping.html#configs"><code>yapacc configs</code></a> shows how to
+compare each one.</p>
+<p><strong>Disk</strong> shows free space where packages are written.</p>
+<p><strong>Safety net</strong> says whether a snapshot tool is available and reminds you
+what <code>undo</code> does and does not restore.</p>
+<h2 id="it-does-not-refresh">It does not refresh<a class="anchor" href="#it-does-not-refresh" aria-label="Link to this section">§</a></h2>
+<p><code>briefing</code> reads the pending list as of your last repository refresh
+(<code>apt-get update</code>, <code>pacman -Sy</code>, <code>dnf makecache</code> and so on) and says so in
+a note. A read command never refreshes repositories for you, and never
+lets the package manager do it behind your back: on dnf and zypper, where
+the native tool would fetch metadata on its own, yapacc asks it for cached
+data only. If the list looks old, refresh with your package manager, or run
+<code>yapacc refresh</code>, which is gated like any other change.</p>
+<p>On a machine that has never refreshed (a fresh image, a new container)
+there is no pending list to read. yapacc says that, and names the command,
+instead of reporting that nothing is pending:</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc check</span></span>
+<span class="ln"><span class="k">note: no repository metadata on disk: run `apt-get update` (yapacc does not refresh on a read command)</span></span>
+</code></pre></figure>
+<p><code>briefing</code> then opens with "pending packages not known" and the same note.
+On Arch, when <code>checkupdates</code> is installed but fails, the briefing says the
+list below it is not current and why.</p>
+<h2 id="options">Options<a class="anchor" href="#options" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>--offline</code></td><td>do not fetch the distribution's news feed</td></tr>
+</tbody></table>
+</div>
+<h2 id="after-the-briefing">After the briefing<a class="anchor" href="#after-the-briefing" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc upgrade</code> runs the full upgrade through the native manager, with the
+plan and the gate. See <a href="changes.html">install, remove, upgrade</a>.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="timeline.html"><span>Previous</span>timeline</a><a class="next" href="undo.html"><span>Next</span>undo</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/briefing.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#the-sections">The sections</a></li>
+<li class="toc-2"><a href="#it-does-not-refresh">It does not refresh</a></li>
+<li class="toc-2"><a href="#options">Options</a></li>
+<li class="toc-2"><a href="#after-the-briefing">After the briefing</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

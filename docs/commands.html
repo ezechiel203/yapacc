@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>Every command · yapacc handbook</title>
+<meta name="description" content="Every command: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html" aria-current="page">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Reference</p>
+        <h1>Every command</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc --help</code> lists the everyday commands. This page lists all of them,
+including the specialist ones it leaves out. <code>yapacc help COMMAND</code> prints
+the options of any command, and <code>yapacc docs</code> carries longer built-in
+topics.</p>
+<p>Commands marked <em>read-only</em> change nothing. Commands marked <em>gated</em> show a
+plan and stop at <a href="gate.html">the gate</a>.</p>
+<h2 id="everyday-on-every-system">Everyday, on every system<a class="anchor" href="#everyday-on-every-system" aria-label="Link to this section">§</a></h2>
+<h3 id="reports-read-only">Reports (read-only)<a class="anchor" href="#reports-read-only" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it answers</th></tr></thead><tbody>
+<tr><td><a href="why.html"><code>why NAME</code></a></td><td>Why is this package here?</td></tr>
+<tr><td><a href="timeline.html"><code>timeline</code></a></td><td>What changed, and when?</td></tr>
+<tr><td><a href="briefing.html"><code>briefing</code></a></td><td>What will the next upgrade do?</td></tr>
+<tr><td><a href="housekeeping.html#clean"><code>clean</code></a></td><td>What can be reclaimed?</td></tr>
+<tr><td><a href="housekeeping.html#restart"><code>restart</code></a></td><td>What must be restarted after an upgrade?</td></tr>
+<tr><td><a href="housekeeping.html#configs"><code>configs</code></a></td><td>Which configuration files are left unmerged?</td></tr>
+<tr><td><a href="doctor.html"><code>doctor</code></a></td><td>What works on this machine?</td></tr>
+<tr><td><a href="doctor.html#platform"><code>platform</code></a></td><td>What kind of machine is this?</td></tr>
+</tbody></table>
+</div>
+<h3 id="looking-things-up-read-only">Looking things up (read-only)<a class="anchor" href="#looking-things-up-read-only" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>list</code></td><td>installed packages; <code>--explicit</code> shows only what you asked for</td></tr>
+<tr><td><code>info PKG</code></td><td>details of one installed package</td></tr>
+<tr><td><code>search QUERY</code></td><td>search the repositories</td></tr>
+<tr><td><code>check</code></td><td>pending updates, as of the last refresh</td></tr>
+<tr><td><code>inspect owns PATH</code></td><td>which package owns this file</td></tr>
+<tr><td><code>inspect files PKG</code></td><td>the files of a package</td></tr>
+<tr><td><code>inspect orphans</code></td><td>dependencies nothing needs any more</td></tr>
+<tr><td><code>tree</code></td><td>browse software by category, offline</td></tr>
+</tbody></table>
+</div>
+<h3 id="names">names<a class="anchor" href="#names" aria-label="Link to this section">§</a></h3>
+<p><code>yapacc names NAME</code> says what a package is called on other distributions.
+It asks <a href="https://repology.org">repology.org</a>, which means <strong>it sends the
+name you give to that site</strong>. It needs <code>curl</code>, and exits with code 6
+without it.</p>
+<h3 id="changes-gated">Changes (gated)<a class="anchor" href="#changes-gated" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><a href="changes.html"><code>install repo PKG…</code></a></td><td>install from the distribution's repositories</td></tr>
+<tr><td><a href="changes.html"><code>remove repo PKG…</code></a></td><td>remove packages</td></tr>
+<tr><td><a href="changes.html"><code>remove orphans</code></a></td><td>remove dependencies nothing needs</td></tr>
+<tr><td><a href="changes.html"><code>upgrade</code></a></td><td>full system upgrade</td></tr>
+<tr><td><code>refresh</code></td><td>refresh the repository indexes only</td></tr>
+<tr><td><a href="changes.html#get-choosing-a-source"><code>get NAME</code></a></td><td>choose a source and install; <code>--explain</code> only shows the choice</td></tr>
+<tr><td><a href="undo.html"><code>undo</code></a></td><td>take the last transaction back</td></tr>
+<tr><td><a href="snapshots.html"><code>snapshot create</code></a></td><td>take a filesystem snapshot now</td></tr>
+</tbody></table>
+</div>
+<p><code>snapshot list</code> is read-only.</p>
+<h3 id="the-program-itself">The program itself<a class="anchor" href="#the-program-itself" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>docs [TOPIC]</code></td><td>built-in documentation; <code>docs --man</code> prints the manual page</td></tr>
+<tr><td><code>config</code></td><td>the effective configuration and where it came from</td></tr>
+<tr><td><code>completions SHELL</code></td><td>shell completions for bash, zsh, fish, elvish or powershell</td></tr>
+<tr><td><code>capabilities</code></td><td>what this host supports, per source and safety feature</td></tr>
+<tr><td><a href="tui.html"><code>i</code></a></td><td>the interactive interface</td></tr>
+<tr><td><a href="mcp.html"><code>mcp</code></a></td><td>the server for AI assistants</td></tr>
+</tbody></table>
+</div>
+<h2 id="other-sources">Other sources<a class="anchor" href="#other-sources" aria-label="Link to this section">§</a></h2>
+<p>These commands install software that does not come from the distribution's
+repositories. Each one records what it installed in yapacc's <strong>ledger</strong>, so
+that it can be listed, audited and removed later. Native packages are never
+recorded there.</p>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>flatpak list|search|info</code></td><td>read flatpak</td></tr>
+<tr><td><code>install flatpak</code>, <code>remove flatpak</code>, <code>update flatpak</code></td><td>manage flatpaks (gated)</td></tr>
+<tr><td><code>install appimage</code>, <code>remove appimage</code>, <code>update appimage</code></td><td>manage AppImages under your home directory (gated)</td></tr>
+<tr><td><code>install foreign</code>, <code>remove foreign</code>, <code>update foreign</code></td><td>unpack a package made for another distribution into an isolated directory, without touching the system (gated)</td></tr>
+<tr><td><code>foreign info|list</code></td><td>inspect such a package, list the isolated installs</td></tr>
+<tr><td><code>external list|audit</code>, <code>remove external</code></td><td>everything the ledger tracks</td></tr>
+<tr><td><code>ledger status|list|head|verify|audit|conflicts</code></td><td>read the ledger and check its hash chain</td></tr>
+<tr><td><code>sources apt|rpm</code></td><td>read APT or RPM source definitions</td></tr>
+<tr><td><code>plugins</code></td><td>list adapter programs that add sources</td></tr>
+<tr><td><code>repair LOG</code></td><td>classify a failed build or install log and suggest repairs</td></tr>
+<tr><td><code>fixes list|push|pull</code></td><td>keep recorded repairs, and share them through a git remote you configure</td></tr>
+</tbody></table>
+</div>
+<p>Isolated installs are described in
+<a href="https://github.com/ezechiel203/yapacc/blob/main/docs/ISOLATED_INSTALLS.md">ISOLATED_INSTALLS.md</a>.</p>
+<h2 id="arch-only">Arch only<a class="anchor" href="#arch-only" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td><code>search --aur|--all</code></td><td>include the AUR in a search</td></tr>
+<tr><td><code>query NAME</code></td><td>repository and AUR metadata for one package</td></tr>
+<tr><td><code>aur deps|review|pkgbuild NAME</code></td><td>read an AUR package: its dependency closure, its PKGBUILD</td></tr>
+<tr><td><code>install aur NAME</code></td><td>clone, show the PKGBUILD for review, build in a sandbox, install (gated twice: review, then install)</td></tr>
+<tr><td><code>news</code></td><td>recent Arch Linux news</td></tr>
+<tr><td><code>mark explicit|dependency PKG</code></td><td>change a package's install reason (gated)</td></tr>
+<tr><td><code>download PKG</code></td><td>download a package to the cache without installing</td></tr>
+<tr><td><code>cache clean</code></td><td>clean the package cache (gated)</td></tr>
+<tr><td><code>inspect leaves|deps|rdepends|file-search|groups|facets|pacdiff</code></td><td>closer looks at the package database</td></tr>
+<tr><td><code>install local FILE…</code></td><td>install package files with <code>pacman -U</code> (gated)</td></tr>
+<tr><td><code>index build|search</code></td><td>a local index of the repositories for offline search</td></tr>
+<tr><td><code>tree CATEGORY.SUBCATEGORY</code></td><td>list the packages of a category (the category tree itself works everywhere)</td></tr>
+<tr><td><code>plan install|remove|upgrade … --out FILE</code>, <code>plan apply FILE</code></td><td>write a plan to a file, apply it later; the plan is validated again when applied, and the command is rebuilt from it, never read from the file</td></tr>
+<tr><td><code>safety apply</code></td><td>a staged change: plan, pre-check, gate, then an optional snapshot (<code>--snapshot-tag</code>), the change, and an optional health check (<code>--health-check</code>)</td></tr>
+<tr><td><code>package scaffold|validate|srcinfo</code></td><td>help with writing a PKGBUILD</td></tr>
+<tr><td><code>install alpm</code>, <code>remove alpm</code>, <code>inspect alpm</code></td><td>the same through libalpm, only in a build with the optional <code>alpm</code> feature</td></tr>
+<tr><td><code>monitor check</code>, <code>monitor daemon-install</code></td><td>see below</td></tr>
+</tbody></table>
+</div>
+<h2 id="scheduled-checks">Scheduled checks<a class="anchor" href="#scheduled-checks" aria-label="Link to this section">§</a></h2>
+<p>On Arch, <code>yapacc monitor check</code> is a one-shot check for pending updates,
+meant for a timer, and <code>yapacc monitor daemon-install</code> installs a systemd
+timer that runs it (gated). Nothing of the kind is installed unless you run
+that command: see rule 2 in the
+<a href="index.html#the-rules-yapacc-keeps">introduction</a>. On other systems both
+exit with code 6; use <code>yapacc check</code> from your own timer there.</p>
+<h2 id="global-options">Global options<a class="anchor" href="#global-options" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td><code>--json</code></td><td>machine-readable output on read commands</td></tr>
+<tr><td><code>--script</code></td><td>never prompt; fail fast</td></tr>
+<tr><td><code>--noconfirm</code></td><td>consent in advance, like <code>--yes</code> on a gated command</td></tr>
+<tr><td><code>--config PATH</code></td><td>use this configuration file</td></tr>
+<tr><td><code>-V</code>, <code>--version</code></td><td>print the version</td></tr>
+</tbody></table>
+</div>
+<p>Global options go before the command: <code>yapacc --json why bash</code>.</p>
+<p>Gated commands take <code>--dryrun</code> (plan only) and <code>--yes</code> (apply without
+asking) after the command: <code>yapacc upgrade --dryrun</code>.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="systems.html"><span>Previous</span>Notes per distribution</a><a class="next" href="configuration.html"><span>Next</span>Configuration</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/commands.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#everyday-on-every-system">Everyday, on every system</a></li>
+<li class="toc-3"><a href="#reports-read-only">Reports (read-only)</a></li>
+<li class="toc-3"><a href="#looking-things-up-read-only">Looking things up (read-only)</a></li>
+<li class="toc-3"><a href="#names">names</a></li>
+<li class="toc-3"><a href="#changes-gated">Changes (gated)</a></li>
+<li class="toc-3"><a href="#the-program-itself">The program itself</a></li>
+<li class="toc-2"><a href="#other-sources">Other sources</a></li>
+<li class="toc-2"><a href="#arch-only">Arch only</a></li>
+<li class="toc-2"><a href="#scheduled-checks">Scheduled checks</a></li>
+<li class="toc-2"><a href="#global-options">Global options</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

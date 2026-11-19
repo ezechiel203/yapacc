@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>yapacc why · yapacc handbook</title>
+<meta name="description" content="yapacc why: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html" aria-current="page">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · Everyday commands</p>
+        <h1>yapacc why</h1>
+      </header>
+      <article class="prose">
+<p><code>yapacc why NAME</code> says why a package is installed, what still needs it,
+where it came from and how it was verified. It is read-only, and it answers
+for any package, whether or not yapacc had anything to do with installing
+it.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc why libcurl4t64</span></span>
+<span class="ln">libcurl4t64 8.14.1-2+deb13u5  — native package (apt)</span>
+<span class="ln">  what         easy-to-use client-side URL transfer library (OpenSSL flavour)</span>
+<span class="ln">  why          pulled in as a dependency</span>
+<span class="ln">  because      libcurl4t64 ← curl  (you installed curl)</span>
+<span class="ln">  needed by    curl</span>
+<span class="ln">  from         mirror+file:/etc/apt/mirrors/debian.list trixie/main amd64 Packages</span>
+<span class="ln">  installed    2026-09-14 04:34 UTC (last install or upgrade)</span>
+<span class="ln">  verified     repository signature (apt verifies the signed Release index)</span>
+<span class="ln">  packager     Debian Curl Maintainers &lt;team+curl@tracker.debian.org&gt;</span>
+<span class="ln">  ledger       no yapacc record (installed outside yapacc, or by a native lane) — the facts above come straight from the package manager</span>
+</code></pre></figure>
+<h2 id="reading-the-answer">Reading the answer<a class="anchor" href="#reading-the-answer" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Line</th><th>What it tells you</th></tr></thead><tbody>
+<tr><td><code>what</code></td><td>the package's own one-line description</td></tr>
+<tr><td><code>why</code></td><td>the reason it is installed; the wordings are listed below</td></tr>
+<tr><td><code>because</code></td><td>the chain back to a package you installed yourself; several lines when several of your packages lead to it</td></tr>
+<tr><td><code>needed by</code></td><td>the installed packages that depend on it directly</td></tr>
+<tr><td><code>from</code></td><td>the repository it came from</td></tr>
+<tr><td><code>installed</code></td><td>when it was last installed or upgraded</td></tr>
+<tr><td><code>verified</code></td><td>how the package manager checked it</td></tr>
+<tr><td><code>packager</code></td><td>who built the package, as the package records it</td></tr>
+<tr><td><code>ledger</code></td><td>whether yapacc itself has a record of installing it</td></tr>
+</tbody></table>
+</div>
+<p>The <code>why</code> line is one of these:</p>
+<div class="table-wrap"><table><thead><tr><th>It says</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>you (or a tool acting for you) installed it explicitly</td><td>the package manager has it marked as asked for</td></tr>
+<tr><td>pulled in as a dependency</td><td>something you installed needs it; <code>because</code> shows the chain</td></tr>
+<tr><td>part of the base system</td><td>the package manager protects it (<code>Essential</code> on apt), or the distribution gives it priority <code>required</code></td></tr>
+<tr><td>installed as a dependency, but nothing needs it any more (orphan)</td><td><code>yapacc inspect orphans</code> lists it, and <code>yapacc remove orphans</code> would remove it</td></tr>
+<tr><td>installed as a dependency; nothing depends on it, but apt keeps it</td><td>another package recommends or suggests it, so <code>apt-get autoremove</code> leaves it alone</td></tr>
+<tr><td><em>manager</em> does not record an install reason here</td><td>the package manager has no such record for this package</td></tr>
+</tbody></table>
+</div>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc why perl-base</span></span>
+<span class="ln">perl-base 5.40.1-6+deb13u1  — native package (apt)</span>
+<span class="ln">  what         minimal Perl system</span>
+<span class="ln">  why          part of the base system (the package manager protects it)</span>
+<span class="ln">  needed by    libtext-charwidth-perl</span>
+<span class="ln">  from         mirror+file:/etc/apt/mirrors/debian.list trixie/main amd64 Packages</span>
+<span class="ln">  installed    2026-09-14 04:32 UTC (last install or upgrade)</span>
+<span class="ln">  verified     repository signature (apt verifies the signed Release index)</span>
+<span class="ln">  packager     Niko Tyni &lt;ntyni@debian.org&gt;</span>
+<span class="ln">  ledger       no yapacc record (installed outside yapacc, or by a native lane) — the facts above come straight from the package manager</span>
+</code></pre></figure>
+<p>The <code>from</code> line is never left empty. When the manager cannot say, the line
+says that: on apt, a package whose installed version has since been
+replaced in the index reads "the installed version is no longer in the
+repository index (a newer one is, from …)"; on zypper the line names the
+repository that offers the package now, because the zypp history does not
+record where the installed version came from.</p>
+<p>When part of the answer could not be checked, the line starts with <code>note:</code>
+and says what was missing. yapacc does not guess.</p>
+<p>Not every package manager records every fact, and a line that has no
+source is left out: apk records no install date, and FreeBSD's pkg has no
+<code>verified</code> line.</p>
+<p>On a long <code>needed by</code> list the terminal shows the first few names and a
+count. <code>--json</code> lists all of them.</p>
+<h2 id="more-than-native-packages">More than native packages<a class="anchor" href="#more-than-native-packages" aria-label="Link to this section">§</a></h2>
+<p><code>why</code> prints one block for each place that knows the name: the native
+package, a flatpak with a matching name, and anything yapacc installed
+itself outside the package manager (an AppImage, for example).</p>
+<h2 id="exit-codes">Exit codes<a class="anchor" href="#exit-codes" aria-label="Link to this section">§</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>0</td><td>found, answer printed</td></tr>
+<tr><td>2</td><td>the name is not a valid package name</td></tr>
+<tr><td>4</td><td>not installed anywhere yapacc can see</td></tr>
+</tbody></table>
+</div>
+<h2 id="in-a-script">In a script<a class="anchor" href="#in-a-script" aria-label="Link to this section">§</a></h2>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json why zlib1g</span></span>
+<span class="ln">{</span>
+<span class="ln">  &quot;query&quot;: &quot;zlib1g&quot;,</span>
+<span class="ln">  &quot;native&quot;: {</span>
+<span class="ln">    &quot;manager&quot;: &quot;apt&quot;,</span>
+<span class="ln">    &quot;name&quot;: &quot;zlib1g&quot;,</span>
+<span class="ln">    &quot;version&quot;: &quot;1:1.3.dfsg+really1.3.1-1+b1&quot;,</span>
+<span class="ln">    &quot;description&quot;: &quot;compression library - runtime&quot;,</span>
+<span class="ln">    &quot;reason&quot;: &quot;explicit&quot;,</span>
+<span class="ln">    &quot;required_by&quot;: [</span>
+<span class="ln">      &quot;bind9-libs&quot;,</span>
+<span class="ln">      &quot;curl&quot;,</span>
+<span class="ln">      &quot;dpkg&quot;,</span>
+<span class="ln">      …</span>
+<span class="ln">    ],</span>
+<span class="ln">    &quot;origin&quot;: &quot;mirror+file:/etc/apt/mirrors/debian.list trixie/main amd64 Packages&quot;,</span>
+<span class="ln">    &quot;foreign&quot;: false,</span>
+<span class="ln">    &quot;essential&quot;: true,</span>
+<span class="ln">    &quot;base&quot;: &quot;priority required&quot;,</span>
+<span class="ln">    &quot;installed&quot;: &quot;2026-11-19 13:10 UTC (last install or upgrade)&quot;,</span>
+<span class="ln">    &quot;verified&quot;: &quot;repository signature (apt verifies the signed Release index)&quot;,</span>
+<span class="ln">    &quot;packager&quot;: &quot;Mark Brown &lt;broonie@debian.org&gt;&quot;</span>
+<span class="ln">  },</span>
+<span class="ln">  &quot;chains&quot;: [],</span>
+<span class="ln">  &quot;orphan&quot;: null,</span>
+<span class="ln">  &quot;flatpak&quot;: [],</span>
+<span class="ln">  &quot;ledger&quot;: [],</span>
+<span class="ln">  &quot;notes&quot;: []</span>
+<span class="ln">}</span>
+</code></pre></figure>
+<p><code>reason</code> is <code>explicit</code>, <code>dependency</code> or <code>unknown</code>. <code>orphan</code> is <code>true</code> or
+<code>false</code> as the package manager's own orphan list says, <code>null</code> when that
+was not asked or is not known, and <code>native.base</code> is
+<code>"essential"</code>, <code>"priority required"</code> or empty. <code>--json</code> goes before the
+command. See <a href="scripting.html">scripting</a>.</p>
+<h2 id="related">Related<a class="anchor" href="#related" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><code>yapacc inspect owns /usr/bin/env</code> finds the package that owns a file.</li>
+<li><code>yapacc inspect files NAME</code> lists the files of a package.</li>
+<li><code>yapacc inspect orphans</code> lists dependencies nothing needs any more;
+<a href="housekeeping.html"><code>yapacc clean</code></a> reports how much space they take.</li>
+</ul>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="quick-start.html"><span>Previous</span>Quick start</a><a class="next" href="timeline.html"><span>Next</span>timeline</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/why.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#reading-the-answer">Reading the answer</a></li>
+<li class="toc-2"><a href="#more-than-native-packages">More than native packages</a></li>
+<li class="toc-2"><a href="#exit-codes">Exit codes</a></li>
+<li class="toc-2"><a href="#in-a-script">In a script</a></li>
+<li class="toc-2"><a href="#related">Related</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

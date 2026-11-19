@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<title>What works where · yapacc handbook</title>
+<meta name="description" content="What works where: the yapacc handbook. yapacc is an optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="../docs/index.html">Handbook</a>
+      <a href="../docs/install.html">Install</a>
+      <a class="hide-s" href="../docs/support.html">Support</a>
+      <a class="hide-s" href="../docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="doc-bar">
+    <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="doc-nav">Contents</button>
+    <button type="button" data-search-open>Search</button>
+  </div>
+  <div class="doc-layout">
+    <nav class="doc-nav" id="doc-nav" aria-label="Handbook">
+      <button class="search-open" type="button" data-search-open><span>Search the handbook</span><kbd>/</kbd></button>
+      <p class="nav-section">Start</p>
+<ul>
+<li><a href="index.html">Introduction</a></li>
+<li><a href="install.html">Install</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+</ul>
+<p class="nav-section">Everyday commands</p>
+<ul>
+<li><a href="why.html">why</a></li>
+<li><a href="timeline.html">timeline</a></li>
+<li><a href="briefing.html">briefing</a></li>
+<li><a href="undo.html">undo</a></li>
+<li><a href="housekeeping.html">clean, restart, configs</a></li>
+<li><a href="doctor.html">doctor and platform</a></li>
+</ul>
+<p class="nav-section">Changing the system</p>
+<ul>
+<li><a href="gate.html">The gate</a></li>
+<li><a href="changes.html">install, remove, upgrade</a></li>
+<li><a href="snapshots.html">Snapshots</a></li>
+</ul>
+<p class="nav-section">By system</p>
+<ul>
+<li><a href="support.html" aria-current="page">What works where</a></li>
+<li><a href="systems.html">Notes per distribution</a></li>
+</ul>
+<p class="nav-section">Reference</p>
+<ul>
+<li><a href="commands.html">Every command</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="scripting.html">Scripting: JSON and exit codes</a></li>
+<li><a href="tui.html">The interactive interface</a></li>
+<li><a href="mcp.html">AI assistants (MCP)</a></li>
+<li><a href="safety.html">Safety and privacy</a></li>
+<li><a href="faq.html">Troubleshooting and questions</a></li>
+</ul>
+
+    </nav>
+    <main id="main" class="doc-main">
+      <header class="doc-head">
+        <p class="eyebrow"><b>Handbook</b> · By system</p>
+        <h1>What works where</h1>
+      </header>
+      <article class="prose">
+<p>This page says what yapacc does on each package manager, and how that was
+checked. The run-by-run evidence is in the
+<a href="https://github.com/ezechiel203/yapacc/blob/main/docs/VERIFICATION.md">verification log</a>; the current state of the project is
+in <a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">STATUS.md</a>.</p>
+<p>On your own machine, <code>yapacc doctor</code> is the authority: it reports what
+works <em>there</em>.</p>
+<h2 id="the-tables">The tables<a class="anchor" href="#the-tables" aria-label="Link to this section">§</a></h2>
+<p><code>why</code>, <code>list</code>, <code>info</code>, <code>search</code>, <code>check</code>, <code>inspect</code>, <code>clean</code>, <code>doctor</code> and
+<code>platform</code> work on all seven package managers. The gated <code>install</code>,
+<code>remove</code> and <code>upgrade</code> do too. The differences are in the rest.</p>
+<h3 id="what-you-can-ask">What you can ask<a class="anchor" href="#what-you-can-ask" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Manager</th><th>It ran on</th><th><code>timeline</code></th><th><code>briefing</code> adds</th><th><code>restart</code></th><th><code>configs</code></th></tr></thead><tbody>
+<tr><td>pacman</td><td>Arch</td><td>yes</td><td>distribution news; security with <code>arch-audit</code></td><td>yes</td><td>yes</td></tr>
+<tr><td>apt</td><td>Debian 13, Ubuntu 24.04</td><td>yes</td><td>security, kernel</td><td>yes</td><td>yes</td></tr>
+<tr><td>dnf</td><td>Fedora 45, Rocky 9.9</td><td>yes</td><td>security</td><td>yes</td><td>yes</td></tr>
+<tr><td>zypper</td><td>openSUSE Leap 16.1, Tumbleweed</td><td>yes, as root</td><td>security</td><td>yes</td><td>yes</td></tr>
+<tr><td>apk</td><td>Alpine 3.24</td><td>yes, when apk keeps a log</td><td>pending and reboot only</td><td>yes</td><td>yes</td></tr>
+<tr><td>xbps</td><td>Void</td><td>no: xbps keeps no log</td><td>pending and reboot only</td><td>yes</td><td>no</td></tr>
+<tr><td>pkg</td><td>FreeBSD 14.5, 15.1</td><td>yes</td><td>pending and reboot only</td><td>kernel; processes with <code>checkrestart</code></td><td>no</td></tr>
+</tbody></table>
+</div>
+<h3 id="what-you-can-take-back">What you can take back<a class="anchor" href="#what-you-can-take-back" aria-label="Link to this section">§</a></h3>
+<div class="table-wrap"><table><thead><tr><th>Manager</th><th><code>undo</code></th><th>Old versions come from</th><th>Snapshot before a change ran with</th><th>Privilege tool it ran with</th></tr></thead><tbody>
+<tr><td>pacman</td><td>yes</td><td>the cache, then the Arch Linux Archive</td><td>snapper, timeshift</td><td>sudo, doas</td></tr>
+<tr><td>apt</td><td>yes</td><td>the repositories, the cache, then snapshot.debian.org or Launchpad</td><td>timeshift</td><td>sudo, doas</td></tr>
+<tr><td>dnf</td><td>yes</td><td>the enabled repositories</td><td>not run</td><td>sudo</td></tr>
+<tr><td>zypper</td><td>yes</td><td>the repositories</td><td>snapper</td><td>sudo</td></tr>
+<tr><td>apk</td><td>no</td><td></td><td>not run</td><td>doas</td></tr>
+<tr><td>xbps</td><td>no</td><td></td><td>not run</td><td>sudo</td></tr>
+<tr><td>pkg</td><td>no</td><td></td><td>zfs</td><td>sudo, doas</td></tr>
+</tbody></table>
+</div>
+<p>"Not run" means the code path exists and was never exercised on that
+system. It is not a claim that it works.</p>
+<h2 id="how-it-was-checked">How it was checked<a class="anchor" href="#how-it-was-checked" aria-label="Link to this section">§</a></h2>
+<p>Every system in the first row was a booted virtual machine built from the
+distribution's public cloud image (Void: an image built from the official
+container), with an ordinary user going through <code>sudo</code> or <code>doas</code>, and as
+root. The commands were run for real: packages installed, upgraded,
+removed and restored, prompts answered at a terminal, machines rebooted
+into old and new kernels.</p>
+<p>On top of that, one static binary is run in containers of seven
+distributions by the test suite, and the parsers are tested against output
+captured from the real tools.</p>
+<p>What that does not cover:</p>
+<ul>
+<li><strong>Real hardware.</strong> Every run was a virtual machine or a container.</li>
+<li><strong>Other architectures.</strong> Everything ran on x86_64. The aarch64 archive
+is built, and its binaries were started under emulation; nothing more
+was run on that architecture.</li>
+<li><strong>Derivatives.</strong> Linux Mint, Pop!_OS, Manjaro, EndeavourOS, AlmaLinux,
+RHEL and SLES were not run. They use the same package managers, so the
+commands are expected to work, and <code>yapacc doctor</code> will tell you; <code>undo</code>'s
+archive fallback knows Debian, Ubuntu and Arch only.</li>
+<li><strong>Other users.</strong> Until this release nobody but the author had used it.</li>
+</ul>
+<h2 id="tiers">Tiers<a class="anchor" href="#tiers" aria-label="Link to this section">§</a></h2>
+<p><code>yapacc platform</code> prints a support tier for the native package manager.</p>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Managers</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>1</td><td>pacman, apt, dnf</td><td>the main targets: everything in the table, including <code>undo</code></td></tr>
+<tr><td>2</td><td>zypper, apk, xbps, pkg</td><td>read commands and gated changes work; some features are missing, as the table shows</td></tr>
+<tr><td>3</td><td>portage, nix</td><td>detected only; changes are refused, with the reason</td></tr>
+</tbody></table>
+</div>
+<h2 id="not-supported">Not supported<a class="anchor" href="#not-supported" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><strong>OpenBSD and NetBSD.</strong> There is no backend for <code>pkg_add</code> or <code>pkgin</code>.</li>
+<li><strong>Portage and Nix.</strong> yapacc recognises the system and refuses to change
+it, saying why. Read commands have no backend there.</li>
+<li><strong>Image-based systems</strong> (ostree, such as Fedora Silverblue or openSUSE
+MicroOS). They are detected and nothing more: package changes on those
+systems are not what yapacc's gate models.</li>
+</ul>
+<h2 id="known-limits">Known limits<a class="anchor" href="#known-limits" aria-label="Link to this section">§</a></h2>
+<ul>
+<li><code>undo</code> restores package versions, not configuration or data, and it is
+all or nothing: when one old version cannot be found the whole undo is
+refused.</li>
+<li>zypper and dnf have no archive to fall back on. Once a repository drops
+an old version, an upgrade that replaced it cannot be undone. On
+Tumbleweed that is a day or two.</li>
+<li>Old packages from snapshot.debian.org are checked against the recorded
+hash and not signature-verified. Launchpad downloads are not verified.
+The output says which applies.</li>
+<li>Snapshots are taken through snapper, timeshift or zfs. Plain btrfs is
+listed only. yapacc never restores a snapshot.</li>
+<li>The sandbox for third-party builds has no seccomp filter and no resource
+limits.</li>
+<li><code>restart</code> cannot see interpreters holding replaced scripts, statically
+linked programs, or kernel live patches, and it says so every time.</li>
+</ul>
+<p><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">STATUS.md</a> carries the full list.</p>
+
+      </article>
+      <footer class="doc-foot">
+        <nav class="prevnext" aria-label="Previous and next page"><a class="prev" href="snapshots.html"><span>Previous</span>Snapshots</a><a class="next" href="systems.html"><span>Next</span>Notes per distribution</a></nav>
+        <p class="edit">Something wrong or unclear on this page? <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/handbook/support.md">Read or correct its source</a>.</p>
+      </footer>
+    </main>
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+<ul>
+<li class="toc-2"><a href="#the-tables">The tables</a></li>
+<li class="toc-3"><a href="#what-you-can-ask">What you can ask</a></li>
+<li class="toc-3"><a href="#what-you-can-take-back">What you can take back</a></li>
+<li class="toc-2"><a href="#how-it-was-checked">How it was checked</a></li>
+<li class="toc-2"><a href="#tiers">Tiers</a></li>
+<li class="toc-2"><a href="#not-supported">Not supported</a></li>
+<li class="toc-2"><a href="#known-limits">Known limits</a></li>
+</ul>
+
+    </aside>
+  </div>
+</div>
+<dialog class="search" id="search" aria-label="Search the handbook">
+  <input type="search" placeholder="Search the handbook…" autocomplete="off" spellcheck="false" aria-label="Search">
+  <p class="search-empty">Type a command, a flag or a word: undo, --dryrun, snapshot…</p>
+  <ul class="search-results"></ul>
+</dialog>
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="../docs/index.html">The handbook</a></li>
+        <li><a href="../docs/quick-start.html">Quick start</a></li>
+        <li><a href="../docs/commands.html">Every command</a></li>
+        <li><a href="../docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>

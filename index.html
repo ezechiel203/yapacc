@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en" data-root="">
+<head>
+<title>yapacc — know what changed, take it back</title>
+<meta name="description" content="yapacc is an optional companion to the package manager you already have: pacman, apt, dnf, zypper, apk, xbps or pkg. It says why a package is installed, what changed, what the next upgrade will do, and it can undo the last transaction.">
+<meta property="og:title" content="yapacc — know what changed, take it back">
+<meta property="og:description" content="An optional companion to pacman, apt, dnf, zypper, apk, xbps and pkg. Why is this here, what changed, what will the upgrade do, and undo.">
+<meta property="og:type" content="website">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13120e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/source-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("yapacc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="dateline">
+  <div class="wrap">
+    <span>Version 0.1.0</span>
+    <span>Yet Another PACkage Companion</span>
+    <span>Linux &amp; FreeBSD · GPL-2.0</span>
+  </div>
+</div>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html" aria-label="yapacc, home">yapacc<i>.</i></a>
+    <nav aria-label="Main">
+      <a href="docs/index.html">Handbook</a>
+      <a href="docs/install.html">Install</a>
+      <a class="hide-s" href="docs/support.html">Support</a>
+      <a class="hide-s" href="docs/safety.html">Safety</a>
+      <a href="https://github.com/ezechiel203/yapacc">Source</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark" title="Light / dark">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+
+<main id="main">
+
+<!-- =============================================================== hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">A companion for <b>pacman · apt · dnf · zypper · apk · xbps · pkg</b></p>
+      <h1>Know what changed. <em>Take it back.</em></h1>
+      <p class="lede">yapacc sits beside the package manager you already use. It tells you <strong>why</strong> a package is there, <strong>what changed</strong> since the machine last worked, <strong>what the next upgrade will do</strong>, and it can <strong>undo</strong> the last transaction. It replaces nothing and leaves nothing running.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="docs/install.html">Install <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="docs/quick-start.html">Ten-minute tour</a>
+      </div>
+      <ul class="facts">
+        <li>One static file, under 6 MB</li>
+        <li>No daemon, no hook</li>
+        <li>Free software, GPL-2.0</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="term" data-tabs>
+        <div class="term-bar" role="tablist" aria-label="Examples">
+          <button role="tab" type="button" aria-selected="true" aria-controls="demo-why" id="tab-why">why</button>
+          <button role="tab" type="button" aria-selected="false" aria-controls="demo-timeline" id="tab-timeline" tabindex="-1">timeline</button>
+          <button role="tab" type="button" aria-selected="false" aria-controls="demo-briefing" id="tab-briefing" tabindex="-1">briefing</button>
+          <button role="tab" type="button" aria-selected="false" aria-controls="demo-undo" id="tab-undo" tabindex="-1">undo</button>
+        </div>
+<pre class="term-panel" id="demo-why" role="tabpanel" aria-labelledby="tab-why" tabindex="0"><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc why libcurl4t64</span></span>
+<span class="ln">libcurl4t64 8.14.1-2+deb13u5  — native package (apt)</span>
+<span class="ln">  what         easy-to-use client-side URL transfer library (OpenSSL flavour)</span>
+<span class="ln">  why          pulled in as a dependency</span>
+<span class="ln">  because      libcurl4t64 ← curl  (you installed curl)</span>
+<span class="ln">  needed by    curl</span>
+<span class="ln">  from         mirror+file:/etc/apt/mirrors/debian.list trixie/main amd64 Packages</span>
+<span class="ln">  installed    2026-09-14 04:34 UTC (last install or upgrade)</span>
+<span class="ln">  verified     repository signature (apt verifies the signed Release index)</span>
+</code></pre>
+<pre class="term-panel" id="demo-timeline" role="tabpanel" aria-labelledby="tab-timeline" tabindex="0" hidden><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc timeline --limit 9</span></span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    linux-image-amd64  6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    libpng16-16t64  1.6.48-1+deb13u5 -&gt; 1.6.48-1+deb13u6</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    libcurl4t64  8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    curl  8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    libbrotli1  1.1.0-2+b7 -&gt; 1.1.0-2+deb13u1</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    xz-utils  5.8.1-1+deb13u1 -&gt; 5.8.1-1+deb13u2</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    ca-certificates  20250419 -&gt; 20250419+deb13u1</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    openssl  3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3</span>
+<span class="ln">2026-11-19 13:08 (local)  apt     upgrade    bind9-libs  1:9.20.26-1~deb13u1 -&gt; 1:9.20.30-1~deb13u1</span>
+</code></pre>
+<pre class="term-panel" id="demo-briefing" role="tabpanel" aria-labelledby="tab-briefing" tabindex="0" hidden><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc briefing</span></span>
+<span class="ln">Upgrade briefing — 25 package(s) pending (apt)</span>
+<span class="ln"></span>
+<span class="ln">Needs attention</span>
+<span class="ln">  reboot  new kernel — reboot to use it: linux-image-6.12.117+deb13-amd64 6.12.117-1, linux-image-amd64 6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">  care    the package manager itself — let it finish alone; do not interrupt: apt 3.0.3 -&gt; 3.0.4</span>
+<span class="ln">  care    remote access — if you are connected over ssh, keep a second session open until you have reconnected: libssl3t64 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3, openssl 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3</span>
+<span class="ln"></span>
+<span class="ln">Security fixes (24)</span>
+<span class="ln">  liblzma5</span>
+<span class="ln">  openssl-provider-legacy</span>
+<span class="ln">  zlib1g</span>
+<span class="ln">  libssl3t64</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">Next: `yapacc upgrade` shows the native manager's plan and asks before changing anything.</span>
+</code></pre>
+<pre class="term-panel" id="demo-undo" role="tabpanel" aria-labelledby="tab-undo" tabindex="0" hidden><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc undo --dryrun</span></span>
+<span class="ln">Last transaction: 2026-11-19 13:08 (local)  (apt-get upgrade --with-new-pkgs -y)</span>
+<span class="ln">  installed   linux-image-6.12.117+deb13-amd64:amd64 6.12.117-1</span>
+<span class="ln">  upgraded    bind9-host:amd64 1:9.20.26-1~deb13u1 -&gt; 1:9.20.30-1~deb13u1</span>
+<span class="ln">  upgraded    apt:amd64 3.0.3 -&gt; 3.0.4</span>
+<span class="ln">  upgraded    tzdata:amd64 2026c-0+deb13u1 -&gt; 2026f-0+deb13u1</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">To undo it:</span>
+<span class="ln">  remove  linux-image-6.12.117+deb13-amd64:amd64</span>
+<span class="ln">  restore openssl:amd64 3.5.7-1~deb13u2  (from the configured repositories)</span>
+<span class="ln">  restore libpng16-16t64:amd64 1.6.48-1+deb13u5  (from the configured repositories)</span>
+<span class="ln">  restore zlib1g:amd64 1:1.3.dfsg+really1.3.1-1+b1  (from the configured repositories)</span>
+<span class="ln">  …</span>
+<span class="ln"></span>
+<span class="ln">…</span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get install -y --allow-downgrades -- openssl:amd64=3.5.7-1~deb13u2 …</span>
+<span class="ln"><span class="k">note: Undo restores package versions only. It does not restore configuration files or data that package scripts changed; a filesystem snapshot does.</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="k">DRY-RUN: nothing was changed. Run again without --dryrun to apply.</span></span>
+</code></pre>
+      </div>
+      <p class="term-note">Real output of one Debian 13 machine, two months behind on updates. Shortened where marked&nbsp;<code>…</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== four questions -->
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 1</b>What it answers</p>
+      <div>
+        <h2>Four questions every system <em>eventually</em> asks.</h2>
+        <p>Your package manager already knows the answers. They are spread over its database, three log files and a mailing list. yapacc reads them where they are and says it in one screen.</p>
+      </div>
+    </header>
+
+    <div class="questions reveal">
+      <article class="question">
+        <span class="num">i.</span>
+        <h3>Why is this here?</h3>
+        <p>The chain from a library back to the thing you asked for, what still needs it, which repository it came from and how it was verified.</p>
+        <div class="term"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc why libcurl4t64</span></span>
+<span class="ln">libcurl4t64 8.14.1-2+deb13u5  — native package (apt)</span>
+<span class="ln">  what         easy-to-use client-side URL transfer library (OpenSSL flavour)</span>
+<span class="ln">  why          pulled in as a dependency</span>
+<span class="ln">  because      libcurl4t64 ← curl  (you installed curl)</span>
+<span class="ln">  needed by    curl</span>
+<span class="ln">  …</span>
+</code></pre></div>
+        <a class="more" href="docs/why.html">yapacc why →</a>
+      </article>
+
+      <article class="question">
+        <span class="num">ii.</span>
+        <h3>What changed?</h3>
+        <p>Every install, upgrade and removal from every package log, newest first. <code>--since-boot</code> narrows it to what happened since the machine last started.</p>
+        <div class="term"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc timeline --since-boot</span></span>
+<span class="ln">Changes since the start of the previous boot: 2026-11-19 13:07 UTC (from journalctl --list-boots)</span>
+<span class="ln">── boot: 2026-11-19 13:12 UTC ──</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    linux-image-amd64  6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">2026-11-19 13:12 (local)  apt     upgrade    libpng16-16t64  1.6.48-1+deb13u5 -&gt; 1.6.48-1+deb13u6</span>
+<span class="ln">…</span>
+</code></pre></div>
+        <a class="more" href="docs/timeline.html">yapacc timeline →</a>
+      </article>
+
+      <article class="question">
+        <span class="num">iii.</span>
+        <h3>What will the upgrade do?</h3>
+        <p>Before you upgrade: kernel and C library changes, whether a reboot follows, security fixes, the distribution's announcements, unmerged configuration, free disk, and whether a snapshot can catch you.</p>
+        <div class="term"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc briefing</span></span>
+<span class="ln">Upgrade briefing — 25 package(s) pending (apt)</span>
+<span class="ln"></span>
+<span class="ln">Needs attention</span>
+<span class="ln">  reboot  new kernel — reboot to use it: linux-image-6.12.117+deb13-amd64 6.12.117-1, linux-image-amd64 6.12.107-1 -&gt; 6.12.117-1</span>
+<span class="ln">  care    the package manager itself — let it finish alone; do not interrupt: apt 3.0.3 -&gt; 3.0.4</span>
+<span class="ln">  care    remote access — if you are connected over ssh, keep a second session open until you have reconnected: libssl3t64 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3, openssl 3.5.7-1~deb13u2 -&gt; 3.5.7-1~deb13u3</span>
+<span class="ln">…</span>
+</code></pre></div>
+        <a class="more" href="docs/briefing.html">yapacc briefing →</a>
+      </article>
+
+      <article class="question">
+        <span class="num">iv.</span>
+        <h3>Can I take it back?</h3>
+        <p>The last transaction, reversed: old versions from the cache, the repositories or the distribution's archive. The plan is shown and the native manager simulates it before anything is asked of you.</p>
+        <div class="term"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc undo</span></span>
+<span class="ln">Last transaction: 2026-11-19 13:08 (local)  (apt-get install -y -- curl)</span>
+<span class="ln">  upgraded    libcurl4t64:amd64 8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln">  upgraded    curl:amd64 8.14.1-2+deb13u5 -&gt; 8.14.1-2+deb13u7</span>
+<span class="ln"></span>
+<span class="ln">To undo it:</span>
+<span class="ln">  restore curl:amd64 8.14.1-2+deb13u5  (from the configured repositories)</span>
+<span class="ln">  restore libcurl4t64:amd64 8.14.1-2+deb13u5  (from the configured repositories)</span>
+<span class="ln"></span>
+<span class="ln">…</span>
+<span class="ln">Undo this transaction [y/N]? y</span>
+<span class="ln">…</span>
+<span class="ln">Undone. `yapacc timeline` shows it as a new transaction.</span>
+<span class="ln">Verified: 2 of 2 package(s) are at the planned state.</span>
+</code></pre></div>
+        <a class="more" href="docs/undo.html">yapacc undo →</a>
+      </article>
+    </div>
+
+    <div class="also reveal">
+      <div><code>yapacc clean</code><p>What can be reclaimed, with the command for each. It removes nothing.</p></div>
+      <div><code>yapacc restart</code><p>Which services and programs still run code an upgrade replaced.</p></div>
+      <div><code>yapacc configs</code><p>Configuration files an upgrade left unmerged, and how to compare each.</p></div>
+      <div><code>yapacc doctor</code><p>What works on this machine and what does not, one line per check.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ promises -->
+<section class="section" id="promises">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 2</b>The rules it keeps</p>
+      <div>
+        <h2>A guest in your system, <em>not a landlord.</em></h2>
+        <p>Tools that help with packages tend to end up owning them. These seven rules are the reason yapacc does not, and each one can be checked against the code.</p>
+      </div>
+    </header>
+    <ol class="articles reveal">
+      <li><div><h3>Your package manager stays yours.</h3><p>yapacc keeps no copy of what the native manager knows. Install or remove anything directly and yapacc is never confused by it.</p></div></li>
+      <li><div><h3>Nothing runs unless you ask.</h3><p>No daemon, no timer, no hook and no shell alias is installed by default.</p></div></li>
+      <li><div><h3>Reading changes nothing.</h3><p>The read commands write no file and work on a machine that has never used yapacc before.</p></div></li>
+      <li><div><h3>Removable without trace.</h3><p>Delete the binary: everything it installed keeps working, and can be removed with native tools.</p></div></li>
+      <li><div><h3>Every change is gated.</h3><p>A plain command asks. <code>--yes</code> consents. <code>--dryrun</code> only plans. A refusal exits 3 and changes nothing.</p></div></li>
+      <li><div><h3>Changes go through your package manager.</h3><p>As the command it would run itself, shown in full, after its own simulation. The native log stays the record.</p></div></li>
+      <li><div><h3>A protection says what it does not protect.</h3><p>In the output, at the moment it matters, and not only in the manual.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================ gate -->
+<section class="section section-alt" id="gate">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 3</b>How a change happens</p>
+      <div>
+        <h2>Shown first. Simulated by the native manager. <em>Then asked.</em></h2>
+      </div>
+    </header>
+    <ol class="flow reveal">
+      <li><h3>Plan</h3><p>What will be installed, removed, upgraded or restored, and from where.</p></li>
+      <li><h3>Simulation</h3><p>The native manager's own dry run of that exact plan, printed as it says it.</p></li>
+      <li><h3>Gate</h3><p>You answer <kbd>y</kbd>, or you said <code>--yes</code>. Nobody to ask means no.</p></li>
+      <li><h3>Apply</h3><p>The native command, printed in full, run through <code>sudo</code> or <code>doas</code>.</p></li>
+      <li><h3>Record</h3><p>The native log. <code>timeline</code> and <code>undo</code> read it; yapacc keeps no second copy.</p></li>
+    </ol>
+    <div class="split reveal">
+      <div class="prose-s">
+        <p>The same gate guards <code>install</code>, <code>remove</code>, <code>upgrade</code> and <code>undo</code> on all seven package managers. A snapshot can be taken before the change when the machine has snapper, timeshift or ZFS.</p>
+        <dl>
+          <dt>plain</dt><dd>shows the plan, asks <code>[y/N]</code></dd>
+          <dt>--yes</dt><dd>consents in advance, for scripts you trust</dd>
+          <dt>--dryrun</dt><dd>plans and simulates, never applies</dd>
+          <dt>--script</dt><dd>never prompts; fails fast instead of waiting</dd>
+          <dt>exit 3</dt><dd>refused: you said no, or nobody could be asked</dd>
+        </dl>
+      </div>
+      <div class="term"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc install repo figlet --dryrun</span></span>
+<span class="ln">Plan: install figlet (through apt)</span>
+<span class="ln"></span>
+<span class="ln">apt's own simulation (apt-get -s -y install -- figlet):</span>
+<span class="ln">…</span>
+<span class="ln">The following NEW packages will be installed:</span>
+<span class="ln">  figlet</span>
+<span class="ln">0 upgraded, 1 newly installed, 0 to remove and 24 not upgraded.</span>
+<span class="ln">Inst figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])</span>
+<span class="ln">Conf figlet (2.2.5-3+b2 Debian:13.7/stable [amd64])</span>
+<span class="ln"></span>
+<span class="ln">Will run:</span>
+<span class="ln">  sudo apt-get install -y -- figlet</span>
+<span class="ln"></span>
+<span class="ln"><span class="k">DRY-RUN: nothing was changed. Run again without --dryrun to apply.</span></span>
+</code></pre></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= support -->
+<section class="section" id="support">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 4</b>Where it works</p>
+      <div>
+        <h2>Seven package managers. <em>Evidence,</em> not adjectives.</h2>
+        <p>Each cell below was run on a booted virtual machine of that system, as an ordinary user through sudo or doas and as root. What was not verified is written down too.</p>
+      </div>
+    </header>
+    <div class="table-wrap reveal">
+      <table class="matrix">
+        <thead>
+          <tr><th>Manager</th><th>Read commands</th><th>Gated changes</th><th>Timeline</th><th>Undo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>pacman<small>Arch Linux</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span><small>cache, then Arch Linux Archive</small></td></tr>
+          <tr><td>apt<small>Debian, Ubuntu</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span><small>repositories, cache, then snapshot.debian.org or Launchpad</small></td></tr>
+          <tr><td>dnf<small>Fedora (dnf5), Rocky (dnf 4)</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span><small>dnf's own history undo, checked first, gated</small></td></tr>
+          <tr><td>zypper<small>openSUSE Leap, Tumbleweed</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span><small>as root: the log is root's</small></td><td><span class="yes">yes</span><small>repositories only</small></td></tr>
+          <tr><td>apk<small>Alpine</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="part">partly</span><small>when apk keeps a log</small></td><td><span class="no">no</span></td></tr>
+          <tr><td>xbps<small>Void</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">no</span><small>xbps keeps no log</small></td><td><span class="no">no</span></td></tr>
+          <tr><td>pkg<small>FreeBSD</small></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">no</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="systems reveal" aria-label="Systems it was run on">
+      <li>Arch Linux</li><li>Debian 13</li><li>Ubuntu 24.04</li><li>Fedora 45</li><li>Rocky Linux 9.9</li><li>openSUSE Leap 16.1</li><li>openSUSE Tumbleweed</li><li>Alpine 3.24</li><li>Void Linux</li><li>FreeBSD 14.5</li><li>FreeBSD 15.1</li>
+    </ul>
+    <div class="honest reveal">
+      <h3>Not verified</h3>
+      <ul>
+        <li>Real hardware: every run above was a QEMU/KVM virtual machine or a container.</li>
+        <li>Architectures other than x86_64.</li>
+        <li>Other users: until this release, nobody but the author had run it.</li>
+        <li>OpenBSD and NetBSD are not supported. Portage and Nix are detected, and changes there are refused with the reason.</li>
+        <li><code>undo</code> restores package versions. It does not restore configuration files or data: a filesystem snapshot does.</li>
+      </ul>
+    </div>
+    <p class="reveal" style="margin-top:1.6rem"><a href="docs/support.html">The full support table</a> · <a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">the state of the project</a> · <a href="https://github.com/ezechiel203/yapacc/blob/main/docs/VERIFICATION.md">the evidence, run by run</a></p>
+  </div>
+</section>
+
+<!-- ============================================================= install -->
+<section class="section section-alt" id="install">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 5</b>Install</p>
+      <div>
+        <h2>One file. <em>Read it, run it,</em> delete it.</h2>
+        <p>The core is a single static binary with no shared library. There is deliberately no <code>curl | sh</code> installer: you verify an archive and unpack it, or you build it.</p>
+      </div>
+    </header>
+    <div class="reveal" data-tabs>
+      <div class="tabs" role="tablist" aria-label="Ways to install">
+        <button role="tab" type="button" aria-selected="true" aria-controls="inst-bin" id="tab-inst-bin">Static binary</button>
+        <button role="tab" type="button" aria-selected="false" aria-controls="inst-src" id="tab-inst-src" tabindex="-1">From source</button>
+        <button role="tab" type="button" aria-selected="false" aria-controls="inst-pkg" id="tab-inst-pkg" tabindex="-1">Packages</button>
+      </div>
+      <div class="tab-panel" id="inst-bin" role="tabpanel" aria-labelledby="tab-inst-bin">
+        <p>Any Linux on x86_64 or aarch64. The archive holds the three binaries, the manual page and shell completions.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">V=0.1.0; A=$(uname -m)</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">curl -fsSLO https://github.com/ezechiel203/yapacc/releases/download/v$V/yapacc-$V-$A-linux-musl.tar.gz</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">curl -fsSLO https://github.com/ezechiel203/yapacc/releases/download/v$V/SHA256SUMS</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">sha256sum -c --ignore-missing SHA256SUMS</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">sudo tar -xzf yapacc-$V-$A-linux-musl.tar.gz --strip-components=1 -C /usr/local</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc doctor</span></span>
+</code></pre></figure>
+        <p>No root? Unpack into <code>~/.local</code> instead of <code>/usr/local</code>. <a href="docs/install.html">More in the handbook</a>.</p>
+      </div>
+      <div class="tab-panel" id="inst-src" role="tabpanel" aria-labelledby="tab-inst-src" hidden>
+        <p>Rust 1.89 or newer. The portable core builds on any Linux and on FreeBSD; on Arch the default build also links libalpm.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">git clone https://github.com/ezechiel203/yapacc.git yapacc &amp;&amp; cd yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">cargo build --release --no-default-features --bin yapacc</span></span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">./target/release/yapacc doctor</span></span>
+</code></pre></figure>
+      </div>
+      <div class="tab-panel" id="inst-pkg" role="tabpanel" aria-labelledby="tab-inst-pkg" hidden>
+        <p>Recipes for Arch, Debian and Ubuntu, Fedora and relatives, Alpine and Void are kept beside the source. They were built and installed in clean containers; none is in a distribution's repository yet.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">ls contrib/packaging</span></span>
+<span class="ln">alpine  arch  debian  rpm  void  README.md</span>
+</code></pre></figure>
+        <p><a href="docs/install.html#distribution-packages">How to build each one</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= interfaces -->
+<section class="section" id="more">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 6</b>Three ways in</p>
+      <div>
+        <h2>For hands, for scripts, <em>for assistants.</em></h2>
+      </div>
+    </header>
+    <div class="three reveal">
+      <div>
+        <p class="eyebrow">yapacc</p>
+        <h3>The command line</h3>
+        <p>Short verbs, plain sentences, and the command that would be run always printed. <code>yapacc docs</code> carries the manual offline.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc get ripgrep --explain</span></span>
+<span class="ln"> → repo     found    ripgrep 14.1.1-1+b4</span>
+<span class="ln">   flatpak  missing  —</span>
+<span class="ln">chosen: repo (the distribution's own package wins)</span>
+</code></pre></figure>
+      </div>
+      <div>
+        <p class="eyebrow">--json · exit codes</p>
+        <h3>Scripts</h3>
+        <p>Read commands speak JSON. Seven exit codes tell a refusal from a failure from a missing tool, so a script never has to parse prose.</p>
+<figure class="code" data-lang="console"><pre><code><span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --json why bash | jq .native.manager</span></span>
+<span class="ln">"apt"</span>
+<span class="ln cmd"><span class="p">$</span> <span class="c">yapacc --script upgrade; echo $?</span></span>
+<span class="ln">3</span>
+</code></pre></figure>
+      </div>
+      <div>
+        <p class="eyebrow">yapacc-mcp</p>
+        <h3>AI assistants</h3>
+        <p>An optional MCP server lets an assistant read and propose. It cannot apply a change unless you enable that in the configuration, whatever it claims about your approval.</p>
+<figure class="code" data-lang="toml"><pre><code><span class="k"># ~/.config/yapacc/config.toml</span>
+[mcp]
+<span class="k"># "plan" is the default: propose, never apply</span>
+apply = "plan"
+</code></pre></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== what it is not -->
+<section class="section section-alt" id="not">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><b>§ 7</b>What it is not</p>
+      <div>
+        <h2>Small on purpose.</h2>
+      </div>
+    </header>
+    <ul class="nots reveal">
+      <li><strong>Not a package manager.</strong> It has no repository and no package format of its own. Yours does the work.</li>
+      <li><strong>Not a backup.</strong> <code>undo</code> restores package versions, never your configuration or data.</li>
+      <li><strong>Not a service.</strong> Nothing stays in memory, nothing wakes up at night, nothing phones home.</li>
+      <li><strong>Not a configuration system.</strong> It does not manage dotfiles, services or the state of a fleet.</li>
+      <li><strong>Not magic.</strong> When a tool is missing or an old version cannot be found, it says which and stops.</li>
+      <li><strong>Not finished.</strong> Version 0.1.0 is a first public release. The limits are listed, not hidden.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="fleuron" aria-hidden="true">❦</p>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>Ask your system <em>a question.</em></h2>
+    <p>The read commands need no setup and change nothing. Start with <code>yapacc doctor</code>, then <code>yapacc why</code> on anything you do not remember installing.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="docs/install.html">Install yapacc <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn" href="docs/index.html">Read the handbook</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <div>
+      <h4>Colophon</h4>
+      <p>yapacc is free software under the GNU General Public License, version 2. Copyright © 2026 Alexandre BETRY.</p>
+      <p>These pages are static files: no cookie, no tracker, no request to anyone but the host that serves them. Set in Fraunces, Source Serif 4 and JetBrains Mono, each under the SIL Open Font License.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <ul>
+        <li><a href="docs/index.html">The handbook</a></li>
+        <li><a href="docs/quick-start.html">Quick start</a></li>
+        <li><a href="docs/commands.html">Every command</a></li>
+        <li><a href="docs/support.html">What works where</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ezechiel203/yapacc">Source code</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/releases">Releases</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/issues">Report a problem</a></li>
+        <li><a href="https://github.com/ezechiel203/yapacc/blob/main/STATUS.md">Status, with the evidence</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+
+</body>
+</html>

@@ -382,6 +382,26 @@ therefore possible and was not found.
 **Packaging** (`contrib/packaging/`): built from the source tarball and installed in clean containers on 2026-11-16 for Arch, Debian testing, Fedora 45, Alpine and Void; `yapacc --version` and `doctor` ran on each. Alpine and Void ship the core only. `contrib/test/pkg-lifecycle.sh` installed, upgraded (to a bumped package version built from a second tarball) and removed the Debian testing and Fedora 45 packages in clean containers, the two builds differing by a marker file each (added to a copy of the recipes) so that the stale-file check can fail: old marker gone, new one present, no owned file or yapacc directory left, a non-root user's `~/.config/yapacc` unchanged (recipe test steps skipped; the bump changes the package version, not `Cargo.toml`). The Alpine path of the script (including its marker) was not run in this pass; an earlier Alpine run had no differing files, so its stale-file check proved nothing. `fill-release.sh` fills version and checksums into a copy of the recipes (run locally only). The recipes' source URL now points at the release asset the workflow publishes, a design that has not run: the workflow's tarball/version checks have never executed on GitHub. Source URLs are still placeholders, only x86_64, Arch and Void lifecycle untried, and no real repository or release workflow has run.
 
 
+## Continuous integration on GitHub
+
+**First hosted runs (2026-11-19, the day the repository became public).**
+`ci.yml` ran on GitHub for the first time, on `ubuntu-latest` (Ubuntu
+26.04). The first run passed 12 of 14 jobs, the second 13, the third all
+14. What failed, none of which `cargo xtask ci` could have shown:
+a test compared gpgv's output with the signed text byte for byte, and the
+gpgv of that image ends its output with one more empty line, which the
+parser skips (the test now ignores trailing newlines); the Void row of the
+`families` job could not start, because the runner's own actions need
+Node, which needs libstdc++, which the Void image lacks (the job installs
+it first; yapacc itself was never the problem there); three smoke tests
+asserted success before looking at the machine, and on a machine without
+pacman `get NAME --explain` for a name found nowhere is "not found" (exit
+4) and the MCP install tool answers "PLAN FAILED". Those three had never
+run without pacman: the `portable` job of `cargo xtask ci` runs on the
+developer's machine, an Arch system. After the fix the whole test suite
+(680 tests) was run in `ubuntu:26.04` and `fedora:latest` containers,
+which have no pacman, and passed in both.
+
 ## Continuous integration, run locally
 
 **CI commands run locally (2026-11-18; not a substitute for the runner):** the `portable` job's fmt, clippy and test commands (`--no-default-features --features tui`) pass (275 lib, 85 octo-head, 36 CLI tests), and the `musl` job's checks hold on the local static build (static-pie, no dynamic dependencies, `--version` runs, 5,199,920 bytes against the 6 MiB budget). The `arch` job was run in a podman `archlinux:base-devel` container (clippy, full tests, read-only command surface) and the `families` matrix against all seven images with the static binary. That found two defects CI would have hit, both fixed: `inspect owns` of an unowned symlink (Alpine's `/usr/bin/env -> /bin/busybox`) now follows the link like `apk info -W` does, and `container_plan_reports_engine` assumed a container engine exists (now it also accepts the clear "no supported engine" refusal). After the fixes the Arch container run passes and all seven `families` rows pass with the rebuilt static binary. The GitHub runner has not run these jobs.

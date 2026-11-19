@@ -23,10 +23,15 @@ else. It has not run on real hardware.
 | `cargo xtask site` | 21 handbook pages; every internal link and anchor is checked |
 | `cargo xtask dist` | builds the release archives for x86_64 and aarch64 with the pinned toolchain, checks that they are static and hold no path of the build machine, starts each binary (aarch64 under `qemu-aarch64`) and writes `SHA256SUMS` |
 
-The GitHub Actions workflows (`ci.yml`, `release.yml`, `site.yml`) have
-never run on GitHub. `cargo xtask ci` runs the same commands locally; it is
-not the hosted runner. The website is published by `site/publish.sh`, which
-pushes the built files to the branch `gh-pages`.
+The CI workflow (`ci.yml`) runs on GitHub on every push to `main`, and
+passes there. `cargo xtask ci` runs the same commands locally, with one
+difference that matters: its `portable` job runs on the developer's
+machine, which has pacman when that machine is Arch, while the hosted job
+runs on Ubuntu without it. The first hosted runs found three defects the
+local run could not see; [docs/VERIFICATION.md](docs/VERIFICATION.md) has
+them. The release workflow (`release.yml`) runs for the first time on the
+tag of this release. `site.yml` has never run: the website is published by
+`site/publish.sh`, which pushes the built files to the branch `gh-pages`.
 
 ## Support, by package manager
 
@@ -163,8 +168,9 @@ how.
 - **Derivatives.** Linux Mint, Pop!_OS, Manjaro, EndeavourOS, AlmaLinux,
   RHEL and SLES were not run. `undo`'s archive fallback knows Debian,
   Ubuntu and Arch only.
-- **The hosted CI and release workflows**, as said above, and therefore
-  the build provenance attestation of a release.
+- **The release workflow before this release.** It was not rehearsed on
+  GitHub: the tag of 0.1.0 is its first run, and with it the first build
+  provenance attestation.
 - **Restoring a snapshot.** yapacc does not do it, so there is nothing of
   its own to test.
 - **Ubuntu 26.04.** The image boots in the harness; yapacc was never run

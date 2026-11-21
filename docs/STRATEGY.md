@@ -136,10 +136,9 @@ These are the tiers the code reports (`yapacc platform`,
 
 | Tier, as `platform` prints it | Native package managers | What the code does there |
 |---|---|---|
-| 1 — beta target (full support intended) | pacman, apt, dnf | read commands, gated install, remove and upgrade, `timeline`, `undo` |
-| 2 — recognised (not a beta target; `yapacc doctor` says what works here) | zypper, apk, xbps, pkg (FreeBSD) | read commands and gated install, remove and upgrade. `undo` on zypper only; no `timeline` on xbps |
-| 2, same line | portage | detected; no read backend; changes are refused with the reason |
-| 3 — detected only | nix | detected; no read backend; changes are refused with the reason |
+| 1 — main target | pacman, apt, dnf | read commands, gated install, remove and upgrade, `timeline`, `undo` |
+| 2 — supported; some features are missing (`yapacc doctor` says which) | zypper, apk, xbps, pkg (FreeBSD) | read commands and gated install, remove and upgrade. `undo` on zypper only; no `timeline` on xbps |
+| 3 — detected only | portage, nix | detected; no read backend; changes are refused with the reason |
 | unknown platform | anything else | read commands work where data exists |
 
 An image-based system (ostree) is reported by `platform` as such; nothing

@@ -181,7 +181,7 @@ impl PkgManager {
             .unwrap_or(false)
     }
 
-    /// Which beta tier this backend is in (docs/STRATEGY.md).
+    /// Which support tier this backend is in (docs/STRATEGY.md).
     pub fn tier(self) -> u8 {
         match self {
             PkgManager::Pacman | PkgManager::Apt | PkgManager::Dnf => 1,
@@ -927,7 +927,7 @@ mod tests {
     }
 
     #[test]
-    fn tiers_match_the_beta_scope() {
+    fn tiers_match_the_documented_scope() {
         for m in [PkgManager::Pacman, PkgManager::Apt, PkgManager::Dnf] {
             assert_eq!(m.tier(), 1);
         }
